@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Semana 14 · IS-UGV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0d1117;--ink-soft:#3d4451;--ink-muted:#6e7787;
+  --paper:#f6f4ef;--paper-warm:#ede9e0;
+  --accent:#8a6b00;
+  --border:rgba(13,17,23,.10);
+  --font-d:'Syne',sans-serif;--font-b:'DM Sans',sans-serif;--font-m:'DM Mono',monospace;
+}
+body{font-family:var(--font-b);background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px}
+.lang-en{display:none}
+body.en .lang-es{display:none}
+body.en .lang-en{display:block}
+body.en .lang-en-inline{display:inline}
+body.en .lang-es-inline{display:none}
+.lang-en-inline{display:none}
+.lang-es-inline{display:inline}
+
+/* topbar */
+.topbar{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px;background:var(--ink);border-bottom:2px solid var(--accent)}
+.topbar-logo{font-family:var(--font-d);font-size:1rem;font-weight:700;color:var(--paper);text-decoration:none;letter-spacing:.08em}
+.topbar-logo span{color:var(--accent)}
+.topbar-right{display:flex;align-items:center;gap:1rem}
+.back-link{font-family:var(--font-m);font-size:.72rem;color:rgba(246,244,239,.6);text-decoration:none;letter-spacing:.05em;transition:color .2s}
+.back-link:hover{color:var(--paper)}
+.lang-btn{font-family:var(--font-m);font-size:.72rem;background:none;border:1px solid rgba(246,244,239,.3);color:rgba(246,244,239,.65);padding:.25rem .7rem;border-radius:4px;cursor:pointer;transition:all .2s;letter-spacing:.1em}
+.lang-btn:hover{border-color:var(--paper);color:var(--paper)}
+
+/* hero */
+.hero{background:var(--ink);padding:3.5rem 2rem 3rem;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:var(--accent)}
+.hero-inner{max-width:900px;margin:0 auto}
+.hero-tags{display:flex;gap:.6rem;flex-wrap:wrap;margin-bottom:1.2rem}
+.tag{font-family:var(--font-m);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:.25rem .7rem;border-radius:3px;border:1px solid rgba(246,244,239,.15);color:rgba(246,244,239,.55)}
+.tag-accent{background:rgba(255,255,255,.07);border-color:var(--accent);color:var(--accent)}
+.hero-n{font-family:var(--font-d);font-size:clamp(3rem,8vw,5.5rem);font-weight:800;line-height:1;color:rgba(246,244,239,.08);position:absolute;right:2rem;top:2rem;pointer-events:none;user-select:none}
+.hero-titulo{font-family:var(--font-d);font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:var(--paper);line-height:1.1;margin-bottom:.8rem}
+.hero-titulo em{font-style:normal;color:var(--accent)}
+.hero-meta{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:1.2rem}
+.meta-item{display:flex;align-items:center;gap:.4rem;font-family:var(--font-m);font-size:.72rem;color:rgba(246,244,239,.45)}
+.meta-item strong{color:rgba(246,244,239,.75);font-weight:400}
+
+/* layout */
+.main{max-width:900px;margin:0 auto;padding:2.5rem 2rem 4rem}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:700px){.grid-2{grid-template-columns:1fr}}
+
+/* secciones */
+.section{margin-bottom:2.5rem}
+.section-label{font-family:var(--font-m);font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.6rem}
+.section-title{font-family:var(--font-d);font-size:1.15rem;font-weight:700;color:var(--ink);margin-bottom:1rem}
+.objetivo-box{background:white;border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:1.2rem 1.4rem;font-size:.95rem;color:var(--ink-soft);line-height:1.7}
+.item-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.item-list li{display:flex;align-items:flex-start;gap:.6rem;font-size:.9rem;color:var(--ink-soft);line-height:1.55}
+.item-list li::before{content:'→';color:var(--accent);font-family:var(--font-m);font-size:.8rem;margin-top:.1rem;flex-shrink:0}
+.entregable-list{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.entregable-list li{display:flex;align-items:flex-start;gap:.6rem;font-size:.9rem;color:var(--ink-soft);background:white;border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;line-height:1.55}
+.entregable-list li::before{content:'✓';color:var(--accent);font-family:var(--font-m);font-weight:700;flex-shrink:0}
+
+/* materiales */
+.materiales-grid{display:flex;flex-direction:column;gap:.7rem}
+.mat-card{display:flex;align-items:center;gap:1rem;background:white;border:1px solid var(--border);border-radius:10px;padding:.9rem 1.1rem;text-decoration:none;color:var(--ink);transition:box-shadow .2s,transform .2s}
+.mat-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.08);transform:translateY(-1px)}
+.mat-icon{width:42px;height:42px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.mat-info{flex:1}
+.mat-nombre{font-family:var(--font-d);font-size:.9rem;font-weight:600;display:block;margin-bottom:.15rem}
+.mat-tipo{font-family:var(--font-m);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase}
+.mat-dl{font-size:1.3rem;font-weight:300;opacity:.5;transition:opacity .2s}
+.mat-card:hover .mat-dl{opacity:1}
+.no-materiales{background:var(--paper-warm);border:1px dashed rgba(13,17,23,.2);border-radius:8px;padding:1.5rem;text-align:center;font-size:.88rem;color:var(--ink-muted);font-family:var(--font-m)}
+
+/* añadir material — instrucción para el profesor */
+.add-material-hint{margin-top:.8rem;background:#fffbea;border:1px dashed #c8a800;border-radius:8px;padding:1rem 1.2rem;font-size:.8rem;color:#6b5500;font-family:var(--font-m);line-height:1.6}
+.add-material-hint code{background:rgba(0,0,0,.07);padding:.1rem .35rem;border-radius:3px;font-size:.78rem}
+
+/* nav semanas */
+.nav-semanas{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+.nav-btn{font-family:var(--font-m);font-size:.75rem;color:var(--ink-muted);text-decoration:none;padding:.5rem .9rem;border:1px solid var(--border);border-radius:6px;transition:all .2s;letter-spacing:.04em}
+.nav-btn:hover{color:var(--ink);border-color:var(--ink)}
+.nav-btn.disabled{opacity:.3;pointer-events:none}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <a class="topbar-logo" href="../../index.html"><span>IS</span>-UGV</a>
+  <div class="topbar-right">
+    <a class="back-link" href="../../index.html#semanas">
+      <span class="lang-es-inline">← Todas las semanas</span>
+      <span class="lang-en-inline">← All weeks</span>
+    </a>
+    <button class="lang-btn" onclick="document.body.classList.toggle('en')">EN / ES</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-n">14</div>
+  <div class="hero-inner">
+    <div class="hero-tags">
+      <span class="tag tag-accent">
+        <span class="lang-es-inline">Bloque V — Optimización y cierre</span>
+        <span class="lang-en-inline">Block V — Optimisation & close-out</span>
+      </span>
+      <span class="tag">
+        <span class="lang-es-inline">Entrega grupal</span>
+        <span class="lang-en-inline">Group submission</span>
+      </span>
+      <span class="tag">
+        <span class="lang-es-inline">1 sesión de 2h</span>
+        <span class="lang-en-inline">1 × 2h session</span>
+      </span>
+    </div>
+    <h1 class="hero-titulo">
+      <span class="lang-es">Cierre y reflexión</span>
+      <span class="lang-en">Close-out and reflection</span>
+    </h1>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="lang-es-inline">Verbo clave:</span>
+        <span class="lang-en-inline">Key verb:</span>
+        <strong>
+          <span class="lang-es-inline">Reflexionar</span>
+          <span class="lang-en-inline">Reflect</span>
+        </strong>
+      </div>
+      <div class="meta-item">
+        <span class="lang-es-inline">Semana:</span>
+        <span class="lang-en-inline">Week:</span>
+        <strong>14</strong>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main class="main">
+
+  <div class="section">
+    <p class="section-label"><span class="lang-es-inline">Objetivo</span><span class="lang-en-inline">Objective</span></p>
+    <div class="objetivo-box">
+      <span class="lang-es">Debate estructurado sobre los límites de la verificación por simulación, lecciones aprendidas del curso y cierre del hilo pliego → arquitectura → simulación → evidencias.</span>
+      <span class="lang-en">Structured debate on the limits of verification by simulation, course lessons learned and closing the thread contract → architecture → simulation → evidence.</span>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="section">
+      <p class="section-label"><span class="lang-es-inline">Tareas</span><span class="lang-en-inline">Tasks</span></p>
+      <ul class="item-list"><li class="lang-es">Debate: ¿qué requisitos resultaron imposibles de verificar con simulación y por qué?</li><li class="lang-es">¿Qué reveló el modelo que el pliego no anticipaba?</li><li class="lang-es">¿Qué habrían diseñado diferente?</li><li class="lang-es">Presentación de lección aprendida por equipo (5 min)</li><li class="lang-en">Debate: which requirements were impossible to verify with simulation and why?</li><li class="lang-en">What did the model reveal that the contract did not anticipate?</li><li class="lang-en">What would you have designed differently?</li><li class="lang-en">One lesson learnt per team (5 min)</li></ul>
+    </div>
+    <div class="section">
+      <p class="section-label"><span class="lang-es-inline">Entregables</span><span class="lang-en-inline">Deliverables</span></p>
+      <ul class="entregable-list">
+        <li class="lang-es">Memoria técnica final corregida tras el CDR</li><li class="lang-es">Contribución al documento colectivo de lecciones aprendidas del curso</li>
+        <li class="lang-en">Final technical report corrected after CDR</li><li class="lang-en">Contribution to the course collective lessons-learnt document</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <p class="section-label"><span class="lang-es-inline">Materiales</span><span class="lang-en-inline">Materials</span></p>
+    <div class="materiales-grid">
+      
+      <div class="no-materiales">
+        <span class="lang-es">Los materiales se publicarán antes de la sesión.</span>
+        <span class="lang-en">Materials will be published before the session.</span>
+      </div>
+    </div>
+    <div class="add-material-hint">
+      <span class="lang-es">
+        <strong>Profesor:</strong> para añadir un material, copia el archivo en esta carpeta
+        (<code>semana-14/</code>) y añade una entrada al array <code>materiales</code>
+        en <code>gen_semanas.py</code>, luego regenera con <code>python3 gen_semanas.py</code>.
+        Tipos disponibles: <code>docx · pdf · xlsx · slx · código · enlace · zip</code>
+      </span>
+      <span class="lang-en">
+        <strong>Instructor:</strong> to add material, copy the file to this folder
+        (<code>semana-14/</code>) and add an entry to the <code>materiales</code> array
+        in <code>gen_semanas.py</code>, then regenerate with <code>python3 gen_semanas.py</code>.
+        Available types: <code>docx · pdf · xlsx · slx · code · link · zip</code>
+      </span>
+    </div>
+  </div>
+
+  <nav class="nav-semanas">
+    <a class="nav-btn" href="../../index.html#semanas">
+      <span class="lang-es-inline">← Índice</span>
+      <span class="lang-en-inline">← Index</span>
+    </a>
+    <a class="nav-btn" href="../../index.html">
+      <span class="lang-es-inline">🏠 Inicio</span>
+      <span class="lang-en-inline">🏠 Home</span>
+    </a>
+  </nav>
+
+</main>
+</body>
+</html>
