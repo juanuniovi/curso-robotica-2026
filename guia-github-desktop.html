@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guía de inicio · GitHub Desktop · IS-UGV</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:wght@300;400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --ink:#0d1117;--ink-soft:#3d4451;--ink-muted:#6e7787;
+  --paper:#f6f4ef;--paper-warm:#ede9e0;
+  --accent:#c8382a;--accent2:#1a4f8a;--accent3:#2d6a3f;
+  --border:rgba(13,17,23,.10);
+  --fd:'Syne',sans-serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace;
+}
+body{font-family:var(--fb);background:var(--paper);color:var(--ink);line-height:1.65;font-size:16px;max-width:860px;margin:0 auto;padding:2rem 1.5rem 5rem}
+
+/* header */
+.header{background:var(--ink);border-radius:12px;padding:2.5rem 2rem 2rem;margin-bottom:3rem;position:relative;overflow:hidden}
+.header::after{content:'GIT';position:absolute;right:1.5rem;top:1rem;font-family:var(--fd);font-size:5rem;font-weight:800;color:rgba(255,255,255,.04);pointer-events:none}
+.header-tag{font-family:var(--fm);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:.8rem}
+.header-title{font-family:var(--fd);font-size:2rem;font-weight:800;color:white;line-height:1.1;margin-bottom:.6rem}
+.header-title em{font-style:normal;color:var(--accent)}
+.header-sub{font-size:.95rem;color:rgba(255,255,255,.5);font-weight:300}
+
+/* pasos */
+.paso{display:grid;grid-template-columns:52px 1fr;gap:1.2rem;margin-bottom:2.5rem;align-items:start}
+.paso-num{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:1.4rem;font-weight:800;flex-shrink:0}
+.paso-num.instalar{background:#e8f0fb;color:var(--accent2)}
+.paso-num.clonar  {background:#e8f5ec;color:var(--accent3)}
+.paso-num.pull    {background:#fff3e0;color:#b85c1a}
+.paso-num.commit  {background:#fce4d6;color:#c8382a}
+.paso-num.push    {background:#f3edfb;color:#6b3fa0}
+.paso-body{}
+.paso-titulo{font-family:var(--fd);font-size:1.1rem;font-weight:700;margin-bottom:.3rem;line-height:1.2}
+.paso-desc{font-size:.9rem;color:var(--ink-soft);margin-bottom:.8rem;line-height:1.6}
+
+/* instrucciones numeradas */
+.instrucciones{list-style:none;counter-reset:inst;display:flex;flex-direction:column;gap:.5rem}
+.instrucciones li{counter-increment:inst;display:flex;gap:.8rem;align-items:flex-start;font-size:.88rem;color:var(--ink-soft)}
+.instrucciones li::before{content:counter(inst);font-family:var(--fm);font-size:.75rem;background:var(--ink);color:white;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:.1rem}
+
+/* screenshot simulado */
+.mockup{background:white;border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:.9rem;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.mockup-bar{background:#f0f0f0;padding:.5rem .9rem;display:flex;align-items:center;gap:.4rem;border-bottom:1px solid var(--border)}
+.mockup-dot{width:10px;height:10px;border-radius:50%}
+.mockup-title{font-family:var(--fm);font-size:.68rem;color:#888;margin-left:.3rem}
+.mockup-body{padding:1rem 1.2rem;font-family:var(--fm);font-size:.78rem;color:var(--ink-soft);line-height:1.8}
+.mockup-btn{display:inline-flex;align-items:center;gap:.4rem;background:var(--accent2);color:white;border-radius:5px;padding:.3rem .9rem;font-family:var(--fm);font-size:.72rem;margin:.3rem 0}
+.mockup-btn.green{background:#2d6a3f}
+.mockup-btn.grey{background:#555}
+.mockup-field{background:#f8f8f8;border:1px solid #ddd;border-radius:4px;padding:.3rem .7rem;display:block;margin:.4rem 0;color:#333}
+.mockup-check{color:var(--accent3)}
+.mockup-highlight{background:#fffbea;border-left:3px solid #f0b800;padding:.3rem .7rem;border-radius:0 4px 4px 0;margin:.3rem 0}
+
+/* nota */
+.nota{background:#fffbea;border:1px solid #f0c040;border-left:4px solid #f0b800;border-radius:0 8px 8px 0;padding:.9rem 1.1rem;font-size:.85rem;color:#6b5000;margin-top:.8rem;line-height:1.6}
+.nota strong{color:#4a3800}
+
+/* regla */
+.regla{background:white;border:1px solid var(--border);border-left:4px solid var(--accent);border-radius:0 8px 8px 0;padding:.9rem 1.1rem;font-family:var(--fm);font-size:.85rem;color:var(--ink-soft);margin-top:.8rem}
+.regla strong{color:var(--ink)}
+
+/* divider */
+.divider{height:1px;background:var(--border);margin:2.5rem 0}
+
+/* convención */
+.convencion{background:var(--ink);border-radius:10px;padding:1.4rem 1.6rem;margin-top:1rem}
+.convencion-title{font-family:var(--fd);font-size:.88rem;font-weight:700;color:white;margin-bottom:.8rem}
+.convencion-row{font-family:var(--fm);font-size:.8rem;color:rgba(255,255,255,.55);margin:.25rem 0}
+.convencion-row .ok{color:#7ec8e3}
+.convencion-row .mal{color:#f07060;text-decoration:line-through}
+
+/* sección de problemas */
+.problemas{display:flex;flex-direction:column;gap:.7rem}
+.problema{display:grid;grid-template-columns:1fr 1fr;gap:1rem;background:white;border:1px solid var(--border);border-radius:8px;padding:.9rem 1.1rem;font-size:.85rem}
+.p-label{font-family:var(--fm);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.3rem}
+.p-label.rojo{color:var(--accent)}
+.p-label.verde{color:var(--accent3)}
+
+/* flujo visual */
+.flujo{display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap;margin:1.5rem 0;padding:1.5rem;background:white;border:1px solid var(--border);border-radius:10px}
+.flujo-item{text-align:center}
+.flujo-box{font-family:var(--fm);font-size:.75rem;padding:.5rem .9rem;border-radius:6px;font-weight:400}
+.flujo-sub{font-family:var(--fm);font-size:.6rem;color:var(--ink-muted);margin-top:.3rem}
+.flujo-arrow{font-size:1.2rem;color:var(--ink-muted)}
+.f-pull  .flujo-box{background:#e8f5ec;color:var(--accent3);border:1px solid #b8d8c0}
+.f-work  .flujo-box{background:#e8f0fb;color:var(--accent2);border:1px solid #b0c8e8}
+.f-commit.flujo-box,.f-commit .flujo-box{background:#fce4d6;color:#c8382a;border:1px solid #f0b8a0}
+.f-push  .flujo-box{background:#f3edfb;color:#6b3fa0;border:1px solid #d0b8f0}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-tag">Guía de inicio rápido</div>
+  <h1 class="header-title">GitHub Desktop para<br><em>IS-UGV</em></h1>
+  <p class="header-sub">Sin línea de comandos · 4 acciones · 15 minutos para empezar</p>
+</div>
+
+<!-- FLUJO RESUMEN -->
+<div class="flujo">
+  <div class="flujo-item f-pull">
+    <div class="flujo-box">① Fetch + Pull</div>
+    <div class="flujo-sub">Al empezar</div>
+  </div>
+  <div class="flujo-arrow">→</div>
+  <div class="flujo-item f-work">
+    <div class="flujo-box">② Trabajar en MATLAB</div>
+    <div class="flujo-sub">Tus archivos .slx</div>
+  </div>
+  <div class="flujo-arrow">→</div>
+  <div class="flujo-item">
+    <div class="flujo-box f-commit" style="background:#fce4d6;color:#c8382a;border:1px solid #f0b8a0">③ Commit</div>
+    <div class="flujo-sub">Al terminar la sesión</div>
+  </div>
+  <div class="flujo-arrow">→</div>
+  <div class="flujo-item f-push">
+    <div class="flujo-box">④ Push</div>
+    <div class="flujo-sub">Subir al repositorio</div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PASO 1 -->
+<div class="paso">
+  <div class="paso-num instalar">1</div>
+  <div class="paso-body">
+    <div class="paso-titulo">Instalar GitHub Desktop</div>
+    <div class="paso-desc">Solo la primera vez. Tardará 5 minutos.</div>
+    <ol class="instrucciones">
+      <li>Ve a <strong>desktop.github.com</strong> y descarga la versión para tu sistema operativo.</li>
+      <li>Instala el programa normalmente (siguiente, siguiente, finalizar).</li>
+      <li>Ábrelo e inicia sesión con tu cuenta de GitHub. Si no tienes cuenta, créala gratis en github.com.</li>
+      <li>El profesor te añadirá como miembro del repositorio <code>ugv-matlab</code>. Recibirás un email de invitación — acéptalo.</li>
+    </ol>
+  </div>
+</div>
+
+<!-- PASO 2 -->
+<div class="paso">
+  <div class="paso-num clonar">2</div>
+  <div class="paso-body">
+    <div class="paso-titulo">Clonar el repositorio (solo la primera vez)</div>
+    <div class="paso-desc">Esto descarga una copia del repositorio en tu ordenador.</div>
+    <ol class="instrucciones">
+      <li>En GitHub Desktop: <strong>File → Clone repository</strong></li>
+      <li>En la pestaña <em>GitHub.com</em>, busca <code>ugv-matlab</code> en la lista.</li>
+      <li>Elige dónde guardarlo. Recomendado: dentro de tu carpeta de MATLAB (<code>Documentos/MATLAB/ugv-matlab</code>).</li>
+      <li>Pulsa <strong>Clone</strong>. Espera a que descargue.</li>
+    </ol>
+    <div class="mockup">
+      <div class="mockup-bar">
+        <span class="mockup-dot" style="background:#ff5f56"></span>
+        <span class="mockup-dot" style="background:#ffbd2e"></span>
+        <span class="mockup-dot" style="background:#27c93f"></span>
+        <span class="mockup-title">GitHub Desktop — Clone a repository</span>
+      </div>
+      <div class="mockup-body">
+        <div>GitHub.com &nbsp;|&nbsp; URL &nbsp;|&nbsp; Local Path</div>
+        <div style="margin:.4rem 0;color:#aaa">─────────────────────────────────</div>
+        <div class="mockup-field">🔍 ugv-matlab</div>
+        <div style="margin:.2rem 0;padding:.3rem .7rem;background:#e8f0fb;border-radius:4px">
+          📁 <strong>[tu-organizacion]</strong> / ugv-matlab
+        </div>
+        <div style="margin-top:.6rem;color:#888;font-size:.72rem">Local path: C:\Users\...\MATLAB\ugv-matlab</div>
+        <div style="margin-top:.8rem"><span class="mockup-btn green">Clone</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PASO 3 -->
+<div class="paso">
+  <div class="paso-num pull">3</div>
+  <div class="paso-body">
+    <div class="paso-titulo">Fetch + Pull — descargar novedades</div>
+    <div class="paso-desc"><strong>Hazlo siempre al empezar cada sesión de laboratorio.</strong> Descarga los modelos nuevos que el profesor haya publicado y los cambios de otros equipos.</div>
+    <ol class="instrucciones">
+      <li>Abre GitHub Desktop. Verás el repositorio <code>ugv-matlab</code>.</li>
+      <li>Pulsa el botón <strong>Fetch origin</strong> en la barra superior.</li>
+      <li>Si aparece el botón <strong>Pull origin</strong>, púlsalo también.</li>
+      <li>Cuando termine, tus archivos locales están actualizados.</li>
+    </ol>
+    <div class="mockup">
+      <div class="mockup-bar">
+        <span class="mockup-dot" style="background:#ff5f56"></span>
+        <span class="mockup-dot" style="background:#ffbd2e"></span>
+        <span class="mockup-dot" style="background:#27c93f"></span>
+        <span class="mockup-title">GitHub Desktop</span>
+      </div>
+      <div class="mockup-body">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <span>Current repository: <strong>ugv-matlab</strong></span>
+          <span class="mockup-btn">↓ Pull origin (3 commits)</span>
+        </div>
+        <div style="margin-top:.8rem;color:#aaa;font-size:.72rem">
+          ↓ base/modelos/ugv_base_lote1.slx<br>
+          ↓ base/modelos/ugv_base_lote2.slx<br>
+          ↓ equipos/equipo-B/semana-06/energia_s06_tabla.xlsx
+        </div>
+      </div>
+    </div>
+    <div class="nota"><strong>¿Por qué es importante?</strong> Si no haces Pull antes de trabajar, puedes crear conflictos con el trabajo de tus compañeros. Es como guardar la versión antigua de un documento compartido encima de la nueva.</div>
+  </div>
+</div>
+
+<!-- PASO 4 -->
+<div class="paso">
+  <div class="paso-num commit">4</div>
+  <div class="paso-body">
+    <div class="paso-titulo">Commit — guardar tu trabajo con descripción</div>
+    <div class="paso-desc"><strong>Hazlo al terminar cada sesión de trabajo.</strong> Un commit es una foto de tus archivos en ese momento, con un mensaje que explica qué hiciste.</div>
+    <ol class="instrucciones">
+      <li>En GitHub Desktop, el panel izquierdo muestra los archivos que has modificado con una marca ✓.</li>
+      <li>Revisa que solo están marcados archivos de <strong>tu carpeta de equipo</strong>. Si ves archivos de otros equipos o de <code>base/</code>, desmárcalos.</li>
+      <li>En el campo <em>Summary</em> (abajo a la izquierda), escribe un mensaje breve y descriptivo.</li>
+      <li>Pulsa <strong>Commit to main</strong>.</li>
+    </ol>
+    <div class="mockup">
+      <div class="mockup-bar">
+        <span class="mockup-dot" style="background:#ff5f56"></span>
+        <span class="mockup-dot" style="background:#ffbd2e"></span>
+        <span class="mockup-dot" style="background:#27c93f"></span>
+        <span class="mockup-title">GitHub Desktop — Changes</span>
+      </div>
+      <div class="mockup-body">
+        <div style="color:#888;font-size:.72rem;margin-bottom:.4rem">2 changed files</div>
+        <div><span class="mockup-check">✓</span> equipos/equipo-A/semana-07/propulsion_s07_calibrado.slx</div>
+        <div><span class="mockup-check">✓</span> equipos/equipo-A/semana-07/notas_calibracion.md</div>
+        <div style="margin-top:.8rem;color:#888;font-size:.72rem">─── Summary (required) ───</div>
+        <div class="mockup-field">Calibro masa y potencia según RLT1-09 y RLT1-06</div>
+        <div class="mockup-field" style="color:#aaa;font-size:.72rem">Description (optional)</div>
+        <div style="margin-top:.5rem"><span class="mockup-btn" style="background:#c8382a">Commit to main</span></div>
+      </div>
+    </div>
+
+    <div class="convencion">
+      <div class="convencion-title">✓ Buenos mensajes de commit</div>
+      <div class="convencion-row"><span class="ok">Calibro masa máxima a 9000 kg según RLT1-08</span></div>
+      <div class="convencion-row"><span class="ok">Añado test de velocidad máxima en carretera</span></div>
+      <div class="convencion-row"><span class="ok">Corrijo error en puerto PotenciaElectrica (unidades)</span></div>
+      <div class="convencion-row"><span class="ok">Integro modelo con Equipo B — primera versión</span></div>
+      <div style="margin-top:.7rem"></div>
+      <div class="convencion-row"><span class="mal">cambios</span></div>
+      <div class="convencion-row"><span class="mal">actualizado</span></div>
+      <div class="convencion-row"><span class="mal">asdfgh</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PASO 5 -->
+<div class="paso">
+  <div class="paso-num push">5</div>
+  <div class="paso-body">
+    <div class="paso-titulo">Push — subir al repositorio</div>
+    <div class="paso-desc"><strong>Hazlo después de cada commit.</strong> Hasta que hagas Push, tus cambios solo existen en tu ordenador. El profesor y tus compañeros no pueden verlos.</div>
+    <ol class="instrucciones">
+      <li>Después de hacer commit, aparece el botón <strong>Push origin</strong> en la barra superior.</li>
+      <li>Púlsalo. En unos segundos, tus archivos están en GitHub.</li>
+      <li>Puedes verificarlo: ve a github.com, busca el repositorio y comprueba que tus archivos aparecen.</li>
+    </ol>
+    <div class="regla">
+      <strong>Regla práctica:</strong> Fetch+Pull al <em>llegar</em> al laboratorio · Commit+Push al <em>salir</em> del laboratorio. Siempre, aunque no hayas terminado.
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- CONVENCIÓN DE NOMBRES -->
+<h2 style="font-family:var(--fd);font-size:1.2rem;font-weight:700;margin-bottom:1rem">Nombres de archivo</h2>
+<p style="font-size:.9rem;color:var(--ink-soft);margin-bottom:.8rem">Usa siempre este formato. Sin espacios, sin tildes, sin mayúsculas:</p>
+<div class="convencion">
+  <div class="convencion-title">Formato: [subsistema]_s[semana]_[descripcion].[ext]</div>
+  <div class="convencion-row"><span class="ok">propulsion_s07_calibrado.slx</span></div>
+  <div class="convencion-row"><span class="ok">propulsion_s08_test_velocidad.slx</span></div>
+  <div class="convencion-row"><span class="ok">energia_s06_trazabilidad_inversa.xlsx</span></div>
+  <div class="convencion-row"><span class="ok">suspension_s09_fallo_actuador.slx</span></div>
+  <div class="convencion-row"><span class="ok">control_s10_integracion_v1.slx</span></div>
+  <div style="margin-top:.7rem"></div>
+  <div class="convencion-row"><span class="mal">Modelo Simulación Semana 7.slx</span></div>
+  <div class="convencion-row"><span class="mal">untitled3.slx</span></div>
+  <div class="convencion-row"><span class="mal">copia de propulsion_final_DEFINITIVO_v3.slx</span></div>
+</div>
+
+<div class="divider"></div>
+
+<!-- PROBLEMAS FRECUENTES -->
+<h2 style="font-family:var(--fd);font-size:1.2rem;font-weight:700;margin-bottom:1rem">Problemas frecuentes</h2>
+<div class="problemas">
+  <div class="problema">
+    <div>
+      <div class="p-label rojo">⚠ Problema</div>
+      <div>Aparece el mensaje <code>Conflict</code> al hacer Pull</div>
+    </div>
+    <div>
+      <div class="p-label verde">✓ Solución</div>
+      <div>No intentes resolverlo solo. Avisa al profesor en ese momento — en 2 minutos se resuelve.</div>
+    </div>
+  </div>
+  <div class="problema">
+    <div>
+      <div class="p-label rojo">⚠ Problema</div>
+      <div>Veo archivos modificados de otros equipos en el panel de Changes</div>
+    </div>
+    <div>
+      <div class="p-label verde">✓ Solución</div>
+      <div>Desmarca esos archivos antes de hacer Commit. Solo deja marcados los de tu carpeta.</div>
+    </div>
+  </div>
+  <div class="problema">
+    <div>
+      <div class="p-label rojo">⚠ Problema</div>
+      <div>El botón Push está desactivado o da error de permisos</div>
+    </div>
+    <div>
+      <div class="p-label verde">✓ Solución</div>
+      <div>Cierra sesión en GitHub Desktop y vuelve a entrar. Si persiste, avisa al profesor.</div>
+    </div>
+  </div>
+  <div class="problema">
+    <div>
+      <div class="p-label rojo">⚠ Problema</div>
+      <div>Subí un archivo incorrecto o quiero deshacer el último commit</div>
+    </div>
+    <div>
+      <div class="p-label verde">✓ Solución</div>
+      <div>No borres nada. Haz el cambio correcto y haz un nuevo commit con mensaje <code>Corrijo [descripción]</code>.</div>
+    </div>
+  </div>
+  <div class="problema">
+    <div>
+      <div class="p-label rojo">⚠ Problema</div>
+      <div>El archivo .slx no se abre en MATLAB o da error de versión</div>
+    </div>
+    <div>
+      <div class="p-label verde">✓ Solución</div>
+      <div>Comprueba que usas MATLAB R2023b o posterior. Los archivos .slx no son compatibles hacia atrás.</div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+<p style="text-align:center;font-family:var(--fm);font-size:.75rem;color:var(--ink-muted)">
+  IS-UGV · Ingeniería de Sistemas con MBSE y Simscape · 4º Grado Ingeniería Electrónica
+</p>
+
+</body>
+</html>
