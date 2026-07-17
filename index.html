@@ -20,13 +20,8 @@
   --accent2:    #1a4f8a;
   --accent3:    #2d6a3f;
   --gold:       #b8860b;
+  --purple:     #6b3fa0;
   --border:     rgba(13,17,23,0.10);
-
-  --bloque-I:   #1a4f8a;
-  --bloque-II:  #2d6a3f;
-  --bloque-III: #b85c1a;
-  --bloque-IV:  #6b3fa0;
-  --bloque-V:   #8a6b00;
 
   --font-display: 'Syne', sans-serif;
   --font-body:    'DM Sans', sans-serif;
@@ -187,8 +182,17 @@ body.en .lang-es-block { display: none; }
   font-family: var(--font-display);
   font-size: 1rem; font-weight: 700;
   color: var(--ink); line-height: 1.4;
-  margin-bottom: 1rem;
+  margin-bottom: .5rem;
 }
+.contract-scope {
+  font-family: var(--font-mono);
+  font-size: .68rem; color: var(--ink-muted);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed var(--border);
+}
+.contract-scope b { color: var(--ink-soft); font-weight: 500; }
 .contract-stats {
   display: grid; grid-template-columns: 1fr 1fr;
   gap: .8rem;
@@ -240,210 +244,135 @@ section { padding: 5rem 0; }
 }
 .section-lead {
   font-size: 1.05rem; color: var(--ink-soft);
-  max-width: 600px; font-weight: 300; line-height: 1.75;
-  margin-bottom: 3rem;
+  max-width: 640px; font-weight: 300; line-height: 1.75;
+  margin-bottom: 2rem;
 }
 .divider {
   height: 2px; background: linear-gradient(90deg, var(--accent), transparent);
   margin-bottom: 3rem;
 }
 
-/* ── Bloques ──────────────────────────────────────────────────────── */
-#bloques { background: var(--ink); }
-#bloques .section-tag { color: var(--accent); }
-#bloques .section-title { color: var(--paper); }
-#bloques .section-lead { color: rgba(246,244,239,.55); }
+/* ── Nota de alcance (real vs banco de pruebas) ───────────────────── */
+#semanas { background: var(--ink); }
+#semanas .section-tag { color: var(--accent); }
+#semanas .section-title { color: var(--paper); }
+#semanas .section-lead { color: rgba(246,244,239,.55); }
 
-.bloques-grid {
+.scope-note {
+  margin-bottom: 2.5rem;
+  background: rgba(246,244,239,.04);
+  border: 1px solid rgba(246,244,239,.1);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--r-md) var(--r-md) 0;
+  padding: 1.2rem 1.4rem;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1px;
-  background: rgba(246,244,239,.08);
-  border: 1px solid rgba(246,244,239,.08);
-  border-radius: var(--r-lg);
-  overflow: hidden;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
 }
-.bloque-card {
-  background: #16191f;
-  padding: 1.6rem 1.2rem;
-  position: relative; cursor: default;
-  transition: background .2s;
-}
-.bloque-card:hover { background: #1c2028; }
-.bloque-num {
-  font-family: var(--font-display);
-  font-size: 2.8rem; font-weight: 800;
-  line-height: 1; margin-bottom: .6rem;
-  opacity: .15;
-}
-.bloque-card[data-b="I"]   .bloque-num { color: var(--bloque-I); opacity:.6; }
-.bloque-card[data-b="II"]  .bloque-num { color: var(--bloque-II); opacity:.6; }
-.bloque-card[data-b="III"] .bloque-num { color: var(--bloque-III); opacity:.6; }
-.bloque-card[data-b="IV"]  .bloque-num { color: var(--bloque-IV); opacity:.6; }
-.bloque-card[data-b="V"]   .bloque-num { color: var(--bloque-V); opacity:.6; }
-
-.bloque-title {
-  font-family: var(--font-display);
-  font-size: .9rem; font-weight: 700;
-  color: var(--paper); margin-bottom: .5rem; line-height: 1.3;
-}
-.bloque-weeks {
+.scope-col-title {
   font-family: var(--font-mono);
-  font-size: .62rem; letter-spacing: .1em;
-  color: rgba(246,244,239,.35);
-  text-transform: uppercase; margin-bottom: .8rem;
+  font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: .4rem;
 }
-.bloque-desc {
-  font-size: .8rem; color: rgba(246,244,239,.5);
-  line-height: 1.6;
+.scope-col-title.real { color: var(--accent); }
+.scope-col-title.banco { color: var(--accent3); }
+.scope-col-desc {
+  font-size: .82rem; color: rgba(246,244,239,.6); line-height: 1.6;
 }
-.bloque-bar {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  height: 3px;
-}
-.bloque-card[data-b="I"]   .bloque-bar { background: var(--bloque-I); }
-.bloque-card[data-b="II"]  .bloque-bar { background: var(--bloque-II); }
-.bloque-card[data-b="III"] .bloque-bar { background: var(--bloque-III); }
-.bloque-card[data-b="IV"]  .bloque-bar { background: var(--bloque-IV); }
-.bloque-card[data-b="V"]   .bloque-bar { background: var(--bloque-V); }
 
-/* ── Timeline de semanas ─────────────────────────────────────────── */
-#semanas { background: var(--paper); }
-
-.semanas-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1rem;
+/* ── Tabla de semanas ──────────────────────────────────────────────── */
+.semanas-table-wrap {
+  overflow-x: auto;
+  border-radius: var(--r-lg);
+  border: 1px solid rgba(246,244,239,.1);
 }
-.semana-card {
+.semanas-table {
+  width: 100%;
+  min-width: 920px;
+  border-collapse: collapse;
   background: white;
-  border: 1px solid var(--border);
-  border-radius: var(--r-lg);
-  overflow: hidden;
-  transition: box-shadow .2s, transform .2s;
-  cursor: default;
+  font-size: .8rem;
 }
-.semana-card:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,.08);
-  transform: translateY(-2px);
-}
-.semana-head {
-  display: flex; align-items: center; gap: .8rem;
-  padding: .8rem 1.1rem;
-}
-.semana-num {
-  font-family: var(--font-display);
-  font-size: 1.5rem; font-weight: 800;
-  min-width: 42px; text-align: center;
-  line-height: 1;
-}
-.semana-meta { flex: 1; }
-.semana-bloque-tag {
+.semanas-table th {
   font-family: var(--font-mono);
-  font-size: .6rem; letter-spacing: .1em;
-  text-transform: uppercase; margin-bottom: .2rem;
-  opacity: .8;
+  font-size: .62rem; letter-spacing: .08em; text-transform: uppercase;
+  text-align: left; padding: .8rem .9rem;
+  background: #16191f; color: rgba(246,244,239,.5);
 }
-.semana-titulo {
-  font-family: var(--font-display);
-  font-size: .88rem; font-weight: 700;
-  color: var(--ink); line-height: 1.25;
-}
-.semana-body { padding: .8rem 1.1rem 1rem; }
-.semana-Objetivo {
-  font-family: var(--font-mono);
-  font-size: .68rem; color: var(--ink-muted);
-  margin-bottom: .5rem;
-}
-.semana-Objetivo strong {
-  font-weight: 400;
-  font-style: italic;
+.semanas-table th.col-is  { color: var(--gold); }
+.semanas-table th.col-sim { color: #7fb2e0; }
+.semanas-table th.col-tal { color: #7fd6a0; }
+.semanas-table th.col-sw  { color: #c9a6f0; }
+.semanas-table td {
+  padding: .7rem .9rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top; line-height: 1.45;
   color: var(--ink-soft);
 }
-.semana-entregable {
-  display: inline-flex; align-items: center; gap: .3rem;
-  font-size: .72rem;
-  padding: .2rem .6rem;
-  border-radius: 20px;
-  font-family: var(--font-mono);
+.semanas-table tr:nth-child(even) td { background: var(--paper); }
+.semanas-table td.col-num {
+  font-family: var(--font-display); font-weight: 800;
+  color: var(--accent2); text-align: center;
 }
-.tag-grupal   { background: #e8f4ec; color: var(--accent3); }
-.tag-individual { background: #fef3e2; color: #b07000; }
-.semana-footer {
-  padding: .5rem 1.1rem .7rem;
-  border-top: 1px solid var(--border);
-  display: flex; justify-content: space-between; align-items: center;
+.semanas-table td.col-obj strong {
+  display: block; color: var(--ink); font-weight: 700;
 }
-.semana-link {
-  font-family: var(--font-mono);
-  font-size: .65rem; color: var(--accent2);
-  text-decoration: none; letter-spacing: .05em;
-  opacity: .7; transition: opacity .2s;
+.semanas-table td.col-obj span {
+  font-family: var(--font-mono); font-size: .7rem; color: var(--ink-muted);
 }
-.semana-link:hover { opacity: 1; }
 
-/* Colores por bloque */
-.b-I   { border-top: 3px solid var(--bloque-I); }
-.b-1b  { border-top: 3px solid var(--bloque-I); }
-.b-II  { border-top: 3px solid var(--bloque-II); }
-.b-III { border-top: 3px solid var(--bloque-III); }
-.b-IV  { border-top: 3px solid var(--bloque-IV); }
-.b-V   { border-top: 3px solid var(--bloque-V); }
+/* ── Departamentos ────────────────────────────────────────────────── */
+#departamentos { background: var(--paper-warm); }
 
-.semana-head.b-I   .semana-num { color: var(--bloque-I); }
-.semana-head.b-1b  .semana-num { color: var(--bloque-I); }
-.semana-head.b-II  .semana-num { color: var(--bloque-II); }
-.semana-head.b-III .semana-num { color: var(--bloque-III); }
-.semana-head.b-IV  .semana-num { color: var(--bloque-IV); }
-.semana-head.b-V   .semana-num { color: var(--bloque-V); }
-
-.semana-head.b-I   .semana-bloque-tag { color: var(--bloque-I); }
-.semana-head.b-1b  .semana-bloque-tag { color: var(--bloque-I); }
-.semana-head.b-II  .semana-bloque-tag { color: var(--bloque-II); }
-.semana-head.b-III .semana-bloque-tag { color: var(--bloque-III); }
-.semana-head.b-IV  .semana-bloque-tag { color: var(--bloque-IV); }
-.semana-head.b-V   .semana-bloque-tag { color: var(--bloque-V); }
-
-/* ── Equipos ──────────────────────────────────────────────────────── */
-#equipos { background: var(--paper-warm); }
-
-.equipos-grid {
+.departamentos-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
 }
-.equipo-card {
+.departamento-card {
   background: white;
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
-  padding: 1.4rem 1.1rem;
+  padding: 1.6rem 1.3rem;
   text-align: center;
   transition: box-shadow .2s, transform .2s;
 }
-.equipo-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.07); transform: translateY(-2px); }
-.equipo-letra {
+.departamento-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.07); transform: translateY(-2px); }
+.departamento-icono {
   font-family: var(--font-display);
-  font-size: 2.6rem; font-weight: 800;
-  line-height: 1; margin-bottom: .5rem;
+  font-size: 2.2rem; font-weight: 800;
+  line-height: 1; margin-bottom: .6rem;
   color: var(--accent2);
 }
-.equipo-nombre {
+.departamento-nombre {
   font-family: var(--font-display);
-  font-size: .88rem; font-weight: 700;
+  font-size: .95rem; font-weight: 700;
   color: var(--ink); margin-bottom: .4rem;
   line-height: 1.3;
 }
-.equipo-dominio {
+.departamento-dominio {
   font-family: var(--font-mono);
-  font-size: .65rem; color: var(--ink-muted);
-  margin-bottom: .8rem; line-height: 1.4;
+  font-size: .68rem; color: var(--ink-muted);
+  margin-bottom: .7rem; line-height: 1.5;
+  white-space: pre-line;
 }
-.equipo-reqs {
+.departamento-evidencia {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: .62rem;
+  padding: .2rem .6rem;
+  border-radius: 20px;
+  margin-bottom: .8rem;
+}
+.tag-fisica      { background: #e8f4ec; color: var(--accent3); }
+.tag-simulacion  { background: #eef2f7; color: var(--accent2); }
+.tag-software    { background: #f5eefc; color: var(--purple); }
+.departamento-herramientas {
   font-size: .7rem; color: var(--ink-muted);
   font-family: var(--font-mono);
   line-height: 1.6;
 }
-.req-tag {
+.tool-tag {
   display: inline-block;
   background: var(--paper);
   border: 1px solid var(--border);
@@ -599,15 +528,14 @@ footer {
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; }
   .hero-left::after { display: none; }
-  .bloques-grid { grid-template-columns: 1fr 1fr; }
-  .equipos-grid { grid-template-columns: 1fr 1fr; }
+  .departamentos-grid { grid-template-columns: 1fr 1fr; }
   .eval-grid { grid-template-columns: 1fr; }
   .repo-layout { grid-template-columns: 1fr; }
   .topbar-nav .hide-mobile { display: none; }
+  .scope-note { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
-  .bloques-grid { grid-template-columns: 1fr; }
-  .equipos-grid { grid-template-columns: 1fr; }
+  .departamentos-grid { grid-template-columns: 1fr; }
   .hero-left { padding: 3rem 1.5rem; }
   .hero-right { padding: 2rem 1.5rem; }
 }
@@ -619,14 +547,11 @@ footer {
 <nav class="topbar">
   <a class="topbar-logo" href="#"><span>Robótica</span>-MBSE</a>
   <div class="topbar-nav">
-    <a href="#bloques" class="hide-mobile">
-      <span class="lang-es">Bloques</span><span class="lang-en">Blocks</span>
-    </a>
     <a href="#semanas" class="hide-mobile">
       <span class="lang-es">Semanas</span><span class="lang-en">Weeks</span>
     </a>
-    <a href="#equipos" class="hide-mobile">
-      <span class="lang-es">Equipos</span><span class="lang-en">Teams</span>
+    <a href="#departamentos" class="hide-mobile">
+      <span class="lang-es">Departamentos</span><span class="lang-en">Departments</span>
     </a>
     <a href="#evaluacion" class="hide-mobile">
       <span class="lang-es">Evaluación</span><span class="lang-en">Grading</span>
@@ -648,17 +573,17 @@ footer {
       <span class="lang-en"> <em>Robotics</em> Engineering with MBSE and Simscape</span>
     </h1>
     <p class="hero-subtitle">
-      <span class="lang-es">Diseña, modela y verifica un robot terrestre autónomo real usando SysML, System Composer y Simscape — basado en un proyecto real.</span>
-      <span class="lang-en">Design, model and verify a real autonomous ground vehicle using SysML, System Composer and Simscape — based on an actual contract.</span>
+      <span class="lang-es">Modela la arquitectura de un robot móvil autónomo con SysML y System Composer — y verifica su capa de navegación y percepción sobre un robot físico reducido, construido con motores Dynamixel.</span>
+      <span class="lang-en">Model the architecture of an autonomous mobile robot using SysML and System Composer — and verify its navigation and perception layer on a reduced physical robot, built from Dynamixel actuators.</span>
     </p>
     <div class="hero-badges">
       <span class="badge">MATLAB R2023b+</span>
       <span class="badge">System Composer</span>
       <span class="badge">Simscape</span>
-      <span class="badge">Simulink Test</span>
+      <span class="badge">ROS 2</span>
       <span class="badge hot">
-        <span class="lang-es">Proyecto real </span>
-        <span class="lang-en">Real Contract</span>
+        <span class="lang-es">Basado en un caso real </span>
+        <span class="lang-en">Based on a real case </span>
       </span>
     </div>
     <div class="hero-cta">
@@ -666,7 +591,7 @@ footer {
         <span class="lang-es">Ver semanas →</span>
         <span class="lang-en">Browse weeks →</span>
       </a>
-      <a href="https://github.com/[usuario]/robot-course" class="btn btn-secondary" target="_blank">
+      <a href="https://github.com/juanuniovi/curso-robotica-2026" class="btn btn-secondary" target="_blank">
         GitHub Repo
       </a>
     </div>
@@ -675,94 +600,31 @@ footer {
   <div class="hero-right">
     <div class="hero-contract">
       <p class="contract-label">
-        <span class="lang-es">Proyecto real vertebrador</span>
-        <span class="lang-en">Real anchor project</span>
+        <span class="lang-es">Proyecto vertebrador</span>
+        <span class="lang-en">Anchor project</span>
       </p>
-      <p class="contract-title">Contrato: Robot autónomo para misiones de seguridad </p>
+      <p class="contract-title">
+        <span class="lang-es">Contrato: robot móvil autónomo</span>
+        <span class="lang-en">Contract: autonomous mobile robot</span>
+      </p>
+      <p class="contract-scope">
+        <span class="lang-es"><b>Arquitectura completa</b> según un pliego de contratación real · <b>verificación física</b> a escala reducida sobre banco de pruebas Dynamixel</span>
+        <span class="lang-en"><b>Full architecture</b> per a real public contract · <b>physical verification</b> at reduced scale on a Dynamixel testbed</span>
+      </p>
       <div class="contract-stats">
-        <div class="stat"><span class="stat-num">3-5</span><span class="stat-lbl">Equipos</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-lbl"><span class="lang-es">Departamentos</span><span class="lang-en">Departments</span></span></div>
         <div class="stat"><span class="stat-num">4</span><span class="stat-lbl"><span class="lang-es">Meses</span><span class="lang-en">Months</span></span></div>
-        <div class="stat"><span class="stat-num">2</span><span class="stat-lbl"><span class="lang-es">Modalidades</span><span class="lang-en">Lots</span></span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-lbl"><span class="lang-es">Empresas</span><span class="lang-en">Companies</span></span></div>
         <div class="stat"><span class="stat-num">80+</span><span class="stat-lbl"><span class="lang-es">Requisitos</span><span class="lang-en">Requirements</span></span></div>
       </div>
     </div>
     <div class="hero-tools">
       <div class="tool-chip">System Composer</div>
-      <div class="tool-chip">Simscape Electrical</div>
-      <div class="tool-chip">Simscape Driveline</div>
       <div class="tool-chip">Simscape Multibody</div>
       <div class="tool-chip">Stateflow</div>
+      <div class="tool-chip">ROS 2 (dynamixel_workbench)</div>
       <div class="tool-chip">Simulink Test</div>
-    </div>
-  </div>
-</section>
-
-<!-- ── BLOQUES ──────────────────────────────────────────────────────── -->
-<section id="bloques">
-  <div class="container">
-    <p class="section-tag">
-      <span class="lang-es">Estructura del curso</span>
-      <span class="lang-en">Course structure</span>
-    </p>
-    <h2 class="section-title">
-      <span class="lang-es">5 bloques · 1 Objetivo por semana</span>
-      <span class="lang-en">5 blocks · 1 verb per week</span>
-    </h2>
-    <p class="section-lead">
-      <span class="lang-es">Con objetivos semanales: desde extraer y nombrar hasta defender y reflexionar, siempre sobre el mismo sistema físico.</span>
-      <span class="lang-en">Each week has a single cognitive goal. The progression goes from extracting and naming to defending and reflecting — always on the same physical system.</span>
-    </p>
-    <div class="bloques-grid">
-      <div class="bloque-card fade-up" data-b="I">
-        <div class="bloque-num">I</div>
-        <div class="bloque-title lang-es-block">Arquitectura del sistema</div>
-        <div class="bloque-title lang-en-block">System Architecture</div>
-        <div class="bloque-weeks lang-es-block">Semanas 1 – 3</div>
-        <div class="bloque-weeks lang-en-block">Weeks 1 – 3</div>
-        <div class="bloque-desc lang-es-block">Requisitos SHALL, BDD, IBD, interfaces, trazabilidad, esqueleto Simulink generado desde SysML.</div>
-        <div class="bloque-desc lang-en-block">SHALL requirements, BDD, IBD, interfaces, traceability, Simulink skeleton generated from SysML.</div>
-        <div class="bloque-bar"></div>
-      </div>
-      <div class="bloque-card fade-up" data-b="II">
-        <div class="bloque-num">II</div>
-        <div class="bloque-title lang-es-block">Ingeniería inversa Simscape</div>
-        <div class="bloque-title lang-en-block">Simscape Reverse Engineering</div>
-        <div class="bloque-weeks lang-es-block">Semanas 4 – 6</div>
-        <div class="bloque-weeks lang-en-block">Weeks 4 – 6</div>
-        <div class="bloque-desc lang-es-block">Caja negra → caja gris → caja blanca. Tabla de trazabilidad inversa: parámetro Simscape → requisito.</div>
-        <div class="bloque-desc lang-en-block">Black box → grey box → white box. Reverse traceability table: Simscape parameter → requirement.</div>
-        <div class="bloque-bar"></div>
-      </div>
-      <div class="bloque-card fade-up" data-b="III">
-        <div class="bloque-num">III</div>
-        <div class="bloque-title lang-es-block">Calibración y verificación</div>
-        <div class="bloque-title lang-en-block">Calibration & Verification</div>
-        <div class="bloque-weeks lang-es-block">Semanas 7 – 8</div>
-        <div class="bloque-weeks lang-en-block">Weeks 7 – 8</div>
-        <div class="bloque-desc lang-es-block">Adaptación al robot real. Matriz de verificación completa: requisito → test → pass/fail → evidencia gráfica.</div>
-        <div class="bloque-desc lang-en-block">Adaptation to the real robot. Full verification matrix: requirement → test → pass/fail → graphical evidence.</div>
-        <div class="bloque-bar"></div>
-      </div>
-      <div class="bloque-card fade-up" data-b="IV">
-        <div class="bloque-num">IV</div>
-        <div class="bloque-title lang-es-block">Análisis e integración</div>
-        <div class="bloque-title lang-en-block">Analysis & Integration</div>
-        <div class="bloque-weeks lang-es-block">Semanas 9 – 10</div>
-        <div class="bloque-weeks lang-en-block">Weeks 9 – 10</div>
-        <div class="bloque-desc lang-es-block">FMEA ligero, modos de fallo, integración entre subsistemas de distintos equipos.</div>
-        <div class="bloque-desc lang-en-block">Lightweight FMEA, failure modes, cross-team subsystem integration.</div>
-        <div class="bloque-bar"></div>
-      </div>
-      <div class="bloque-card fade-up" data-b="V">
-        <div class="bloque-num">V</div>
-        <div class="bloque-title lang-es-block">Optimización y cierre</div>
-        <div class="bloque-title lang-en-block">Optimisation & Close-out</div>
-        <div class="bloque-weeks lang-es-block">Semanas 11 – 14</div>
-        <div class="bloque-weeks lang-en-block">Weeks 11 – 14</div>
-        <div class="bloque-desc lang-es-block">Optimización de parámetros, CDR simulado ante la clase, memoria técnica y reflexión final.</div>
-        <div class="bloque-desc lang-en-block">Parameter optimisation, simulated CDR before the class, technical report and final reflection.</div>
-        <div class="bloque-bar"></div>
-      </div>
+      <div class="tool-chip">Dynamixel AX/RX</div>
     </div>
   </div>
 </section>
@@ -775,30 +637,61 @@ footer {
       <span class="lang-en">Week-by-week programme</span>
     </p>
     <h2 class="section-title">
-      <span class="lang-es">14 semanas · 14 objetivos</span>
-      <span class="lang-en">14 weeks · 14 objectives</span>
+      <span class="lang-es">14 semanas · 1 objetivo por semana</span>
+      <span class="lang-en">14 weeks · 1 goal per week</span>
     </h2>
-    <div class="divider"></div>
-    <div class="semanas-grid" id="semanas-grid"></div>
+    <p class="section-lead">
+      <span class="lang-es">Progresión semanal: desde extraer y nombrar hasta defender y reflexionar, siempre sobre el mismo sistema. Cada semana especifica el trabajo de los 4 departamentos de cada empresa: Sistemas (IS), Simulación, Taller y Software.</span>
+      <span class="lang-en">Weekly progression: from extracting and naming to defending and reflecting, always on the same system. Each week specifies the work of each company's 4 departments: Systems (IS), Simulation, Workshop and Software.</span>
+    </p>
+    <div class="scope-note">
+      <div>
+        <div class="scope-col-title real lang-es-block">Lo real: el pliego</div>
+        <div class="scope-col-title real lang-en-block">The real: the contract</div>
+        <div class="scope-col-desc lang-es-block">La arquitectura SysML trabaja sobre los 80+ requisitos reales de un contrato de licitación pública — el vehículo completo, tal cual se definió en el pliego.</div>
+        <div class="scope-col-desc lang-en-block">The SysML architecture works over the 80+ real requirements of a public tender contract — the full vehicle, exactly as defined in the contract.</div>
+      </div>
+      <div>
+        <div class="scope-col-title banco lang-es-block">El banco de pruebas: Dynamixel</div>
+        <div class="scope-col-title banco lang-en-block">The testbed: Dynamixel</div>
+        <div class="scope-col-desc lang-es-block">La evidencia física de las semanas de ingeniería inversa y calibración no replica el vehículo completo — se genera sobre un robot móvil reducido centrado en navegación y percepción.</div>
+        <div class="scope-col-desc lang-en-block">Physical evidence in the reverse-engineering and calibration weeks does not replicate the full vehicle — it is generated on a reduced mobile robot focused on navigation and perception.</div>
+      </div>
+    </div>
+    <div class="semanas-table-wrap">
+      <table class="semanas-table">
+        <thead>
+          <tr>
+            <th class="lang-es">#</th><th class="lang-en">#</th>
+            <th><span class="lang-es">Objetivo</span><span class="lang-en">Goal</span></th>
+            <th class="col-is"><span class="lang-es">Sistemas (IS)</span><span class="lang-en">Systems (IS)</span></th>
+            <th class="col-sim">Simulación<span class="lang-en" style="display:none"></span></th>
+            <th class="col-tal"><span class="lang-es">Taller</span><span class="lang-en">Workshop</span></th>
+            <th class="col-sw">Software</th>
+          </tr>
+        </thead>
+        <tbody id="semanas-tbody"></tbody>
+      </table>
+    </div>
   </div>
 </section>
 
-<!-- ── EQUIPOS ──────────────────────────────────────────────────────── -->
-<section id="equipos">
+<!-- ── DEPARTAMENTOS ────────────────────────────────────────────────── -->
+<section id="departamentos">
   <div class="container">
     <p class="section-tag">
       <span class="lang-es">Modelo federado</span>
       <span class="lang-en">Federated model</span>
     </p>
     <h2 class="section-title">
-      <span class="lang-es">5 equipos · 5 subsistemas</span>
-      <span class="lang-en">5 teams · 5 subsystems</span>
+      <span class="lang-es">3 departamentos técnicos</span>
+      <span class="lang-en">3 technical departments</span>
     </h2>
     <p class="section-lead">
-      <span class="lang-es">Cada equipo es responsable de un subsistema del robot. Las interfaces entre equipos son contratos técnicos negociados, exactamente como en un proyecto real.</span>
-      <span class="lang-en">Each team owns one robot subsystem. Inter-team interfaces are negotiated technical contracts, exactly as in a real programme.</span>
+      <span class="lang-es">Cada empresa licitadora organiza su trabajo técnico en estos 3 departamentos — no por subsistema del vehículo, sino por el tipo de evidencia que generan. Un interlocutor de Ingeniería de Sistemas coordina los tres y reporta al equipo cliente. Reparto completo de roles en <code style="font-family:var(--font-mono)">docs/</code>.</span>
+      <span class="lang-en">Each bidding company organises its technical work into these 3 departments — not by vehicle subsystem, but by the type of evidence they produce. A Systems Engineering liaison coordinates all three and reports to the client team. Full role breakdown in <code style="font-family:var(--font-mono)">docs/</code>.</span>
     </p>
-    <div class="equipos-grid" id="equipos-grid"></div>
+    <div class="departamentos-grid" id="departamentos-grid"></div>
   </div>
 </section>
 
@@ -818,21 +711,12 @@ footer {
         <div class="ring-chart">
           <svg viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="40" fill="none" stroke="#eee" stroke-width="12"/>
-            <!-- Bloque I: 20% -->
-            <circle cx="50" cy="50" r="40" fill="none" stroke="#1a4f8a" stroke-width="12"
-              stroke-dasharray="50.3 201" stroke-dashoffset="0"/>
-            <!-- Bloque II: 15% -->
-            <circle cx="50" cy="50" r="40" fill="none" stroke="#2d6a3f" stroke-width="12"
-              stroke-dasharray="37.7 201" stroke-dashoffset="-50.3"/>
-            <!-- Bloque III: 25% -->
-            <circle cx="50" cy="50" r="40" fill="none" stroke="#b85c1a" stroke-width="12"
-              stroke-dasharray="62.8 201" stroke-dashoffset="-88"/>
-            <!-- Bloque IV: 15% -->
-            <circle cx="50" cy="50" r="40" fill="none" stroke="#6b3fa0" stroke-width="12"
-              stroke-dasharray="37.7 201" stroke-dashoffset="-150.8"/>
-            <!-- Bloque V: 25% -->
-            <circle cx="50" cy="50" r="40" fill="none" stroke="#8a6b00" stroke-width="12"
-              stroke-dasharray="62.8 201" stroke-dashoffset="-188.5"/>
+            <!-- Grupal: 65% -->
+            <circle cx="50" cy="50" r="40" fill="none" stroke="var(--accent2)" stroke-width="12"
+              stroke-dasharray="163.4 251" stroke-dashoffset="0"/>
+            <!-- Individual: 35% -->
+            <circle cx="50" cy="50" r="40" fill="none" stroke="var(--gold)" stroke-width="12"
+              stroke-dasharray="87.6 251" stroke-dashoffset="-163.4"/>
           </svg>
           <div class="ring-center">
             <span class="ring-pct">100%</span>
@@ -841,11 +725,8 @@ footer {
           </div>
         </div>
         <div class="eval-legend">
-          <div class="legend-row"><span class="legend-dot" style="background:var(--bloque-I)"></span><span class="legend-name"><span class="lang-es">Bloque I — Arquitectura</span><span class="lang-en">Block I — Architecture</span></span><span class="legend-pct">20%</span></div>
-          <div class="legend-row"><span class="legend-dot" style="background:var(--bloque-II)"></span><span class="legend-name"><span class="lang-es">Bloque II — Ing. inversa</span><span class="lang-en">Block II — Reverse eng.</span></span><span class="legend-pct">15%</span></div>
-          <div class="legend-row"><span class="legend-dot" style="background:var(--bloque-III)"></span><span class="legend-name"><span class="lang-es">Bloque III — Verificación</span><span class="lang-en">Block III — Verification</span></span><span class="legend-pct">25%</span></div>
-          <div class="legend-row"><span class="legend-dot" style="background:var(--bloque-IV)"></span><span class="legend-name"><span class="lang-es">Bloque IV — Integración</span><span class="lang-en">Block IV — Integration</span></span><span class="legend-pct">15%</span></div>
-          <div class="legend-row"><span class="legend-dot" style="background:var(--bloque-V)"></span><span class="legend-name"><span class="lang-es">Bloque V — CDR + Memoria</span><span class="lang-en">Block V — CDR + Report</span></span><span class="legend-pct">25%</span></div>
+          <div class="legend-row"><span class="legend-dot" style="background:var(--accent2)"></span><span class="legend-name"><span class="lang-es">Grupal — coherencia arquitectura → simulación → evidencia → CDR</span><span class="lang-en">Group — coherence across architecture → simulation → evidence → CDR</span></span><span class="legend-pct">65%</span></div>
+          <div class="legend-row"><span class="legend-dot" style="background:var(--gold)"></span><span class="legend-name"><span class="lang-es">Individual — según el departamento de cada alumno</span><span class="lang-en">Individual — according to each student's department</span></span><span class="legend-pct">35%</span></div>
         </div>
       </div>
       <div class="eval-criterios">
@@ -890,19 +771,19 @@ footer {
           <span class="tree-dot" style="background:#ff5f56"></span>
           <span class="tree-dot" style="background:#ffbd2e"></span>
           <span class="tree-dot" style="background:#27c93f"></span>
-          <span style="font-family:var(--font-mono);font-size:.72rem;color:rgba(246,244,239,.3);margin-left:.5rem">robot-course/</span>
+          <span style="font-family:var(--font-mono);font-size:.72rem;color:rgba(246,244,239,.3);margin-left:.5rem">curso-robotica-2026/</span>
         </div>
         <div class="tree-body">
           <div><span class="tree-file">📄 index.html</span> <span class="tree-note">← esta página</span></div>
           <div><span class="tree-file">📄 README.md</span></div>
           <div><span class="tree-dir">📁 semanas/</span></div>
-          <div class="tree-indent"><span class="tree-dir">📁 semana-01/</span> <span class="tree-note">requisitos</span></div>
-          <div class="tree-indent"><span class="tree-dir">📁 semana-1b/</span> <span class="tree-note">SysML intro</span></div>
+          <div class="tree-indent"><span class="tree-dir">📁 semana-01/</span> <span class="tree-note">requisitos + intro SysML</span></div>
           <div class="tree-indent"><span class="tree-dir">📁 semana-02/ … semana-14/</span></div>
           <div><span class="tree-dir">📁 modelos/</span></div>
           <div class="tree-indent"><span class="tree-dir">📁 sysml/</span> <span class="tree-note">*.slx System Composer</span></div>
-          <div class="tree-indent"><span class="tree-dir">📁 simscape/</span> <span class="tree-note">modelo base + equipos</span></div>
-          <div><span class="tree-dir">📁 recursos/</span> <span class="tree-note">pliego real, referencias</span></div>
+          <div class="tree-indent"><span class="tree-dir">📁 simscape/</span> <span class="tree-note">modelo base + por empresa</span></div>
+          <div class="tree-indent"><span class="tree-dir">📁 hardware/</span> <span class="tree-note">banco Dynamixel: ROS 2, calibración</span></div>
+          <div><span class="tree-dir">📁 recursos/</span> <span class="tree-note">pliego, referencias</span></div>
           <div><span class="tree-dir">📁 evaluacion/</span> <span class="tree-note">rúbricas</span></div>
           <div><span class="tree-dir">📁 docs/</span> <span class="tree-note">guía docente</span></div>
           <div><span class="tree-dir">📁 .github/workflows/</span></div>
@@ -915,8 +796,8 @@ footer {
           <div class="step-content">
             <div class="step-title lang-es-block">Crear el repositorio</div>
             <div class="step-title lang-en-block">Create the repository</div>
-            <div class="step-desc lang-es-block">Nuevo repositorio público en GitHub con el nombre <code style="color:#7ec8e3;font-family:var(--font-mono)">robot-course</code></div>
-            <div class="step-desc lang-en-block">New public repository on GitHub named <code style="color:#7ec8e3;font-family:var(--font-mono)">robot-course</code></div>
+            <div class="step-desc lang-es-block">Nuevo repositorio público en GitHub con el nombre <code style="color:#7ec8e3;font-family:var(--font-mono)">curso-robotica-2026</code></div>
+            <div class="step-desc lang-en-block">New public repository on GitHub named <code style="color:#7ec8e3;font-family:var(--font-mono)">curso-robotica-2026</code></div>
           </div>
         </div>
         <div class="repo-step">
@@ -924,7 +805,7 @@ footer {
           <div class="step-content">
             <div class="step-title lang-es-block">Subir la estructura inicial</div>
             <div class="step-title lang-en-block">Push initial structure</div>
-            <code class="step-code">git clone https://github.com/[usuario]/robot-course<br>cd robot-course<br>git add .<br>git commit -m "feat: estructura inicial del curso"<br>git push origin main</code>
+            <code class="step-code">git clone https://github.com/juanuniovi/curso-robotica-2026<br>cd curso-robotica-2026<br>git add .<br>git commit -m "feat: estructura inicial del curso"<br>git push origin master</code>
           </div>
         </div>
         <div class="repo-step">
@@ -932,8 +813,8 @@ footer {
           <div class="step-content">
             <div class="step-title lang-es-block">Activar GitHub Pages</div>
             <div class="step-title lang-en-block">Enable GitHub Pages</div>
-            <div class="step-desc lang-es-block">Settings → Pages → Source: GitHub Actions. El workflow deploy.yml publica automáticamente en cada push a main.</div>
-            <div class="step-desc lang-en-block">Settings → Pages → Source: GitHub Actions. The deploy.yml workflow publishes automatically on every push to main.</div>
+            <div class="step-desc lang-es-block">Settings → Pages → Source: GitHub Actions. El workflow deploy.yml publica automáticamente en cada push a master.</div>
+            <div class="step-desc lang-en-block">Settings → Pages → Source: GitHub Actions. The deploy.yml workflow publishes automatically on every push to master.</div>
           </div>
         </div>
         <div class="repo-step">
@@ -941,7 +822,7 @@ footer {
           <div class="step-content">
             <div class="step-title lang-es-block">Flujo semanal de los alumnos</div>
             <div class="step-title lang-en-block">Weekly student workflow</div>
-            <code class="step-code">git checkout -b equipo-A/semana-05<br># trabajar en modelos/<br>git commit -m "feat(eq-A): IBD nivel 2 propulsion"<br>git push origin equipo-A/semana-05</code>
+            <code class="step-code">git checkout -b empresa-1/software/semana-05<br># trabajar en modelos/ o hardware/<br>git commit -m "feat(sw): nodo ROS2 navegación"<br>git push origin empresa-1/software/semana-05</code>
           </div>
         </div>
       </div>
@@ -955,92 +836,145 @@ footer {
   <div class="footer-copy">
     <span class="lang-es">Ingeniería Robótica con MBSE y Simscape · 4º Grado Ingeniería Electrónica</span>
     <span class="lang-en">Systems Engineering with MBSE and Simscape · 4th Year Electronic Engineering</span>
-    <br>Basado en Oferta/Proyecto/Contrato real
+    <br>Basado en un caso de licitación pública real · verificado sobre banco de pruebas Dynamixel
   </div>
 </footer>
 
 <script>
 // ── Datos del curso ────────────────────────────────────────────────────────
 const semanas = [
-  { n:"1",   bloque:"I",   titulo_es:"Extracción de requisitos",          titulo_en:"Requirements extraction",          Objetivo_es:"Extraer",     Objetivo_en:"Extract",     tipo:"grupal",    link:"semanas/semana-01/" },
-  { n:"1·5", bloque:"I",   titulo_es:"Introducción a SysML",              titulo_en:"Introduction to SysML",             Objetivo_es:"Nombrar",     Objetivo_en:"Name",        tipo:"grupal",    link:"semanas/semana-1b/" },
-  { n:"2",   bloque:"I",   titulo_es:"IBD, interfaces y trazabilidad",    titulo_en:"IBD, interfaces & traceability",    Objetivo_es:"Conectar",    Objetivo_en:"Connect",     tipo:"grupal",    link:"semanas/semana-02/" },
-  { n:"3",   bloque:"I",   titulo_es:"Formalización de arquitectura",     titulo_en:"Architecture formalisation",        Objetivo_es:"Formalizar",  Objetivo_en:"Formalise",   tipo:"grupal",    link:"semanas/semana-03/" },
-  { n:"4",   bloque:"II",  titulo_es:"Caja negra: ejecutar Simscape",     titulo_en:"Black box: run Simscape",           Objetivo_es:"Observar",    Objetivo_en:"Observe",     tipo:"individual",link:"semanas/semana-04/" },
-  { n:"5",   bloque:"II",  titulo_es:"Caja gris: abrir el subsistema",    titulo_en:"Grey box: open the subsystem",      Objetivo_es:"Descomponer", Objetivo_en:"Decompose",   tipo:"grupal",    link:"semanas/semana-05/" },
-  { n:"6",   bloque:"II",  titulo_es:"Caja blanca: trazabilidad inversa", titulo_en:"White box: reverse traceability",   Objetivo_es:"Trazar",      Objetivo_en:"Trace",       tipo:"grupal",    link:"semanas/semana-06/" },
-  { n:"7",   bloque:"III", titulo_es:"Calibración al robot real",           titulo_en:"Calibration to real robot",           Objetivo_es:"Calibrar",    Objetivo_en:"Calibrate",   tipo:"grupal",    link:"semanas/semana-07/" },
-  { n:"8",   bloque:"III", titulo_es:"Verificación formal de requisitos", titulo_en:"Formal requirements verification",  Objetivo_es:"Demostrar",   Objetivo_en:"Demonstrate", tipo:"grupal",    link:"semanas/semana-08/" },
-  { n:"9",   bloque:"IV",  titulo_es:"Análisis de modos de fallo",        titulo_en:"Failure mode analysis",             Objetivo_es:"Degradar",    Objetivo_en:"Degrade",     tipo:"grupal",    link:"semanas/semana-09/" },
-  { n:"10",  bloque:"IV",  titulo_es:"Integración entre subsistemas",     titulo_en:"Cross-subsystem integration",       Objetivo_es:"Integrar",    Objetivo_en:"Integrate",   tipo:"grupal",    link:"semanas/semana-10/" },
-  { n:"11",  bloque:"V",   titulo_es:"Optimización de parámetros",        titulo_en:"Parameter optimisation",            Objetivo_es:"Optimizar",   Objetivo_en:"Optimise",    tipo:"grupal",    link:"semanas/semana-11/" },
-  { n:"12",  bloque:"V",   titulo_es:"Preparación del CDR",               titulo_en:"CDR preparation",                   Objetivo_es:"Documentar",  Objetivo_en:"Document",    tipo:"grupal",    link:"semanas/semana-12/" },
-  { n:"13",  bloque:"V",   titulo_es:"CDR — Critical Design Review",      titulo_en:"CDR — Critical Design Review",      Objetivo_es:"Defender",    Objetivo_en:"Defend",      tipo:"individual",link:"semanas/semana-13/" },
-  { n:"14",  bloque:"V",   titulo_es:"Cierre y reflexión",                titulo_en:"Close-out and reflection",          Objetivo_es:"Reflexionar", Objetivo_en:"Reflect",     tipo:"grupal",    link:"semanas/semana-14/" },
+  { n:"1",  objetivo_es:"Extraer / Nombrar", objetivo_en:"Extract / Name",
+    tema_es:"Requisitos y pliego + intro SysML", tema_en:"Requirements & contract + SysML intro",
+    is_es:"Necesidades, pliego, intro SysML", is_en:"Needs, contract, SysML intro",
+    sim_es:"Setup Simscape, esqueleto de bloques", sim_en:"Simscape setup, block skeleton",
+    tal_es:"Inventario y bautizo de motores", tal_en:"Inventory & motor IDs",
+    sw_es:"Setup ROS 2, primer nodo", sw_en:"ROS 2 setup, first node" },
+  { n:"2",  objetivo_es:"Conectar", objetivo_en:"Connect",
+    tema_es:"IBD, interfaces y trazabilidad", tema_en:"IBD, interfaces & traceability",
+    is_es:"Requisitos SHALL, IBD, interfaces", is_en:"SHALL requirements, IBD, interfaces",
+    sim_es:"Conexión física de bloques", sim_en:"Physical block wiring",
+    tal_es:"Montaje de la primera articulación", tal_en:"First joint assembly",
+    sw_es:"Diseño del grafo de nodos", sw_en:"Node graph design" },
+  { n:"3",  objetivo_es:"Formalizar", objetivo_en:"Formalise",
+    tema_es:"Formalización de arquitectura", tema_en:"Architecture formalisation",
+    is_es:"Formalización de arquitectura, baseline", is_en:"Architecture formalisation, baseline",
+    sim_es:"Parametrización inicial", sim_en:"Initial parametrisation",
+    tal_es:"Documento de interfaz física (ICD)", tal_en:"Physical interface doc (ICD)",
+    sw_es:"Esqueleto de launch files", sw_en:"Launch file skeleton" },
+  { n:"4",  objetivo_es:"Observar", objetivo_en:"Observe",
+    tema_es:"Caja negra", tema_en:"Black box",
+    is_es:"Verificación vs. validación", is_en:"Verification vs. validation",
+    sim_es:"Caja negra: primera ejecución", sim_en:"Black box: first run",
+    tal_es:"Respuesta real de los motores", tal_en:"Real motor response",
+    sw_es:"Driver conectado a hardware real", sw_en:"Driver on real hardware" },
+  { n:"5",  objetivo_es:"Descomponer", objetivo_en:"Decompose",
+    tema_es:"Caja gris", tema_en:"Grey box",
+    is_es:"Arquitectura lógica vs. física", is_en:"Logical vs. physical architecture",
+    sim_es:"Caja gris: apertura de subsistemas", sim_en:"Grey box: open subsystems",
+    tal_es:"Ajuste de parámetros reales", tal_en:"Real parameter fitting",
+    sw_es:"Nodo de control mínimo", sw_en:"Minimal control node" },
+  { n:"6",  objetivo_es:"Trazar", objetivo_en:"Trace",
+    tema_es:"Caja blanca: trazabilidad inversa", tema_en:"White box: reverse traceability",
+    is_es:"Trazabilidad inversa, métodos de verificación", is_en:"Reverse traceability, verification methods",
+    sim_es:"Caja blanca: parámetro → requisito", sim_en:"White box: parameter → requirement",
+    tal_es:"Informe de calibración por motor", tal_en:"Per-motor calibration report",
+    sw_es:"Mapeo topics ↔ señales", sw_en:"Topic ↔ signal mapping" },
+  { n:"7",  objetivo_es:"Calibrar", objetivo_en:"Calibrate",
+    tema_es:"Calibración al banco de pruebas", tema_en:"Calibration to the testbed",
+    is_es:"Planificación de verificación (VCRM)", is_en:"Verification planning (VCRM)",
+    sim_es:"Recalibración con datos reales", sim_en:"Recalibration with real data",
+    tal_es:"Test físico equivalente", tal_en:"Equivalent physical test",
+    sw_es:"Ajuste de ganancias/parámetros", sw_en:"Gain/parameter tuning" },
+  { n:"8",  objetivo_es:"Demostrar", objetivo_en:"Demonstrate",
+    tema_es:"Verificación formal de requisitos", tema_en:"Formal requirements verification",
+    is_es:"Revisión formal, no conformidades", is_en:"Formal review, non-conformances",
+    sim_es:"Tests formales pass/fail", sim_en:"Formal pass/fail tests",
+    tal_es:"Demo física en vivo", tal_en:"Live physical demo",
+    sw_es:"Test de integración hw+sw", sw_en:"HW+SW integration test" },
+  { n:"9",  objetivo_es:"Degradar", objetivo_en:"Degrade",
+    tema_es:"Análisis de modos de fallo", tema_en:"Failure mode analysis",
+    is_es:"FMEA, matrices de riesgo", is_en:"FMEA, risk matrices",
+    sim_es:"Simular modos de fallo", sim_en:"Simulate failure modes",
+    tal_es:"Observar fallos reales (sobrecarga…)", tal_en:"Observe real faults (overload…)",
+    sw_es:"Gestión de fallos y recuperación", sw_en:"Fault handling & recovery" },
+  { n:"10", objetivo_es:"Integrar", objetivo_en:"Integrate",
+    tema_es:"Integración entre departamentos", tema_en:"Cross-department integration",
+    is_es:"Negociación de interfaces, gestión de cambios", is_en:"Interface negotiation, change management",
+    sim_es:"Integración de subsistemas", sim_en:"Subsystem integration",
+    tal_es:"Integración física entre departamentos", tal_en:"Cross-department physical integration",
+    sw_es:"Pipeline software integrado", sw_en:"Integrated software pipeline" },
+  { n:"11", objetivo_es:"Optimizar", objetivo_en:"Optimise",
+    tema_es:"Optimización de parámetros", tema_en:"Parameter optimisation",
+    is_es:"Decisión multicriterio (AHP)", is_en:"Multi-criteria decision (AHP)",
+    sim_es:"Optimización de parámetros", sim_en:"Parameter optimisation",
+    tal_es:"Optimización de calibración", tal_en:"Calibration optimisation",
+    sw_es:"Optimización de navegación/rendimiento", sw_en:"Navigation/performance optimisation" },
+  { n:"12", objetivo_es:"Documentar", objetivo_en:"Document",
+    tema_es:"Preparación de la oferta técnica", tema_en:"Technical proposal preparation",
+    is_es:"Estructura de la oferta técnica", is_en:"Technical proposal structure",
+    sim_es:"Redacción de resultados", sim_en:"Simulation results writeup",
+    tal_es:"Redacción de evidencia física", tal_en:"Physical evidence writeup",
+    sw_es:"Redacción de arquitectura software", sw_en:"Software architecture writeup" },
+  { n:"13", objetivo_es:"Defender", objetivo_en:"Defend",
+    tema_es:"CDR — Critical Design Review", tema_en:"CDR — Critical Design Review",
+    is_es:"Panel de revisión (CDR)", is_en:"Review panel (CDR)",
+    sim_es:"Defensa de evidencia de simulación", sim_en:"Defend simulation evidence",
+    tal_es:"Demo física ante el panel", tal_en:"Live physical demo to panel",
+    sw_es:"Demo software ante el panel", sw_en:"Live software demo to panel" },
+  { n:"14", objetivo_es:"Reflexionar", objetivo_en:"Reflect",
+    tema_es:"Cierre y reflexión", tema_en:"Close-out and reflection",
+    is_es:"Cierre de ciclo de vida, lecciones aprendidas", is_en:"Lifecycle close-out, lessons learned",
+    sim_es:"Reflexión individual", sim_en:"Individual reflection",
+    tal_es:"Reflexión individual", tal_en:"Individual reflection",
+    sw_es:"Reflexión individual", sw_en:"Individual reflection" },
 ];
 
-const equipos = [
-  { letra:"A", nombre_es:"Propulsión",               nombre_en:"Propulsion",             dominio:"Simscape Electrical\n+ Driveline",      reqs:["RLT1-03","RLT1-04","RLT1-09","RGEN-11"] },
-  { letra:"B", nombre_es:"Energía",                  nombre_en:"Energy",                 dominio:"Simscape Electrical\n(Battery + BMS)",  reqs:["RGEN-12","RGEN-14","RGEN-15","RGEN-19"] },
-  { letra:"C", nombre_es:"Suspensión",               nombre_en:"Suspension",             dominio:"Simscape Multibody\n+ Driveline",        reqs:["RLT1-05","RLT1-06","RLT1-07","RLT1-10"] },
-  { letra:"D", nombre_es:"Control y Autonomía",      nombre_en:"Control & Autonomy",     dominio:"Stateflow\n+ Simulink Control",          reqs:["ROPE-01","ROPE-06","RNAV-01","RGEN-17"] },
-  { letra:"E", nombre_es:"Sensores y Comunicaciones",nombre_en:"Sensors & Comms",        dominio:"Simulink Signals\n+ Stateflow",          reqs:["RGEN-09","RGEN-22","RCOM-01","RCOM-02"] },
+const departamentos = [
+  { icono:"SIM", nombre_es:"Simulación",  nombre_en:"Simulation", dominio:"Simscape\n(Electrical, Driveline, Multibody)", evidencia_es:"Evidencia: simulación", evidencia_en:"Evidence: simulation", tagClass:"tag-simulacion", tools:["MATLAB","Simscape","Simulink Test"] },
+  { icono:"TAL", nombre_es:"Taller (Dynamixel)", nombre_en:"Workshop (Dynamixel)", dominio:"Banco físico\nAX-12+ / AX-S1 / RX-24F / RX-64", evidencia_es:"Evidencia: física", evidencia_en:"Evidence: physical", tagClass:"tag-fisica", tools:["DYNAMIXEL Wizard 2.0","DYNAMIXEL SDK"] },
+  { icono:"SW",  nombre_es:"Software",     nombre_en:"Software", dominio:"ROS 2\n(dynamixel_workbench, UR3, Gazebo)", evidencia_es:"Evidencia: integración software", evidencia_en:"Evidence: software integration", tagClass:"tag-software", tools:["ROS 2","MoveIt2","Gazebo"] },
 ];
 
-const bloqueColor = { I:"var(--bloque-I)", II:"var(--bloque-II)", III:"var(--bloque-III)", IV:"var(--bloque-IV)", V:"var(--bloque-V)" };
-const bloqueLabel_es = { I:"Bloque I", II:"Bloque II", III:"Bloque III", IV:"Bloque IV", V:"Bloque V" };
-const bloqueLabel_en = { I:"Block I",  II:"Block II",  III:"Block III",  IV:"Block IV",  V:"Block V"  };
 const isEN = () => document.body.classList.contains('en');
 
 // ── Render semanas ─────────────────────────────────────────────────────────
 function renderSemanas() {
-  const grid = document.getElementById('semanas-grid');
-  grid.innerHTML = '';
+  const tbody = document.getElementById('semanas-tbody');
+  tbody.innerHTML = '';
   semanas.forEach(s => {
-    const bClass = s.n === "1·5" ? "b-1b" : `b-${s.bloque}`;
-    const tipoClass = s.tipo === "grupal" ? "tag-grupal" : "tag-individual";
-    const tipoText  = isEN()
-      ? (s.tipo === "grupal" ? "Group" : "Individual")
-      : (s.tipo === "grupal" ? "Grupal" : "Individual");
-    const titulo = isEN() ? s.titulo_en : s.titulo_es;
-    const Objetivo  = isEN() ? s.Objetivo_en  : s.Objetivo_es;
-    const bLabel = isEN() ? bloqueLabel_en[s.bloque] : bloqueLabel_es[s.bloque];
-
-    grid.innerHTML += `
-      <div class="semana-card ${bClass}">
-        <div class="semana-head ${bClass}">
-          <span class="semana-num">${s.n}</span>
-          <div class="semana-meta">
-            <div class="semana-bloque-tag">${bLabel}</div>
-            <div class="semana-titulo">${titulo}</div>
-          </div>
-        </div>
-        <div class="semana-body">
-          <div class="semana-Objetivo">
-            ${isEN()?'Key verb':'Objetivo clave'}: <strong>${Objetivo}</strong>
-          </div>
-          <span class="semana-entregable ${tipoClass}">● ${tipoText}</span>
-        </div>
-        <div class="semana-footer">
-          <a class="semana-link" href="${s.link}">${isEN()?'View materials →':'Ver materiales →'}</a>
-        </div>
-      </div>`;
+    const objetivo = isEN() ? s.objetivo_en : s.objetivo_es;
+    const tema     = isEN() ? s.tema_en     : s.tema_es;
+    const is_      = isEN() ? s.is_en       : s.is_es;
+    const sim      = isEN() ? s.sim_en      : s.sim_es;
+    const tal      = isEN() ? s.tal_en      : s.tal_es;
+    const sw       = isEN() ? s.sw_en       : s.sw_es;
+    tbody.innerHTML += `
+      <tr>
+        <td class="col-num">${s.n}</td>
+        <td class="col-obj"><strong>${objetivo}</strong><span>${tema}</span></td>
+        <td>${is_}</td>
+        <td>${sim}</td>
+        <td>${tal}</td>
+        <td>${sw}</td>
+      </tr>`;
   });
 }
 
-// ── Render equipos ─────────────────────────────────────────────────────────
-function renderEquipos() {
-  const grid = document.getElementById('equipos-grid');
+// ── Render departamentos ────────────────────────────────────────────────────
+function renderDepartamentos() {
+  const grid = document.getElementById('departamentos-grid');
   grid.innerHTML = '';
-  equipos.forEach(e => {
-    const nombre = isEN() ? e.nombre_en : e.nombre_es;
-    const reqs = e.reqs.map(r => `<span class="req-tag">${r}</span>`).join('');
+  departamentos.forEach(d => {
+    const nombre = isEN() ? d.nombre_en : d.nombre_es;
+    const evidencia = isEN() ? d.evidencia_en : d.evidencia_es;
+    const tools = d.tools.map(t => `<span class="tool-tag">${t}</span>`).join('');
     grid.innerHTML += `
-      <div class="equipo-card">
-        <div class="equipo-letra">${e.letra}</div>
-        <div class="equipo-nombre">${nombre}</div>
-        <div class="equipo-dominio">${e.dominio}</div>
-        <div class="equipo-reqs">${reqs}</div>
+      <div class="departamento-card">
+        <div class="departamento-icono">${d.icono}</div>
+        <div class="departamento-nombre">${nombre}</div>
+        <div class="departamento-dominio">${d.dominio}</div>
+        <div class="departamento-evidencia ${d.tagClass}">${evidencia}</div>
+        <div class="departamento-herramientas">${tools}</div>
       </div>`;
   });
 }
@@ -1049,12 +983,12 @@ function renderEquipos() {
 function toggleLang() {
   document.body.classList.toggle('en');
   renderSemanas();
-  renderEquipos();
+  renderDepartamentos();
 }
 
 // ── Init ───────────────────────────────────────────────────────────────────
 renderSemanas();
-renderEquipos();
+renderDepartamentos();
 
 // Intersection observer para animaciones
 const io = new IntersectionObserver((entries) => {
