@@ -53,7 +53,7 @@ pliego de licitación real de I+D. Se han sustituido el organismo contratante, l
 referencias institucionales y el encuadre de defensa por un <strong>Cliente genérico</strong> y un
 marco de <strong>uso civil</strong> (emergencias, logística, obra pública, extinción de incendios,
 vialidad invernal). <strong>Se conservan sin cambios</strong> los identificadores de requisito
-(<code>RGEN-xx</code>, <code>RLT1-xx</code>, <code>RLT2-xx</code>, <code>ROPE-xx</code>, <code>RPdO-xx</code>, <code>RNAV-xx</code>, <code>RCOM-xx</code>,
+(<code>RGEN-xx</code>, <code>RLT1-xx</code>, <code>ROPE-xx</code>, <code>RPdO-xx</code>, <code>RNAV-xx</code>, <code>RCOM-xx</code>,
 <code>RSW-xx</code>, <code>RPVyA-xx</code>, <code>RDOC-xx</code>), las tres fases del contrato, los cuatro modos de
 operación y <strong>todas las magnitudes numéricas</strong>. Úsalo como si fuera el encargo real de
 tu equipo.</p>
@@ -91,7 +91,7 @@ del mismo tipo, desplazándose por los mismos terrenos sin quedarse rezagado.</p
 robotizados: se pretende un diseño compacto que prescinda del espacio, el blindaje y el
 coste asociados a llevar tripulación a bordo.</p>
 <h3 id="13-alcance">1.3 Alcance</h3>
-<p>El desarrollo de un <strong>Sistema UGV</strong> incluye, para cada lote:</p>
+<p>El desarrollo de un <strong>Sistema UGV</strong> incluye:</p>
 <ul>
 <li>un <strong>vehículo autónomo pesado multipropósito y multimisión</strong> (el UGV);</li>
 <li>un <strong>UAV de apoyo</strong> que facilite la teleoperación del UGV, el seguimiento de la misión y
@@ -111,17 +111,15 @@ coste asociados a llevar tripulación a bordo.</p>
   pruebas;</li>
 <li>si procede, mantenimiento de primer escalón y consultoría remota durante la garantía.</li>
 </ul>
-<p>Como es muy difícil que un único diseño opere con eficiencia en cualquier entorno, se
-plantean <strong>dos lotes de desarrollo</strong>:</p>
-<ul>
-<li><strong>Lote 1 — UGV de ruedas:</strong> mayores velocidades en terrenos relativamente llanos y
-  consolidados. Orientado a operaciones tácticas, transporte y limpieza de rutas.</li>
-<li><strong>Lote 2 — UGV de cadenas:</strong> mayor superficie de tracción y estabilidad en terrenos
-  accidentados y resbaladizos. Orientado a extinción de incendios y movimiento de tierras
-  (operaciones de ingenieros).</li>
-</ul>
-<p>Dentro de cada lote la plataforma debe cubrir el mayor número posible de cometidos sin
-perjudicar su eficiencia operativa.</p>
+<p>El desarrollo se centra en un <strong>UGV de tracción de ruedas</strong> para operaciones de alta
+movilidad: mayores velocidades en terrenos relativamente llanos y consolidados,
+orientado a operaciones tácticas, transporte y limpieza de rutas. La plataforma debe
+cubrir el mayor número posible de cometidos sin perjudicar su eficiencia operativa.</p>
+<blockquote>
+<p><em>Nota docente: el pliego original contemplaba un segundo lote (UGV de cadenas para
+trabajos sobre terreno). En esta versión del curso se trabaja </em><em>solo con el UGV de
+ruedas</em><em> para acotar el alcance.</em></p>
+</blockquote>
 <h3 id="14-abreviaturas-y-siglas-seleccion">1.4 Abreviaturas y siglas (selección)</h3>
 <table>
 <thead>
@@ -220,7 +218,7 @@ perjudicar su eficiencia operativa.</p>
 </ul>
 <hr />
 <h2 id="2-fases-de-ejecucion">2. Fases de ejecución</h2>
-<p>El proyecto consta de <strong>tres fases</strong>; al final de cada una se entregan, por lote, los
+<p>El proyecto consta de <strong>tres fases</strong>; al final de cada una se entregan los
 demostradores de la solución, debidamente probados y validados.</p>
 <table>
 <thead>
@@ -250,7 +248,7 @@ demostradores de la solución, debidamente probados y validados.</p>
 </table>
 <hr />
 <h2 id="3-requisitos-tecnicos-y-caracteristicas">3. Requisitos técnicos y características</h2>
-<h3 id="31-requisitos-generales-comunes-a-ambos-lotes">3.1 Requisitos generales comunes a ambos lotes</h3>
+<h3 id="31-requisitos-generales">3.1 Requisitos generales</h3>
 <table>
 <thead>
 <tr>
@@ -269,7 +267,7 @@ demostradores de la solución, debidamente probados y validados.</p>
 </tr>
 <tr>
 <td><strong>RGEN-03</strong></td>
-<td>Una <strong>barcaza (bastidor) principal</strong> común a toda la gama de configuraciones del lote, mediante acoplamiento/desacoplamiento de módulos, accesorios e implementos.</td>
+<td>Una <strong>barcaza (bastidor) principal</strong> común a toda la gama de configuraciones del vehículo, mediante acoplamiento/desacoplamiento de módulos, accesorios e implementos.</td>
 </tr>
 <tr>
 <td><strong>RGEN-04</strong></td>
@@ -365,11 +363,11 @@ demostradores de la solución, debidamente probados y validados.</p>
 </tr>
 <tr>
 <td><strong>RGEN-27</strong></td>
-<td>El contratista desarrollará el UGV eligiendo <strong>un</strong> lote (1 ruedas o 2 cadenas); opcionalmente ambos, de forma independiente.</td>
+<td>El UGV se basará en un <strong>tren de tracción de ruedas</strong> para operaciones de alta movilidad.</td>
 </tr>
 <tr>
 <td><strong>RGEN-28</strong></td>
-<td>El UGV tendrá <strong>Puntos de Interfaz</strong> accesibles (mecánicos, eléctricos, lógicos o combinados) para integrar cargas de pago. Para cada lote se definen sus Puntos de Interfaz y cargas asociadas: el contratista <strong>desarrolla y entrega los OBLIGATORIOS</strong> y, opcionalmente, los OPCIONALES.</td>
+<td>El UGV tendrá <strong>Puntos de Interfaz</strong> accesibles (mecánicos, eléctricos, lógicos o combinados) para integrar cargas de pago. Se definen los Puntos de Interfaz y sus cargas asociadas: el contratista <strong>desarrolla y entrega los OBLIGATORIOS</strong> y, opcionalmente, los OPCIONALES.</td>
 </tr>
 <tr>
 <td><strong>RGEN-29</strong></td>
@@ -377,7 +375,7 @@ demostradores de la solución, debidamente probados y validados.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="32-requisitos-para-el-ugv-de-ruedas-alta-movilidad-lote-1">3.2 Requisitos para el UGV de ruedas — alta movilidad (Lote 1)</h3>
+<h3 id="32-requisitos-del-ugv-traccion-de-ruedas-alta-movilidad">3.2 Requisitos del UGV (tracción de ruedas, alta movilidad)</h3>
 <h4 id="321-generales">3.2.1 Generales</h4>
 <table>
 <thead>
@@ -433,7 +431,7 @@ demostradores de la solución, debidamente probados y validados.</p>
 </tr>
 </tbody>
 </table>
-<h4 id="322-puntos-de-interfaz-lote-1">3.2.2 Puntos de Interfaz (Lote 1)</h4>
+<h4 id="322-puntos-de-interfaz">3.2.2 Puntos de Interfaz</h4>
 <ul>
 <li><strong>RLT1-12 — Zona frontal (Punto de Interfaz 1):</strong> interfaz electromecánico para
   <strong>limpieza de rutas</strong>, con cargas alternativas: hoja quitanieves <strong>(CP-01, OBLIGATORIA)</strong>
@@ -458,113 +456,10 @@ demostradores de la solución, debidamente probados y validados.</p>
 <li><strong>RLT1-14 — Zona trasera (Punto de Interfaz 4):</strong> enganche mecánico de remolques de
   hasta 3.000 kg <strong>(CP-14, OBLIGATORIA)</strong>.</li>
 </ul>
-<h3 id="33-requisitos-para-el-ugv-de-cadenas-trabajos-sobre-terreno-lote-2">3.3 Requisitos para el UGV de cadenas — trabajos sobre terreno (Lote 2)</h3>
-<h4 id="331-generales">3.3.1 Generales</h4>
-<table>
-<thead>
-<tr>
-<th>ID</th>
-<th>Requisito (resumen)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>RLT2-01</strong></td>
-<td>Tren de tracción de <strong>cadenas metálicas</strong>; elevada movilidad todoterreno en entornos especialmente difíciles.</td>
-</tr>
-<tr>
-<td><strong>RLT2-02</strong></td>
-<td>Movilidad: <strong>carretera ≥ 50 km/h</strong>; <strong>campo a través ≥ 40 km/h</strong>; <strong>pendiente frontal ≥ 60 %</strong>; <strong>lateral ≥ 30 %</strong>; <strong>obstáculo vertical ≥ 40 cm</strong>.</td>
-</tr>
-<tr>
-<td><strong>RLT2-03</strong></td>
-<td><em>[OPCIONAL]</em> Dos funciones de trabajo: alta potencia de empuje (≤ 14 km/h) y transporte (sin límite de velocidad máxima).</td>
-</tr>
-<tr>
-<td><strong>RLT2-04</strong></td>
-<td>Tara entre <strong>9.000 y 12.000 kg</strong>.</td>
-</tr>
-<tr>
-<td><strong>RLT2-05</strong></td>
-<td>Capacidad de carga <strong>≥ 4.000 kg</strong>.</td>
-</tr>
-<tr>
-<td><strong>RLT2-06</strong></td>
-<td>Peso total en orden de misión <strong>≤ 17.000 kg</strong>.</td>
-</tr>
-<tr>
-<td><strong>RLT2-07</strong></td>
-<td>Potencia <strong>≥ 200 kW (≈ 270 CV) continuos</strong>, picos de 250–300 kW por propulsión eléctrica, y <strong>potencia hidráulica para implementos ≥ 100–120 kW</strong>.</td>
-</tr>
-<tr>
-<td><strong>RLT2-08</strong></td>
-<td>Vadeo sin preparación <strong>≥ 1,2 m</strong>.</td>
-</tr>
-<tr>
-<td><strong>RLT2-09</strong></td>
-<td>Anchura en configuración de transporte (con <em>ripper</em> y hoja <em>dozer</em>) <strong>≤ 3 m</strong>.</td>
-</tr>
-<tr>
-<td><strong>RLT2-10</strong></td>
-<td>Protección total frente a caídas o proyecciones desde cualquier ángulo, incluida la superior (referencia <strong>FOPS Nivel II, UNE-EN ISO 3449</strong>); atención a cámaras, sensores y tomas.</td>
-</tr>
-<tr>
-<td><strong>RLT2-11</strong></td>
-<td>Iluminación con cobertura completa <strong>360°</strong>.</td>
-</tr>
-<tr>
-<td><strong>RLT2-12</strong></td>
-<td>Rejillas de protección en faros (piedras ≥ 3 cm).</td>
-</tr>
-<tr>
-<td><strong>RLT2-13</strong></td>
-<td>Cajones de almacenaje para herramienta de mantenimiento de primer escalón.</td>
-</tr>
-<tr>
-<td><strong>RLT2-14</strong></td>
-<td><em>[OPCIONAL]</em> Espacio para 2 extintores portátiles de 9 kg, clase ABC.</td>
-</tr>
-<tr>
-<td><strong>RLT2-15</strong></td>
-<td><em>[OPCIONAL]</em> Protección térmica (fundas) para trabajo continuo <strong>≥ 260 °C</strong> en cableado, canalizaciones de combustible, hidráulico, frenado y refrigerante; aceite hidráulico con temperatura de ignición ≥ 120 °C.</td>
-</tr>
-<tr>
-<td><strong>RLT2-16</strong></td>
-<td><em>[OPCIONAL]</em> Fundas de fibra de vidrio con silicona: servicio continuo −60 °C a 260 °C; resisten ≥ 30 min a 800 °C, 15 min a 1.100 °C, 1 min a 1.500 °C.</td>
-</tr>
-<tr>
-<td><strong>RLT2-17</strong></td>
-<td><em>[OPCIONAL]</em> Recuperación por arrastre desacoplando los componentes motrices de la cadena, sin herramientas.</td>
-</tr>
-</tbody>
-</table>
-<h4 id="332-puntos-de-interfaz-lote-2">3.3.2 Puntos de Interfaz (Lote 2)</h4>
-<ul>
-<li><strong>RLT2-18 — Zona frontal:</strong></li>
-<li><strong>Punto de Interfaz 1:</strong> modificación del terreno / limpieza de rutas: <strong>hoja
-    empujadora <em>dozer</em> (CP-15, OBLIGATORIA)</strong> anchura ≥ 3.000 mm, altura ≥ 1.200 mm,
-    elevable y orientable hidráulicamente, profundidad de excavación ≥ 450 mm, anchura
-    reducible; rodillo de presión sobre el terreno <strong>(CP-16, opcional)</strong> barrido ≥ 2,2 m,
-    &gt; 5 km/h, ≥ 300 kg por rueda; <strong>desbrozadora forestal (CP-17, opcional)</strong> ancho ≥ 2 m,
-    rendimiento &gt; 0,4 ha/h (deseable 0,6).</li>
-<li><strong>Punto de Interfaz 2:</strong> <strong>cuchara cargadora (CP-18, opcional)</strong> con dos brazos
-    hidráulicos, anchura ≥ 2.250 mm, capacidad colmada ≥ 1 m³.</li>
-<li><strong>RLT2-19 — Zona superior:</strong></li>
-<li><strong>Punto de Interfaz 3 — extinción de incendios:</strong> <strong>bomba de impulsión de agente
-    extintor de alta presión (CP-19, OBLIGATORIA)</strong>, presión &gt; 20 bar, caudal máx. ≥ 220
-    L/min; monitor con control remoto de orientación (85° vertical, 360° horizontal), cono
-    0–90°, caudal 19–200 L/min, presión de trabajo 6–9 bar, y generación de espuma.</li>
-<li><strong>Punto de Interfaz 4 — bahía de carga:</strong> equipos y víveres <strong>(CP-20, opcional)</strong>;
-    contenedor de despliegue de carga lineal <strong>(CP-21, opcional)</strong>; <strong>depósito de agua
-    (CP-22, OBLIGATORIA)</strong> ≥ 2.750 L, con tomas tipo Barcelona de 25, 45 y 70 mm;
-    contenedor abierto tipo volquete <strong>(CP-23, opcional)</strong>.</li>
-<li><strong>RLT2-20 — Zona trasera:</strong></li>
-<li><strong>Punto de Interfaz 5:</strong> <strong>arado / <em>ripper</em> de tres rejones (CP-24, OBLIGATORIA)</strong>,
-    profundidad ≥ 28 cm, anchura útil 2,5–3 m.</li>
-<li><strong>Punto de Interfaz 6:</strong> <strong>brazo hidráulico retro con cazo (CP-25, opcional)</strong>, ancho
-    500–700 mm, cazo ≥ 0,20 m³, alcance horizontal ≥ 5,5 m, profundidad de excavación
-    ≥ 4,5 m.</li>
-</ul>
+<h3 id="33-requisitos-para-el-ugv-de-cadenas-omitido-en-esta-version">3.3 Requisitos para el UGV de cadenas — <em>omitido en esta versión</em></h3>
+<p><em>El §3.3 del pliego original (UGV de cadenas para trabajos sobre terreno, requisitos
+<code>RLT2-xx</code> y cargas <code>CP-15…CP-25</code>) queda fuera del alcance de este curso. La numeración de
+las secciones siguientes se conserva.</em></p>
 <h3 id="34-modos-de-operacion">3.4 Modos de operación</h3>
 <table>
 <thead>
@@ -619,7 +514,7 @@ demostradores de la solución, debidamente probados y validados.</p>
 </tr>
 <tr>
 <td><strong>ROPE-09</strong></td>
-<td>Familias de misión previstas (probadas en Fases II y III): <strong>Lote 1</strong> — ISTAR, materiales peligrosos, logística, evacuación, búsqueda y rescate, Nodriza, limpieza de rutas, apoyo en tormentas invernales; <strong>Lote 2</strong> — extinción de incendios, intervención en emergencias y catástrofes, trabajos de ingenieros.</td>
+<td>Familias de misión previstas (probadas en Fases II y III): ISTAR, materiales peligrosos, logística, evacuación, búsqueda y rescate, Nodriza, limpieza de rutas y apoyo en tormentas invernales.</td>
 </tr>
 <tr>
 <td><strong>ROPE-10</strong></td>
