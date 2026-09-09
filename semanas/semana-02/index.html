@@ -114,21 +114,21 @@ body.en .lang-es-inline{display:none}
         <span class="lang-en-inline">Group submission</span>
       </span>
       <span class="tag">
-        <span class="lang-es-inline">2 sesiones de laboratorio de 2h</span>
-        <span class="lang-en-inline">2 × 2h lab sessions</span>
+        <span class="lang-es-inline">1 sesión de laboratorio de 2h + 2h trabajo autónomo</span>
+        <span class="lang-en-inline">1 × 2h lab session + 2h self-study</span>
       </span>
     </div>
     <h1 class="hero-titulo">
-      <span class="lang-es">IBD, interfaces y trazabilidad</span>
-      <span class="lang-en">IBD, interfaces and traceability</span>
+      <span class="lang-es">Nombrar la arquitectura: BDD de primer nivel</span>
+      <span class="lang-en">Name the architecture: top-level BDD</span>
     </h1>
     <div class="hero-meta">
       <div class="meta-item">
         <span class="lang-es-inline">Verbo clave:</span>
         <span class="lang-en-inline">Key verb:</span>
         <strong>
-          <span class="lang-es-inline">Conectar</span>
-          <span class="lang-en-inline">Connect</span>
+          <span class="lang-es-inline">Nombrar</span>
+          <span class="lang-en-inline">Name</span>
         </strong>
       </div>
       <div class="meta-item">
@@ -145,21 +145,21 @@ body.en .lang-es-inline{display:none}
   <div class="section">
     <p class="section-label"><span class="lang-es-inline">Objetivo</span><span class="lang-en-inline">Objective</span></p>
     <div class="objetivo-box">
-      <span class="lang-es">Añadir al modelo SysML los puertos tipados de cada bloque, las interfaces que definen qué fluye por cada conexión, e importar y vincular los requisitos desde la tabla Excel al modelo.</span>
-      <span class="lang-en">Add typed ports to each block, define interfaces specifying what flows through each connection, and import and link requirements from the Excel table to the model.</span>
+      <span class="lang-es">Abrir System Composer por primera vez y construir el diagrama de bloques (BDD) de primer nivel del Sistema UGV que pide el RDOC-13: los subsistemas, con 2–3 propiedades tipadas y valoradas cada uno, cada una trazada al requisito ancla que la justifica.</span>
+      <span class="lang-en">Open System Composer for the first time and build the top-level block diagram (BDD) of the UGV System required by RDOC-13: the subsystems, each with 2–3 typed and valued properties, each one traced to the anchor requirement that justifies it.</span>
     </div>
   </div>
 
   <div class="grid-2">
     <div class="section">
       <p class="section-label"><span class="lang-es-inline">Tareas</span><span class="lang-en-inline">Tasks</span></p>
-      <ul class="item-list"><li class="lang-es">Definir las 7 interfaces principales en el Interface Editor</li><li class="lang-es">Añadir puertos In/Out a cada bloque con tipo de interfaz asignado</li><li class="lang-es">Dibujar las conexiones del IBD</li><li class="lang-es">Importar requisitos desde Excel con slreq.import()</li><li class="lang-es">Vincular cada requisito al bloque responsable</li><li class="lang-es">Generar el esqueleto Simulink con Create Behavior Model</li><li class="lang-en">Define the 7 main interfaces in the Interface Editor</li><li class="lang-en">Add In/Out ports to each block with assigned interface type</li><li class="lang-en">Draw IBD connections</li><li class="lang-en">Import requirements from Excel using slreq.import()</li><li class="lang-en">Link each requirement to its responsible block</li><li class="lang-en">Generate Simulink skeleton with Create Behavior Model</li></ul>
+      <ul class="item-list"><li class="lang-es">Abrir MATLAB R2023b+ con System Composer y crear el modelo SistemaUGV.slx en equipos/[equipo]/semana-02/</li><li class="lang-es">Añadir los bloques de primer nivel (RDOC-13.c.1): UGV, Puesto de Mando Portable, Dispositivo de Telemando Portable, Subsistema de Comunicaciones, UAV de apoyo, subsistemas auxiliares</li><li class="lang-es">Dentro del bloque UGV, añadir sus subsistemas principales: Propulsión y energía, Movilidad y tren de rodaje, Percepción y navegación, Control y computación, Puntos de interfaz para cargas de pago</li><li class="lang-es">Reparto por rol (según la Semana 1): IS → propiedades de nivel sistema (masa, autonomía, modos) · Simulación → propulsión y movilidad (potencia, par, velocidad, pendiente) · Taller → chasis e interfaces (dimensiones, pesos, RGEN-28/29) · Software → comunicaciones y control (alcance BLOS RCOM-02, latencia, RSW)</li><li class="lang-es">Cada propiedad: nombre, tipo, valor y unidad (p. ej. UGV.masa_orden_mision = 9000 kg); en su descripción, el ID del requisito que la justifica (RLT1-08). Sin requisito que la justifique, la propiedad no entra</li><li class="lang-es">Verificar la jerarquía en el Model Browser y exportar el BDD como PNG</li><li class="lang-en">Open MATLAB R2023b+ with System Composer and create SistemaUGV.slx in equipos/[team]/semana-02/</li><li class="lang-en">Add the top-level blocks (RDOC-13.c.1): UGV, Portable Command Post, Portable Remote-Control Device, Communications Subsystem, support UAV, auxiliary subsystems</li><li class="lang-en">Inside the UGV block, add its main subsystems: Propulsion & energy, Mobility & running gear, Perception & navigation, Control & computing, Payload interface points</li><li class="lang-en">Split by role (from Week 1): IS → system-level properties (mass, endurance, modes) · Simulation → propulsion & mobility (power, torque, speed, gradient) · Workshop → chassis & interfaces (dimensions, weights, RGEN-28/29) · Software → communications & control (BLOS range RCOM-02, latency, RSW)</li><li class="lang-en">Each property: name, type, value and unit (e.g. UGV.mission_mass = 9000 kg); in its description, the ID of the requirement that justifies it (RLT1-08). A property with no justifying requirement does not go in</li><li class="lang-en">Check the hierarchy in the Model Browser and export the BDD as PNG</li></ul>
     </div>
     <div class="section">
       <p class="section-label"><span class="lang-es-inline">Entregables</span><span class="lang-en-inline">Deliverables</span></p>
       <ul class="entregable-list">
-        <li class="lang-es">Modelo SysML completo (.slx) + esqueleto Simulink (.slx)</li><li class="lang-es">Captura del Requirements Editor con requisitos vinculados</li><li class="lang-es">Justificación de interfaces: cada interfaz citando el requisito que la justifica</li>
-        <li class="lang-en">Complete SysML model (.slx) + Simulink skeleton (.slx)</li><li class="lang-en">Requirements Editor screenshot with linked requirements</li><li class="lang-en">Interface justification: each interface citing its justifying requirement</li>
+        <li class="lang-es">SistemaUGV.slx con el BDD de primer nivel y el desglose interno del bloque UGV</li><li class="lang-es">PNG del diagrama BDD</li><li class="lang-es">Tabla propiedad · valor · unidad · ID de requisito (semanas/semana-02/propiedades.csv)</li><li class="lang-es">1 Pull Request a master; 1 commit por rol: feat([rol]): propiedades del BDD nivel 1 — semana 2</li>
+        <li class="lang-en">SistemaUGV.slx with the top-level BDD and the internal breakdown of the UGV block</li><li class="lang-en">PNG of the BDD diagram</li><li class="lang-en">Table property · value · unit · requirement ID (semanas/semana-02/propiedades.csv)</li><li class="lang-en">1 Pull Request to master; 1 commit per role: feat([role]): top-level BDD properties — week 2</li>
       </ul>
     </div>
   </div>
@@ -168,13 +168,21 @@ body.en .lang-es-inline{display:none}
     <p class="section-label"><span class="lang-es-inline">Materiales</span><span class="lang-en-inline">Materials</span></p>
     <div class="materiales-grid">
       
-      <a class="mat-card" href="Semana2_Arquitectura_SysML_SystemComposer.docx" download>
-        <span class="mat-icon" style="background:#e8f0fb;color:#1a4f8a">📄</span>
+      <a class="mat-card" href="../../recursos/anexo-I_anonimizado.html" target="_blank" rel="noopener">
+        <span class="mat-icon" style="background:#e8f0fb;color:#1a4f8a">📘</span>
         <div class="mat-info">
-          <span class="mat-nombre">Enunciado Semana 2</span>
-          <span class="mat-tipo" style="color:#1a4f8a">DOCX</span>
+          <span class="mat-nombre">Anexo I — Requisitos funcionales (versión anonimizada)</span>
+          <span class="mat-tipo" style="color:#1a4f8a">MD</span>
         </div>
-        <span class="mat-dl" style="color:#1a4f8a">↓</span>
+        <span class="mat-dl" style="color:#1a4f8a">↗</span>
+      </a>
+      <a class="mat-card" href="https://www.mathworks.com/help/systemcomposer/getting-started-with-system-composer.html" target="_blank" rel="noopener">
+        <span class="mat-icon" style="background:#e6f4ff;color:#0077aa">🔗</span>
+        <div class="mat-info">
+          <span class="mat-nombre">System Composer — Get Started (MathWorks)</span>
+          <span class="mat-tipo" style="color:#0077aa">ENLACE</span>
+        </div>
+        <span class="mat-dl" style="color:#0077aa">↗</span>
       </a>
     </div>
     <div class="add-material-hint">
