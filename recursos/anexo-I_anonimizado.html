@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oferta OPT-ROB-01 — Robot terrestre pesado multipropósito · Robótica-MBSE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Mono:wght@300;400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0d1117;--ink-soft:#3d4451;--ink-muted:#6e7787;--paper:#f6f4ef;--paper-warm:#ede9e0;
+  --accent:#1a4f8a;--border:rgba(13,17,23,.12);
+  --fd:'Syne',sans-serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace}
+body{font-family:var(--fb);background:var(--paper);color:var(--ink);line-height:1.65;font-size:16px}
+.topbar{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;height:52px;background:var(--ink);border-bottom:2px solid var(--accent)}
+.topbar a{font-family:var(--fm);font-size:.72rem;color:rgba(246,244,239,.65);text-decoration:none;letter-spacing:.05em}
+.topbar a:hover{color:#fff}
+.topbar .logo{font-family:var(--fd);font-weight:700;font-size:1rem;color:var(--paper);letter-spacing:.08em}
+.topbar .logo span{color:var(--accent)}
+.wrap{max-width:860px;margin:0 auto;padding:2.5rem 2rem 5rem}
+h1{font-family:var(--fd);font-weight:800;font-size:1.9rem;line-height:1.15;margin:2.2rem 0 1rem}
+h2{font-family:var(--fd);font-weight:700;font-size:1.3rem;margin:2.4rem 0 .8rem;padding-top:1rem;border-top:1px solid var(--border)}
+h3{font-family:var(--fd);font-weight:700;font-size:1.05rem;margin:1.6rem 0 .6rem}
+h4{font-family:var(--fd);font-weight:600;font-size:.92rem;margin:1.2rem 0 .5rem;color:var(--ink-soft)}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.4rem}
+li{margin:.3rem 0}
+code{font-family:var(--fm);font-size:.86em;background:var(--paper-warm);padding:.1em .35em;border-radius:4px}
+blockquote{margin:1.2rem 0;padding:.9rem 1.1rem;background:#fff;border-left:4px solid var(--accent);
+  border-radius:0 8px 8px 0;font-size:.92rem;color:var(--ink-soft)}
+blockquote p{margin:.4rem 0}
+hr{border:0;border-top:1px solid var(--border);margin:2.4rem 0}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.86rem;display:block;overflow-x:auto}
+th,td{border:1px solid var(--border);padding:.5rem .7rem;text-align:left;vertical-align:top}
+th{background:var(--paper-warm);font-family:var(--fd);font-weight:700}
+tr:nth-child(even) td{background:rgba(255,255,255,.5)}
+a{color:var(--accent)}
+.meta{font-family:var(--fm);font-size:.72rem;color:var(--ink-muted);letter-spacing:.04em;margin-top:.4rem}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <a class="logo" href="../index.html"><span>Robótica</span>-MBSE</a>
+  <a href="../index.html#repositorio">← Volver al curso</a>
+</nav>
+<div class="wrap">
+<h1 id="oferta-opt-rob-01-robot-terrestre-pesado-multiproposito">Oferta OPT-ROB-01 — Robot terrestre pesado multipropósito</h1>
+<h2 id="anexo-i-requisitos-funcionales-y-condiciones-tecnicas-de-ejecucion">Anexo I. Requisitos funcionales y condiciones técnicas de ejecución</h2>
+<blockquote>
+<p><strong>Nota docente.</strong> Este documento es una <strong>adaptación anonimizada y resumida</strong> de un
+pliego de licitación real de I+D. Se han sustituido el organismo contratante, las
+referencias institucionales y el encuadre de defensa por un <strong>Cliente genérico</strong> y un
+marco de <strong>uso civil</strong> (emergencias, logística, obra pública, extinción de incendios,
+vialidad invernal). <strong>Se conservan sin cambios</strong> los identificadores de requisito
+(<code>RGEN-xx</code>, <code>RLT1-xx</code>, <code>RLT2-xx</code>, <code>ROPE-xx</code>, <code>RPdO-xx</code>, <code>RNAV-xx</code>, <code>RCOM-xx</code>,
+<code>RSW-xx</code>, <code>RPVyA-xx</code>, <code>RDOC-xx</code>), las tres fases del contrato, los cuatro modos de
+operación y <strong>todas las magnitudes numéricas</strong>. Úsalo como si fuera el encargo real de
+tu equipo.</p>
+</blockquote>
+<hr />
+<h2 id="1-introduccion-objetivo-y-alcance">1. Introducción, objetivo y alcance</h2>
+<h3 id="11-introduccion">1.1 Introducción</h3>
+<p>Los <strong>sistemas terrestres no tripulados</strong> (UGV, <em>Unmanned Ground Vehicle</em>) permiten
+ejecutar tareas peligrosas o penosas sin exponer a las personas que las realizarían:
+intervención en emergencias (búsqueda y rescate, incendios, inundaciones, nevadas),
+transporte logístico en terreno difícil, movimiento de tierras, limpieza y despeje de
+rutas, y trabajos de ingeniería civil.</p>
+<p>Un UGV con <strong>arquitectura modular y abierta</strong> puede adaptarse a muchas tareas cambiando
+sus cargas útiles y sus módulos funcionales. Los UGV de mayor tamaño y potencia añaden
+capacidad de carga y de movilidad todoterreno, pero las soluciones de gran tamaño están
+todavía en fase experimental: se necesita I+D para llevarlas a un TRL alto manteniendo
+prestaciones elevadas de movilidad y carga.</p>
+<h3 id="12-objetivo">1.2 Objetivo</h3>
+<p>Desarrollar un <strong>UGV pesado multipropósito con capacidades autónomas</strong>, de carácter
+<strong>modular</strong>, capaz de desempeñar misiones muy diversas que requieren transportar y
+manejar cargas de elevado peso y dimensiones, y que pueda configurarse fácilmente para
+una misión u otra.</p>
+<p>Esto exige:</p>
+<ul>
+<li>una plataforma robótica con dimensiones y robustez suficientes para alojar esas cargas;</li>
+<li>un tren de propulsión con la potencia y tracción necesarias para transportarlas en su
+  entorno de operación, con las prestaciones de movilidad que la misión requiera;</li>
+<li>un nivel de protección acorde a la peligrosidad de las misiones;</li>
+<li>una arquitectura abierta y modular que permita reconfigurar la plataforma variando
+  cargas útiles y equipos embarcados.</li>
+</ul>
+<p>Las prestaciones de movilidad deben permitir además <strong>operar junto a vehículos tripulados</strong>
+del mismo tipo, desplazándose por los mismos terrenos sin quedarse rezagado.</p>
+<p>Se buscan sistemas <strong>concebidos como UGV desde el origen</strong>, no vehículos tripulados
+robotizados: se pretende un diseño compacto que prescinda del espacio, el blindaje y el
+coste asociados a llevar tripulación a bordo.</p>
+<h3 id="13-alcance">1.3 Alcance</h3>
+<p>El desarrollo de un <strong>Sistema UGV</strong> incluye, para cada lote:</p>
+<ul>
+<li>un <strong>vehículo autónomo pesado multipropósito y multimisión</strong> (el UGV);</li>
+<li>un <strong>UAV de apoyo</strong> que facilite la teleoperación del UGV, el seguimiento de la misión y
+  la consciencia situacional;</li>
+<li>un <strong>Puesto de Mando Portable (PMP)</strong> con: puesto de operación para el UGV y los UxV
+  asociados; subsistemas auxiliares de comunicaciones y alimentación eléctrica; pérgola,
+  mesas y sillas para los operadores;</li>
+<li>un <strong>Dispositivo de Telemando Portable</strong> para la teleoperación cercana (independiente
+  del PMP) o lejana (a través del subsistema de comunicaciones del PMP);</li>
+<li><strong>subsistemas auxiliares</strong>: baúles de transporte, transportines o remolques;</li>
+<li>opcionalmente, vehículos autónomos adicionales (terrestres o aéreos) con sus
+  repetidores, para operación remota a larga distancia;</li>
+<li>las <strong>cargas de pago</strong> que se mencionen en los requisitos de cada misión;</li>
+<li>la <strong>documentación técnica</strong> requerida en este pliego;</li>
+<li>las <strong>pruebas de verificación y validación en campo</strong>: ensayos, demostraciones,
+  formación de operadores, transporte, puesta en marcha y mantenimiento durante las
+  pruebas;</li>
+<li>si procede, mantenimiento de primer escalón y consultoría remota durante la garantía.</li>
+</ul>
+<p>Como es muy difícil que un único diseño opere con eficiencia en cualquier entorno, se
+plantean <strong>dos lotes de desarrollo</strong>:</p>
+<ul>
+<li><strong>Lote 1 — UGV de ruedas:</strong> mayores velocidades en terrenos relativamente llanos y
+  consolidados. Orientado a operaciones tácticas, transporte y limpieza de rutas.</li>
+<li><strong>Lote 2 — UGV de cadenas:</strong> mayor superficie de tracción y estabilidad en terrenos
+  accidentados y resbaladizos. Orientado a extinción de incendios y movimiento de tierras
+  (operaciones de ingenieros).</li>
+</ul>
+<p>Dentro de cada lote la plataforma debe cubrir el mayor número posible de cometidos sin
+perjudicar su eficiencia operativa.</p>
+<h3 id="14-abreviaturas-y-siglas-seleccion">1.4 Abreviaturas y siglas (selección)</h3>
+<table>
+<thead>
+<tr>
+<th>Sigla</th>
+<th>Significado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BLOS</td>
+<td><em>Beyond Line of Sight</em> — más allá de la línea de visión</td>
+</tr>
+<tr>
+<td>CIS</td>
+<td>Sistema de interfaz cartográfica</td>
+</tr>
+<tr>
+<td>EO/IR</td>
+<td>Electro-óptico / infrarrojo</td>
+</tr>
+<tr>
+<td>GNSS</td>
+<td>Sistema global de navegación por satélite</td>
+</tr>
+<tr>
+<td>GUI</td>
+<td>Interfaz gráfica de usuario</td>
+</tr>
+<tr>
+<td>IMU</td>
+<td>Unidad de medición inercial</td>
+</tr>
+<tr>
+<td>ISTAR</td>
+<td>Inteligencia, vigilancia, adquisición de objetivos y reconocimiento</td>
+</tr>
+<tr>
+<td>LIDAR</td>
+<td>Detección y medición de distancias mediante imágenes láser</td>
+</tr>
+<tr>
+<td>PMP</td>
+<td>Puesto de Mando Portable</td>
+</tr>
+<tr>
+<td>SysML / UML</td>
+<td>Lenguajes de modelado de sistemas / unificado de modelado</td>
+</tr>
+<tr>
+<td>TRL</td>
+<td><em>Technology Readiness Level</em> — nivel de madurez tecnológica</td>
+</tr>
+<tr>
+<td>UAV</td>
+<td>Vehículo aéreo no tripulado</td>
+</tr>
+<tr>
+<td>UGV / UGS</td>
+<td>Vehículo / sistema terrestre no tripulado</td>
+</tr>
+<tr>
+<td>UxV</td>
+<td>Otros sistemas no tripulados</td>
+</tr>
+</tbody>
+</table>
+<h3 id="15-definicion-de-terminos">1.5 Definición de términos</h3>
+<ul>
+<li><strong>Equipos de Control:</strong> subsistemas electrónicos y de computación que gestionan la
+  movilidad del UGV y el resto de funcionalidades.</li>
+<li><strong>Dispositivo de Telemando Portable:</strong> dispositivo tipo <em>tablet</em> con <em>joystick</em> y
+  botones para la teleoperación cercana del UGV (o lejana a través del PMP).</li>
+<li><strong>Interfaz:</strong> programa informático (o MMI) desde el cual el operador interactúa con los
+  subsistemas, el planeamiento, el almacenamiento y demás componentes del UGV.</li>
+<li><strong>Misión / Tarea:</strong> periodo de operación del vehículo en modo autónomo durante el cual
+  sus sensores recogen datos.</li>
+<li><strong>Modo APAGADO:</strong> el UGV está totalmente apagado; arquitectura, software y
+  comunicaciones no funcionan.</li>
+<li><strong>Modo AUTÓNOMO:</strong> la plataforma ejecuta automáticamente tareas previamente planeadas,
+  con parámetros establecidos y sin intervención exterior, según los objetivos deseados.
+  Siempre hay un operador monitorizando el progreso.</li>
+<li><strong>Modo FUERA DE LÍNEA (<em>offline</em>):</strong> permite arrancar el UGV para comprobar
+  funcionamiento e intercambio de datos, definir misiones y realizar chequeos.</li>
+<li><strong>Modo TELEOPERADO:</strong> la plataforma se opera de forma remota desde el Puesto de
+  Operación.</li>
+<li><strong>Puesto de Mando:</strong> lugar físico con los equipos y el personal para ejecutar,
+  monitorizar y analizar las misiones.</li>
+<li><strong>Puesto de Operación / Operador:</strong> conjunto de equipos de visualización, mandos,
+  computación, alimentación, cableado, comunicaciones y sus maletas de transporte. Suele
+  estar en el Puesto de Mando.</li>
+<li><strong>Sistema UGV:</strong> todo el sistema a desarrollar (UGV + cargas de pago + UxV adicionales +
+  Puesto de Mando + ...).</li>
+<li><strong>Teleoperar:</strong> gobernar el vehículo no tripulado mediante control remoto realizado por
+  una persona.</li>
+</ul>
+<hr />
+<h2 id="2-fases-de-ejecucion">2. Fases de ejecución</h2>
+<p>El proyecto consta de <strong>tres fases</strong>; al final de cada una se entregan, por lote, los
+demostradores de la solución, debidamente probados y validados.</p>
+<table>
+<thead>
+<tr>
+<th>Fase</th>
+<th>Duración</th>
+<th>Contenido</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Fase I — Diseño de la solución</strong></td>
+<td>5 meses desde la firma</td>
+<td>Diseño conceptual y preliminar de la solución completa: arquitectura física y lógica global (chasis, propulsión y energía, suspensión y tren de rodaje, carrozado y auxiliares, sensores de percepción y navegación, comunicaciones, computación embarcada, <em>drive-by-wire</em>, distribución de potencia, puesto de mando y control). Ingeniería de dimensionamiento y validación de todos los elementos estructurales y funcionales, <strong>apoyándose en técnicas de simulación</strong>. Especificación y selección de componentes; compra de los críticos.</td>
+</tr>
+<tr>
+<td><strong>Fase II — Desarrollo y pruebas de verificación del prototipo</strong></td>
+<td>21 meses desde la certificación de Fase I</td>
+<td>Desarrollo del prototipo completo con todas las capacidades. <strong>Hito intermedio</strong> de documentación técnica y su validación. Pruebas: unitarias, de interfaz, de sistema en entorno controlado (fábrica) y pruebas iniciales de misión en fábrica.</td>
+</tr>
+<tr>
+<td><strong>Fase III — Validación pre-operacional</strong></td>
+<td>4 meses desde la certificación de Fase II</td>
+<td>Corrección de incidencias de la fase anterior. Pruebas de sistema en entorno real (campo) a modo de regresión, y pruebas de misión en campo con los operadores.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-requisitos-tecnicos-y-caracteristicas">3. Requisitos técnicos y características</h2>
+<h3 id="31-requisitos-generales-comunes-a-ambos-lotes">3.1 Requisitos generales comunes a ambos lotes</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito (resumen)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RGEN-01</strong></td>
+<td>El contratista diseñará, desarrollará e instalará una plataforma terrestre no tripulada que gobierne su comportamiento y permita su supervisión/control remoto desde el PMP.</td>
+</tr>
+<tr>
+<td><strong>RGEN-02</strong></td>
+<td>Alta modularidad: configuración y módulos funcionales fácilmente adaptables e <strong>intercambiables</strong>.</td>
+</tr>
+<tr>
+<td><strong>RGEN-03</strong></td>
+<td>Una <strong>barcaza (bastidor) principal</strong> común a toda la gama de configuraciones del lote, mediante acoplamiento/desacoplamiento de módulos, accesorios e implementos.</td>
+</tr>
+<tr>
+<td><strong>RGEN-04</strong></td>
+<td>El UGV se concibe <strong>como robot desde el origen</strong>; se excluyen plataformas tripuladas robotizadas.</td>
+</tr>
+<tr>
+<td><strong>RGEN-05</strong></td>
+<td>La arquitectura permitirá incorporar nuevos módulos, cargas de pago e implementos, y vincular otros UxV para operación conjunta.</td>
+</tr>
+<tr>
+<td><strong>RGEN-06</strong></td>
+<td>Resistencia de UGV y subsistemas a agentes ambientales: temperaturas extremas, lluvia, humedad, corrosión, radiación solar.</td>
+</tr>
+<tr>
+<td><strong>RGEN-07</strong></td>
+<td>Proceso de fabricación lo más simple y económico posible (reparación/reemplazo poco costoso).</td>
+</tr>
+<tr>
+<td><strong>RGEN-08</strong></td>
+<td><em>[OPCIONAL]</em> Minimizar la variedad de herramientas para reparaciones de primer escalón.</td>
+</tr>
+<tr>
+<td><strong>RGEN-09</strong></td>
+<td>Sistema de detección de obstáculos estáticos y dinámicos, basado en tecnologías radiantes (LiDAR, radar) y/o no radiantes (visión). El sistema podrá pasar a un <strong>Modo de Detección SIGILOSO</strong> (radiantes desactivadas); siempre estará en modo SIGILOSO o NORMAL, conmutable desde cualquier Equipo de Control y en cualquier modo de operación.</td>
+</tr>
+<tr>
+<td><strong>RGEN-10</strong></td>
+<td>Capacidad de arrastrar un <strong>remolque trasero de ≥ 3.000 kg</strong>, con gancho normalizado (deseable escamoteable).</td>
+</tr>
+<tr>
+<td><strong>RGEN-11</strong></td>
+<td><strong>Sistema de propulsión híbrida:</strong> pack de baterías + motor eléctrico + motor de combustión interna apto para <strong>biocombustible 100 %</strong>.</td>
+</tr>
+<tr>
+<td><strong>RGEN-12</strong></td>
+<td>Baterías recargables por el motor de combustión y por <strong>energía regenerada en frenadas</strong>.</td>
+</tr>
+<tr>
+<td><strong>RGEN-13</strong></td>
+<td>Modo <strong>puramente eléctrico</strong> (sin motor de combustión), para operar con firma térmica y acústica reducida.</td>
+</tr>
+<tr>
+<td><strong>RGEN-14</strong></td>
+<td>Autonomía total <strong>≥ 8 h de funcionamiento o ≥ 400 km</strong>.</td>
+</tr>
+<tr>
+<td><strong>RGEN-15</strong></td>
+<td>Autonomía en modo puramente eléctrico <strong>≥ 2 h o ≥ 100 km</strong>.</td>
+</tr>
+<tr>
+<td><strong>RGEN-16</strong></td>
+<td>Remolcable por otros vehículos a <strong>≥ 65 km/h</strong>.</td>
+</tr>
+<tr>
+<td><strong>RGEN-17</strong></td>
+<td><strong>Frenado automático ante riesgo de colisión</strong>, progresivo siempre que sea posible; deshabilitable manualmente para evitar bloqueos por falsos señuelos.</td>
+</tr>
+<tr>
+<td><strong>RGEN-18</strong></td>
+<td><em>[OPCIONAL]</em> Movilidad híbrida <strong>enchufable</strong> (recarga también desde puntos de recarga).</td>
+</tr>
+<tr>
+<td><strong>RGEN-19</strong></td>
+<td><em>[OPCIONAL]</em> Exportación de energía a sistemas externos, <strong>≥ 120 kW</strong>.</td>
+</tr>
+<tr>
+<td><strong>RGEN-20</strong></td>
+<td>Sistema de iluminación con <strong>cobertura completa 360°</strong>, configurable por el operador.</td>
+</tr>
+<tr>
+<td><strong>RGEN-21</strong></td>
+<td>Rejillas de protección en los faros capaces de retener piedras de <strong>≥ 3 cm</strong> sin afectar a la emisión luminosa.</td>
+</tr>
+<tr>
+<td><strong>RGEN-22</strong></td>
+<td>Medios de captación de imagen y sensores para consciencia situacional y teleoperación (visualización de implementos y tren de rodaje, imágenes de cada lateral, visión de profundidad 360° y <strong>cámara térmica</strong> para puntos calientes), todos protegidos.</td>
+</tr>
+<tr>
+<td><strong>RGEN-23</strong></td>
+<td>Puntos de anclaje para rescate o autorrescate por tracción (perrillos y eslingas).</td>
+</tr>
+<tr>
+<td><strong>RGEN-24</strong></td>
+<td>Puntos de amarre y estiba para <strong>aerotransporte</strong> como carga en aeronaves de ala fija, dimensionados para los factores de carga (norma de referencia aplicable).</td>
+</tr>
+<tr>
+<td><strong>RGEN-25</strong></td>
+<td>Puntos de amarre y estiba para <strong>transporte terrestre</strong> seguro como carga (norma UNE-EN 12195).</td>
+</tr>
+<tr>
+<td><strong>RGEN-26</strong></td>
+<td>Cabestrante de gran capacidad y/o tracción con eslingas, con procedimientos de seguridad para terrenos irregulares y recuperación de vehículos atrapados / autorrecuperación.</td>
+</tr>
+<tr>
+<td><strong>RGEN-27</strong></td>
+<td>El contratista desarrollará el UGV eligiendo <strong>un</strong> lote (1 ruedas o 2 cadenas); opcionalmente ambos, de forma independiente.</td>
+</tr>
+<tr>
+<td><strong>RGEN-28</strong></td>
+<td>El UGV tendrá <strong>Puntos de Interfaz</strong> accesibles (mecánicos, eléctricos, lógicos o combinados) para integrar cargas de pago. Para cada lote se definen sus Puntos de Interfaz y cargas asociadas: el contratista <strong>desarrolla y entrega los OBLIGATORIOS</strong> y, opcionalmente, los OPCIONALES.</td>
+</tr>
+<tr>
+<td><strong>RGEN-29</strong></td>
+<td>Los Puntos de Interfaz no comprometerán la <strong>estabilidad</strong> del UGV, con o sin carga de pago montada.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="32-requisitos-para-el-ugv-de-ruedas-alta-movilidad-lote-1">3.2 Requisitos para el UGV de ruedas — alta movilidad (Lote 1)</h3>
+<h4 id="321-generales">3.2.1 Generales</h4>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito (resumen)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RLT1-01</strong></td>
+<td>Tren de tracción de <strong>ruedas</strong>, para mayores velocidades en terrenos llanos y consolidados.</td>
+</tr>
+<tr>
+<td><strong>RLT1-02</strong></td>
+<td>Configuración <strong>4×4, 6×6 u 8×8</strong>, con elevadas capacidades todoterreno de dificultad promedio a alta velocidad.</td>
+</tr>
+<tr>
+<td><strong>RLT1-03</strong></td>
+<td>Movilidad en carretera y campo a través de dificultad intermedia: <strong>velocidad en carretera ≥ 75 km/h</strong>; <strong>campo a través ≥ 50 km/h</strong>; <strong>pendiente frontal ≥ 60 %</strong>; <strong>pendiente lateral ≥ 30 %</strong>; <strong>obstáculo vertical ≥ 30 cm</strong> (deseable 40 cm). Se admite degradación en arena, guijarros o superficies resbaladizas.</td>
+</tr>
+<tr>
+<td><strong>RLT1-04</strong></td>
+<td><strong>Tracción directa e independiente en cada rueda.</strong></td>
+</tr>
+<tr>
+<td><strong>RLT1-05</strong></td>
+<td><strong>Suspensión neumática retráctil y regulable</strong>, independiente en cada brazo de cada rueda.</td>
+</tr>
+<tr>
+<td><strong>RLT1-06</strong></td>
+<td>Tara (peso en vacío) entre <strong>3.500 y 7.000 kg</strong>.</td>
+</tr>
+<tr>
+<td><strong>RLT1-07</strong></td>
+<td>Capacidad de carga <strong>≥ 2.000 kg</strong>.</td>
+</tr>
+<tr>
+<td><strong>RLT1-08</strong></td>
+<td>Peso total en orden de misión <strong>≤ 9.000 kg</strong> en todo caso.</td>
+</tr>
+<tr>
+<td><strong>RLT1-09</strong></td>
+<td>Potencia total del sistema de propulsión <strong>≥ 140 kW (≈ 190 CV)</strong>.</td>
+</tr>
+<tr>
+<td><strong>RLT1-10</strong></td>
+<td>Vadeo sin preparación <strong>≥ 0,75 m</strong> (agua dulce o salada).</td>
+</tr>
+<tr>
+<td><strong>RLT1-11</strong></td>
+<td><em>[OPCIONAL]</em> Protección balística mediante blindaje modular/removible frente a armas de pequeño calibre.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="322-puntos-de-interfaz-lote-1">3.2.2 Puntos de Interfaz (Lote 1)</h4>
+<ul>
+<li><strong>RLT1-12 — Zona frontal (Punto de Interfaz 1):</strong> interfaz electromecánico para
+  <strong>limpieza de rutas</strong>, con cargas alternativas: hoja quitanieves <strong>(CP-01, OBLIGATORIA)</strong>
+  anchura ≥ 2.250 mm, acero Brinell ≥ 450, orientable; fresadora de nieve <strong>(CP-02,
+  opcional)</strong> anchura ≥ 2.000 mm, altura ≥ 1.000 mm, proyección ≥ 25 m; rodillo de presión
+  sobre el terreno <strong>(CP-03, opcional)</strong> barrido ≥ 2,2 m, &gt; 5 km/h, ≥ 300 kg por rueda.</li>
+<li><strong>RLT1-13 — Zona superior:</strong></li>
+<li><strong>Punto de Interfaz 2:</strong> sensores y efectores; cargas alternativas: <strong>módulo de
+    efectores especiales (CP-04, OBLIGATORIA, no detallado en esta versión docente)</strong>;
+    módulo optrónico de adquisición sobre mástil retráctil para ISTAR <strong>(CP-05, opcional)</strong>;
+    brazo robótico articulado para manipulación de muestras y objetos <strong>(CP-06, opcional)</strong>,
+    con sensores de visión para su teleoperación.</li>
+<li><strong>Punto de Interfaz 3:</strong> <strong>bahía de carga</strong> de gran capacidad; elementos alternativos:
+    equipos y víveres <strong>(CP-07, opcional)</strong>; camillas o células medicalizadas <strong>(CP-08,
+    opcional)</strong>; plataforma de recarga simultánea de dos UAV <strong>(CP-09, OBLIGATORIA)</strong>;
+    subsistema con ≥ 2 puntos de <strong>recarga inalámbrica para UGV transportables</strong> con acceso
+    de entrada/salida sin acción humana (función Nodriza) <strong>(CP-10, OBLIGATORIA)</strong>;
+    contenedor de despliegue de carga lineal <strong>(CP-11, opcional; solo el contenedor o
+    réplica)</strong>; tolva dispensadora de sal <strong>(CP-12, opcional)</strong> capacidad ≥ 1,2 m³, ancho de
+    proyección 2–6 m, salida trasera; contenedor compartimentado para muestras líquidas y
+    sólidas <strong>(CP-13, opcional)</strong>.</li>
+<li><strong>RLT1-14 — Zona trasera (Punto de Interfaz 4):</strong> enganche mecánico de remolques de
+  hasta 3.000 kg <strong>(CP-14, OBLIGATORIA)</strong>.</li>
+</ul>
+<h3 id="33-requisitos-para-el-ugv-de-cadenas-trabajos-sobre-terreno-lote-2">3.3 Requisitos para el UGV de cadenas — trabajos sobre terreno (Lote 2)</h3>
+<h4 id="331-generales">3.3.1 Generales</h4>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito (resumen)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RLT2-01</strong></td>
+<td>Tren de tracción de <strong>cadenas metálicas</strong>; elevada movilidad todoterreno en entornos especialmente difíciles.</td>
+</tr>
+<tr>
+<td><strong>RLT2-02</strong></td>
+<td>Movilidad: <strong>carretera ≥ 50 km/h</strong>; <strong>campo a través ≥ 40 km/h</strong>; <strong>pendiente frontal ≥ 60 %</strong>; <strong>lateral ≥ 30 %</strong>; <strong>obstáculo vertical ≥ 40 cm</strong>.</td>
+</tr>
+<tr>
+<td><strong>RLT2-03</strong></td>
+<td><em>[OPCIONAL]</em> Dos funciones de trabajo: alta potencia de empuje (≤ 14 km/h) y transporte (sin límite de velocidad máxima).</td>
+</tr>
+<tr>
+<td><strong>RLT2-04</strong></td>
+<td>Tara entre <strong>9.000 y 12.000 kg</strong>.</td>
+</tr>
+<tr>
+<td><strong>RLT2-05</strong></td>
+<td>Capacidad de carga <strong>≥ 4.000 kg</strong>.</td>
+</tr>
+<tr>
+<td><strong>RLT2-06</strong></td>
+<td>Peso total en orden de misión <strong>≤ 17.000 kg</strong>.</td>
+</tr>
+<tr>
+<td><strong>RLT2-07</strong></td>
+<td>Potencia <strong>≥ 200 kW (≈ 270 CV) continuos</strong>, picos de 250–300 kW por propulsión eléctrica, y <strong>potencia hidráulica para implementos ≥ 100–120 kW</strong>.</td>
+</tr>
+<tr>
+<td><strong>RLT2-08</strong></td>
+<td>Vadeo sin preparación <strong>≥ 1,2 m</strong>.</td>
+</tr>
+<tr>
+<td><strong>RLT2-09</strong></td>
+<td>Anchura en configuración de transporte (con <em>ripper</em> y hoja <em>dozer</em>) <strong>≤ 3 m</strong>.</td>
+</tr>
+<tr>
+<td><strong>RLT2-10</strong></td>
+<td>Protección total frente a caídas o proyecciones desde cualquier ángulo, incluida la superior (referencia <strong>FOPS Nivel II, UNE-EN ISO 3449</strong>); atención a cámaras, sensores y tomas.</td>
+</tr>
+<tr>
+<td><strong>RLT2-11</strong></td>
+<td>Iluminación con cobertura completa <strong>360°</strong>.</td>
+</tr>
+<tr>
+<td><strong>RLT2-12</strong></td>
+<td>Rejillas de protección en faros (piedras ≥ 3 cm).</td>
+</tr>
+<tr>
+<td><strong>RLT2-13</strong></td>
+<td>Cajones de almacenaje para herramienta de mantenimiento de primer escalón.</td>
+</tr>
+<tr>
+<td><strong>RLT2-14</strong></td>
+<td><em>[OPCIONAL]</em> Espacio para 2 extintores portátiles de 9 kg, clase ABC.</td>
+</tr>
+<tr>
+<td><strong>RLT2-15</strong></td>
+<td><em>[OPCIONAL]</em> Protección térmica (fundas) para trabajo continuo <strong>≥ 260 °C</strong> en cableado, canalizaciones de combustible, hidráulico, frenado y refrigerante; aceite hidráulico con temperatura de ignición ≥ 120 °C.</td>
+</tr>
+<tr>
+<td><strong>RLT2-16</strong></td>
+<td><em>[OPCIONAL]</em> Fundas de fibra de vidrio con silicona: servicio continuo −60 °C a 260 °C; resisten ≥ 30 min a 800 °C, 15 min a 1.100 °C, 1 min a 1.500 °C.</td>
+</tr>
+<tr>
+<td><strong>RLT2-17</strong></td>
+<td><em>[OPCIONAL]</em> Recuperación por arrastre desacoplando los componentes motrices de la cadena, sin herramientas.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="332-puntos-de-interfaz-lote-2">3.3.2 Puntos de Interfaz (Lote 2)</h4>
+<ul>
+<li><strong>RLT2-18 — Zona frontal:</strong></li>
+<li><strong>Punto de Interfaz 1:</strong> modificación del terreno / limpieza de rutas: <strong>hoja
+    empujadora <em>dozer</em> (CP-15, OBLIGATORIA)</strong> anchura ≥ 3.000 mm, altura ≥ 1.200 mm,
+    elevable y orientable hidráulicamente, profundidad de excavación ≥ 450 mm, anchura
+    reducible; rodillo de presión sobre el terreno <strong>(CP-16, opcional)</strong> barrido ≥ 2,2 m,
+    &gt; 5 km/h, ≥ 300 kg por rueda; <strong>desbrozadora forestal (CP-17, opcional)</strong> ancho ≥ 2 m,
+    rendimiento &gt; 0,4 ha/h (deseable 0,6).</li>
+<li><strong>Punto de Interfaz 2:</strong> <strong>cuchara cargadora (CP-18, opcional)</strong> con dos brazos
+    hidráulicos, anchura ≥ 2.250 mm, capacidad colmada ≥ 1 m³.</li>
+<li><strong>RLT2-19 — Zona superior:</strong></li>
+<li><strong>Punto de Interfaz 3 — extinción de incendios:</strong> <strong>bomba de impulsión de agente
+    extintor de alta presión (CP-19, OBLIGATORIA)</strong>, presión &gt; 20 bar, caudal máx. ≥ 220
+    L/min; monitor con control remoto de orientación (85° vertical, 360° horizontal), cono
+    0–90°, caudal 19–200 L/min, presión de trabajo 6–9 bar, y generación de espuma.</li>
+<li><strong>Punto de Interfaz 4 — bahía de carga:</strong> equipos y víveres <strong>(CP-20, opcional)</strong>;
+    contenedor de despliegue de carga lineal <strong>(CP-21, opcional)</strong>; <strong>depósito de agua
+    (CP-22, OBLIGATORIA)</strong> ≥ 2.750 L, con tomas tipo Barcelona de 25, 45 y 70 mm;
+    contenedor abierto tipo volquete <strong>(CP-23, opcional)</strong>.</li>
+<li><strong>RLT2-20 — Zona trasera:</strong></li>
+<li><strong>Punto de Interfaz 5:</strong> <strong>arado / <em>ripper</em> de tres rejones (CP-24, OBLIGATORIA)</strong>,
+    profundidad ≥ 28 cm, anchura útil 2,5–3 m.</li>
+<li><strong>Punto de Interfaz 6:</strong> <strong>brazo hidráulico retro con cazo (CP-25, opcional)</strong>, ancho
+    500–700 mm, cazo ≥ 0,20 m³, alcance horizontal ≥ 5,5 m, profundidad de excavación
+    ≥ 4,5 m.</li>
+</ul>
+<h3 id="34-modos-de-operacion">3.4 Modos de operación</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito (resumen)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ROPE-01</strong></td>
+<td>El Sistema UGV funciona con <strong>supervisión de un operador</strong>, directa (teleoperando) o indirecta (supervisión autónoma). Se implementan <strong>tres modos</strong>: TELEOPERADO, AUTÓNOMO y, para movimientos cercanos o preparación, FUERA DE LÍNEA (planificación de misiones en el PMP, transporte, mantenimiento).</td>
+</tr>
+<tr>
+<td><strong>ROPE-02</strong></td>
+<td>El modo <strong>TELEOPERADO</strong> permite control directo de dirección, aceleración y frenado, y de otras funciones del vehículo (propulsión, suspensión, luces, refrigeración, cámaras perimetrales) y de las cargas útiles.</td>
+</tr>
+<tr>
+<td><strong>ROPE-03</strong></td>
+<td>En TELEOPERADO el operador gobierna desde cualquier Equipo de Control no embarcado (Puesto de Operación y Dispositivo de Telemando Portable), apoyándose en las imágenes del UAV de apoyo.</td>
+</tr>
+<tr>
+<td><strong>ROPE-04</strong></td>
+<td>El UAV de apoyo tiene dos modos: <strong>TELEOPERADO</strong> y <strong>CAUTIVO VIRTUAL</strong> (sigue al UGV automáticamente), activables desde los Equipos de Control no embarcados.</td>
+</tr>
+<tr>
+<td><strong>ROPE-05</strong></td>
+<td>El modo <strong>AUTÓNOMO</strong> minimiza la interacción humana e incluye, al menos, estos submodos activables/desactivables en cualquier momento: (a) navegación por <strong>puntos de paso</strong> (<em>waypoints</em>); (b) navegación por <strong>punto de destino</strong> (el vehículo decide la trayectoria, incluso marcha atrás); (c) <strong>regreso autónomo</strong> a un punto anterior o al origen (vuelta a casa); (d) <strong>seguimiento automático</strong> de personas o vehículos; (e) <strong>lanzadera</strong> (<em>shuttle</em>) entre dos puntos.</td>
+</tr>
+<tr>
+<td><strong>ROPE-06</strong></td>
+<td>En modo AUTÓNOMO, capacidad de <strong>«Detectar y Evadir»</strong> obstáculos estáticos y dinámicos, en modo de detección NORMAL o SIGILOSO: recalcular trayectorias, marcha atrás, buscar alternativas.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="35-requisitos-para-la-ejecucion-de-misiones">3.5 Requisitos para la ejecución de misiones</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito (resumen)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ROPE-07</strong></td>
+<td>Ciclo de vida de una misión: <strong>(a) Planeamiento</strong> en modo FUERA DE LÍNEA, con la GUI, produce un <strong>fichero de misión</strong> que se almacena en el UGV; <strong>(b) Ejecución</strong> ordenada desde el Puesto de Operación, en TELEOPERADO o AUTÓNOMO, con cambio entre modos; <strong>(c) Finalización</strong>: vuelta a FUERA DE LÍNEA, mantenimiento de primer escalón (limpieza de cámaras, carga de baterías) y transmisión de datos (imágenes/vídeos).</td>
+</tr>
+<tr>
+<td><strong>ROPE-08</strong></td>
+<td>Toda misión debe tener definidos, como mínimo, el <strong>modo teleoperado y la vuelta a casa</strong>; no se ejecuta ningún modo autónomo no definido en esa misión salvo cancelación o pausa.</td>
+</tr>
+<tr>
+<td><strong>ROPE-09</strong></td>
+<td>Familias de misión previstas (probadas en Fases II y III): <strong>Lote 1</strong> — ISTAR, materiales peligrosos, logística, evacuación, búsqueda y rescate, Nodriza, limpieza de rutas, apoyo en tormentas invernales; <strong>Lote 2</strong> — extinción de incendios, intervención en emergencias y catástrofes, trabajos de ingenieros.</td>
+</tr>
+<tr>
+<td><strong>ROPE-10</strong></td>
+<td>El cambio entre modos durante una misión debe ser <strong>lo más rápido posible</strong>, sin retrasar el desarrollo de la misión.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="36-requisitos-tecnicos-del-puesto-de-operacion">3.6 Requisitos técnicos del Puesto de Operación</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito (resumen)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RPdO-01</strong></td>
+<td>Puesto de Operación <strong>móvil y embarcable</strong> en un vehículo tipo <em>shelter</em> o <em>shelter</em> transportable; permite teleoperación directa o funciones de navegación autónoma.</td>
+</tr>
+<tr>
+<td><strong>RPdO-02</strong></td>
+<td><strong>Precarga de mapas</strong> de la zona en el sistema CIS del UGV para dar soporte a la navegación autónoma.</td>
+</tr>
+<tr>
+<td><strong>RPdO-03</strong></td>
+<td>Sistema de <strong>consciencia situacional</strong>: (a) percepción del entorno en visibilidad reducida (vegetación, humo, niebla, lluvia intensa, polvo); (b) <strong>visión perimetral 360°</strong>, diurna y nocturna, bajo distintas condiciones ambientales.</td>
+</tr>
+<tr>
+<td><strong>RPdO-04</strong></td>
+<td>Interfaces con información suficiente para controlar el sistema en cualquier entorno y condición ambiental <strong>sin generar confusión ni estrés</strong> en el operador, aportando información de conducción (visual, auditiva, háptica), de misión y de estado del vehículo.</td>
+</tr>
+<tr>
+<td><strong>RPdO-05</strong></td>
+<td>Puesto de Operación <strong>transportable</strong> en maletas/baúles rugerizados.</td>
+</tr>
+<tr>
+<td><strong>RPdO-06</strong></td>
+<td><strong>Tres interfaces independientes</strong> (conducción, misión y control de carga útil); conducción y misión operadas por un mismo individuo.</td>
+</tr>
+<tr>
+<td><strong>RPdO-07</strong></td>
+<td>Selección y visualización de las imágenes que el operador estime necesarias.</td>
+</tr>
+<tr>
+<td><strong>RPdO-08</strong></td>
+<td><em>[OPCIONAL]</em> Interfaz inmersivo con háptica y realidad aumentada.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="37-requisitos-tecnicos-de-los-sensores-de-navegacion">3.7 Requisitos técnicos de los sensores de navegación</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito (resumen)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RNAV-01</strong></td>
+<td>Sistema de navegación <strong>alternativo al GNSS</strong> para entornos con espectro electromagnético degradado o denegado, con al menos <strong>tres tecnologías independientes de la cobertura satelital</strong> (p. ej. IMU, odometría visual, CRPA), que permita: (a) determinar la posición del UGV con el mínimo error; (b) continuar la navegación autónoma por la ruta programada durante el mayor tiempo posible o hasta recuperar la señal, con <strong>distancia mínima de 5 km</strong> en este modo.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="38-requisitos-tecnicos-de-las-comunicaciones">3.8 Requisitos técnicos de las comunicaciones</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito (resumen)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RCOM-01</strong></td>
+<td><strong>Tres módulos de comunicaciones alternativos:</strong> (a) módulo <strong>5G</strong> para misiones de seguridad civil, con cifrado opcional; (b) módulo de <strong>radio</strong> con protección de transmisión y cifrado opcional, interoperable con sistemas en dotación y robusto ante perturbaciones; (c) <strong>terminal satélite comercial</strong> sustituible por uno de mayores prestaciones, con contrato de uso durante el proyecto y la garantía.</td>
+</tr>
+<tr>
+<td><strong>RCOM-02</strong></td>
+<td>Rango de control <strong>más allá de la línea de visión (BLOS) ≥ 20 km</strong> entre UGV y PMP, tanto para supervisión de misión como para teleoperación.</td>
+</tr>
+<tr>
+<td><strong>RCOM-03</strong></td>
+<td>Modo de aseguramiento de las comunicaciones con dos estados, <strong>NORMAL</strong> y <strong>DEGRADADO</strong>; el sistema detecta el cambio (por interferencias o pérdida de línea de visión) y actúa en consecuencia.</td>
+</tr>
+<tr>
+<td><strong>RCOM-04</strong></td>
+<td><strong>Auto-recuperación</strong> del enlace ante pérdida (estado DEGRADADO): en TELEOPERADO, regresión automática del recorrido hasta recuperar señal; en AUTÓNOMO, el vehículo continúa la misión programada.</td>
+</tr>
+<tr>
+<td><strong>RCOM-05</strong></td>
+<td><em>[OPCIONAL]</em> Conexión directa por <strong>fibra en carrete de ≥ 100 m</strong>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="39-requisitos-relativos-al-software">3.9 Requisitos relativos al software</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito (resumen)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RSW-01</strong></td>
+<td>Todo el software desarrollado será <strong>modular</strong>.</td>
+</tr>
+<tr>
+<td><strong>RSW-02</strong></td>
+<td>La documentación explicará la <strong>arquitectura general</strong> con diagramas <strong>UML y/o SysML</strong> más texto: módulos del vehículo, de los puestos de mando y de cualquier subsistema desarrollado.</td>
+</tr>
+<tr>
+<td><strong>RSW-03</strong></td>
+<td>Se documentará el <strong>detalle de las interfaces de entrada/salida</strong> de cada módulo.</td>
+</tr>
+<tr>
+<td><strong>RSW-04</strong></td>
+<td>Son entregable SW: todos los <strong>scripts, ficheros de configuración, datos de prueba, binarios y librerías</strong> (online y offline), generados o comprados, y las licencias necesarias.</td>
+</tr>
+<tr>
+<td><strong>RSW-05</strong></td>
+<td>Apartado de <strong>dependencias</strong>: librerías, compiladores/intérpretes y sistemas operativos, con sus versiones.</td>
+</tr>
+<tr>
+<td><strong>RSW-06</strong></td>
+<td>Los binarios con GUI mostrarán el <strong>logotipo del Cliente</strong> durante 2 s al arrancar y de forma visible en la pantalla principal.</td>
+</tr>
+<tr>
+<td><strong>RSW-07</strong></td>
+<td>El vídeo mostrado y almacenado usará contenedor <strong>MPEG-TS</strong> con compresión MPEG-2 o H.264; si se dispone de posición y orientación de la plataforma, se incluirán como <strong>metadatos KLV</strong> (stream adicional) con cadencia ≥ 1 cada 2 s.</td>
+</tr>
+<tr>
+<td><strong>RSW-08</strong></td>
+<td><em>[OPCIONAL]</em> Transmisión de vídeo a la red local en tiempo real mediante <strong>RTSP/RTP</strong> en dirección multicast.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="310-requisitos-de-las-pruebas">3.10 Requisitos de las pruebas</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito (resumen)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RPVyA-01</strong></td>
+<td>Las pruebas de verificación y validación tendrán en cuenta los <strong>modos operativos</strong> (TELEOPERADO, AUTÓNOMO, FUERA DE LÍNEA), los <strong>modos de detección</strong> (NORMAL, SIGILOSO) y los <strong>modos de comunicaciones</strong> (NORMAL, DEGRADADO).</td>
+</tr>
+<tr>
+<td><strong>RPVyA-02</strong></td>
+<td>El contratista dispondrá de todas las <strong>licencias software</strong> necesarias, instaladas en sus sistemas; el Cliente tendrá licencia de uso durante las pruebas.</td>
+</tr>
+<tr>
+<td><strong>RPVyA-03</strong></td>
+<td>Durante pruebas y demostraciones, el contratista aplicará el <strong>distintivo del Cliente</strong> (≥ tamaño A3) en los laterales de cada sistema/subsistema.</td>
+</tr>
+<tr>
+<td><strong>RPVyA-04</strong></td>
+<td>Las <strong>pruebas de verificación</strong> se realizan al final de la Fase II (obligatorias para cerrarla): unitarias, de interfaz, de sistema en entorno controlado (fábrica) y pruebas iniciales de misión en fábrica.</td>
+</tr>
+<tr>
+<td><strong>RPVyA-05</strong></td>
+<td>Las pruebas de verificación las supervisa y dirige el <strong>ERC</strong>; el contratista planifica el tiempo en el Plan de Pruebas.</td>
+</tr>
+<tr>
+<td><strong>RPVyA-06</strong></td>
+<td>Las pruebas de verificación se realizan en las <strong>instalaciones del contratista</strong>.</td>
+</tr>
+<tr>
+<td><strong>RPVyA-07</strong></td>
+<td>Las <strong>pruebas de validación</strong> de la Fase III las llevan a cabo <strong>unidades operativas</strong> designadas por el Cliente, en instalaciones designadas por el Cliente.</td>
+</tr>
+<tr>
+<td><strong>RPVyA-08</strong></td>
+<td>El contratista da apoyo durante las pruebas de validación e imparte <strong>formación</strong> a los operadores.</td>
+</tr>
+<tr>
+<td><strong>RPVyA-09</strong></td>
+<td>Las pruebas podrán ejecutarse en varios periodos de <strong>una semana</strong>, mínimo <strong>dos semanas no consecutivas</strong>, incluyendo llegada, instalación/montaje, formación, apoyo y recogida.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="311-requisitos-de-la-documentacion">3.11 Requisitos de la documentación</h3>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requisito (resumen)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RDOC-01</strong></td>
+<td>Entregables documentales en <strong>PDF y en el formato fuente</strong> original (se fomenta Word con control de cambios en la fase de armonización).</td>
+</tr>
+<tr>
+<td><strong>RDOC-02</strong></td>
+<td>Nombre de fichero = <strong>código identificativo + número de versión</strong> (p. ej. <code>E01_7 Plan de Gestión de Proyecto.pdf</code>); versiones incrementales de uno en uno.</td>
+</tr>
+<tr>
+<td><strong>RDOC-03</strong></td>
+<td>En cada plazo parcial, copia electrónica (USB o equivalente) con toda la documentación generada en el periodo.</td>
+</tr>
+<tr>
+<td><strong>RDOC-04</strong></td>
+<td>Al fin del contrato, copia electrónica con todos los documentos en su última versión, en PDF y fuente.</td>
+</tr>
+<tr>
+<td><strong>RDOC-05</strong></td>
+<td><strong>Plan de Gestión del Proyecto</strong> (a los 15 días de la firma): objeto; descomposición estructurada en paquetes de trabajo, tareas y subtareas con entradas/salidas; organización y roles; programa de trabajos con <strong>diagrama de Gantt</strong> (apaisado, ≥ 3 niveles); referencias a Calidad, Riesgos y Configuración; perfil de esfuerzo.</td>
+</tr>
+<tr>
+<td><strong>RDOC-06</strong></td>
+<td>El Plan de Gestión del Proyecto se <strong>actualiza</strong> ante cualquier cambio.</td>
+</tr>
+<tr>
+<td><strong>RDOC-07</strong></td>
+<td><strong>Plan de Gestión de la Configuración</strong>: identificación de elementos de configuración; anexo con la <strong>Línea Base de la Configuración</strong> (versiones de entregables), actualizado a lo largo del proyecto.</td>
+</tr>
+<tr>
+<td><strong>RDOC-08</strong></td>
+<td><strong>Plan de Gestión de Riesgos</strong>: procedimiento; identificación inicial; catalogación de impacto y probabilidad con sus criterios; <strong>matriz de riesgos</strong> inicial y actualizada.</td>
+</tr>
+<tr>
+<td><strong>RDOC-09</strong></td>
+<td><strong>Plan de Pruebas</strong>: descripción de las pruebas de las Fases II y III; <strong>matriz de trazabilidad pruebas ↔ requisitos</strong>; recursos materiales, inmateriales y humanos; responsables por rol; planificación temporal (≥ 2 semanas no consecutivas por fase); permisos y seguros; riesgos del plan.</td>
+</tr>
+<tr>
+<td><strong>RDOC-10</strong></td>
+<td><strong>Protocolo de Pruebas</strong>: por cada prueba — caracterización del escenario (situación inicial/final, condiciones ambientales), responsable, pasos, <strong>criterios de aceptación</strong>, y si su no aceptación es bloqueante y a qué pruebas bloquea.</td>
+</tr>
+<tr>
+<td><strong>RDOC-11</strong></td>
+<td><strong>Resultado de las Pruebas</strong>: por fase — fechas de ejecución (incluidas repeticiones), resultado final, y causa/solución si hubo repeticiones.</td>
+</tr>
+<tr>
+<td><strong>RDOC-12</strong></td>
+<td><strong>Informe de Pruebas</strong>: único e <strong>incremental</strong>, integra toda la información de las pruebas de todas las fases.</td>
+</tr>
+<tr>
+<td><strong>RDOC-13</strong></td>
+<td><strong>Arquitectura General del Sistema</strong> — con <strong>uso extensivo de diagramas SysML</strong>. Debe contener al menos: <strong>(a) Vista General</strong> — propósito del Sistema UGV, descripción de capacidades, <strong>límites del sistema</strong>, suposiciones y restricciones; <strong>(b) Vista Operacional</strong> — modos de operación y conceptos de operación; <strong>(c) Vista de Sistemas y Subsistemas</strong> — primer nivel (UGV, PMP, Dispositivo de Telemando Portable, subsistema de Comunicaciones, auxiliares), <strong>interfaces entre subsistemas y con el exterior</strong> con diagramas de despliegue (incluidos los módulos SW), Puntos de Interfaz de las cargas de pago, y niveles inferiores de los subsistemas más destacados con sus interfaces.</td>
+</tr>
+<tr>
+<td><strong>RDOC-14</strong></td>
+<td><strong>Diseño Hardware</strong> con diagramas jerárquicos; nomenclatura inequívoca y <strong>designadores de referencia</strong> (1–2 letras + número) para todos los elementos en todos los niveles.</td>
+</tr>
+<tr>
+<td><strong>RDOC-15</strong></td>
+<td>Orden de la descripción del Diseño Hardware: especificaciones generales (alimentación, rangos de funcionamiento), teoría de funcionamiento, descripción de elementos (física, funcional, interfaces), conexiones internas/externas, planos (generales, eléctricos, mecánicos), anexos (manuales, <em>datasheets</em>).</td>
+</tr>
+<tr>
+<td><strong>RDOC-16</strong></td>
+<td>Para elementos programables (PLC/PAC/IPC, FPGA, microcontroladores): IDE y versión, componente (marca y modelo), versión de firmware, descripción del programa, programa cargado.</td>
+</tr>
+<tr>
+<td><strong>RDOC-17</strong></td>
+<td><strong>Diseño de Software</strong> — con <strong>uso extensivo de diagramas SysML y/o UML</strong>: estructura general con <strong>diagrama de despliegue</strong> (equipos que ejecutan software: puestos de operación, plataforma, cargas de pago, UAV de apoyo); interfaces entre módulos (lógicas y físicas); estructura de cada componente (diagramas de componentes); <strong>casos de uso</strong> con diagramas de secuencia y, si procede, de estados; dinámica de las GUI (pantallas y transiciones); herramientas de desarrollo y dependencias (lenguajes, <em>frameworks</em>, librerías con versiones, IDE/RAD, control de versiones, gestión de fallos).</td>
+</tr>
+<tr>
+<td><strong>RDOC-18</strong></td>
+<td><strong>Estrategia IP</strong>: derechos preexistentes utilizados; identificación de nuevos derechos de propiedad industrial/intelectual asociados a la solución (o justificación motivada de no protección); vías de protección elegidas.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-calendario-de-ejecucion-resumen">4. Calendario de ejecución (resumen)</h2>
+<p>Diagrama de Gantt previsto para las tres fases, con hitos de <strong>justificación (J)</strong>,
+<strong>evaluación y certificación (C)</strong> en cada fase. La Fase II incluye un <strong>hito intermedio</strong>
+(J.II.HI / C.II.HI) y un hito final (J.II.HF / C.II.HF).</p>
+<h2 id="5-entregables-y-criterios-de-verificacion-de-ejecucion-resumen">5. Entregables y criterios de verificación de ejecución (resumen)</h2>
+<ul>
+<li>Cada fase se cierra con la <strong>entrega</strong> de documentación y su <strong>validación</strong> por el ERC,
+  siguiendo los criterios de verificación de la ejecución.</li>
+<li>La evaluación de las ofertas usa <strong>criterios no evaluables mediante fórmulas (80 %)</strong> y
+  <strong>evaluables mediante fórmulas (20 %)</strong>, con umbrales mínimos por criterio.</li>
+<li>Entre los criterios técnicos: valoración de la solución, de la conjugación de las cargas
+  de pago (VCCdP) y de los <strong>resultados de las pruebas de verificación (VPVerc)</strong>.</li>
+</ul>
+<h2 id="6-alcance-del-servicio-escenario-de-validacion-pre-operacional-resumen">6. Alcance del servicio — escenario de validación pre-operacional (resumen)</h2>
+<p>En la Fase III el Cliente proporciona un <strong>escenario pre-operacional</strong> en el que unidades
+operativas ejercitan el prototipo en misiones representativas, con el contratista dando
+apoyo y formación. El objetivo es comprobar que se alcanzan las prestaciones y los
+objetivos del reto en condiciones próximas a las reales (TRL 7).</p>
+</div>
+</body>
+</html>
