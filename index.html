@@ -481,6 +481,16 @@ section { padding: 5rem 0; }
   color: var(--paper); margin-bottom: .3rem;
 }
 .step-desc { font-size: .82rem; color: rgba(246,244,239,.5); line-height: 1.6; }
+.step-desc code {
+  font-family: var(--font-mono);
+  font-size: .78em;
+  color: #7ec8e3;
+  background: rgba(246,244,239,.06);
+  padding: .05em .35em;
+  border-radius: 4px;
+}
+.step-desc strong { color: rgba(246,244,239,.8); }
+.step-desc + .step-desc { margin-top: .5rem; }
 .step-code {
   margin-top: .5rem;
   font-family: var(--font-mono);
@@ -794,35 +804,71 @@ footer {
         <div class="repo-step">
           <span class="step-num">1</span>
           <div class="step-content">
-            <div class="step-title lang-es-block">Crear el repositorio</div>
-            <div class="step-title lang-en-block">Create the repository</div>
-            <div class="step-desc lang-es-block">Nuevo repositorio público en GitHub con el nombre <code style="color:#7ec8e3;font-family:var(--font-mono)">curso-robotica-2026</code></div>
-            <div class="step-desc lang-en-block">New public repository on GitHub named <code style="color:#7ec8e3;font-family:var(--font-mono)">curso-robotica-2026</code></div>
+            <div class="step-title lang-es-block">Solicitar acceso</div>
+            <div class="step-title lang-en-block">Request access</div>
+            <div class="step-desc lang-es-block">Crea tu cuenta en GitHub y envía tu <strong>nombre de usuario</strong> al profesor por el canal del curso, indicando tu <strong>empresa</strong> y <strong>departamento</strong>. Recibirás una invitación por email a <code>curso-robotica-2026</code>: ábrela y pulsa <em>Accept invitation</em>.</div>
+            <div class="step-desc lang-en-block">Create your GitHub account and send your <strong>username</strong> to the lecturer via the course channel, stating your <strong>company</strong> and <strong>department</strong>. You'll get an email invitation to <code>curso-robotica-2026</code>: open it and click <em>Accept invitation</em>.</div>
           </div>
         </div>
         <div class="repo-step">
           <span class="step-num">2</span>
           <div class="step-content">
-            <div class="step-title lang-es-block">Subir la estructura inicial</div>
-            <div class="step-title lang-en-block">Push initial structure</div>
-            <code class="step-code">git clone https://github.com/juanuniovi/curso-robotica-2026<br>cd curso-robotica-2026<br>git add .<br>git commit -m "feat: estructura inicial del curso"<br>git push origin master</code>
+            <div class="step-title lang-es-block">Clonar (una sola vez)</div>
+            <div class="step-title lang-en-block">Clone (once only)</div>
+            <div class="step-desc lang-es-block">En GitHub Desktop: <em>File → Clone repository → curso-robotica-2026</em>. O por línea de comandos:</div>
+            <div class="step-desc lang-en-block">In GitHub Desktop: <em>File → Clone repository → curso-robotica-2026</em>. Or from the command line:</div>
+            <code class="step-code">git clone https://github.com/juanuniovi/curso-robotica-2026</code>
           </div>
         </div>
         <div class="repo-step">
           <span class="step-num">3</span>
           <div class="step-content">
-            <div class="step-title lang-es-block">Activar GitHub Pages</div>
-            <div class="step-title lang-en-block">Enable GitHub Pages</div>
-            <div class="step-desc lang-es-block">Settings → Pages → Source: GitHub Actions. El workflow deploy.yml publica automáticamente en cada push a master.</div>
-            <div class="step-desc lang-en-block">Settings → Pages → Source: GitHub Actions. The deploy.yml workflow publishes automatically on every push to master.</div>
+            <div class="step-title lang-es-block">Tu rama de cada semana</div>
+            <div class="step-title lang-en-block">Your weekly branch</div>
+            <div class="step-desc lang-es-block">
+              · Cada semana, tu departamento trabaja en la rama <code>empresa-N/departamento/semana-XX</code> (<code>simulacion</code>, <code>taller</code> o <code>software</code>), partiendo siempre de <code>master</code> actualizado.<br>
+              · Trabaja <strong>solo</strong> en las carpetas de tu departamento (<code>modelos/simscape/</code>, <code>modelos/hardware/</code>…). No toques el trabajo de otra empresa.<br>
+              · <strong>Al terminar la sesión:</strong> <code>Commit</code> + <code>Push</code> de tu rama, aunque la tarea no esté acabada.<br>
+              · Al cerrar la semana, abre un <strong>Pull Request</strong> a <code>master</code>; el interlocutor de Sistemas lo revisa e integra.
+            </div>
+            <div class="step-desc lang-en-block">
+              · Each week your department works on the branch <code>empresa-N/department/semana-XX</code> (<code>simulacion</code>, <code>taller</code> or <code>software</code>), always branching from an up-to-date <code>master</code>.<br>
+              · Work <strong>only</strong> in your department's folders (<code>modelos/simscape/</code>, <code>modelos/hardware/</code>…). Never touch another company's work.<br>
+              · <strong>Before leaving:</strong> <code>Commit</code> + <code>Push</code> your branch, even if the task isn't finished.<br>
+              · At the end of the week, open a <strong>Pull Request</strong> to <code>master</code>; the Systems liaison reviews and integrates it.
+            </div>
+            <code class="step-code">git checkout master && git pull<br>git checkout -b empresa-1/software/semana-05<br>git commit -m "feat(sw): nodo ROS 2 de navegación"<br>git push origin empresa-1/software/semana-05</code>
           </div>
         </div>
         <div class="repo-step">
           <span class="step-num">4</span>
           <div class="step-content">
-            <div class="step-title lang-es-block">Flujo semanal de los alumnos</div>
-            <div class="step-title lang-en-block">Weekly student workflow</div>
-            <code class="step-code">git checkout -b empresa-1/software/semana-05<br># trabajar en modelos/ o hardware/<br>git commit -m "feat(sw): nodo ROS2 navegación"<br>git push origin empresa-1/software/semana-05</code>
+            <div class="step-title lang-es-block">Política de commits</div>
+            <div class="step-title lang-en-block">Commit policy</div>
+            <div class="step-desc lang-es-block">
+              · Un commit = una unidad de trabajo con sentido; no mezcles tareas distintas.<br>
+              · Mensaje en presente: <code>tipo(dept): qué has hecho</code> + ID de requisito si aplica.<br>
+              · <code>dept</code>: <code>is</code> sistemas · <code>sim</code> simulación · <code>tal</code> taller · <code>sw</code> software.<br>
+              · Tipos: <code>feat</code> añadir · <code>fix</code> corregir · <code>docs</code> notas/tablas · <code>refactor</code> reorganizar.<br>
+              · Mínimo un <code>Commit</code> + <code>Push</code> al final de cada sesión.<br>
+              · ¿<code>Conflict</code> al hacer Pull o en el PR? No lo resuelvas solo: avisa al profesor.
+            </div>
+            <div class="step-desc lang-en-block">
+              · One commit = one meaningful unit of work; don't mix separate tasks.<br>
+              · Present-tense message: <code>type(dept): what you did</code> + requirement ID if relevant.<br>
+              · <code>dept</code>: <code>is</code> systems · <code>sim</code> simulation · <code>tal</code> workshop · <code>sw</code> software.<br>
+              · Types: <code>feat</code> add · <code>fix</code> correct · <code>docs</code> notes/tables · <code>refactor</code> reorganise.<br>
+              · At least one <code>Commit</code> + <code>Push</code> at the end of every session.<br>
+              · <code>Conflict</code> on Pull or in the PR? Don't resolve it alone: tell the lecturer.
+            </div>
+            <div class="step-desc lang-es-block">
+              <strong>Bien:</strong> <code>fix(sim): corrijo unidades del puerto PotenciaElectrica</code><br>
+              <strong>Mal:</strong> <code>cambios</code> · <code>actualizado</code> · <code>asdf</code>
+            </div>
+            <div class="step-desc lang-en-block">
+              <strong>Good:</strong> <code>fix(sim): correct units of the PotenciaElectrica port</code><br>
+              <strong>Bad:</strong> <code>changes</code> · <code>updated</code> · <code>asdf</code>
+            </div>
           </div>
         </div>
       </div>
