@@ -320,6 +320,11 @@ section { padding: 5rem 0; }
 .semanas-table td.col-obj span {
   font-family: var(--font-mono); font-size: .7rem; color: var(--ink-muted);
 }
+.semanas-table tbody tr:hover td { background: #eef2f7; }
+.semanas-table td.col-num a,
+.semanas-table td.col-obj a.wk-link { color: inherit; text-decoration: none; display: block; }
+.semanas-table td.col-obj a.wk-link:hover strong { color: var(--accent2); }
+.semanas-table td.col-obj a.wk-link .arrow { color: var(--accent2); }
 
 /* ── Departamentos ────────────────────────────────────────────────── */
 #departamentos { background: var(--paper-warm); }
@@ -896,18 +901,18 @@ footer {
 <script>
 // ── Datos del curso ────────────────────────────────────────────────────────
 const semanas = [
-  { n:"1",  objetivo_es:"Extraer / Nombrar", objetivo_en:"Extract / Name",
-    tema_es:"Requisitos y pliego + intro SysML", tema_en:"Requirements & contract + SysML intro",
-    is_es:"Necesidades, pliego, intro SysML", is_en:"Needs, contract, SysML intro",
-    sim_es:"Setup Simscape, esqueleto de bloques", sim_en:"Simscape setup, block skeleton",
-    tal_es:"Inventario y bautizo de motores", tal_en:"Inventory & motor IDs",
-    sw_es:"Setup ROS 2, primer nodo", sw_en:"ROS 2 setup, first node" },
-  { n:"2",  objetivo_es:"Conectar", objetivo_en:"Connect",
-    tema_es:"IBD, interfaces y trazabilidad", tema_en:"IBD, interfaces & traceability",
-    is_es:"Requisitos SHALL, IBD, interfaces", is_en:"SHALL requirements, IBD, interfaces",
-    sim_es:"Conexión física de bloques", sim_en:"Physical block wiring",
-    tal_es:"Montaje de la primera articulación", tal_en:"First joint assembly",
-    sw_es:"Diseño del grafo de nodos", sw_en:"Node graph design" },
+  { n:"1",  objetivo_es:"Entender", objetivo_en:"Understand",
+    tema_es:"Leer y entender el encargo", tema_en:"Read and understand the brief",
+    is_es:"Modera la puesta en común; consolida los 15 requisitos ancla", is_en:"Moderates the debrief; consolidates the 15 anchor requirements",
+    sim_es:"Lee el Anexo I y entrega su ficha de comprensión", sim_en:"Reads Annex I and submits their comprehension sheet",
+    tal_es:"Lee el Anexo I y entrega su ficha de comprensión", tal_en:"Reads Annex I and submits their comprehension sheet",
+    sw_es:"Lee el Anexo I y entrega su ficha de comprensión", sw_en:"Reads Annex I and submits their comprehension sheet" },
+  { n:"2",  objetivo_es:"Nombrar", objetivo_en:"Name",
+    tema_es:"Arquitectura de primer nivel (BDD)", tema_en:"Top-level architecture (BDD)",
+    is_es:"Crea el BDD en System Composer; propiedades de nivel sistema", is_en:"Builds the BDD in System Composer; system-level properties",
+    sim_es:"Propiedades de propulsión y movilidad (potencia, par, velocidad)", sim_en:"Propulsion & mobility properties (power, torque, speed)",
+    tal_es:"Propiedades de chasis e interfaces (dimensiones, pesos)", tal_en:"Chassis & interface properties (dimensions, weights)",
+    sw_es:"Propiedades de comunicaciones y control (BLOS, latencia)", sw_en:"Comms & control properties (BLOS, latency)" },
   { n:"3",  objetivo_es:"Formalizar", objetivo_en:"Formalise",
     tema_es:"Formalización de arquitectura", tema_en:"Architecture formalisation",
     is_es:"Formalización de arquitectura, baseline", is_en:"Architecture formalisation, baseline",
@@ -1002,10 +1007,12 @@ function renderSemanas() {
     const sim      = isEN() ? s.sim_en      : s.sim_es;
     const tal      = isEN() ? s.tal_en      : s.tal_es;
     const sw       = isEN() ? s.sw_en       : s.sw_es;
+    const link = 'semanas/semana-' + String(s.n).padStart(2, '0') + '/';
+    const ver  = isEN() ? 'Open week' : 'Ver semana';
     tbody.innerHTML += `
       <tr>
-        <td class="col-num">${s.n}</td>
-        <td class="col-obj"><strong>${objetivo}</strong><span>${tema}</span></td>
+        <td class="col-num"><a href="${link}">${s.n}</a></td>
+        <td class="col-obj"><a class="wk-link" href="${link}"><strong>${objetivo}</strong><span>${tema} <span class="arrow">${ver} →</span></span></a></td>
         <td>${is_}</td>
         <td>${sim}</td>
         <td>${tal}</td>
