@@ -23,6 +23,10 @@ body.en .lang-en-inline{display:inline}
 body.en .lang-es-inline{display:none}
 .lang-en-inline{display:none}
 .lang-es-inline{display:inline}
+/* listas bilingües: ganan en especificidad a .item-list li / .entregable-list li */
+.item-list li.lang-en,.entregable-list li.lang-en{display:none}
+body.en .item-list li.lang-es,body.en .entregable-list li.lang-es{display:none}
+body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
 
 /* topbar */
 .topbar{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px;background:var(--ink);border-bottom:2px solid var(--accent)}

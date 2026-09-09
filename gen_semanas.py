@@ -4,43 +4,46 @@ import os, json
 semanas = [
   {
     "id": "semana-01", "n": "1", "bloque": "I", "color": "#1a4f8a",
-    "titulo_es": "Leer y entender el encargo",
-    "titulo_en": "Read and understand the brief",
-    "verbo_es": "Entender", "verbo_en": "Understand",
+    "titulo_es": "Situar: ingeniería de sistemas y el encargo",
+    "titulo_en": "Frame it: systems engineering and the brief",
+    "verbo_es": "Situar", "verbo_en": "Frame",
     "tipo": "grupal",
     "duracion_es": "1 sesión de 2h + 2–3h trabajo autónomo",
     "duracion_en": "1 × 2h session + 2–3h self-study",
-    "objetivo_es": "Leer el Anexo I anonimizado del encargo (robot terrestre pesado multipropósito) y demostrar que se ha entendido: qué pide el Cliente, sus cuatro modos de operación, las tres fases del contrato y qué requisitos podrán verificarse por simulación. Sin herramientas: solo leer, entender y situar. Mismo trabajo para los cuatro roles (IS, Simulación, Taller, Software).",
-    "objetivo_en": "Read the anonymised Annex I of the brief (heavy multipurpose ground robot) and prove you have understood it: what the Client asks for, its four operating modes, the three contract phases and which requirements can be verified by simulation. No tools: just read, understand and frame it. Same work for all four roles (IS, Simulation, Workshop, Software).",
+    "objetivo_es": "Entender qué es la ingeniería de sistemas basada en modelos (MBSE) y el ciclo en V, manejar el vocabulario SysML mínimo (bloque, propiedad, puerto, interfaz, BDD vs IBD, trazabilidad), y demostrar que se ha entendido el encargo: qué pide el Cliente, sus cuatro modos de operación y qué requisitos podrán verificarse por simulación. Sin herramientas. Mismo trabajo para los cuatro roles.",
+    "objetivo_en": "Understand model-based systems engineering (MBSE) and the V-model, handle the minimum SysML vocabulary (block, property, port, interface, BDD vs IBD, traceability), and prove you have understood the brief: what the Client asks for, its four operating modes and which requirements can be verified by simulation. No tools. Same work for all four roles.",
     "tareas_es": [
-      "Lectura guiada del Anexo I con guion: §1 qué es y qué NO es el Sistema UGV · §1.5 los 4 modos de operación · §2 las 3 fases · §3.1 leer todos los RGEN · §3.2 leer todos los RLT1 (requisitos del vehículo de ruedas) · lectura rápida §3.4–3.9 · §3.11 RDOC-13 (la arquitectura general se entrega en SysML)",
-      "Ficha de comprensión individual (1 página): en 3 frases, qué pide el Cliente, para qué y qué queda fuera · los 4 modos de operación en una frase cada uno · el propósito del vehículo y sus 3 misiones principales, con las cifras de prestaciones que las condicionan (velocidad, potencia, autonomía, carga)",
-      "En la ficha: elegir 8 requisitos (con su ID RGEN/RLT) que creas verificables con un modelo de simulación e indicar qué magnitud medirías en cada uno; y 2 requisitos que NO se puedan verificar por simulación, justificando por qué",
-      "En la ficha: 3 términos del glosario que no conocías (con su significado) y 1 pregunta que le harías al Cliente",
+      "Lectura previa (autónomo): el primer «Introducción a la ingeniería de sistemas y al MBSE» (~15 min) y después el Anexo I anonimizado con este guion: §1 qué es y qué NO es el Sistema UGV · §1.5 los 4 modos de operación · §2 las 3 fases · §3.1 leer todos los RGEN · §3.2 leer todos los RLT1 · lectura rápida §3.4–3.9 · §3.11 RDOC-13 (la arquitectura se entrega en SysML)",
+      "Ficha de comprensión — Parte A (conceptos): con tus palabras, qué es la ingeniería de sistemas y por qué modelar en vez de documentar · dibuja el ciclo en V y sitúa en él las 14 semanas del curso · define BDD y IBD en una frase cada uno",
+      "Ficha — Parte B (el encargo): en 3 frases, qué pide el Cliente, para qué y qué queda fuera · los 4 modos de operación en una frase cada uno · el propósito del vehículo y sus 3 misiones principales con las cifras que las condicionan (velocidad, potencia, autonomía, carga)",
+      "Ficha — Parte B: elegir 8 requisitos (con su ID RGEN/RLT) que creas verificables con un modelo de simulación e indicar qué magnitud medirías en cada uno; y 2 requisitos que NO se puedan verificar por simulación, justificando por qué",
+      "Ficha — Parte B: 3 términos del glosario que no conocías (con su significado) y 1 pregunta que le harías al Cliente",
       "Sesión 2h en grupo (modera el rol IS): construir en pizarra el diagrama de contexto del Sistema UGV — caja central + actores: Puesto de Mando, UAV de apoyo, otros UxV, terreno y ambiente, cargas de pago, vehículos tripulados a los que acompaña, obstáculos",
       "Sesión: consolidar la lista de 15 requisitos ancla del equipo en recursos/requisitos_ancla.csv (ID · texto resumido · § fuente · ¿simulable? · rol tentativo) y repartir provisionalmente qué familia de requisitos mirará cada rol la semana siguiente",
     ],
     "tareas_en": [
-      "Guided reading of Annex I with a checklist: §1 what the UGV System is and is NOT · §1.5 the 4 operating modes · §2 the 3 phases · §3.1 read every RGEN · §3.2 read every RLT1 (wheeled-vehicle requirements) · quick read of §3.4–3.9 · §3.11 RDOC-13 (the overall architecture is delivered in SysML)",
-      "Individual comprehension sheet (1 page): in 3 sentences, what the Client asks for, what for and what is out of scope · the 4 operating modes, one sentence each · the vehicle's purpose and its 3 main missions, with the performance figures that drive them (speed, power, endurance, payload)",
-      "On the sheet: pick 8 requirements (with their RGEN/RLT ID) you believe are verifiable with a simulation model, stating which quantity you would measure for each; and 2 requirements that CANNOT be verified by simulation, with justification",
-      "On the sheet: 3 glossary terms you did not know (with their meaning) and 1 question you would ask the Client",
+      "Pre-reading (self-study): the «Introduction to systems engineering and MBSE» primer (~15 min), then Annex I with this checklist: §1 what the UGV System is and is NOT · §1.5 the 4 operating modes · §2 the 3 phases · §3.1 read every RGEN · §3.2 read every RLT1 · quick read of §3.4–3.9 · §3.11 RDOC-13 (architecture delivered in SysML)",
+      "Comprehension sheet — Part A (concepts): in your own words, what systems engineering is and why model instead of document · sketch the V-model and place the course's 14 weeks on it · define BDD and IBD in one sentence each",
+      "Sheet — Part B (the brief): in 3 sentences, what the Client asks for, what for and what is out of scope · the 4 operating modes, one sentence each · the vehicle's purpose and its 3 main missions with the figures that drive them (speed, power, endurance, payload)",
+      "Sheet — Part B: pick 8 requirements (with their RGEN/RLT ID) you believe are verifiable with a simulation model, stating which quantity you would measure for each; and 2 requirements that CANNOT be verified by simulation, with justification",
+      "Sheet — Part B: 3 glossary terms you did not know (with their meaning) and 1 question you would ask the Client",
       "2h group session (IS role moderates): build the UGV System context diagram on the board — central box + actors: Command Post, support UAV, other UxV, terrain and environment, payloads, manned vehicles it accompanies, obstacles",
       "Session: consolidate the team's list of 15 anchor requirements in recursos/requisitos_ancla.csv (ID · short text · source § · simulable? · tentative role) and provisionally split which requirement family each role will look at next week",
     ],
     "entregables_es": [
-      "Ficha de comprensión por alumno: semanas/semana-01/comprension_[inicial].md",
+      "Ficha de comprensión (Partes A y B) por alumno: semanas/semana-01/comprension_[inicial].md",
       "recursos/requisitos_ancla.csv con 15 filas (lo consolida el rol IS)",
       "Diagrama de contexto del Sistema UGV (foto o PDF) en semanas/semana-01/",
       "1 Pull Request a master con 1 commit por alumno: docs([rol]): ficha de comprensión — semana 1",
     ],
     "entregables_en": [
-      "Comprehension sheet per student: semanas/semana-01/comprension_[initial].md",
+      "Comprehension sheet (Parts A and B) per student: semanas/semana-01/comprension_[initial].md",
       "recursos/requisitos_ancla.csv with 15 rows (consolidated by the IS role)",
       "UGV System context diagram (photo or PDF) in semanas/semana-01/",
       "1 Pull Request to master with 1 commit per student: docs([role]): comprehension sheet — week 1",
     ],
     "materiales": [
+      {"tipo":"md","nombre":"Introducción a la ingeniería de sistemas y al MBSE","archivo":"../../recursos/intro-ingenieria-sistemas.html"},
       {"tipo":"md","nombre":"Anexo I — Requisitos funcionales (versión anonimizada)","archivo":"../../recursos/anexo-I_anonimizado.html"},
     ]
   },
@@ -365,6 +368,10 @@ body.en .lang-en-inline{{display:inline}}
 body.en .lang-es-inline{{display:none}}
 .lang-en-inline{{display:none}}
 .lang-es-inline{{display:inline}}
+/* listas bilingües: ganan en especificidad a .item-list li / .entregable-list li */
+.item-list li.lang-en,.entregable-list li.lang-en{{display:none}}
+body.en .item-list li.lang-es,body.en .entregable-list li.lang-es{{display:none}}
+body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{{display:flex}}
 
 /* topbar */
 .topbar{{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:52px;background:var(--ink);border-bottom:2px solid var(--accent)}}

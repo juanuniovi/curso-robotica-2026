@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Introducción a la ingeniería de sistemas y al MBSE · Robótica-MBSE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Mono:wght@300;400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--ink:#0d1117;--ink-soft:#3d4451;--ink-muted:#6e7787;--paper:#f6f4ef;--paper-warm:#ede9e0;
+  --accent:#1a4f8a;--border:rgba(13,17,23,.12);
+  --fd:'Syne',sans-serif;--fb:'DM Sans',sans-serif;--fm:'DM Mono',monospace}
+body{font-family:var(--fb);background:var(--paper);color:var(--ink);line-height:1.65;font-size:16px}
+.topbar{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+  padding:0 2rem;height:52px;background:var(--ink);border-bottom:2px solid var(--accent)}
+.topbar a{font-family:var(--fm);font-size:.72rem;color:rgba(246,244,239,.65);text-decoration:none;letter-spacing:.05em}
+.topbar a:hover{color:#fff}
+.topbar .logo{font-family:var(--fd);font-weight:700;font-size:1rem;color:var(--paper);letter-spacing:.08em}
+.topbar .logo span{color:var(--accent)}
+.wrap{max-width:860px;margin:0 auto;padding:2.5rem 2rem 5rem}
+h1{font-family:var(--fd);font-weight:800;font-size:1.9rem;line-height:1.15;margin:2.2rem 0 1rem}
+h2{font-family:var(--fd);font-weight:700;font-size:1.3rem;margin:2.4rem 0 .8rem;padding-top:1rem;border-top:1px solid var(--border)}
+h3{font-family:var(--fd);font-weight:700;font-size:1.05rem;margin:1.6rem 0 .6rem}
+h4{font-family:var(--fd);font-weight:600;font-size:.92rem;margin:1.2rem 0 .5rem;color:var(--ink-soft)}
+p{margin:.7rem 0}
+ul,ol{margin:.7rem 0 .7rem 1.4rem}
+li{margin:.3rem 0}
+code{font-family:var(--fm);font-size:.86em;background:var(--paper-warm);padding:.1em .35em;border-radius:4px}
+blockquote{margin:1.2rem 0;padding:.9rem 1.1rem;background:#fff;border-left:4px solid var(--accent);
+  border-radius:0 8px 8px 0;font-size:.92rem;color:var(--ink-soft)}
+blockquote p{margin:.4rem 0}
+hr{border:0;border-top:1px solid var(--border);margin:2.4rem 0}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.86rem;display:block;overflow-x:auto}
+th,td{border:1px solid var(--border);padding:.5rem .7rem;text-align:left;vertical-align:top}
+th{background:var(--paper-warm);font-family:var(--fd);font-weight:700}
+tr:nth-child(even) td{background:rgba(255,255,255,.5)}
+a{color:var(--accent)}
+.meta{font-family:var(--fm);font-size:.72rem;color:var(--ink-muted);letter-spacing:.04em;margin-top:.4rem}
+</style>
+</head>
+<body>
+<nav class="topbar">
+  <a class="logo" href="../index.html"><span>Robótica</span>-MBSE</a>
+  <a href="../index.html#repositorio">← Volver al curso</a>
+</nav>
+<div class="wrap">
+<h1 id="introduccion-a-la-ingenieria-de-sistemas-y-al-mbse">Introducción a la ingeniería de sistemas y al MBSE</h1>
+<blockquote>
+<p>Lectura previa de la <strong>Semana 1</strong>. Objetivo: llegar a la Semana 2 con el vocabulario
+mínimo para construir un modelo de arquitectura sin que "BDD", "bloque" o "trazabilidad"
+suenen a chino. ~15 minutos de lectura.</p>
+</blockquote>
+<hr />
+<h2 id="1-que-es-la-ingenieria-de-sistemas">1. ¿Qué es la ingeniería de sistemas?</h2>
+<p>Un robot terrestre no tripulado lo diseñan a la vez ingenieros de mecánica, de potencia,
+de control, de software, de comunicaciones… Cada uno domina su parte, pero <strong>nadie domina
+el conjunto</strong>. La ingeniería de sistemas es la disciplina que se ocupa de ese conjunto:</p>
+<ul>
+<li>traducir lo que necesita el cliente en <strong>requisitos</strong> claros y verificables;</li>
+<li>repartir esos requisitos entre subsistemas y definir <strong>cómo encajan</strong> entre sí (las
+  interfaces);</li>
+<li>mantener la <strong>trazabilidad</strong>: saber en todo momento por qué existe cada pieza y qué
+  requisito la justifica;</li>
+<li>comprobar al final que el sistema <strong>hace lo que tenía que hacer</strong>.</li>
+</ul>
+<p>El ingeniero de sistemas no es el que más sabe de motores ni de código: es <strong>el dueño de
+las interfaces y de la coherencia del todo</strong>.</p>
+<h2 id="2-por-que-basada-en-modelos-mbse">2. ¿Por qué "basada en modelos" (MBSE)?</h2>
+<p>Tradicionalmente todo esto se hacía con <strong>documentos</strong>: un Word de requisitos, un Excel de
+interfaces, un PowerPoint de arquitectura, un PDF de pruebas… Al primer cambio, esos
+documentos dejan de estar de acuerdo entre sí y nadie sabe cuál vale.</p>
+<p><strong>MBSE</strong> (<em>Model-Based Systems Engineering</em>) sustituye esa pila de documentos por <strong>un
+único modelo</strong>: una base de datos gráfica donde los bloques, las interfaces, los requisitos
+y sus enlaces viven juntos y consistentes. El modelo es la <strong>fuente de verdad</strong>; los
+documentos, si hacen falta, se generan desde él.</p>
+<p>En este curso el modelo se construye con <strong>MATLAB System Composer</strong> (arquitectura) y se
+verifica con <strong>Simscape</strong> (simulación física).</p>
+<h2 id="3-el-ciclo-en-v">3. El ciclo en V</h2>
+<p>El trabajo de sistemas se organiza en forma de <strong>V</strong>:</p>
+<pre><code> Necesidades                                         Validación
+   \                                                   /
+    Requisitos                                 Verificación
+      \                                           /
+       Arquitectura  ───────────────────  Integración
+         \                                   /
+          Diseño de detalle  ──────  Pruebas de subsistema
+                     \                /
+                      Implementación
+</code></pre>
+<ul>
+<li><strong>Rama izquierda (bajada):</strong> de lo abstracto a lo concreto — necesidades → requisitos →
+  arquitectura → diseño.</li>
+<li><strong>Fondo:</strong> se construye.</li>
+<li><strong>Rama derecha (subida):</strong> de lo concreto a lo abstracto — se prueba cada nivel contra lo
+  que se definió en el nivel equivalente de la izquierda. La <strong>trazabilidad</strong> cruza la V de
+  un lado al otro (cada test verifica un requisito).</li>
+</ul>
+<p>Las 14 semanas del curso recorren la V: <strong>Semanas 1–3</strong> bajan por la rama izquierda
+(entender el encargo, nombrar la arquitectura, formalizarla); <strong>Semanas 4–8</strong> trabajan el
+fondo y empiezan a subir (ingeniería inversa del modelo, calibración, verificación);
+<strong>Semanas 9–14</strong> completan la subida (fallos, integración, optimización, defensa).</p>
+<h2 id="4-vocabulario-sysml-minimo">4. Vocabulario SysML mínimo</h2>
+<p><strong>SysML</strong> es el lenguaje gráfico estándar para modelar sistemas. No hace falta dominarlo;
+basta con estos términos:</p>
+<table>
+<thead>
+<tr>
+<th>Término</th>
+<th>Qué es</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bloque</strong> (<em>block</em>)</td>
+<td>Una "caja" que representa un elemento del sistema: el UGV, el subsistema de propulsión, el Puesto de Mando… Puede contener otros bloques.</td>
+</tr>
+<tr>
+<td><strong>Propiedad de valor</strong> (<em>value property</em>)</td>
+<td>Un dato numérico del bloque, <strong>con tipo y unidad</strong>: <code>masa_orden_mision = 9000 kg</code>, <code>potencia_min = 140 kW</code>.</td>
+</tr>
+<tr>
+<td><strong>Puerto</strong> (<em>port</em>)</td>
+<td>El punto por el que un bloque se conecta con otro.</td>
+</tr>
+<tr>
+<td><strong>Interfaz</strong> (<em>interface</em>)</td>
+<td>Qué fluye por una conexión: energía eléctrica, un par mecánico, un mensaje de control, un flujo de vídeo…</td>
+</tr>
+<tr>
+<td><strong>BDD</strong> (<em>Block Definition Diagram</em>)</td>
+<td>El diagrama que dice <strong>qué bloques hay</strong>, sus propiedades y cómo se componen unos dentro de otros (la "lista de piezas" jerárquica). Es lo que se construye en la <strong>Semana 2</strong>.</td>
+</tr>
+<tr>
+<td><strong>IBD</strong> (<em>Internal Block Diagram</em>)</td>
+<td>El diagrama que dice <strong>cómo se conectan por dentro</strong> los bloques de un nivel: puertos, interfaces y líneas de conexión. Se trabaja en la <strong>Semana 3</strong>.</td>
+</tr>
+<tr>
+<td><strong>Enlace de trazabilidad</strong></td>
+<td>Una flecha que une un elemento del modelo con el requisito que lo justifica (<em>satisfy</em>), o un test con el requisito que verifica (<em>verify</em>).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>BDD = qué hay</strong> (bloques y propiedades). <strong>IBD = cómo se conecta</strong> (puertos e interfaces).</p>
+<h2 id="5-la-regla-de-oro-del-curso">5. La regla de oro del curso</h2>
+<blockquote>
+<p><strong>Todo valor numérico del modelo lleva el ID del requisito que lo justifica.</strong></p>
+</blockquote>
+<p>Si en un bloque escribes <code>velocidad_max = 75 km/h</code>, en su descripción debe aparecer
+<code>RLT1-03</code>. Una propiedad sin requisito que la respalde <strong>no entra en el modelo</strong>. Esta
+regla es lo que separa "usar una herramienta" de "hacer ingeniería de sistemas".</p>
+<h2 id="6-los-cuatro-roles-del-equipo">6. Los cuatro roles del equipo</h2>
+<p>El equipo se organiza en cuatro roles funcionales, definidos <strong>por el tipo de evidencia
+que producen</strong>, no por subsistema del vehículo. Los roles <strong>rotan</strong> en el punto medio del
+ciclo en V, de modo que cada alumno recorre la rama de diseño y la de verificación.</p>
+<table>
+<thead>
+<tr>
+<th>Rol</th>
+<th>De qué se ocupa</th>
+<th>Evidencia que produce</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>IS — Ingeniería de Sistemas</strong></td>
+<td>Requisitos, arquitectura, trazabilidad, coordinación</td>
+<td>Modelo SysML y matriz de verificación</td>
+</tr>
+<tr>
+<td><strong>Simulación</strong></td>
+<td>Modelo físico en Simscape (propulsión, dinámica)</td>
+<td>Resultados de simulación</td>
+</tr>
+<tr>
+<td><strong>Taller</strong></td>
+<td>Banco físico y medidas reales</td>
+<td>Evidencia física (medidas)</td>
+</tr>
+<tr>
+<td><strong>Software</strong></td>
+<td>Adquisición de datos e integración hardware ↔ modelo</td>
+<td>Integración y contraste hw ↔ modelo</td>
+</tr>
+</tbody>
+</table>
+<p>El rol de IS coordina a los otros tres y reporta al Cliente (el profesor).</p>
+<hr />
+<p><em>Siguiente paso: leer el <a href="anexo-I_anonimizado.html">Anexo I anonimizado</a> con el guion de la
+Semana 1 y rellenar la ficha de comprensión.</em></p>
+</div>
+</body>
+</html>
