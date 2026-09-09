@@ -326,7 +326,7 @@ section { padding: 5rem 0; }
 
 .departamentos-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 .departamento-card {
@@ -364,6 +364,7 @@ section { padding: 5rem 0; }
   border-radius: 20px;
   margin-bottom: .8rem;
 }
+.tag-sistemas    { background: #f6efd8; color: #8a6508; }
 .tag-fisica      { background: #e8f4ec; color: var(--accent3); }
 .tag-simulacion  { background: #eef2f7; color: var(--accent2); }
 .tag-software    { background: #f5eefc; color: var(--purple); }
@@ -583,8 +584,8 @@ footer {
       <span class="lang-en"> <em>Robotics</em> Engineering with MBSE and Simscape</span>
     </h1>
     <p class="hero-subtitle">
-      <span class="lang-es">Modela la arquitectura de un robot móvil autónomo con SysML y System Composer — y verifica su capa de navegación y percepción sobre un robot físico reducido, construido con motores Dynamixel.</span>
-      <span class="lang-en">Model the architecture of an autonomous mobile robot using SysML and System Composer — and verify its navigation and perception layer on a reduced physical robot, built from Dynamixel actuators.</span>
+      <span class="lang-es">Modela la arquitectura de un robot móvil autónomo con SysML y System Composer — y valida el modelo físico de una articulación contra un actuador Dynamixel real: un lazo de validación mínimo que da credibilidad a toda la evidencia por simulación.</span>
+      <span class="lang-en">Model the architecture of an autonomous mobile robot using SysML and System Composer — and validate the physical model of one joint against a real Dynamixel actuator: a minimal validation loop that lends credibility to all simulation-based evidence.</span>
     </p>
     <div class="hero-badges">
       <span class="badge">MATLAB R2023b+</span>
@@ -618,13 +619,13 @@ footer {
         <span class="lang-en">Contract: autonomous mobile robot</span>
       </p>
       <p class="contract-scope">
-        <span class="lang-es"><b>Arquitectura completa</b> según un pliego de contratación real · <b>verificación física</b> a escala reducida sobre banco de pruebas Dynamixel</span>
-        <span class="lang-en"><b>Full architecture</b> per a real public contract · <b>physical verification</b> at reduced scale on a Dynamixel testbed</span>
+        <span class="lang-es"><b>Arquitectura completa</b> según un pliego de contratación real · <b>validación física mínima</b> de una articulación sobre un actuador Dynamixel</span>
+        <span class="lang-en"><b>Full architecture</b> per a real public contract · <b>minimal physical validation</b> of one joint on a Dynamixel actuator</span>
       </p>
       <div class="contract-stats">
-        <div class="stat"><span class="stat-num">3</span><span class="stat-lbl"><span class="lang-es">Departamentos</span><span class="lang-en">Departments</span></span></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-lbl"><span class="lang-es">Roles rotativos</span><span class="lang-en">Rotating roles</span></span></div>
         <div class="stat"><span class="stat-num">4</span><span class="stat-lbl"><span class="lang-es">Meses</span><span class="lang-en">Months</span></span></div>
-        <div class="stat"><span class="stat-num">2</span><span class="stat-lbl"><span class="lang-es">Empresas</span><span class="lang-en">Companies</span></span></div>
+        <div class="stat"><span class="stat-num">1</span><span class="stat-lbl"><span class="lang-es">Equipo</span><span class="lang-en">Team</span></span></div>
         <div class="stat"><span class="stat-num">80+</span><span class="stat-lbl"><span class="lang-es">Requisitos</span><span class="lang-en">Requirements</span></span></div>
       </div>
     </div>
@@ -651,8 +652,8 @@ footer {
       <span class="lang-en">14 weeks · 1 goal per week</span>
     </h2>
     <p class="section-lead">
-      <span class="lang-es">Progresión semanal: desde extraer y nombrar hasta defender y reflexionar, siempre sobre el mismo sistema. Cada semana especifica el trabajo de los 4 departamentos de cada empresa: Sistemas (IS), Simulación, Taller y Software.</span>
-      <span class="lang-en">Weekly progression: from extracting and naming to defending and reflecting, always on the same system. Each week specifies the work of each company's 4 departments: Systems (IS), Simulation, Workshop and Software.</span>
+      <span class="lang-es">Progresión semanal: desde extraer y nombrar hasta defender y reflexionar, siempre sobre el mismo sistema. Cada semana especifica el trabajo de los 4 roles del equipo — Sistemas (IS), Simulación, Taller y Software — que rotan en el punto medio del ciclo en V, de modo que cada alumno recorre la rama de diseño y la de verificación.</span>
+      <span class="lang-en">Weekly progression: from extracting and naming to defending and reflecting, always on the same system. Each week specifies the work of the team's 4 roles — Systems (IS), Simulation, Workshop and Software — which rotate at the midpoint of the V-cycle, so every student walks both the design and the verification branch.</span>
     </p>
     <div class="scope-note">
       <div>
@@ -664,8 +665,8 @@ footer {
       <div>
         <div class="scope-col-title banco lang-es-block">El banco de pruebas: Dynamixel</div>
         <div class="scope-col-title banco lang-en-block">The testbed: Dynamixel</div>
-        <div class="scope-col-desc lang-es-block">La evidencia física de las semanas de ingeniería inversa y calibración no replica el vehículo completo — se genera sobre un robot móvil reducido centrado en navegación y percepción.</div>
-        <div class="scope-col-desc lang-en-block">Physical evidence in the reverse-engineering and calibration weeks does not replicate the full vehicle — it is generated on a reduced mobile robot focused on navigation and perception.</div>
+        <div class="scope-col-desc lang-es-block">La evidencia física de las semanas de ingeniería inversa y calibración no replica el vehículo completo — se genera sobre un único lazo de validación: un actuador Dynamixel comandado con DYNAMIXEL SDK cuya respuesta medida (posición, corriente) se contrasta contra su modelo Simscape. Un <em>digital twin</em> mínimo que ancla a la realidad la evidencia simulada del resto.</div>
+        <div class="scope-col-desc lang-en-block">Physical evidence in the reverse-engineering and calibration weeks does not replicate the full vehicle — it is generated on a single validation loop: one Dynamixel actuator driven with the DYNAMIXEL SDK, whose measured response (position, current) is contrasted against its Simscape model. A minimal <em>digital twin</em> that anchors all the simulated evidence to reality.</div>
       </div>
     </div>
     <div class="semanas-table-wrap">
@@ -694,12 +695,12 @@ footer {
       <span class="lang-en">Federated model</span>
     </p>
     <h2 class="section-title">
-      <span class="lang-es">3 departamentos técnicos</span>
-      <span class="lang-en">3 technical departments</span>
+      <span class="lang-es">4 roles rotativos</span>
+      <span class="lang-en">4 rotating roles</span>
     </h2>
     <p class="section-lead">
-      <span class="lang-es">Cada empresa licitadora organiza su trabajo técnico en estos 3 departamentos — no por subsistema del vehículo, sino por el tipo de evidencia que generan. Un interlocutor de Ingeniería de Sistemas coordina los tres y reporta al equipo cliente. Reparto completo de roles en <code style="font-family:var(--font-mono)">docs/</code>.</span>
-      <span class="lang-en">Each bidding company organises its technical work into these 3 departments — not by vehicle subsystem, but by the type of evidence they produce. A Systems Engineering liaison coordinates all three and reports to the client team. Full role breakdown in <code style="font-family:var(--font-mono)">docs/</code>.</span>
+      <span class="lang-es">El equipo — 4 o 5 alumnos — organiza su trabajo en estos 4 roles funcionales, definidos no por subsistema del vehículo sino por el tipo de evidencia que generan. Los roles <b>rotan en el punto medio del ciclo en V</b>: cada alumno pasa por la rama de diseño y por la de verificación. El rol de Ingeniería de Sistemas coordina y reporta al cliente (el profesor). Reparto completo de roles en <code style="font-family:var(--font-mono)">docs/</code>.</span>
+      <span class="lang-en">The team — 4 or 5 students — organises its work into these 4 functional roles, defined not by vehicle subsystem but by the type of evidence they produce. Roles <b>rotate at the midpoint of the V-cycle</b>: every student passes through both the design and the verification branch. The Systems Engineering role coordinates and reports to the client (the instructor). Full role breakdown in <code style="font-family:var(--font-mono)">docs/</code>.</span>
     </p>
     <div class="departamentos-grid" id="departamentos-grid"></div>
   </div>
@@ -713,20 +714,20 @@ footer {
       <span class="lang-en">Grading system</span>
     </p>
     <h2 class="section-title">
-      <span class="lang-es">35% individual · 65% grupal</span>
-      <span class="lang-en">35% individual · 65% group</span>
+      <span class="lang-es">50% individual · 50% grupal</span>
+      <span class="lang-en">50% individual · 50% group</span>
     </h2>
     <div class="eval-grid">
       <div class="eval-ring-wrap">
         <div class="ring-chart">
           <svg viewBox="0 0 100 100">
             <circle cx="50" cy="50" r="40" fill="none" stroke="#eee" stroke-width="12"/>
-            <!-- Grupal: 65% -->
+            <!-- Grupal: 50% -->
             <circle cx="50" cy="50" r="40" fill="none" stroke="var(--accent2)" stroke-width="12"
-              stroke-dasharray="163.4 251" stroke-dashoffset="0"/>
-            <!-- Individual: 35% -->
+              stroke-dasharray="125.7 251" stroke-dashoffset="0"/>
+            <!-- Individual: 50% -->
             <circle cx="50" cy="50" r="40" fill="none" stroke="var(--gold)" stroke-width="12"
-              stroke-dasharray="87.6 251" stroke-dashoffset="-163.4"/>
+              stroke-dasharray="125.7 251" stroke-dashoffset="-125.7"/>
           </svg>
           <div class="ring-center">
             <span class="ring-pct">100%</span>
@@ -735,8 +736,8 @@ footer {
           </div>
         </div>
         <div class="eval-legend">
-          <div class="legend-row"><span class="legend-dot" style="background:var(--accent2)"></span><span class="legend-name"><span class="lang-es">Grupal — coherencia arquitectura → simulación → evidencia → CDR</span><span class="lang-en">Group — coherence across architecture → simulation → evidence → CDR</span></span><span class="legend-pct">65%</span></div>
-          <div class="legend-row"><span class="legend-dot" style="background:var(--gold)"></span><span class="legend-name"><span class="lang-es">Individual — según el departamento de cada alumno</span><span class="lang-en">Individual — according to each student's department</span></span><span class="legend-pct">35%</span></div>
+          <div class="legend-row"><span class="legend-dot" style="background:var(--accent2)"></span><span class="legend-name"><span class="lang-es">Grupal — coherencia del hilo arquitectura → simulación → evidencia → CDR</span><span class="lang-en">Group — coherence of the architecture → simulation → evidence → CDR thread</span></span><span class="legend-pct">50%</span></div>
+          <div class="legend-row"><span class="legend-dot" style="background:var(--gold)"></span><span class="legend-name"><span class="lang-es">Individual — según el rol recorrido y la defensa individual en el CDR</span><span class="lang-en">Individual — per the roles held and the individual defence at the CDR</span></span><span class="legend-pct">50%</span></div>
         </div>
       </div>
       <div class="eval-criterios">
@@ -757,6 +758,12 @@ footer {
           <div class="criterio-title lang-en-block">CDR — final criterion</div>
           <div class="criterio-desc lang-es-block">La presentación debe demostrar el hilo completo: pliego → arquitectura → simulación → evidencias. La coherencia entre capas vale más que la profundidad en una sola.</div>
           <div class="criterio-desc lang-en-block">The presentation must show the full thread: contract → architecture → simulation → evidence. Coherence across layers is worth more than depth in just one.</div>
+        </div>
+        <div class="criterio-item" style="border-left-color:var(--purple)">
+          <div class="criterio-title lang-es-block">Revisión cruzada — criterio de proceso</div>
+          <div class="criterio-title lang-en-block">Cross-review — process criterion</div>
+          <div class="criterio-desc lang-es-block">Al no haber empresas rivales, la evaluación crítica se interioriza: en la PDR (semana 6) y en el CDR, cada rol somete su trabajo a red-team del resto del equipo y lo contrasta contra el modelo de referencia del profesor. Se evalúa la calidad de las objeciones, no solo del trabajo defendido.</div>
+          <div class="criterio-desc lang-en-block">With no rival companies, critical evaluation is internalised: at the PDR (week 6) and the CDR, each role submits its work to red-teaming by the rest of the team and contrasts it against the instructor's reference model. The quality of the objections is graded, not just the work defended.</div>
         </div>
       </div>
     </div>
@@ -791,7 +798,7 @@ footer {
           <div class="tree-indent"><span class="tree-dir">📁 semana-02/ … semana-14/</span></div>
           <div><span class="tree-dir">📁 modelos/</span></div>
           <div class="tree-indent"><span class="tree-dir">📁 sysml/</span> <span class="tree-note">*.slx System Composer</span></div>
-          <div class="tree-indent"><span class="tree-dir">📁 simscape/</span> <span class="tree-note">modelo base + por empresa</span></div>
+          <div class="tree-indent"><span class="tree-dir">📁 simscape/</span> <span class="tree-note">modelo base del profesor + trabajo del equipo</span></div>
           <div class="tree-indent"><span class="tree-dir">📁 hardware/</span> <span class="tree-note">banco Dynamixel: ROS 2, calibración</span></div>
           <div><span class="tree-dir">📁 recursos/</span> <span class="tree-note">pliego, referencias</span></div>
           <div><span class="tree-dir">📁 evaluacion/</span> <span class="tree-note">rúbricas</span></div>
@@ -806,8 +813,8 @@ footer {
           <div class="step-content">
             <div class="step-title lang-es-block">Solicitar acceso</div>
             <div class="step-title lang-en-block">Request access</div>
-            <div class="step-desc lang-es-block">Crea tu cuenta en GitHub y envía tu <strong>nombre de usuario</strong> al profesor por el canal del curso, indicando tu <strong>empresa</strong> y <strong>departamento</strong>. Recibirás una invitación por email a <code>curso-robotica-2026</code>: ábrela y pulsa <em>Accept invitation</em>.</div>
-            <div class="step-desc lang-en-block">Create your GitHub account and send your <strong>username</strong> to the lecturer via the course channel, stating your <strong>company</strong> and <strong>department</strong>. You'll get an email invitation to <code>curso-robotica-2026</code>: open it and click <em>Accept invitation</em>.</div>
+            <div class="step-desc lang-es-block">Crea tu cuenta en GitHub y envía tu <strong>nombre de usuario</strong> al profesor por el canal del curso, indicando tu <strong>rol</strong> (IS, Simulación, Taller o Software). Recibirás una invitación por email a <code>curso-robotica-2026</code>: ábrela y pulsa <em>Accept invitation</em>.</div>
+            <div class="step-desc lang-en-block">Create your GitHub account and send your <strong>username</strong> to the lecturer via the course channel, stating your <strong>role</strong> (IS, Simulation, Workshop or Software). You'll get an email invitation to <code>curso-robotica-2026</code>: open it and click <em>Accept invitation</em>.</div>
           </div>
         </div>
         <div class="repo-step">
@@ -826,18 +833,18 @@ footer {
             <div class="step-title lang-es-block">Tu rama de cada semana</div>
             <div class="step-title lang-en-block">Your weekly branch</div>
             <div class="step-desc lang-es-block">
-              · Cada semana, tu departamento trabaja en la rama <code>empresa-N/departamento/semana-XX</code> (<code>simulacion</code>, <code>taller</code> o <code>software</code>), partiendo siempre de <code>master</code> actualizado.<br>
-              · Trabaja <strong>solo</strong> en las carpetas de tu departamento (<code>modelos/simscape/</code>, <code>modelos/hardware/</code>…). No toques el trabajo de otra empresa.<br>
+              · Cada semana, tu rol trabaja en la rama <code>rol/semana-XX</code> (<code>is</code>, <code>sim</code>, <code>tal</code> o <code>sw</code>), partiendo siempre de <code>master</code> actualizado.<br>
+              · Trabaja <strong>solo</strong> en las carpetas de tu rol (<code>modelos/simscape/</code>, <code>modelos/hardware/</code>…). No pises el trabajo de otro rol.<br>
               · <strong>Al terminar la sesión:</strong> <code>Commit</code> + <code>Push</code> de tu rama, aunque la tarea no esté acabada.<br>
-              · Al cerrar la semana, abre un <strong>Pull Request</strong> a <code>master</code>; el interlocutor de Sistemas lo revisa e integra.
+              · Al cerrar la semana, abre un <strong>Pull Request</strong> a <code>master</code>; quien tenga el rol de Sistemas (IS) lo revisa e integra.
             </div>
             <div class="step-desc lang-en-block">
-              · Each week your department works on the branch <code>empresa-N/department/semana-XX</code> (<code>simulacion</code>, <code>taller</code> or <code>software</code>), always branching from an up-to-date <code>master</code>.<br>
-              · Work <strong>only</strong> in your department's folders (<code>modelos/simscape/</code>, <code>modelos/hardware/</code>…). Never touch another company's work.<br>
+              · Each week your role works on the branch <code>rol/semana-XX</code> (<code>is</code>, <code>sim</code>, <code>tal</code> or <code>sw</code>), always branching from an up-to-date <code>master</code>.<br>
+              · Work <strong>only</strong> in your role's folders (<code>modelos/simscape/</code>, <code>modelos/hardware/</code>…). Never step on another role's work.<br>
               · <strong>Before leaving:</strong> <code>Commit</code> + <code>Push</code> your branch, even if the task isn't finished.<br>
-              · At the end of the week, open a <strong>Pull Request</strong> to <code>master</code>; the Systems liaison reviews and integrates it.
+              · At the end of the week, open a <strong>Pull Request</strong> to <code>master</code>; whoever holds the Systems (IS) role reviews and integrates it.
             </div>
-            <code class="step-code">git checkout master && git pull<br>git checkout -b empresa-1/software/semana-05<br>git commit -m "feat(sw): nodo ROS 2 de navegación"<br>git push origin empresa-1/software/semana-05</code>
+            <code class="step-code">git checkout master && git pull<br>git checkout -b sw/semana-05<br>git commit -m "feat(sw): adquisición SDK + log de corriente"<br>git push origin sw/semana-05</code>
           </div>
         </div>
         <div class="repo-step">
@@ -847,16 +854,16 @@ footer {
             <div class="step-title lang-en-block">Commit policy</div>
             <div class="step-desc lang-es-block">
               · Un commit = una unidad de trabajo con sentido; no mezcles tareas distintas.<br>
-              · Mensaje en presente: <code>tipo(dept): qué has hecho</code> + ID de requisito si aplica.<br>
-              · <code>dept</code>: <code>is</code> sistemas · <code>sim</code> simulación · <code>tal</code> taller · <code>sw</code> software.<br>
+              · Mensaje en presente: <code>tipo(rol): qué has hecho</code> + ID de requisito si aplica.<br>
+              · <code>rol</code>: <code>is</code> sistemas · <code>sim</code> simulación · <code>tal</code> taller · <code>sw</code> software.<br>
               · Tipos: <code>feat</code> añadir · <code>fix</code> corregir · <code>docs</code> notas/tablas · <code>refactor</code> reorganizar.<br>
               · Mínimo un <code>Commit</code> + <code>Push</code> al final de cada sesión.<br>
               · ¿<code>Conflict</code> al hacer Pull o en el PR? No lo resuelvas solo: avisa al profesor.
             </div>
             <div class="step-desc lang-en-block">
               · One commit = one meaningful unit of work; don't mix separate tasks.<br>
-              · Present-tense message: <code>type(dept): what you did</code> + requirement ID if relevant.<br>
-              · <code>dept</code>: <code>is</code> systems · <code>sim</code> simulation · <code>tal</code> workshop · <code>sw</code> software.<br>
+              · Present-tense message: <code>type(rol): what you did</code> + requirement ID if relevant.<br>
+              · <code>rol</code>: <code>is</code> systems · <code>sim</code> simulation · <code>tal</code> workshop · <code>sw</code> software.<br>
               · Types: <code>feat</code> add · <code>fix</code> correct · <code>docs</code> notes/tables · <code>refactor</code> reorganise.<br>
               · At least one <code>Commit</code> + <code>Push</code> at the end of every session.<br>
               · <code>Conflict</code> on Pull or in the PR? Don't resolve it alone: tell the lecturer.
@@ -944,10 +951,10 @@ const semanas = [
     tal_es:"Observar fallos reales (sobrecarga…)", tal_en:"Observe real faults (overload…)",
     sw_es:"Gestión de fallos y recuperación", sw_en:"Fault handling & recovery" },
   { n:"10", objetivo_es:"Integrar", objetivo_en:"Integrate",
-    tema_es:"Integración entre departamentos", tema_en:"Cross-department integration",
+    tema_es:"Integración entre roles", tema_en:"Cross-role integration",
     is_es:"Negociación de interfaces, gestión de cambios", is_en:"Interface negotiation, change management",
     sim_es:"Integración de subsistemas", sim_en:"Subsystem integration",
-    tal_es:"Integración física entre departamentos", tal_en:"Cross-department physical integration",
+    tal_es:"Integración física entre roles", tal_en:"Cross-role physical integration",
     sw_es:"Pipeline software integrado", sw_en:"Integrated software pipeline" },
   { n:"11", objetivo_es:"Optimizar", objetivo_en:"Optimise",
     tema_es:"Optimización de parámetros", tema_en:"Parameter optimisation",
@@ -976,9 +983,10 @@ const semanas = [
 ];
 
 const departamentos = [
+  { icono:"IS",  nombre_es:"Sistemas (IS)", nombre_en:"Systems (IS)", dominio:"System Composer\n(requisitos, trazabilidad, V&V)", evidencia_es:"Evidencia: arquitectura y VCRM", evidencia_en:"Evidence: architecture & VCRM", tagClass:"tag-sistemas", tools:["System Composer","Requirements Toolbox"] },
   { icono:"SIM", nombre_es:"Simulación",  nombre_en:"Simulation", dominio:"Simscape\n(Electrical, Driveline, Multibody)", evidencia_es:"Evidencia: simulación", evidencia_en:"Evidence: simulation", tagClass:"tag-simulacion", tools:["MATLAB","Simscape","Simulink Test"] },
-  { icono:"TAL", nombre_es:"Taller (Dynamixel)", nombre_en:"Workshop (Dynamixel)", dominio:"Banco físico\nAX-12+ / AX-S1 / RX-24F / RX-64", evidencia_es:"Evidencia: física", evidencia_en:"Evidence: physical", tagClass:"tag-fisica", tools:["DYNAMIXEL Wizard 2.0","DYNAMIXEL SDK"] },
-  { icono:"SW",  nombre_es:"Software",     nombre_en:"Software", dominio:"ROS 2\n(dynamixel_workbench, UR3, Gazebo)", evidencia_es:"Evidencia: integración software", evidencia_en:"Evidence: software integration", tagClass:"tag-software", tools:["ROS 2","MoveIt2","Gazebo"] },
+  { icono:"TAL", nombre_es:"Taller (Dynamixel)", nombre_en:"Workshop (Dynamixel)", dominio:"Banco físico\nAX-12+ / AX-S1 / RX-24F / RX-64", evidencia_es:"Evidencia: física (medidas reales)", evidencia_en:"Evidence: physical (real measurements)", tagClass:"tag-fisica", tools:["DYNAMIXEL Wizard 2.0","DYNAMIXEL SDK"] },
+  { icono:"SW",  nombre_es:"Software",     nombre_en:"Software", dominio:"DYNAMIXEL SDK (Python)\nadquisición y contraste · ROS 2 opcional", evidencia_es:"Evidencia: adquisición e integración hw↔modelo", evidencia_en:"Evidence: acquisition & hw↔model integration", tagClass:"tag-software", tools:["DYNAMIXEL SDK","Python","ROS 2 (opc.)"] },
 ];
 
 const isEN = () => document.body.classList.contains('en');
