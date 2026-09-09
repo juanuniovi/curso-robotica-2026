@@ -248,6 +248,13 @@ demostradores de la solución, debidamente probados y validados.</p>
 </table>
 <hr />
 <h2 id="3-requisitos-tecnicos-y-caracteristicas">3. Requisitos técnicos y características</h2>
+<blockquote>
+<p><em>Versión reducida para el curso: se han eliminado los requisitos marcados <code>[OPCIONAL]</code>
+en el pliego original, las cargas de pago opcionales y varios requisitos de detalle o
+redundantes; los de gestión y pruebas (<code>RDOC</code>, <code>RPVyA</code>) se han dejado en lo esencial.
+</em><em>Los identificadores omitidos se conservan como huecos</em><em> para mantener la trazabilidad
+con el pliego original.</em></p>
+</blockquote>
 <h3 id="31-requisitos-generales">3.1 Requisitos generales</h3>
 <table>
 <thead>
@@ -263,31 +270,15 @@ demostradores de la solución, debidamente probados y validados.</p>
 </tr>
 <tr>
 <td><strong>RGEN-02</strong></td>
-<td>Alta modularidad: configuración y módulos funcionales fácilmente adaptables e <strong>intercambiables</strong>.</td>
-</tr>
-<tr>
-<td><strong>RGEN-03</strong></td>
-<td>Una <strong>barcaza (bastidor) principal</strong> común a toda la gama de configuraciones del vehículo, mediante acoplamiento/desacoplamiento de módulos, accesorios e implementos.</td>
+<td><strong>Alta modularidad:</strong> una <strong>barcaza (bastidor) principal</strong> común a toda la gama de configuraciones, con módulos funcionales adaptables e <strong>intercambiables</strong>; la arquitectura permitirá incorporar nuevos módulos, cargas de pago e implementos, y vincular otros UxV para operación conjunta.</td>
 </tr>
 <tr>
 <td><strong>RGEN-04</strong></td>
 <td>El UGV se concibe <strong>como robot desde el origen</strong>; se excluyen plataformas tripuladas robotizadas.</td>
 </tr>
 <tr>
-<td><strong>RGEN-05</strong></td>
-<td>La arquitectura permitirá incorporar nuevos módulos, cargas de pago e implementos, y vincular otros UxV para operación conjunta.</td>
-</tr>
-<tr>
 <td><strong>RGEN-06</strong></td>
 <td>Resistencia de UGV y subsistemas a agentes ambientales: temperaturas extremas, lluvia, humedad, corrosión, radiación solar.</td>
-</tr>
-<tr>
-<td><strong>RGEN-07</strong></td>
-<td>Proceso de fabricación lo más simple y económico posible (reparación/reemplazo poco costoso).</td>
-</tr>
-<tr>
-<td><strong>RGEN-08</strong></td>
-<td><em>[OPCIONAL]</em> Minimizar la variedad de herramientas para reparaciones de primer escalón.</td>
 </tr>
 <tr>
 <td><strong>RGEN-09</strong></td>
@@ -326,40 +317,20 @@ demostradores de la solución, debidamente probados y validados.</p>
 <td><strong>Frenado automático ante riesgo de colisión</strong>, progresivo siempre que sea posible; deshabilitable manualmente para evitar bloqueos por falsos señuelos.</td>
 </tr>
 <tr>
-<td><strong>RGEN-18</strong></td>
-<td><em>[OPCIONAL]</em> Movilidad híbrida <strong>enchufable</strong> (recarga también desde puntos de recarga).</td>
-</tr>
-<tr>
-<td><strong>RGEN-19</strong></td>
-<td><em>[OPCIONAL]</em> Exportación de energía a sistemas externos, <strong>≥ 120 kW</strong>.</td>
-</tr>
-<tr>
 <td><strong>RGEN-20</strong></td>
-<td>Sistema de iluminación con <strong>cobertura completa 360°</strong>, configurable por el operador.</td>
-</tr>
-<tr>
-<td><strong>RGEN-21</strong></td>
-<td>Rejillas de protección en los faros capaces de retener piedras de <strong>≥ 3 cm</strong> sin afectar a la emisión luminosa.</td>
+<td>Sistema de iluminación con <strong>cobertura completa 360°</strong>, configurable por el operador, con <strong>rejillas de protección de faros</strong> capaces de retener piedras de ≥ 3 cm sin afectar a la emisión luminosa.</td>
 </tr>
 <tr>
 <td><strong>RGEN-22</strong></td>
 <td>Medios de captación de imagen y sensores para consciencia situacional y teleoperación (visualización de implementos y tren de rodaje, imágenes de cada lateral, visión de profundidad 360° y <strong>cámara térmica</strong> para puntos calientes), todos protegidos.</td>
 </tr>
 <tr>
-<td><strong>RGEN-23</strong></td>
-<td>Puntos de anclaje para rescate o autorrescate por tracción (perrillos y eslingas).</td>
-</tr>
-<tr>
 <td><strong>RGEN-24</strong></td>
-<td>Puntos de amarre y estiba para <strong>aerotransporte</strong> como carga en aeronaves de ala fija, dimensionados para los factores de carga (norma de referencia aplicable).</td>
-</tr>
-<tr>
-<td><strong>RGEN-25</strong></td>
-<td>Puntos de amarre y estiba para <strong>transporte terrestre</strong> seguro como carga (norma UNE-EN 12195).</td>
+<td>Puntos de amarre y estiba para <strong>transporte como carga por vía aérea</strong> (aeronaves de ala fija) <strong>y terrestre</strong>, dimensionados para los factores de carga (normas de referencia aplicables).</td>
 </tr>
 <tr>
 <td><strong>RGEN-26</strong></td>
-<td>Cabestrante de gran capacidad y/o tracción con eslingas, con procedimientos de seguridad para terrenos irregulares y recuperación de vehículos atrapados / autorrecuperación.</td>
+<td><strong>Cabestrante</strong> de gran capacidad y/o tracción con eslingas, y <strong>puntos de anclaje</strong> para rescate y autorrescate por tracción, con procedimientos de seguridad para terrenos irregulares.</td>
 </tr>
 <tr>
 <td><strong>RGEN-27</strong></td>
@@ -367,11 +338,7 @@ demostradores de la solución, debidamente probados y validados.</p>
 </tr>
 <tr>
 <td><strong>RGEN-28</strong></td>
-<td>El UGV tendrá <strong>Puntos de Interfaz</strong> accesibles (mecánicos, eléctricos, lógicos o combinados) para integrar cargas de pago. Se definen los Puntos de Interfaz y sus cargas asociadas: el contratista <strong>desarrolla y entrega los OBLIGATORIOS</strong> y, opcionalmente, los OPCIONALES.</td>
-</tr>
-<tr>
-<td><strong>RGEN-29</strong></td>
-<td>Los Puntos de Interfaz no comprometerán la <strong>estabilidad</strong> del UGV, con o sin carga de pago montada.</td>
+<td>El UGV tendrá <strong>Puntos de Interfaz</strong> accesibles (mecánicos, eléctricos, lógicos o combinados) para integrar las cargas de pago definidas, <strong>sin comprometer la estabilidad</strong> del UGV (con o sin carga montada).</td>
 </tr>
 </tbody>
 </table>
@@ -386,12 +353,8 @@ demostradores de la solución, debidamente probados y validados.</p>
 </thead>
 <tbody>
 <tr>
-<td><strong>RLT1-01</strong></td>
-<td>Tren de tracción de <strong>ruedas</strong>, para mayores velocidades en terrenos llanos y consolidados.</td>
-</tr>
-<tr>
 <td><strong>RLT1-02</strong></td>
-<td>Configuración <strong>4×4, 6×6 u 8×8</strong>, con elevadas capacidades todoterreno de dificultad promedio a alta velocidad.</td>
+<td>Tren de tracción de <strong>ruedas</strong> en configuración <strong>4×4, 6×6 u 8×8</strong>, con elevadas capacidades todoterreno de dificultad promedio y mayores velocidades en terrenos llanos y consolidados.</td>
 </tr>
 <tr>
 <td><strong>RLT1-03</strong></td>
@@ -425,37 +388,25 @@ demostradores de la solución, debidamente probados y validados.</p>
 <td><strong>RLT1-10</strong></td>
 <td>Vadeo sin preparación <strong>≥ 0,75 m</strong> (agua dulce o salada).</td>
 </tr>
-<tr>
-<td><strong>RLT1-11</strong></td>
-<td><em>[OPCIONAL]</em> Protección balística mediante blindaje modular/removible frente a armas de pequeño calibre.</td>
-</tr>
 </tbody>
 </table>
-<h4 id="322-puntos-de-interfaz">3.2.2 Puntos de Interfaz</h4>
+<h4 id="322-puntos-de-interfaz-cargas-de-pago-obligatorias">3.2.2 Puntos de Interfaz (cargas de pago obligatorias)</h4>
 <ul>
 <li><strong>RLT1-12 — Zona frontal (Punto de Interfaz 1):</strong> interfaz electromecánico para
-  <strong>limpieza de rutas</strong>, con cargas alternativas: hoja quitanieves <strong>(CP-01, OBLIGATORIA)</strong>
-  anchura ≥ 2.250 mm, acero Brinell ≥ 450, orientable; fresadora de nieve <strong>(CP-02,
-  opcional)</strong> anchura ≥ 2.000 mm, altura ≥ 1.000 mm, proyección ≥ 25 m; rodillo de presión
-  sobre el terreno <strong>(CP-03, opcional)</strong> barrido ≥ 2,2 m, &gt; 5 km/h, ≥ 300 kg por rueda.</li>
+  <strong>limpieza de rutas</strong> con hoja quitanieves <strong>(CP-01)</strong> — anchura ≥ 2.250 mm, acero
+  Brinell ≥ 450, orientable.</li>
 <li><strong>RLT1-13 — Zona superior:</strong></li>
-<li><strong>Punto de Interfaz 2:</strong> sensores y efectores; cargas alternativas: <strong>módulo de
-    efectores especiales (CP-04, OBLIGATORIA, no detallado en esta versión docente)</strong>;
-    módulo optrónico de adquisición sobre mástil retráctil para ISTAR <strong>(CP-05, opcional)</strong>;
-    brazo robótico articulado para manipulación de muestras y objetos <strong>(CP-06, opcional)</strong>,
-    con sensores de visión para su teleoperación.</li>
-<li><strong>Punto de Interfaz 3:</strong> <strong>bahía de carga</strong> de gran capacidad; elementos alternativos:
-    equipos y víveres <strong>(CP-07, opcional)</strong>; camillas o células medicalizadas <strong>(CP-08,
-    opcional)</strong>; plataforma de recarga simultánea de dos UAV <strong>(CP-09, OBLIGATORIA)</strong>;
-    subsistema con ≥ 2 puntos de <strong>recarga inalámbrica para UGV transportables</strong> con acceso
-    de entrada/salida sin acción humana (función Nodriza) <strong>(CP-10, OBLIGATORIA)</strong>;
-    contenedor de despliegue de carga lineal <strong>(CP-11, opcional; solo el contenedor o
-    réplica)</strong>; tolva dispensadora de sal <strong>(CP-12, opcional)</strong> capacidad ≥ 1,2 m³, ancho de
-    proyección 2–6 m, salida trasera; contenedor compartimentado para muestras líquidas y
-    sólidas <strong>(CP-13, opcional)</strong>.</li>
+<li><strong>Punto de Interfaz 2:</strong> <strong>módulo de efectores especiales (CP-04)</strong> <em>(no detallado en
+    esta versión docente)</em>.</li>
+<li><strong>Punto de Interfaz 3 — bahía de carga</strong> de gran capacidad: plataforma de <strong>recarga
+    simultánea de dos UAV (CP-09)</strong>; subsistema con ≥ 2 puntos de <strong>recarga inalámbrica
+    para UGV transportables</strong> con acceso de entrada/salida sin acción humana — función
+    <strong>Nodriza (CP-10)</strong>.</li>
 <li><strong>RLT1-14 — Zona trasera (Punto de Interfaz 4):</strong> enganche mecánico de remolques de
-  hasta 3.000 kg <strong>(CP-14, OBLIGATORIA)</strong>.</li>
+  hasta 3.000 kg <strong>(CP-14)</strong>.</li>
 </ul>
+<p><em>(El pliego original define además cargas de pago opcionales <code>CP-02, CP-03, CP-05–CP-08,
+CP-11–CP-13</code>, omitidas en esta versión.)</em></p>
 <h3 id="33-requisitos-para-el-ugv-de-cadenas-omitido-en-esta-version">3.3 Requisitos para el UGV de cadenas — <em>omitido en esta versión</em></h3>
 <p><em>El §3.3 del pliego original (UGV de cadenas para trabajos sobre terreno, requisitos
 <code>RLT2-xx</code> y cargas <code>CP-15…CP-25</code>) queda fuera del alcance de este curso. La numeración de
@@ -516,10 +467,6 @@ las secciones siguientes se conserva.</em></p>
 <td><strong>ROPE-09</strong></td>
 <td>Familias de misión previstas (probadas en Fases II y III): ISTAR, materiales peligrosos, logística, evacuación, búsqueda y rescate, Nodriza, limpieza de rutas y apoyo en tormentas invernales.</td>
 </tr>
-<tr>
-<td><strong>ROPE-10</strong></td>
-<td>El cambio entre modos durante una misión debe ser <strong>lo más rápido posible</strong>, sin retrasar el desarrollo de la misión.</td>
-</tr>
 </tbody>
 </table>
 <h3 id="36-requisitos-tecnicos-del-puesto-de-operacion">3.6 Requisitos técnicos del Puesto de Operación</h3>
@@ -533,7 +480,7 @@ las secciones siguientes se conserva.</em></p>
 <tbody>
 <tr>
 <td><strong>RPdO-01</strong></td>
-<td>Puesto de Operación <strong>móvil y embarcable</strong> en un vehículo tipo <em>shelter</em> o <em>shelter</em> transportable; permite teleoperación directa o funciones de navegación autónoma.</td>
+<td>Puesto de Operación <strong>móvil</strong>, transportable en maletas/baúles rugerizados y embarcable en vehículo tipo <em>shelter</em>; permite teleoperación directa y funciones de navegación autónoma.</td>
 </tr>
 <tr>
 <td><strong>RPdO-02</strong></td>
@@ -545,23 +492,11 @@ las secciones siguientes se conserva.</em></p>
 </tr>
 <tr>
 <td><strong>RPdO-04</strong></td>
-<td>Interfaces con información suficiente para controlar el sistema en cualquier entorno y condición ambiental <strong>sin generar confusión ni estrés</strong> en el operador, aportando información de conducción (visual, auditiva, háptica), de misión y de estado del vehículo.</td>
-</tr>
-<tr>
-<td><strong>RPdO-05</strong></td>
-<td>Puesto de Operación <strong>transportable</strong> en maletas/baúles rugerizados.</td>
+<td>Interfaces con información suficiente para controlar el sistema en cualquier entorno y condición ambiental <strong>sin generar confusión ni estrés</strong> en el operador (información de conducción visual/auditiva/háptica, de misión y de estado), permitiendo <strong>seleccionar y visualizar</strong> las imágenes que el operador estime necesarias.</td>
 </tr>
 <tr>
 <td><strong>RPdO-06</strong></td>
 <td><strong>Tres interfaces independientes</strong> (conducción, misión y control de carga útil); conducción y misión operadas por un mismo individuo.</td>
-</tr>
-<tr>
-<td><strong>RPdO-07</strong></td>
-<td>Selección y visualización de las imágenes que el operador estime necesarias.</td>
-</tr>
-<tr>
-<td><strong>RPdO-08</strong></td>
-<td><em>[OPCIONAL]</em> Interfaz inmersivo con háptica y realidad aumentada.</td>
 </tr>
 </tbody>
 </table>
@@ -591,7 +526,7 @@ las secciones siguientes se conserva.</em></p>
 <tbody>
 <tr>
 <td><strong>RCOM-01</strong></td>
-<td><strong>Tres módulos de comunicaciones alternativos:</strong> (a) módulo <strong>5G</strong> para misiones de seguridad civil, con cifrado opcional; (b) módulo de <strong>radio</strong> con protección de transmisión y cifrado opcional, interoperable con sistemas en dotación y robusto ante perturbaciones; (c) <strong>terminal satélite comercial</strong> sustituible por uno de mayores prestaciones, con contrato de uso durante el proyecto y la garantía.</td>
+<td><strong>Tres módulos de comunicaciones alternativos:</strong> (a) módulo <strong>5G</strong> para misiones de seguridad civil; (b) módulo de <strong>radio</strong> con protección de transmisión, interoperable con sistemas en dotación y robusto ante perturbaciones; (c) <strong>terminal satélite comercial</strong> sustituible por uno de mayores prestaciones.</td>
 </tr>
 <tr>
 <td><strong>RCOM-02</strong></td>
@@ -599,15 +534,7 @@ las secciones siguientes se conserva.</em></p>
 </tr>
 <tr>
 <td><strong>RCOM-03</strong></td>
-<td>Modo de aseguramiento de las comunicaciones con dos estados, <strong>NORMAL</strong> y <strong>DEGRADADO</strong>; el sistema detecta el cambio (por interferencias o pérdida de línea de visión) y actúa en consecuencia.</td>
-</tr>
-<tr>
-<td><strong>RCOM-04</strong></td>
-<td><strong>Auto-recuperación</strong> del enlace ante pérdida (estado DEGRADADO): en TELEOPERADO, regresión automática del recorrido hasta recuperar señal; en AUTÓNOMO, el vehículo continúa la misión programada.</td>
-</tr>
-<tr>
-<td><strong>RCOM-05</strong></td>
-<td><em>[OPCIONAL]</em> Conexión directa por <strong>fibra en carrete de ≥ 100 m</strong>.</td>
+<td>Modo de aseguramiento de las comunicaciones con estados <strong>NORMAL</strong> y <strong>DEGRADADO</strong>: el sistema detecta la pérdida del enlace (interferencias o pérdida de línea de visión) y actúa — en TELEOPERADO, <strong>regresión automática</strong> del recorrido hasta recuperar señal; en AUTÓNOMO, continúa la misión programada.</td>
 </tr>
 </tbody>
 </table>
@@ -626,31 +553,15 @@ las secciones siguientes se conserva.</em></p>
 </tr>
 <tr>
 <td><strong>RSW-02</strong></td>
-<td>La documentación explicará la <strong>arquitectura general</strong> con diagramas <strong>UML y/o SysML</strong> más texto: módulos del vehículo, de los puestos de mando y de cualquier subsistema desarrollado.</td>
-</tr>
-<tr>
-<td><strong>RSW-03</strong></td>
-<td>Se documentará el <strong>detalle de las interfaces de entrada/salida</strong> de cada módulo.</td>
+<td>La documentación explicará la <strong>arquitectura general</strong> con diagramas <strong>UML y/o SysML</strong> más texto (módulos del vehículo, de los puestos de mando y de cualquier subsistema desarrollado), incluyendo el <strong>detalle de las interfaces de entrada/salida</strong> de cada módulo.</td>
 </tr>
 <tr>
 <td><strong>RSW-04</strong></td>
-<td>Son entregable SW: todos los <strong>scripts, ficheros de configuración, datos de prueba, binarios y librerías</strong> (online y offline), generados o comprados, y las licencias necesarias.</td>
-</tr>
-<tr>
-<td><strong>RSW-05</strong></td>
-<td>Apartado de <strong>dependencias</strong>: librerías, compiladores/intérpretes y sistemas operativos, con sus versiones.</td>
-</tr>
-<tr>
-<td><strong>RSW-06</strong></td>
-<td>Los binarios con GUI mostrarán el <strong>logotipo del Cliente</strong> durante 2 s al arrancar y de forma visible en la pantalla principal.</td>
+<td>Son entregable SW: todos los <strong>scripts, ficheros de configuración, datos de prueba, binarios y librerías</strong> (online y offline), las <strong>licencias</strong> necesarias y un apartado de <strong>dependencias</strong> (librerías, compiladores/intérpretes, sistemas operativos, con sus versiones).</td>
 </tr>
 <tr>
 <td><strong>RSW-07</strong></td>
 <td>El vídeo mostrado y almacenado usará contenedor <strong>MPEG-TS</strong> con compresión MPEG-2 o H.264; si se dispone de posición y orientación de la plataforma, se incluirán como <strong>metadatos KLV</strong> (stream adicional) con cadencia ≥ 1 cada 2 s.</td>
-</tr>
-<tr>
-<td><strong>RSW-08</strong></td>
-<td><em>[OPCIONAL]</em> Transmisión de vídeo a la red local en tiempo real mediante <strong>RTSP/RTP</strong> en dirección multicast.</td>
 </tr>
 </tbody>
 </table>
@@ -668,36 +579,12 @@ las secciones siguientes se conserva.</em></p>
 <td>Las pruebas de verificación y validación tendrán en cuenta los <strong>modos operativos</strong> (TELEOPERADO, AUTÓNOMO, FUERA DE LÍNEA), los <strong>modos de detección</strong> (NORMAL, SIGILOSO) y los <strong>modos de comunicaciones</strong> (NORMAL, DEGRADADO).</td>
 </tr>
 <tr>
-<td><strong>RPVyA-02</strong></td>
-<td>El contratista dispondrá de todas las <strong>licencias software</strong> necesarias, instaladas en sus sistemas; el Cliente tendrá licencia de uso durante las pruebas.</td>
-</tr>
-<tr>
-<td><strong>RPVyA-03</strong></td>
-<td>Durante pruebas y demostraciones, el contratista aplicará el <strong>distintivo del Cliente</strong> (≥ tamaño A3) en los laterales de cada sistema/subsistema.</td>
-</tr>
-<tr>
 <td><strong>RPVyA-04</strong></td>
 <td>Las <strong>pruebas de verificación</strong> se realizan al final de la Fase II (obligatorias para cerrarla): unitarias, de interfaz, de sistema en entorno controlado (fábrica) y pruebas iniciales de misión en fábrica.</td>
 </tr>
 <tr>
-<td><strong>RPVyA-05</strong></td>
-<td>Las pruebas de verificación las supervisa y dirige el <strong>ERC</strong>; el contratista planifica el tiempo en el Plan de Pruebas.</td>
-</tr>
-<tr>
-<td><strong>RPVyA-06</strong></td>
-<td>Las pruebas de verificación se realizan en las <strong>instalaciones del contratista</strong>.</td>
-</tr>
-<tr>
 <td><strong>RPVyA-07</strong></td>
 <td>Las <strong>pruebas de validación</strong> de la Fase III las llevan a cabo <strong>unidades operativas</strong> designadas por el Cliente, en instalaciones designadas por el Cliente.</td>
-</tr>
-<tr>
-<td><strong>RPVyA-08</strong></td>
-<td>El contratista da apoyo durante las pruebas de validación e imparte <strong>formación</strong> a los operadores.</td>
-</tr>
-<tr>
-<td><strong>RPVyA-09</strong></td>
-<td>Las pruebas podrán ejecutarse en varios periodos de <strong>una semana</strong>, mínimo <strong>dos semanas no consecutivas</strong>, incluyendo llegada, instalación/montaje, formación, apoyo y recogida.</td>
 </tr>
 </tbody>
 </table>
@@ -711,52 +598,16 @@ las secciones siguientes se conserva.</em></p>
 </thead>
 <tbody>
 <tr>
-<td><strong>RDOC-01</strong></td>
-<td>Entregables documentales en <strong>PDF y en el formato fuente</strong> original (se fomenta Word con control de cambios en la fase de armonización).</td>
-</tr>
-<tr>
-<td><strong>RDOC-02</strong></td>
-<td>Nombre de fichero = <strong>código identificativo + número de versión</strong> (p. ej. <code>E01_7 Plan de Gestión de Proyecto.pdf</code>); versiones incrementales de uno en uno.</td>
-</tr>
-<tr>
-<td><strong>RDOC-03</strong></td>
-<td>En cada plazo parcial, copia electrónica (USB o equivalente) con toda la documentación generada en el periodo.</td>
-</tr>
-<tr>
-<td><strong>RDOC-04</strong></td>
-<td>Al fin del contrato, copia electrónica con todos los documentos en su última versión, en PDF y fuente.</td>
-</tr>
-<tr>
 <td><strong>RDOC-05</strong></td>
-<td><strong>Plan de Gestión del Proyecto</strong> (a los 15 días de la firma): objeto; descomposición estructurada en paquetes de trabajo, tareas y subtareas con entradas/salidas; organización y roles; programa de trabajos con <strong>diagrama de Gantt</strong> (apaisado, ≥ 3 niveles); referencias a Calidad, Riesgos y Configuración; perfil de esfuerzo.</td>
-</tr>
-<tr>
-<td><strong>RDOC-06</strong></td>
-<td>El Plan de Gestión del Proyecto se <strong>actualiza</strong> ante cualquier cambio.</td>
-</tr>
-<tr>
-<td><strong>RDOC-07</strong></td>
-<td><strong>Plan de Gestión de la Configuración</strong>: identificación de elementos de configuración; anexo con la <strong>Línea Base de la Configuración</strong> (versiones de entregables), actualizado a lo largo del proyecto.</td>
-</tr>
-<tr>
-<td><strong>RDOC-08</strong></td>
-<td><strong>Plan de Gestión de Riesgos</strong>: procedimiento; identificación inicial; catalogación de impacto y probabilidad con sus criterios; <strong>matriz de riesgos</strong> inicial y actualizada.</td>
+<td><strong>Plan de Gestión del Proyecto</strong>: objeto; descomposición estructurada en paquetes de trabajo, tareas y subtareas con entradas/salidas; organización y roles; programa de trabajos con <strong>diagrama de Gantt</strong> (≥ 3 niveles); referencias a Calidad, Riesgos y Configuración; perfil de esfuerzo.</td>
 </tr>
 <tr>
 <td><strong>RDOC-09</strong></td>
-<td><strong>Plan de Pruebas</strong>: descripción de las pruebas de las Fases II y III; <strong>matriz de trazabilidad pruebas ↔ requisitos</strong>; recursos materiales, inmateriales y humanos; responsables por rol; planificación temporal (≥ 2 semanas no consecutivas por fase); permisos y seguros; riesgos del plan.</td>
+<td><strong>Plan de Pruebas</strong>: descripción de las pruebas de las Fases II y III; <strong>matriz de trazabilidad pruebas ↔ requisitos</strong>; recursos materiales y humanos; responsables por rol; planificación temporal; riesgos del plan.</td>
 </tr>
 <tr>
 <td><strong>RDOC-10</strong></td>
 <td><strong>Protocolo de Pruebas</strong>: por cada prueba — caracterización del escenario (situación inicial/final, condiciones ambientales), responsable, pasos, <strong>criterios de aceptación</strong>, y si su no aceptación es bloqueante y a qué pruebas bloquea.</td>
-</tr>
-<tr>
-<td><strong>RDOC-11</strong></td>
-<td><strong>Resultado de las Pruebas</strong>: por fase — fechas de ejecución (incluidas repeticiones), resultado final, y causa/solución si hubo repeticiones.</td>
-</tr>
-<tr>
-<td><strong>RDOC-12</strong></td>
-<td><strong>Informe de Pruebas</strong>: único e <strong>incremental</strong>, integra toda la información de las pruebas de todas las fases.</td>
 </tr>
 <tr>
 <td><strong>RDOC-13</strong></td>
@@ -767,16 +618,8 @@ las secciones siguientes se conserva.</em></p>
 <td><strong>Diseño Hardware</strong> con diagramas jerárquicos; nomenclatura inequívoca y <strong>designadores de referencia</strong> (1–2 letras + número) para todos los elementos en todos los niveles.</td>
 </tr>
 <tr>
-<td><strong>RDOC-15</strong></td>
-<td>Orden de la descripción del Diseño Hardware: especificaciones generales (alimentación, rangos de funcionamiento), teoría de funcionamiento, descripción de elementos (física, funcional, interfaces), conexiones internas/externas, planos (generales, eléctricos, mecánicos), anexos (manuales, <em>datasheets</em>).</td>
-</tr>
-<tr>
-<td><strong>RDOC-16</strong></td>
-<td>Para elementos programables (PLC/PAC/IPC, FPGA, microcontroladores): IDE y versión, componente (marca y modelo), versión de firmware, descripción del programa, programa cargado.</td>
-</tr>
-<tr>
 <td><strong>RDOC-17</strong></td>
-<td><strong>Diseño de Software</strong> — con <strong>uso extensivo de diagramas SysML y/o UML</strong>: estructura general con <strong>diagrama de despliegue</strong> (equipos que ejecutan software: puestos de operación, plataforma, cargas de pago, UAV de apoyo); interfaces entre módulos (lógicas y físicas); estructura de cada componente (diagramas de componentes); <strong>casos de uso</strong> con diagramas de secuencia y, si procede, de estados; dinámica de las GUI (pantallas y transiciones); herramientas de desarrollo y dependencias (lenguajes, <em>frameworks</em>, librerías con versiones, IDE/RAD, control de versiones, gestión de fallos).</td>
+<td><strong>Diseño de Software</strong> — con <strong>uso extensivo de diagramas SysML y/o UML</strong>: estructura general con <strong>diagrama de despliegue</strong> (equipos que ejecutan software: puestos de operación, plataforma, cargas de pago, UAV de apoyo); interfaces entre módulos (lógicas y físicas); estructura de cada componente (diagramas de componentes); <strong>casos de uso</strong> con diagramas de secuencia y, si procede, de estados; dinámica de las GUI (pantallas y transiciones); herramientas de desarrollo y dependencias.</td>
 </tr>
 <tr>
 <td><strong>RDOC-18</strong></td>
