@@ -58,17 +58,15 @@ semanas = [
     "objetivo_es": "Abrir System Composer por primera vez y construir el diagrama de bloques (BDD) de primer nivel del Sistema UGV que pide el RDOC-13: los subsistemas, con 2–3 propiedades tipadas y valoradas cada uno, cada una trazada al requisito ancla que la justifica.",
     "objetivo_en": "Open System Composer for the first time and build the top-level block diagram (BDD) of the UGV System required by RDOC-13: the subsystems, each with 2–3 typed and valued properties, each one traced to the anchor requirement that justifies it.",
     "tareas_es": [
-      "Abrir MATLAB R2023b+ con System Composer y crear el modelo SistemaUGV.slx en equipos/[equipo]/semana-02/",
-      "Añadir los bloques de primer nivel (RDOC-13.c.1): UGV, Puesto de Mando Portable, Dispositivo de Telemando Portable, Subsistema de Comunicaciones, UAV de apoyo, subsistemas auxiliares",
-      "Dentro del bloque UGV, añadir sus subsistemas principales: Propulsión y energía, Movilidad y tren de rodaje, Percepción y navegación, Control y computación, Puntos de interfaz para cargas de pago",
+      "Generar el modelo base: en base/modelos/, ejecutar crear_SistemaUGV en MATLAB R2023b+ con System Composer (crea SistemaUGV.slx, un esqueleto). Copiarlo a equipos/[equipo]/semana-02/ y abrirlo. Ya trae los bloques de primer nivel y el desglose interno del UGV — tu trabajo es rellenar las propiedades",
+      "Revisar que están los bloques de primer nivel (RDOC-13.c.1): UGV, Puesto de Mando Portable, Dispositivo de Telemando Portable, Subsistema de Comunicaciones, UAV de apoyo; y el desglose del UGV: Propulsión y energía, Movilidad y tren de rodaje, Percepción y navegación, Control y computación, Puntos de interfaz. Añadir lo que falte",
       "Reparto por rol (según la Semana 1): IS → propiedades de nivel sistema (masa, autonomía, modos) · Simulación → propulsión y movilidad (potencia, par, velocidad, pendiente) · Taller → chasis e interfaces (dimensiones, pesos, RGEN-28) · Software → comunicaciones y control (alcance BLOS RCOM-02, latencia, RSW)",
       "Cada propiedad: nombre, tipo, valor y unidad (p. ej. UGV.masa_orden_mision = 9000 kg); en su descripción, el ID del requisito que la justifica (RLT1-08). Sin requisito que la justifique, la propiedad no entra",
       "Verificar la jerarquía en el Model Browser y exportar el BDD como PNG",
     ],
     "tareas_en": [
-      "Open MATLAB R2023b+ with System Composer and create SistemaUGV.slx in equipos/[team]/semana-02/",
-      "Add the top-level blocks (RDOC-13.c.1): UGV, Portable Command Post, Portable Remote-Control Device, Communications Subsystem, support UAV, auxiliary subsystems",
-      "Inside the UGV block, add its main subsystems: Propulsion & energy, Mobility & running gear, Perception & navigation, Control & computing, Payload interface points",
+      "Generate the base model: in base/modelos/, run crear_SistemaUGV in MATLAB R2023b+ with System Composer (creates SistemaUGV.slx, a skeleton). Copy it to equipos/[team]/semana-02/ and open it. It already has the top-level blocks and the UGV breakdown — your job is to fill in the properties",
+      "Check that the top-level blocks are there (RDOC-13.c.1): UGV, Portable Command Post, Portable Remote-Control Device, Communications Subsystem, support UAV; and the UGV breakdown: Propulsion & energy, Mobility & running gear, Perception & navigation, Control & computing, Interface points. Add whatever is missing",
       "Split by role (from Week 1): IS → system-level properties (mass, endurance, modes) · Simulation → propulsion & mobility (power, torque, speed, gradient) · Workshop → chassis & interfaces (dimensions, weights, RGEN-28) · Software → communications & control (BLOS range RCOM-02, latency, RSW)",
       "Each property: name, type, value and unit (e.g. UGV.mission_mass = 9000 kg); in its description, the ID of the requirement that justifies it (RLT1-08). A property with no justifying requirement does not go in",
       "Check the hierarchy in the Model Browser and export the BDD as PNG",
@@ -86,6 +84,7 @@ semanas = [
       "1 Pull Request to master; 1 commit per role: feat([role]): top-level BDD properties — week 2",
     ],
     "materiales": [
+      {"tipo":"código","nombre":"Script del modelo base — crear_SistemaUGV.m","archivo":"../../base/modelos/crear_SistemaUGV.m"},
       {"tipo":"md","nombre":"Anexo I — Requisitos funcionales","archivo":"../../recursos/anexo-I_anonimizado.html"},
       {"tipo":"enlace","nombre":"System Composer — Get Started (MathWorks)","archivo":"https://www.mathworks.com/help/systemcomposer/getting-started-with-system-composer.html"},
     ]
