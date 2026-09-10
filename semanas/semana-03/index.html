@@ -118,21 +118,21 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
         <span class="lang-en-inline">Group submission</span>
       </span>
       <span class="tag">
-        <span class="lang-es-inline">1 sesión de laboratorio de 2h</span>
-        <span class="lang-en-inline">1 × 2h lab session</span>
+        <span class="lang-es-inline">1 sesión de laboratorio de 2h + 2h trabajo autónomo</span>
+        <span class="lang-en-inline">1 × 2h lab session + 2h self-study</span>
       </span>
     </div>
     <h1 class="hero-titulo">
-      <span class="lang-es">Formalización y revisión de arquitectura</span>
-      <span class="lang-en">Architecture formalisation and review</span>
+      <span class="lang-es">Conectar: interfaces y el IBD de primer nivel</span>
+      <span class="lang-en">Connect: interfaces and the top-level IBD</span>
     </h1>
     <div class="hero-meta">
       <div class="meta-item">
         <span class="lang-es-inline">Verbo clave:</span>
         <span class="lang-en-inline">Key verb:</span>
         <strong>
-          <span class="lang-es-inline">Formalizar</span>
-          <span class="lang-en-inline">Formalise</span>
+          <span class="lang-es-inline">Conectar</span>
+          <span class="lang-en-inline">Connect</span>
         </strong>
       </div>
       <div class="meta-item">
@@ -149,21 +149,21 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
   <div class="section">
     <p class="section-label"><span class="lang-es-inline">Objetivo</span><span class="lang-en-inline">Objective</span></p>
     <div class="objetivo-box">
-      <span class="lang-es">Completar el BDD de segundo nivel, revisar la coherencia de toda la arquitectura mediante revisión cruzada entre equipos y obtener el visto bueno antes de pasar a simulación.</span>
-      <span class="lang-en">Complete the second-level BDD, review the coherence of the full architecture through cross-team review, and get approval before moving to simulation.</span>
+      <span class="lang-es">Sobre el BDD de la Semana 2, definir las interfaces del sistema (qué fluye por cada conexión), añadir puertos a los bloques y construir el IBD de primer nivel del Sistema UGV, con cada interfaz trazada al requisito que la justifica. Cerrar la baseline v1.0 de la arquitectura.</span>
+      <span class="lang-en">On top of the Week 2 BDD, define the system interfaces (what flows through each connection), add ports to the blocks and build the top-level IBD of the UGV System, with each interface traced to the requirement that justifies it. Close the v1.0 architecture baseline.</span>
     </div>
   </div>
 
   <div class="grid-2">
     <div class="section">
       <p class="section-label"><span class="lang-es-inline">Tareas</span><span class="lang-en-inline">Tasks</span></p>
-      <ul class="item-list"><li class="lang-es">Completar los componentes internos del subsistema asignado (BDD nivel 2)</li><li class="lang-es">Revisión cruzada: inspeccionar el IBD del equipo adyacente</li><li class="lang-es">Comprobar coherencia de interfaces entre equipos</li><li class="lang-es">Corregir discrepancias y cerrar el modelo v1.0</li><li class="lang-en">Complete internal components of assigned subsystem (BDD level 2)</li><li class="lang-en">Cross-review: inspect the IBD of the adjacent team</li><li class="lang-en">Check interface coherence between teams</li><li class="lang-en">Fix discrepancies and close model v1.0</li></ul>
+      <ul class="item-list"><li class="lang-es">Partir de SistemaUGV.slx (Semana 2). En el Interface Editor, definir las interfaces del sistema: p. ej. EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones — una por cada tipo de cosa que fluye entre bloques</li><li class="lang-es">Añadir puertos de entrada/salida a los bloques de primer nivel (UGV, Puesto de Mando Portable, Dispositivo de Telemando Portable, Subsistema de Comunicaciones, UAV de apoyo) y asignar a cada puerto su interfaz</li><li class="lang-es">Dibujar el IBD de primer nivel: conectar los puertos entre sí y con el exterior (operador, terreno y ambiente, cargas de pago) según el diagrama de contexto de la Semana 1</li><li class="lang-es">Dentro del bloque UGV, conectar sus subsistemas internos (Propulsión y energía → Movilidad; Percepción y navegación → Control; Control → Comunicaciones…)</li><li class="lang-es">Reparto por rol: IS → interfaces de sistema y con el exterior · Simulación → EnergiaElectrica y ParMecanico (RGEN-11, RLT1-04/09) · Taller → interfaces mecánicas de los Puntos de Interfaz (RGEN-28) · Software → FlujoVideo, DatosNavegacion, EnlaceComunicaciones (RGEN-22, RNAV-01, RCOM-01/02, RSW-07)</li><li class="lang-es">Cada interfaz, en su descripción: qué transporta, tipo y unidades, y el ID del requisito que la justifica. Exportar el IBD como PNG y etiquetar el modelo como baseline v1.0</li><li class="lang-en">Start from SistemaUGV.slx (Week 2). In the Interface Editor, define the system interfaces: e.g. EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones — one per type of thing that flows between blocks</li><li class="lang-en">Add input/output ports to the top-level blocks (UGV, Portable Command Post, Portable Remote-Control Device, Communications Subsystem, support UAV) and assign each port its interface</li><li class="lang-en">Draw the top-level IBD: connect the ports to each other and to the exterior (operator, terrain and environment, payloads) following the Week 1 context diagram</li><li class="lang-en">Inside the UGV block, connect its internal subsystems (Propulsion & energy → Mobility; Perception & navigation → Control; Control → Communications…)</li><li class="lang-en">Split by role: IS → system and external interfaces · Simulation → EnergiaElectrica and ParMecanico (RGEN-11, RLT1-04/09) · Workshop → mechanical interfaces of the interface points (RGEN-28) · Software → FlujoVideo, DatosNavegacion, EnlaceComunicaciones (RGEN-22, RNAV-01, RCOM-01/02, RSW-07)</li><li class="lang-en">Each interface, in its description: what it carries, type and units, and the ID of the requirement that justifies it. Export the IBD as PNG and tag the model as baseline v1.0</li></ul>
     </div>
     <div class="section">
       <p class="section-label"><span class="lang-es-inline">Entregables</span><span class="lang-en-inline">Deliverables</span></p>
       <ul class="entregable-list">
-        <li class="lang-es">Modelo SysML v1.0 cerrado y validado</li><li class="lang-es">Acta de revisión cruzada: discrepancias encontradas y soluciones adoptadas</li>
-        <li class="lang-en">Closed and validated SysML model v1.0</li><li class="lang-en">Cross-review record: discrepancies found and solutions adopted</li>
+        <li class="lang-es">SistemaUGV.slx actualizado: interfaces definidas, puertos asignados y el IBD de primer nivel; modelo etiquetado como baseline v1.0</li><li class="lang-es">PNG del IBD de primer nivel</li><li class="lang-es">Tabla interfaz · qué transporta · tipo/unidades · ID de requisito (semanas/semana-03/interfaces.csv)</li><li class="lang-es">1 Pull Request a master; 1 commit por rol: feat([rol]): interfaces del IBD nivel 1 — semana 3</li>
+        <li class="lang-en">Updated SistemaUGV.slx: interfaces defined, ports assigned and the top-level IBD; model tagged as baseline v1.0</li><li class="lang-en">PNG of the top-level IBD</li><li class="lang-en">Table interface · what it carries · type/units · requirement ID (semanas/semana-03/interfaces.csv)</li><li class="lang-en">1 Pull Request to master; 1 commit per role: feat([role]): top-level IBD interfaces — week 3</li>
       </ul>
     </div>
   </div>
@@ -172,10 +172,22 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
     <p class="section-label"><span class="lang-es-inline">Materiales</span><span class="lang-en-inline">Materials</span></p>
     <div class="materiales-grid">
       
-      <div class="no-materiales">
-        <span class="lang-es">Los materiales se publicarán antes de la sesión.</span>
-        <span class="lang-en">Materials will be published before the session.</span>
-      </div>
+      <a class="mat-card" href="../../recursos/anexo-I_anonimizado.html" target="_blank" rel="noopener">
+        <span class="mat-icon" style="background:#e8f0fb;color:#1a4f8a">📘</span>
+        <div class="mat-info">
+          <span class="mat-nombre">Anexo I — Requisitos funcionales</span>
+          <span class="mat-tipo" style="color:#1a4f8a">MD</span>
+        </div>
+        <span class="mat-dl" style="color:#1a4f8a">↗</span>
+      </a>
+      <a class="mat-card" href="https://www.mathworks.com/help/systemcomposer/getting-started-with-system-composer.html" target="_blank" rel="noopener">
+        <span class="mat-icon" style="background:#e6f4ff;color:#0077aa">🔗</span>
+        <div class="mat-info">
+          <span class="mat-nombre">System Composer — Get Started (MathWorks)</span>
+          <span class="mat-tipo" style="color:#0077aa">ENLACE</span>
+        </div>
+        <span class="mat-dl" style="color:#0077aa">↗</span>
+      </a>
     </div>
     <div class="add-material-hint">
       <span class="lang-es">

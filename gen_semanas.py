@@ -44,7 +44,7 @@ semanas = [
     ],
     "materiales": [
       {"tipo":"md","nombre":"Introducción a la ingeniería de sistemas y al MBSE","archivo":"../../recursos/intro-ingenieria-sistemas.html"},
-      {"tipo":"md","nombre":"Anexo I — Requisitos funcionales (versión anonimizada)","archivo":"../../recursos/anexo-I_anonimizado.html"},
+      {"tipo":"md","nombre":"Anexo I — Requisitos funcionales","archivo":"../../recursos/anexo-I_anonimizado.html"},
     ]
   },
   {
@@ -86,25 +86,52 @@ semanas = [
       "1 Pull Request to master; 1 commit per role: feat([role]): top-level BDD properties — week 2",
     ],
     "materiales": [
-      {"tipo":"md","nombre":"Anexo I — Requisitos funcionales (versión anonimizada)","archivo":"../../recursos/anexo-I_anonimizado.html"},
+      {"tipo":"md","nombre":"Anexo I — Requisitos funcionales","archivo":"../../recursos/anexo-I_anonimizado.html"},
       {"tipo":"enlace","nombre":"System Composer — Get Started (MathWorks)","archivo":"https://www.mathworks.com/help/systemcomposer/getting-started-with-system-composer.html"},
     ]
   },
   {
     "id": "semana-03", "n": "3", "bloque": "I", "color": "#1a4f8a",
-    "titulo_es": "Formalización y revisión de arquitectura",
-    "titulo_en": "Architecture formalisation and review",
-    "verbo_es": "Formalizar", "verbo_en": "Formalise",
+    "titulo_es": "Conectar: interfaces y el IBD de primer nivel",
+    "titulo_en": "Connect: interfaces and the top-level IBD",
+    "verbo_es": "Conectar", "verbo_en": "Connect",
     "tipo": "grupal",
-    "duracion_es": "1 sesión de laboratorio de 2h",
-    "duracion_en": "1 × 2h lab session",
-    "objetivo_es": "Completar el BDD de segundo nivel, revisar la coherencia de toda la arquitectura mediante revisión cruzada entre equipos y obtener el visto bueno antes de pasar a simulación.",
-    "objetivo_en": "Complete the second-level BDD, review the coherence of the full architecture through cross-team review, and get approval before moving to simulation.",
-    "tareas_es": ["Completar los componentes internos del subsistema asignado (BDD nivel 2)","Revisión cruzada: inspeccionar el IBD del equipo adyacente","Comprobar coherencia de interfaces entre equipos","Corregir discrepancias y cerrar el modelo v1.0"],
-    "tareas_en": ["Complete internal components of assigned subsystem (BDD level 2)","Cross-review: inspect the IBD of the adjacent team","Check interface coherence between teams","Fix discrepancies and close model v1.0"],
-    "entregables_es": ["Modelo SysML v1.0 cerrado y validado","Acta de revisión cruzada: discrepancias encontradas y soluciones adoptadas"],
-    "entregables_en": ["Closed and validated SysML model v1.0","Cross-review record: discrepancies found and solutions adopted"],
-    "materiales": []
+    "duracion_es": "1 sesión de laboratorio de 2h + 2h trabajo autónomo",
+    "duracion_en": "1 × 2h lab session + 2h self-study",
+    "objetivo_es": "Sobre el BDD de la Semana 2, definir las interfaces del sistema (qué fluye por cada conexión), añadir puertos a los bloques y construir el IBD de primer nivel del Sistema UGV, con cada interfaz trazada al requisito que la justifica. Cerrar la baseline v1.0 de la arquitectura.",
+    "objetivo_en": "On top of the Week 2 BDD, define the system interfaces (what flows through each connection), add ports to the blocks and build the top-level IBD of the UGV System, with each interface traced to the requirement that justifies it. Close the v1.0 architecture baseline.",
+    "tareas_es": [
+      "Partir de SistemaUGV.slx (Semana 2). En el Interface Editor, definir las interfaces del sistema: p. ej. EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones — una por cada tipo de cosa que fluye entre bloques",
+      "Añadir puertos de entrada/salida a los bloques de primer nivel (UGV, Puesto de Mando Portable, Dispositivo de Telemando Portable, Subsistema de Comunicaciones, UAV de apoyo) y asignar a cada puerto su interfaz",
+      "Dibujar el IBD de primer nivel: conectar los puertos entre sí y con el exterior (operador, terreno y ambiente, cargas de pago) según el diagrama de contexto de la Semana 1",
+      "Dentro del bloque UGV, conectar sus subsistemas internos (Propulsión y energía → Movilidad; Percepción y navegación → Control; Control → Comunicaciones…)",
+      "Reparto por rol: IS → interfaces de sistema y con el exterior · Simulación → EnergiaElectrica y ParMecanico (RGEN-11, RLT1-04/09) · Taller → interfaces mecánicas de los Puntos de Interfaz (RGEN-28) · Software → FlujoVideo, DatosNavegacion, EnlaceComunicaciones (RGEN-22, RNAV-01, RCOM-01/02, RSW-07)",
+      "Cada interfaz, en su descripción: qué transporta, tipo y unidades, y el ID del requisito que la justifica. Exportar el IBD como PNG y etiquetar el modelo como baseline v1.0",
+    ],
+    "tareas_en": [
+      "Start from SistemaUGV.slx (Week 2). In the Interface Editor, define the system interfaces: e.g. EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones — one per type of thing that flows between blocks",
+      "Add input/output ports to the top-level blocks (UGV, Portable Command Post, Portable Remote-Control Device, Communications Subsystem, support UAV) and assign each port its interface",
+      "Draw the top-level IBD: connect the ports to each other and to the exterior (operator, terrain and environment, payloads) following the Week 1 context diagram",
+      "Inside the UGV block, connect its internal subsystems (Propulsion & energy → Mobility; Perception & navigation → Control; Control → Communications…)",
+      "Split by role: IS → system and external interfaces · Simulation → EnergiaElectrica and ParMecanico (RGEN-11, RLT1-04/09) · Workshop → mechanical interfaces of the interface points (RGEN-28) · Software → FlujoVideo, DatosNavegacion, EnlaceComunicaciones (RGEN-22, RNAV-01, RCOM-01/02, RSW-07)",
+      "Each interface, in its description: what it carries, type and units, and the ID of the requirement that justifies it. Export the IBD as PNG and tag the model as baseline v1.0",
+    ],
+    "entregables_es": [
+      "SistemaUGV.slx actualizado: interfaces definidas, puertos asignados y el IBD de primer nivel; modelo etiquetado como baseline v1.0",
+      "PNG del IBD de primer nivel",
+      "Tabla interfaz · qué transporta · tipo/unidades · ID de requisito (semanas/semana-03/interfaces.csv)",
+      "1 Pull Request a master; 1 commit por rol: feat([rol]): interfaces del IBD nivel 1 — semana 3",
+    ],
+    "entregables_en": [
+      "Updated SistemaUGV.slx: interfaces defined, ports assigned and the top-level IBD; model tagged as baseline v1.0",
+      "PNG of the top-level IBD",
+      "Table interface · what it carries · type/units · requirement ID (semanas/semana-03/interfaces.csv)",
+      "1 Pull Request to master; 1 commit per role: feat([role]): top-level IBD interfaces — week 3",
+    ],
+    "materiales": [
+      {"tipo":"md","nombre":"Anexo I — Requisitos funcionales","archivo":"../../recursos/anexo-I_anonimizado.html"},
+      {"tipo":"enlace","nombre":"System Composer — Get Started (MathWorks)","archivo":"https://www.mathworks.com/help/systemcomposer/getting-started-with-system-composer.html"},
+    ]
   },
   {
     "id": "semana-04", "n": "4", "bloque": "II", "color": "#2d6a3f",
