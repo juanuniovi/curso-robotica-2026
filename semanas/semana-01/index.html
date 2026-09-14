@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Semana 1 · IS-UGV</title>
+<title>Semana 1 · Robótica-MBSE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
@@ -53,9 +53,7 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
 .meta-item strong{color:rgba(246,244,239,.75);font-weight:400}
 
 /* layout */
-.main{max-width:900px;margin:0 auto;padding:2.5rem 2rem 4rem}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-@media(max-width:700px){.grid-2{grid-template-columns:1fr}}
+.main{max-width:720px;margin:0 auto;padding:2.5rem 2rem 4rem}
 
 /* secciones */
 .section{margin-bottom:2.5rem}
@@ -95,7 +93,7 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
 <body>
 
 <nav class="topbar">
-  <a class="topbar-logo" href="../../index.html"><span>IS</span>-UGV</a>
+  <a class="topbar-logo" href="../../index.html"><span>Robótica</span>-MBSE</a>
   <div class="topbar-right">
     <a class="back-link" href="../../index.html#semanas">
       <span class="lang-es-inline">← Todas las semanas</span>
@@ -154,18 +152,17 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
     </div>
   </div>
 
-  <div class="grid-2">
-    <div class="section">
-      <p class="section-label"><span class="lang-es-inline">Tareas</span><span class="lang-en-inline">Tasks</span></p>
-      <ul class="item-list"><li class="lang-es">Lectura previa (autónomo): el primer «Introducción a la ingeniería de sistemas y al MBSE» (~15 min) y después el Anexo I anonimizado con este guion: §1 qué es y qué NO es el Sistema UGV · §1.5 los 4 modos de operación · §2 las 3 fases · §3.1 leer todos los RGEN · §3.2 leer todos los RLT1 · lectura rápida §3.4–3.9 · §3.11 RDOC-13 (la arquitectura se entrega en SysML)</li><li class="lang-es">Ficha de comprensión — Parte A (conceptos): con tus palabras, qué es la ingeniería de sistemas y por qué modelar en vez de documentar · dibuja el ciclo en V y sitúa en él las 14 semanas del curso · define BDD y IBD en una frase cada uno</li><li class="lang-es">Ficha — Parte B (el encargo): en 3 frases, qué pide el Cliente, para qué y qué queda fuera · los 4 modos de operación en una frase cada uno · el propósito del vehículo y sus 3 misiones principales con las cifras que las condicionan (velocidad, potencia, autonomía, carga)</li><li class="lang-es">Ficha — Parte B: elegir 8 requisitos (con su ID RGEN/RLT) que creas verificables con un modelo de simulación e indicar qué magnitud medirías en cada uno; y 2 requisitos que NO se puedan verificar por simulación, justificando por qué</li><li class="lang-es">Ficha — Parte B: 3 términos del glosario que no conocías (con su significado) y 1 pregunta que le harías al Cliente</li><li class="lang-es">Sesión 2h en grupo (modera el rol IS): construir en pizarra el diagrama de contexto del Sistema UGV — caja central + actores: Puesto de Mando, UAV de apoyo, otros UxV, terreno y ambiente, cargas de pago, vehículos tripulados a los que acompaña, obstáculos</li><li class="lang-es">Sesión: consolidar la lista de 15 requisitos ancla del equipo en recursos/requisitos_ancla.csv (ID · texto resumido · § fuente · ¿simulable? · rol tentativo) y repartir provisionalmente qué familia de requisitos mirará cada rol la semana siguiente</li><li class="lang-en">Pre-reading (self-study): the «Introduction to systems engineering and MBSE» primer (~15 min), then Annex I with this checklist: §1 what the UGV System is and is NOT · §1.5 the 4 operating modes · §2 the 3 phases · §3.1 read every RGEN · §3.2 read every RLT1 · quick read of §3.4–3.9 · §3.11 RDOC-13 (architecture delivered in SysML)</li><li class="lang-en">Comprehension sheet — Part A (concepts): in your own words, what systems engineering is and why model instead of document · sketch the V-model and place the course's 14 weeks on it · define BDD and IBD in one sentence each</li><li class="lang-en">Sheet — Part B (the brief): in 3 sentences, what the Client asks for, what for and what is out of scope · the 4 operating modes, one sentence each · the vehicle's purpose and its 3 main missions with the figures that drive them (speed, power, endurance, payload)</li><li class="lang-en">Sheet — Part B: pick 8 requirements (with their RGEN/RLT ID) you believe are verifiable with a simulation model, stating which quantity you would measure for each; and 2 requirements that CANNOT be verified by simulation, with justification</li><li class="lang-en">Sheet — Part B: 3 glossary terms you did not know (with their meaning) and 1 question you would ask the Client</li><li class="lang-en">2h group session (IS role moderates): build the UGV System context diagram on the board — central box + actors: Command Post, support UAV, other UxV, terrain and environment, payloads, manned vehicles it accompanies, obstacles</li><li class="lang-en">Session: consolidate the team's list of 15 anchor requirements in recursos/requisitos_ancla.csv (ID · short text · source § · simulable? · tentative role) and provisionally split which requirement family each role will look at next week</li></ul>
-    </div>
-    <div class="section">
-      <p class="section-label"><span class="lang-es-inline">Entregables</span><span class="lang-en-inline">Deliverables</span></p>
-      <ul class="entregable-list">
-        <li class="lang-es">Ficha de comprensión (Partes A y B) por alumno: semanas/semana-01/comprension_[inicial].md</li><li class="lang-es">recursos/requisitos_ancla.csv con 15 filas (lo consolida el rol IS)</li><li class="lang-es">Diagrama de contexto del Sistema UGV (foto o PDF) en semanas/semana-01/</li><li class="lang-es">1 Pull Request a master con 1 commit por alumno: docs([rol]): ficha de comprensión — semana 1</li>
-        <li class="lang-en">Comprehension sheet (Parts A and B) per student: semanas/semana-01/comprension_[initial].md</li><li class="lang-en">recursos/requisitos_ancla.csv with 15 rows (consolidated by the IS role)</li><li class="lang-en">UGV System context diagram (photo or PDF) in semanas/semana-01/</li><li class="lang-en">1 Pull Request to master with 1 commit per student: docs([role]): comprehension sheet — week 1</li>
-      </ul>
-    </div>
+  <div class="section">
+    <p class="section-label"><span class="lang-es-inline">Tareas</span><span class="lang-en-inline">Tasks</span></p>
+    <ul class="item-list"><li class="lang-es">Lectura previa (autónomo): el primer «Introducción a la ingeniería de sistemas y al MBSE» (~15 min) y después el Anexo I anonimizado con este guion: §1 qué es y qué NO es el Sistema UGV · §1.5 los 4 modos de operación · §2 las 3 fases · §3.1 leer todos los RGEN · §3.2 leer todos los RLT1 · lectura rápida §3.4–3.9 · §3.11 RDOC-13 (la arquitectura se entrega en SysML)</li><li class="lang-es">Ficha de comprensión — Parte A (conceptos): con tus palabras, qué es la ingeniería de sistemas y por qué modelar en vez de documentar · dibuja el ciclo en V y sitúa en él las 14 semanas del curso · define BDD y IBD en una frase cada uno</li><li class="lang-es">Ficha — Parte B (el encargo): en 3 frases, qué pide el Cliente, para qué y qué queda fuera · los 4 modos de operación en una frase cada uno · el propósito del vehículo y sus 3 misiones principales con las cifras que las condicionan (velocidad, potencia, autonomía, carga)</li><li class="lang-es">Ficha — Parte B: elegir 8 requisitos (con su ID RGEN/RLT) que creas verificables con un modelo de simulación e indicar qué magnitud medirías en cada uno; y 2 requisitos que NO se puedan verificar por simulación, justificando por qué</li><li class="lang-es">Ficha — Parte B: 3 términos del glosario que no conocías (con su significado) y 1 pregunta que le harías al Cliente</li><li class="lang-es">Sesión 2h en grupo (modera el rol IS): construir en pizarra el diagrama de contexto del Sistema UGV — caja central + actores: Puesto de Mando, UAV de apoyo, otros UxV, terreno y ambiente, cargas de pago, vehículos tripulados a los que acompaña, obstáculos</li><li class="lang-es">Sesión: consolidar la lista de 15 requisitos ancla del equipo en recursos/requisitos_ancla.csv (ID · texto resumido · § fuente · ¿simulable? · rol tentativo) y repartir provisionalmente qué familia de requisitos mirará cada rol la semana siguiente</li><li class="lang-en">Pre-reading (self-study): the «Introduction to systems engineering and MBSE» primer (~15 min), then Annex I with this checklist: §1 what the UGV System is and is NOT · §1.5 the 4 operating modes · §2 the 3 phases · §3.1 read every RGEN · §3.2 read every RLT1 · quick read of §3.4–3.9 · §3.11 RDOC-13 (architecture delivered in SysML)</li><li class="lang-en">Comprehension sheet — Part A (concepts): in your own words, what systems engineering is and why model instead of document · sketch the V-model and place the course's 14 weeks on it · define BDD and IBD in one sentence each</li><li class="lang-en">Sheet — Part B (the brief): in 3 sentences, what the Client asks for, what for and what is out of scope · the 4 operating modes, one sentence each · the vehicle's purpose and its 3 main missions with the figures that drive them (speed, power, endurance, payload)</li><li class="lang-en">Sheet — Part B: pick 8 requirements (with their RGEN/RLT ID) you believe are verifiable with a simulation model, stating which quantity you would measure for each; and 2 requirements that CANNOT be verified by simulation, with justification</li><li class="lang-en">Sheet — Part B: 3 glossary terms you did not know (with their meaning) and 1 question you would ask the Client</li><li class="lang-en">2h group session (IS role moderates): build the UGV System context diagram on the board — central box + actors: Command Post, support UAV, other UxV, terrain and environment, payloads, manned vehicles it accompanies, obstacles</li><li class="lang-en">Session: consolidate the team's list of 15 anchor requirements in recursos/requisitos_ancla.csv (ID · short text · source § · simulable? · tentative role) and provisionally split which requirement family each role will look at next week</li></ul>
+  </div>
+
+  <div class="section">
+    <p class="section-label"><span class="lang-es-inline">Entregables</span><span class="lang-en-inline">Deliverables</span></p>
+    <ul class="entregable-list">
+      <li class="lang-es">Ficha de comprensión (Partes A y B) por alumno: semanas/semana-01/comprension_[inicial].md</li><li class="lang-es">recursos/requisitos_ancla.csv con 15 filas (lo consolida el rol IS)</li><li class="lang-es">Diagrama de contexto del Sistema UGV (foto o PDF) en semanas/semana-01/</li><li class="lang-es">1 Pull Request a master con 1 commit por alumno: docs([rol]): ficha de comprensión — semana 1</li>
+      <li class="lang-en">Comprehension sheet (Parts A and B) per student: semanas/semana-01/comprension_[initial].md</li><li class="lang-en">recursos/requisitos_ancla.csv with 15 rows (consolidated by the IS role)</li><li class="lang-en">UGV System context diagram (photo or PDF) in semanas/semana-01/</li><li class="lang-en">1 Pull Request to master with 1 commit per student: docs([role]): comprehension sheet — week 1</li>
+    </ul>
   </div>
 
   <div class="section">
@@ -226,13 +223,13 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
         <strong>Profesor:</strong> para añadir un material, copia el archivo en esta carpeta
         (<code>semana-01/</code>) y añade una entrada al array <code>materiales</code>
         en <code>gen_semanas.py</code>, luego regenera con <code>python3 gen_semanas.py</code>.
-        Tipos disponibles: <code>docx · pdf · xlsx · slx · código · enlace · zip</code>
+        Tipos disponibles: <code>docx · pdf · xlsx · slx · código · enlace · zip · md · pptx</code>
       </span>
       <span class="lang-en">
         <strong>Instructor:</strong> to add material, copy the file to this folder
         (<code>semana-01/</code>) and add an entry to the <code>materiales</code> array
         in <code>gen_semanas.py</code>, then regenerate with <code>python3 gen_semanas.py</code>.
-        Available types: <code>docx · pdf · xlsx · slx · code · link · zip</code>
+        Available types: <code>docx · pdf · xlsx · slx · code · link · zip · md · pptx</code>
       </span>
     </div>
   </div>

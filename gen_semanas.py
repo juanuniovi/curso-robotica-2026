@@ -59,8 +59,8 @@ semanas = [
     "tipo": "grupal",
     "duracion_es": "1 sesión de laboratorio de 2h + 2h trabajo autónomo",
     "duracion_en": "1 × 2h lab session + 2h self-study",
-    "objetivo_es": "Abrir System Composer por primera vez y construir el diagrama de bloques (BDD) de primer nivel del Sistema UGV que pide el RDOC-13: los subsistemas, con 2–3 propiedades tipadas y valoradas cada uno, cada una trazada al requisito ancla que la justifica.",
-    "objetivo_en": "Open System Composer for the first time and build the top-level block diagram (BDD) of the UGV System required by RDOC-13: the subsystems, each with 2–3 typed and valued properties, each one traced to the anchor requirement that justifies it.",
+    "objetivo_es": "Abrir la herramienta de modelado SysML por primera vez y construir el diagrama de bloques (BDD) de primer nivel del Sistema UGV que pide el RDOC-13: los subsistemas, con 2–3 propiedades tipadas y valoradas cada uno, cada una trazada al requisito ancla que la justifica.",
+    "objetivo_en": "Open the SysML modelling tool for the first time and build the top-level block diagram (BDD) of the UGV System required by RDOC-13: the subsystems, each with 2–3 typed and valued properties, each one traced to the anchor requirement that justifies it.",
     "tareas_es": [
       "Generar el modelo base: en base/modelos/, ejecutar crear_SistemaUGV en MATLAB R2023b+ con System Composer (crea SistemaUGV.slx, un esqueleto). Copiarlo a equipos/[equipo]/semana-02/ y abrirlo. Ya trae los bloques de primer nivel y el desglose interno del UGV — tu trabajo es rellenar las propiedades",
       "Revisar que están los bloques de primer nivel (RDOC-13.c.1): UGV, Puesto de Mando Portable, Dispositivo de Telemando Portable, Subsistema de Comunicaciones, UAV de apoyo; y el desglose del UGV: Propulsión y energía, Movilidad y tren de rodaje, Percepción y navegación, Control y computación, Puntos de interfaz. Añadir lo que falte",
@@ -160,12 +160,12 @@ semanas = [
     "tipo": "grupal",
     "duracion_es": "1 sesión de laboratorio de 2h + 2h trabajo autónomo",
     "duracion_en": "1 × 2h lab session + 2h self-study",
-    "objetivo_es": "Entrar en el subsistema asignado del modelo de simulación, identificar los bloques que lo componen, trazar el flujo físico y construir el IBD de segundo nivel en System Composer.",
-    "objetivo_en": "Enter the assigned subsystem of the simulation model, identify its blocks, trace the physical flow and build the second-level IBD in System Composer.",
+    "objetivo_es": "Entrar en el subsistema asignado del modelo de simulación, identificar los bloques que lo componen, trazar el flujo físico y construir el IBD de segundo nivel en la herramienta SysML.",
+    "objetivo_en": "Enter the assigned subsystem of the simulation model, identify its blocks, trace the physical flow and build the second-level IBD in the SysML tool.",
     "tareas_es": ["Abrir el subsistema asignado en Simulink","Identificar los bloques del modelo y sus dominios físicos","Trazar el flujo de energía/señal en papel","Actualizar el modelo SysML con los componentes encontrados","Construir tabla SysML↔simulación"],
     "tareas_en": ["Open the assigned subsystem in Simulink","Identify simulation-model blocks and their physical domains","Trace the energy/signal flow on paper","Update the SysML model with the found components","Build SysML↔simulation table"],
-    "entregables_es": ["Tabla de correspondencia SysML↔simulación","IBD de segundo nivel actualizado en System Composer"],
-    "entregables_en": ["SysML↔simulation correspondence table","Updated second-level IBD in System Composer"],
+    "entregables_es": ["Tabla de correspondencia SysML↔simulación","IBD de segundo nivel actualizado en la herramienta SysML"],
+    "entregables_en": ["SysML↔simulation correspondence table","Updated second-level IBD in the SysML tool"],
     "materiales": []
   },
   {
@@ -379,7 +379,7 @@ def gen_html(s):
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Semana {s["n"]} · IS-UGV</title>
+<title>Semana {s["n"]} · Robótica-MBSE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
@@ -429,9 +429,7 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{{display:flex}
 .meta-item strong{{color:rgba(246,244,239,.75);font-weight:400}}
 
 /* layout */
-.main{{max-width:900px;margin:0 auto;padding:2.5rem 2rem 4rem}}
-.grid-2{{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}}
-@media(max-width:700px){{.grid-2{{grid-template-columns:1fr}}}}
+.main{{max-width:720px;margin:0 auto;padding:2.5rem 2rem 4rem}}
 
 /* secciones */
 .section{{margin-bottom:2.5rem}}
@@ -471,7 +469,7 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{{display:flex}
 <body>
 
 <nav class="topbar">
-  <a class="topbar-logo" href="../../index.html"><span>IS</span>-UGV</a>
+  <a class="topbar-logo" href="../../index.html"><span>Robótica</span>-MBSE</a>
   <div class="topbar-right">
     <a class="back-link" href="../../index.html#semanas">
       <span class="lang-es-inline">← Todas las semanas</span>
@@ -530,18 +528,17 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{{display:flex}
     </div>
   </div>
 
-  <div class="grid-2">
-    <div class="section">
-      <p class="section-label"><span class="lang-es-inline">Tareas</span><span class="lang-en-inline">Tasks</span></p>
-      {lista(s["tareas_es"], s["tareas_en"])}
-    </div>
-    <div class="section">
-      <p class="section-label"><span class="lang-es-inline">Entregables</span><span class="lang-en-inline">Deliverables</span></p>
-      <ul class="entregable-list">
-        {"".join(f'<li class="lang-es">{x}</li>' for x in s["entregables_es"])}
-        {"".join(f'<li class="lang-en">{x}</li>' for x in s["entregables_en"])}
-      </ul>
-    </div>
+  <div class="section">
+    <p class="section-label"><span class="lang-es-inline">Tareas</span><span class="lang-en-inline">Tasks</span></p>
+    {lista(s["tareas_es"], s["tareas_en"])}
+  </div>
+
+  <div class="section">
+    <p class="section-label"><span class="lang-es-inline">Entregables</span><span class="lang-en-inline">Deliverables</span></p>
+    <ul class="entregable-list">
+      {"".join(f'<li class="lang-es">{x}</li>' for x in s["entregables_es"])}
+      {"".join(f'<li class="lang-en">{x}</li>' for x in s["entregables_en"])}
+    </ul>
   </div>
 
   <div class="section">
@@ -554,13 +551,13 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{{display:flex}
         <strong>Profesor:</strong> para añadir un material, copia el archivo en esta carpeta
         (<code>{s["id"]}/</code>) y añade una entrada al array <code>materiales</code>
         en <code>gen_semanas.py</code>, luego regenera con <code>python3 gen_semanas.py</code>.
-        Tipos disponibles: <code>docx · pdf · xlsx · slx · código · enlace · zip</code>
+        Tipos disponibles: <code>docx · pdf · xlsx · slx · código · enlace · zip · md · pptx</code>
       </span>
       <span class="lang-en">
         <strong>Instructor:</strong> to add material, copy the file to this folder
         (<code>{s["id"]}/</code>) and add an entry to the <code>materiales</code> array
         in <code>gen_semanas.py</code>, then regenerate with <code>python3 gen_semanas.py</code>.
-        Available types: <code>docx · pdf · xlsx · slx · code · link · zip</code>
+        Available types: <code>docx · pdf · xlsx · slx · code · link · zip · md · pptx</code>
       </span>
     </div>
   </div>

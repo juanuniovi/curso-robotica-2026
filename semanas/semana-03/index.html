@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Semana 3 · IS-UGV</title>
+<title>Semana 3 · Robótica-MBSE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
@@ -53,9 +53,7 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
 .meta-item strong{color:rgba(246,244,239,.75);font-weight:400}
 
 /* layout */
-.main{max-width:900px;margin:0 auto;padding:2.5rem 2rem 4rem}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-@media(max-width:700px){.grid-2{grid-template-columns:1fr}}
+.main{max-width:720px;margin:0 auto;padding:2.5rem 2rem 4rem}
 
 /* secciones */
 .section{margin-bottom:2.5rem}
@@ -95,7 +93,7 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
 <body>
 
 <nav class="topbar">
-  <a class="topbar-logo" href="../../index.html"><span>IS</span>-UGV</a>
+  <a class="topbar-logo" href="../../index.html"><span>Robótica</span>-MBSE</a>
   <div class="topbar-right">
     <a class="back-link" href="../../index.html#semanas">
       <span class="lang-es-inline">← Todas las semanas</span>
@@ -154,18 +152,17 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
     </div>
   </div>
 
-  <div class="grid-2">
-    <div class="section">
-      <p class="section-label"><span class="lang-es-inline">Tareas</span><span class="lang-en-inline">Tasks</span></p>
-      <ul class="item-list"><li class="lang-es">Partir de SistemaUGV.slx (Semana 2). En el Interface Editor, definir las interfaces del sistema: p. ej. EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones — una por cada tipo de cosa que fluye entre bloques</li><li class="lang-es">Añadir puertos de entrada/salida a los bloques de primer nivel (UGV, Puesto de Mando Portable, Dispositivo de Telemando Portable, Subsistema de Comunicaciones, UAV de apoyo) y asignar a cada puerto su interfaz</li><li class="lang-es">Dibujar el IBD de primer nivel: conectar los puertos entre sí y con el exterior (operador, terreno y ambiente, cargas de pago) según el diagrama de contexto de la Semana 1</li><li class="lang-es">Dentro del bloque UGV, conectar sus subsistemas internos (Propulsión y energía → Movilidad; Percepción y navegación → Control; Control → Comunicaciones…)</li><li class="lang-es">Reparto por rol: IS → interfaces de sistema y con el exterior · Simulación → EnergiaElectrica y ParMecanico (RGEN-11, RLT1-04/09) · Taller → interfaces mecánicas de los Puntos de Interfaz (RGEN-28) · Software → FlujoVideo, DatosNavegacion, EnlaceComunicaciones (RGEN-22, RNAV-01, RCOM-01/02, RSW-07)</li><li class="lang-es">Cada interfaz, en su descripción: qué transporta, tipo y unidades, y el ID del requisito que la justifica. Exportar el IBD como PNG y etiquetar el modelo como baseline v1.0</li><li class="lang-en">Start from SistemaUGV.slx (Week 2). In the Interface Editor, define the system interfaces: e.g. EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones — one per type of thing that flows between blocks</li><li class="lang-en">Add input/output ports to the top-level blocks (UGV, Portable Command Post, Portable Remote-Control Device, Communications Subsystem, support UAV) and assign each port its interface</li><li class="lang-en">Draw the top-level IBD: connect the ports to each other and to the exterior (operator, terrain and environment, payloads) following the Week 1 context diagram</li><li class="lang-en">Inside the UGV block, connect its internal subsystems (Propulsion & energy → Mobility; Perception & navigation → Control; Control → Communications…)</li><li class="lang-en">Split by role: IS → system and external interfaces · Simulation → EnergiaElectrica and ParMecanico (RGEN-11, RLT1-04/09) · Workshop → mechanical interfaces of the interface points (RGEN-28) · Software → FlujoVideo, DatosNavegacion, EnlaceComunicaciones (RGEN-22, RNAV-01, RCOM-01/02, RSW-07)</li><li class="lang-en">Each interface, in its description: what it carries, type and units, and the ID of the requirement that justifies it. Export the IBD as PNG and tag the model as baseline v1.0</li></ul>
-    </div>
-    <div class="section">
-      <p class="section-label"><span class="lang-es-inline">Entregables</span><span class="lang-en-inline">Deliverables</span></p>
-      <ul class="entregable-list">
-        <li class="lang-es">SistemaUGV.slx actualizado: interfaces definidas, puertos asignados y el IBD de primer nivel; modelo etiquetado como baseline v1.0</li><li class="lang-es">PNG del IBD de primer nivel</li><li class="lang-es">Tabla interfaz · qué transporta · tipo/unidades · ID de requisito (semanas/semana-03/interfaces.csv)</li><li class="lang-es">1 Pull Request a master; 1 commit por rol: feat([rol]): interfaces del IBD nivel 1 — semana 3</li>
-        <li class="lang-en">Updated SistemaUGV.slx: interfaces defined, ports assigned and the top-level IBD; model tagged as baseline v1.0</li><li class="lang-en">PNG of the top-level IBD</li><li class="lang-en">Table interface · what it carries · type/units · requirement ID (semanas/semana-03/interfaces.csv)</li><li class="lang-en">1 Pull Request to master; 1 commit per role: feat([role]): top-level IBD interfaces — week 3</li>
-      </ul>
-    </div>
+  <div class="section">
+    <p class="section-label"><span class="lang-es-inline">Tareas</span><span class="lang-en-inline">Tasks</span></p>
+    <ul class="item-list"><li class="lang-es">Partir de SistemaUGV.slx (Semana 2). En el Interface Editor, definir las interfaces del sistema: p. ej. EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones — una por cada tipo de cosa que fluye entre bloques</li><li class="lang-es">Añadir puertos de entrada/salida a los bloques de primer nivel (UGV, Puesto de Mando Portable, Dispositivo de Telemando Portable, Subsistema de Comunicaciones, UAV de apoyo) y asignar a cada puerto su interfaz</li><li class="lang-es">Dibujar el IBD de primer nivel: conectar los puertos entre sí y con el exterior (operador, terreno y ambiente, cargas de pago) según el diagrama de contexto de la Semana 1</li><li class="lang-es">Dentro del bloque UGV, conectar sus subsistemas internos (Propulsión y energía → Movilidad; Percepción y navegación → Control; Control → Comunicaciones…)</li><li class="lang-es">Reparto por rol: IS → interfaces de sistema y con el exterior · Simulación → EnergiaElectrica y ParMecanico (RGEN-11, RLT1-04/09) · Taller → interfaces mecánicas de los Puntos de Interfaz (RGEN-28) · Software → FlujoVideo, DatosNavegacion, EnlaceComunicaciones (RGEN-22, RNAV-01, RCOM-01/02, RSW-07)</li><li class="lang-es">Cada interfaz, en su descripción: qué transporta, tipo y unidades, y el ID del requisito que la justifica. Exportar el IBD como PNG y etiquetar el modelo como baseline v1.0</li><li class="lang-en">Start from SistemaUGV.slx (Week 2). In the Interface Editor, define the system interfaces: e.g. EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones — one per type of thing that flows between blocks</li><li class="lang-en">Add input/output ports to the top-level blocks (UGV, Portable Command Post, Portable Remote-Control Device, Communications Subsystem, support UAV) and assign each port its interface</li><li class="lang-en">Draw the top-level IBD: connect the ports to each other and to the exterior (operator, terrain and environment, payloads) following the Week 1 context diagram</li><li class="lang-en">Inside the UGV block, connect its internal subsystems (Propulsion & energy → Mobility; Perception & navigation → Control; Control → Communications…)</li><li class="lang-en">Split by role: IS → system and external interfaces · Simulation → EnergiaElectrica and ParMecanico (RGEN-11, RLT1-04/09) · Workshop → mechanical interfaces of the interface points (RGEN-28) · Software → FlujoVideo, DatosNavegacion, EnlaceComunicaciones (RGEN-22, RNAV-01, RCOM-01/02, RSW-07)</li><li class="lang-en">Each interface, in its description: what it carries, type and units, and the ID of the requirement that justifies it. Export the IBD as PNG and tag the model as baseline v1.0</li></ul>
+  </div>
+
+  <div class="section">
+    <p class="section-label"><span class="lang-es-inline">Entregables</span><span class="lang-en-inline">Deliverables</span></p>
+    <ul class="entregable-list">
+      <li class="lang-es">SistemaUGV.slx actualizado: interfaces definidas, puertos asignados y el IBD de primer nivel; modelo etiquetado como baseline v1.0</li><li class="lang-es">PNG del IBD de primer nivel</li><li class="lang-es">Tabla interfaz · qué transporta · tipo/unidades · ID de requisito (semanas/semana-03/interfaces.csv)</li><li class="lang-es">1 Pull Request a master; 1 commit por rol: feat([rol]): interfaces del IBD nivel 1 — semana 3</li>
+      <li class="lang-en">Updated SistemaUGV.slx: interfaces defined, ports assigned and the top-level IBD; model tagged as baseline v1.0</li><li class="lang-en">PNG of the top-level IBD</li><li class="lang-en">Table interface · what it carries · type/units · requirement ID (semanas/semana-03/interfaces.csv)</li><li class="lang-en">1 Pull Request to master; 1 commit per role: feat([role]): top-level IBD interfaces — week 3</li>
+    </ul>
   </div>
 
   <div class="section">
@@ -194,13 +191,13 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
         <strong>Profesor:</strong> para añadir un material, copia el archivo en esta carpeta
         (<code>semana-03/</code>) y añade una entrada al array <code>materiales</code>
         en <code>gen_semanas.py</code>, luego regenera con <code>python3 gen_semanas.py</code>.
-        Tipos disponibles: <code>docx · pdf · xlsx · slx · código · enlace · zip</code>
+        Tipos disponibles: <code>docx · pdf · xlsx · slx · código · enlace · zip · md · pptx</code>
       </span>
       <span class="lang-en">
         <strong>Instructor:</strong> to add material, copy the file to this folder
         (<code>semana-03/</code>) and add an entry to the <code>materiales</code> array
         in <code>gen_semanas.py</code>, then regenerate with <code>python3 gen_semanas.py</code>.
-        Available types: <code>docx · pdf · xlsx · slx · code · link · zip</code>
+        Available types: <code>docx · pdf · xlsx · slx · code · link · zip · md · pptx</code>
       </span>
     </div>
   </div>

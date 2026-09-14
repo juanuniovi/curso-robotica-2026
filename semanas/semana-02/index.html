@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Semana 2 · IS-UGV</title>
+<title>Semana 2 · Robótica-MBSE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
@@ -53,9 +53,7 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
 .meta-item strong{color:rgba(246,244,239,.75);font-weight:400}
 
 /* layout */
-.main{max-width:900px;margin:0 auto;padding:2.5rem 2rem 4rem}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-@media(max-width:700px){.grid-2{grid-template-columns:1fr}}
+.main{max-width:720px;margin:0 auto;padding:2.5rem 2rem 4rem}
 
 /* secciones */
 .section{margin-bottom:2.5rem}
@@ -95,7 +93,7 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
 <body>
 
 <nav class="topbar">
-  <a class="topbar-logo" href="../../index.html"><span>IS</span>-UGV</a>
+  <a class="topbar-logo" href="../../index.html"><span>Robótica</span>-MBSE</a>
   <div class="topbar-right">
     <a class="back-link" href="../../index.html#semanas">
       <span class="lang-es-inline">← Todas las semanas</span>
@@ -149,23 +147,22 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
   <div class="section">
     <p class="section-label"><span class="lang-es-inline">Objetivo</span><span class="lang-en-inline">Objective</span></p>
     <div class="objetivo-box">
-      <span class="lang-es">Abrir System Composer por primera vez y construir el diagrama de bloques (BDD) de primer nivel del Sistema UGV que pide el RDOC-13: los subsistemas, con 2–3 propiedades tipadas y valoradas cada uno, cada una trazada al requisito ancla que la justifica.</span>
-      <span class="lang-en">Open System Composer for the first time and build the top-level block diagram (BDD) of the UGV System required by RDOC-13: the subsystems, each with 2–3 typed and valued properties, each one traced to the anchor requirement that justifies it.</span>
+      <span class="lang-es">Abrir la herramienta de modelado SysML por primera vez y construir el diagrama de bloques (BDD) de primer nivel del Sistema UGV que pide el RDOC-13: los subsistemas, con 2–3 propiedades tipadas y valoradas cada uno, cada una trazada al requisito ancla que la justifica.</span>
+      <span class="lang-en">Open the SysML modelling tool for the first time and build the top-level block diagram (BDD) of the UGV System required by RDOC-13: the subsystems, each with 2–3 typed and valued properties, each one traced to the anchor requirement that justifies it.</span>
     </div>
   </div>
 
-  <div class="grid-2">
-    <div class="section">
-      <p class="section-label"><span class="lang-es-inline">Tareas</span><span class="lang-en-inline">Tasks</span></p>
-      <ul class="item-list"><li class="lang-es">Generar el modelo base: en base/modelos/, ejecutar crear_SistemaUGV en MATLAB R2023b+ con System Composer (crea SistemaUGV.slx, un esqueleto). Copiarlo a equipos/[equipo]/semana-02/ y abrirlo. Ya trae los bloques de primer nivel y el desglose interno del UGV — tu trabajo es rellenar las propiedades</li><li class="lang-es">Revisar que están los bloques de primer nivel (RDOC-13.c.1): UGV, Puesto de Mando Portable, Dispositivo de Telemando Portable, Subsistema de Comunicaciones, UAV de apoyo; y el desglose del UGV: Propulsión y energía, Movilidad y tren de rodaje, Percepción y navegación, Control y computación, Puntos de interfaz. Añadir lo que falte</li><li class="lang-es">Reparto por rol (según la Semana 1): IS → propiedades de nivel sistema (masa, autonomía, modos) · Simulación → propulsión y movilidad (potencia, par, velocidad, pendiente) · Taller → chasis e interfaces (dimensiones, pesos, RGEN-28) · Software → comunicaciones y control (alcance BLOS RCOM-02, latencia, RSW)</li><li class="lang-es">Cada propiedad: nombre, tipo, valor y unidad (p. ej. UGV.masa_orden_mision = 9000 kg); en su descripción, el ID del requisito que la justifica (RLT1-08). Sin requisito que la justifique, la propiedad no entra</li><li class="lang-es">Verificar la jerarquía en el Model Browser y exportar el BDD como PNG</li><li class="lang-en">Generate the base model: in base/modelos/, run crear_SistemaUGV in MATLAB R2023b+ with System Composer (creates SistemaUGV.slx, a skeleton). Copy it to equipos/[team]/semana-02/ and open it. It already has the top-level blocks and the UGV breakdown — your job is to fill in the properties</li><li class="lang-en">Check that the top-level blocks are there (RDOC-13.c.1): UGV, Portable Command Post, Portable Remote-Control Device, Communications Subsystem, support UAV; and the UGV breakdown: Propulsion & energy, Mobility & running gear, Perception & navigation, Control & computing, Interface points. Add whatever is missing</li><li class="lang-en">Split by role (from Week 1): IS → system-level properties (mass, endurance, modes) · Simulation → propulsion & mobility (power, torque, speed, gradient) · Workshop → chassis & interfaces (dimensions, weights, RGEN-28) · Software → communications & control (BLOS range RCOM-02, latency, RSW)</li><li class="lang-en">Each property: name, type, value and unit (e.g. UGV.mission_mass = 9000 kg); in its description, the ID of the requirement that justifies it (RLT1-08). A property with no justifying requirement does not go in</li><li class="lang-en">Check the hierarchy in the Model Browser and export the BDD as PNG</li></ul>
-    </div>
-    <div class="section">
-      <p class="section-label"><span class="lang-es-inline">Entregables</span><span class="lang-en-inline">Deliverables</span></p>
-      <ul class="entregable-list">
-        <li class="lang-es">SistemaUGV.slx con el BDD de primer nivel y el desglose interno del bloque UGV</li><li class="lang-es">PNG del diagrama BDD</li><li class="lang-es">Tabla propiedad · valor · unidad · ID de requisito (semanas/semana-02/propiedades.csv)</li><li class="lang-es">1 Pull Request a master; 1 commit por rol: feat([rol]): propiedades del BDD nivel 1 — semana 2</li>
-        <li class="lang-en">SistemaUGV.slx with the top-level BDD and the internal breakdown of the UGV block</li><li class="lang-en">PNG of the BDD diagram</li><li class="lang-en">Table property · value · unit · requirement ID (semanas/semana-02/propiedades.csv)</li><li class="lang-en">1 Pull Request to master; 1 commit per role: feat([role]): top-level BDD properties — week 2</li>
-      </ul>
-    </div>
+  <div class="section">
+    <p class="section-label"><span class="lang-es-inline">Tareas</span><span class="lang-en-inline">Tasks</span></p>
+    <ul class="item-list"><li class="lang-es">Generar el modelo base: en base/modelos/, ejecutar crear_SistemaUGV en MATLAB R2023b+ con System Composer (crea SistemaUGV.slx, un esqueleto). Copiarlo a equipos/[equipo]/semana-02/ y abrirlo. Ya trae los bloques de primer nivel y el desglose interno del UGV — tu trabajo es rellenar las propiedades</li><li class="lang-es">Revisar que están los bloques de primer nivel (RDOC-13.c.1): UGV, Puesto de Mando Portable, Dispositivo de Telemando Portable, Subsistema de Comunicaciones, UAV de apoyo; y el desglose del UGV: Propulsión y energía, Movilidad y tren de rodaje, Percepción y navegación, Control y computación, Puntos de interfaz. Añadir lo que falte</li><li class="lang-es">Reparto por rol (según la Semana 1): IS → propiedades de nivel sistema (masa, autonomía, modos) · Simulación → propulsión y movilidad (potencia, par, velocidad, pendiente) · Taller → chasis e interfaces (dimensiones, pesos, RGEN-28) · Software → comunicaciones y control (alcance BLOS RCOM-02, latencia, RSW)</li><li class="lang-es">Cada propiedad: nombre, tipo, valor y unidad (p. ej. UGV.masa_orden_mision = 9000 kg); en su descripción, el ID del requisito que la justifica (RLT1-08). Sin requisito que la justifique, la propiedad no entra</li><li class="lang-es">Verificar la jerarquía en el Model Browser y exportar el BDD como PNG</li><li class="lang-en">Generate the base model: in base/modelos/, run crear_SistemaUGV in MATLAB R2023b+ with System Composer (creates SistemaUGV.slx, a skeleton). Copy it to equipos/[team]/semana-02/ and open it. It already has the top-level blocks and the UGV breakdown — your job is to fill in the properties</li><li class="lang-en">Check that the top-level blocks are there (RDOC-13.c.1): UGV, Portable Command Post, Portable Remote-Control Device, Communications Subsystem, support UAV; and the UGV breakdown: Propulsion & energy, Mobility & running gear, Perception & navigation, Control & computing, Interface points. Add whatever is missing</li><li class="lang-en">Split by role (from Week 1): IS → system-level properties (mass, endurance, modes) · Simulation → propulsion & mobility (power, torque, speed, gradient) · Workshop → chassis & interfaces (dimensions, weights, RGEN-28) · Software → communications & control (BLOS range RCOM-02, latency, RSW)</li><li class="lang-en">Each property: name, type, value and unit (e.g. UGV.mission_mass = 9000 kg); in its description, the ID of the requirement that justifies it (RLT1-08). A property with no justifying requirement does not go in</li><li class="lang-en">Check the hierarchy in the Model Browser and export the BDD as PNG</li></ul>
+  </div>
+
+  <div class="section">
+    <p class="section-label"><span class="lang-es-inline">Entregables</span><span class="lang-en-inline">Deliverables</span></p>
+    <ul class="entregable-list">
+      <li class="lang-es">SistemaUGV.slx con el BDD de primer nivel y el desglose interno del bloque UGV</li><li class="lang-es">PNG del diagrama BDD</li><li class="lang-es">Tabla propiedad · valor · unidad · ID de requisito (semanas/semana-02/propiedades.csv)</li><li class="lang-es">1 Pull Request a master; 1 commit por rol: feat([rol]): propiedades del BDD nivel 1 — semana 2</li>
+      <li class="lang-en">SistemaUGV.slx with the top-level BDD and the internal breakdown of the UGV block</li><li class="lang-en">PNG of the BDD diagram</li><li class="lang-en">Table property · value · unit · requirement ID (semanas/semana-02/propiedades.csv)</li><li class="lang-en">1 Pull Request to master; 1 commit per role: feat([role]): top-level BDD properties — week 2</li>
+    </ul>
   </div>
 
   <div class="section">
@@ -202,13 +199,13 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
         <strong>Profesor:</strong> para añadir un material, copia el archivo en esta carpeta
         (<code>semana-02/</code>) y añade una entrada al array <code>materiales</code>
         en <code>gen_semanas.py</code>, luego regenera con <code>python3 gen_semanas.py</code>.
-        Tipos disponibles: <code>docx · pdf · xlsx · slx · código · enlace · zip</code>
+        Tipos disponibles: <code>docx · pdf · xlsx · slx · código · enlace · zip · md · pptx</code>
       </span>
       <span class="lang-en">
         <strong>Instructor:</strong> to add material, copy the file to this folder
         (<code>semana-02/</code>) and add an entry to the <code>materiales</code> array
         in <code>gen_semanas.py</code>, then regenerate with <code>python3 gen_semanas.py</code>.
-        Available types: <code>docx · pdf · xlsx · slx · code · link · zip</code>
+        Available types: <code>docx · pdf · xlsx · slx · code · link · zip · md · pptx</code>
       </span>
     </div>
   </div>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Semana 10 · IS-UGV</title>
+<title>Semana 10 · Robótica-MBSE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
@@ -53,9 +53,7 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
 .meta-item strong{color:rgba(246,244,239,.75);font-weight:400}
 
 /* layout */
-.main{max-width:900px;margin:0 auto;padding:2.5rem 2rem 4rem}
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-@media(max-width:700px){.grid-2{grid-template-columns:1fr}}
+.main{max-width:720px;margin:0 auto;padding:2.5rem 2rem 4rem}
 
 /* secciones */
 .section{margin-bottom:2.5rem}
@@ -95,7 +93,7 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
 <body>
 
 <nav class="topbar">
-  <a class="topbar-logo" href="../../index.html"><span>IS</span>-UGV</a>
+  <a class="topbar-logo" href="../../index.html"><span>Robótica</span>-MBSE</a>
   <div class="topbar-right">
     <a class="back-link" href="../../index.html#semanas">
       <span class="lang-es-inline">← Todas las semanas</span>
@@ -154,18 +152,17 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
     </div>
   </div>
 
-  <div class="grid-2">
-    <div class="section">
-      <p class="section-label"><span class="lang-es-inline">Tareas</span><span class="lang-en-inline">Tasks</span></p>
-      <ul class="item-list"><li class="lang-es">Conectar el modelo con el subsistema adyacente según el IBD</li><li class="lang-es">Identificar y resolver incompatibilidades de tipo, unidad o rango</li><li class="lang-es">Verificar al menos 1 requisito de sistema en el modelo integrado</li><li class="lang-es">Documentar incompatibilidades detectadas y soluciones adoptadas</li><li class="lang-en">Connect the model with the adjacent subsystem following the IBD</li><li class="lang-en">Identify and resolve type, unit or range incompatibilities</li><li class="lang-en">Verify at least 1 system-level requirement in the integrated model</li><li class="lang-en">Document detected incompatibilities and adopted solutions</li></ul>
-    </div>
-    <div class="section">
-      <p class="section-label"><span class="lang-es-inline">Entregables</span><span class="lang-en-inline">Deliverables</span></p>
-      <ul class="entregable-list">
-        <li class="lang-es">Modelo integrado (≥2 subsistemas conectados)</li><li class="lang-es">Registro de incompatibilidades y soluciones</li><li class="lang-es">Verificación de ≥1 requisito de sistema</li>
-        <li class="lang-en">Integrated model (≥2 subsystems connected)</li><li class="lang-en">Incompatibilities and solutions log</li><li class="lang-en">Verification of ≥1 system-level requirement</li>
-      </ul>
-    </div>
+  <div class="section">
+    <p class="section-label"><span class="lang-es-inline">Tareas</span><span class="lang-en-inline">Tasks</span></p>
+    <ul class="item-list"><li class="lang-es">Conectar el modelo con el subsistema adyacente según el IBD</li><li class="lang-es">Identificar y resolver incompatibilidades de tipo, unidad o rango</li><li class="lang-es">Verificar al menos 1 requisito de sistema en el modelo integrado</li><li class="lang-es">Documentar incompatibilidades detectadas y soluciones adoptadas</li><li class="lang-en">Connect the model with the adjacent subsystem following the IBD</li><li class="lang-en">Identify and resolve type, unit or range incompatibilities</li><li class="lang-en">Verify at least 1 system-level requirement in the integrated model</li><li class="lang-en">Document detected incompatibilities and adopted solutions</li></ul>
+  </div>
+
+  <div class="section">
+    <p class="section-label"><span class="lang-es-inline">Entregables</span><span class="lang-en-inline">Deliverables</span></p>
+    <ul class="entregable-list">
+      <li class="lang-es">Modelo integrado (≥2 subsistemas conectados)</li><li class="lang-es">Registro de incompatibilidades y soluciones</li><li class="lang-es">Verificación de ≥1 requisito de sistema</li>
+      <li class="lang-en">Integrated model (≥2 subsystems connected)</li><li class="lang-en">Incompatibilities and solutions log</li><li class="lang-en">Verification of ≥1 system-level requirement</li>
+    </ul>
   </div>
 
   <div class="section">
@@ -182,13 +179,13 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
         <strong>Profesor:</strong> para añadir un material, copia el archivo en esta carpeta
         (<code>semana-10/</code>) y añade una entrada al array <code>materiales</code>
         en <code>gen_semanas.py</code>, luego regenera con <code>python3 gen_semanas.py</code>.
-        Tipos disponibles: <code>docx · pdf · xlsx · slx · código · enlace · zip</code>
+        Tipos disponibles: <code>docx · pdf · xlsx · slx · código · enlace · zip · md · pptx</code>
       </span>
       <span class="lang-en">
         <strong>Instructor:</strong> to add material, copy the file to this folder
         (<code>semana-10/</code>) and add an entry to the <code>materiales</code> array
         in <code>gen_semanas.py</code>, then regenerate with <code>python3 gen_semanas.py</code>.
-        Available types: <code>docx · pdf · xlsx · slx · code · link · zip</code>
+        Available types: <code>docx · pdf · xlsx · slx · code · link · zip · md · pptx</code>
       </span>
     </div>
   </div>

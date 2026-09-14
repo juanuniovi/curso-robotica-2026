@@ -33,8 +33,9 @@ documentos dejan de estar de acuerdo entre sí y nadie sabe cuál vale.
 y sus enlaces viven juntos y consistentes. El modelo es la **fuente de verdad**; los
 documentos, si hacen falta, se generan desde él.
 
-En este curso el modelo se construye con **MATLAB System Composer** (arquitectura) y se
-verifica con **simulación por computador** (un simulador físico, por determinar).
+En este curso el modelo se construye con una **herramienta de modelado SysML** (arquitectura,
+por determinar) y se verifica con **simulación por computador** (un simulador físico, por
+determinar).
 
 ## 3. El ciclo en V
 
