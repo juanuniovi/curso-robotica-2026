@@ -26,7 +26,7 @@ para no empezar la Semana 2 desde una hoja en blanco.
 
 ## Cómo usarlo
 
-1. Copia `SistemaUGV.slx` a la carpeta de tu equipo: `equipos/[equipo]/semana-02/`.
+1. Copia `SistemaUGV.slx` a `modelos/sysml/`.
 2. Trabaja siempre sobre esa copia, no sobre el original de `base/`.
 3. Ábrelo en MATLAB R2023b+ con System Composer (`open_system("SistemaUGV")`).
 
