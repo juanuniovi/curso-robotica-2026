@@ -18,8 +18,9 @@ semanas = [
       "Ficha — Parte B (el encargo): en 3 frases, qué pide el Cliente, para qué y qué queda fuera · los 4 modos de operación en una frase cada uno · el propósito del vehículo y sus 3 misiones principales con las cifras que las condicionan (velocidad, potencia, autonomía, carga)",
       "Ficha — Parte B: elegir 8 requisitos (con su ID RGEN/RLT) que creas verificables con un modelo de simulación e indicar qué magnitud medirías en cada uno; y 2 requisitos que NO se puedan verificar por simulación, justificando por qué",
       "Ficha — Parte B: 3 términos del glosario que no conocías (con su significado) y 1 pregunta que le harías al Cliente",
+      "En equipo: rellenar el Informe de Requisitos (ficha_requisitos_UGV.md) — matriz SHALL, clasificación por verificabilidad y observaciones/interdependencias",
       "Sesión 2h en grupo (modera el rol IS): construir en pizarra el diagrama de contexto del Sistema UGV — caja central + actores: Puesto de Mando, UAV de apoyo, otros UxV, terreno y ambiente, cargas de pago, vehículos tripulados a los que acompaña, obstáculos",
-      "Sesión: consolidar la lista de 15 requisitos ancla del equipo en recursos/requisitos_ancla.csv (ID · texto resumido · § fuente · ¿simulable? · rol tentativo) y repartir provisionalmente qué familia de requisitos mirará cada rol la semana siguiente",
+      "Sesión: el rol IS consolida 15 requisitos ancla del equipo (extraídos del Informe de Requisitos) en recursos/requisitos_ancla.csv y reparte provisionalmente qué familia de requisitos mirará cada rol la semana siguiente",
     ],
     "tareas_en": [
       "Pre-reading (self-study): the «Introduction to systems engineering and MBSE» primer (~15 min), then Annex I with this checklist: §1 what the UGV System is and is NOT · §1.5 the 4 operating modes · §2 the 3 phases · §3.1 read every RGEN · §3.2 read every RLT1 · quick read of §3.4–3.9 · §3.11 RDOC-13 (architecture delivered in SysML)",
@@ -27,20 +28,23 @@ semanas = [
       "Sheet — Part B (the brief): in 3 sentences, what the Client asks for, what for and what is out of scope · the 4 operating modes, one sentence each · the vehicle's purpose and its 3 main missions with the figures that drive them (speed, power, endurance, payload)",
       "Sheet — Part B: pick 8 requirements (with their RGEN/RLT ID) you believe are verifiable with a simulation model, stating which quantity you would measure for each; and 2 requirements that CANNOT be verified by simulation, with justification",
       "Sheet — Part B: 3 glossary terms you did not know (with their meaning) and 1 question you would ask the Client",
+      "As a team: fill in the Requirements Report (ficha_requisitos_UGV.md) — SHALL matrix, verifiability classification and observations/interdependencies",
       "2h group session (IS role moderates): build the UGV System context diagram on the board — central box + actors: Command Post, support UAV, other UxV, terrain and environment, payloads, manned vehicles it accompanies, obstacles",
-      "Session: consolidate the team's list of 15 anchor requirements in recursos/requisitos_ancla.csv (ID · short text · source § · simulable? · tentative role) and provisionally split which requirement family each role will look at next week",
+      "Session: the IS role consolidates 15 anchor requirements (drawn from the Requirements Report) into recursos/requisitos_ancla.csv and provisionally splits which requirement family each role will look at next week",
     ],
     "entregables_es": [
-      "Ficha de comprensión (Partes A y B) por alumno: semanas/semana-01/comprension_[inicial].md",
-      "recursos/requisitos_ancla.csv con 15 filas (lo consolida el rol IS)",
-      "Diagrama de contexto del Sistema UGV (foto o PDF) en semanas/semana-01/",
-      "1 Pull Request a master con 1 commit por alumno: docs([rol]): ficha de comprensión — semana 1",
+      "INDIVIDUAL — Ficha de comprensión (Partes A y B), 1 por alumno: copiar semanas/semana-01/comprension/comprension_EJEMPLO.md → comprension_[inicial].md",
+      "EQUIPO — Informe de Requisitos (matriz + observaciones): semanas/semana-01/ficha_requisitos_UGV.md",
+      "EQUIPO — 15 requisitos ancla consolidados: recursos/requisitos_ancla.csv",
+      "EQUIPO — Diagrama de contexto del Sistema UGV (foto o PDF): semanas/semana-01/diagrama-contexto/",
+      "1 Pull Request a master con 1 commit por alumno para su ficha de comprensión, y commits del rol IS para el informe, el CSV y el diagrama",
     ],
     "entregables_en": [
-      "Comprehension sheet (Parts A and B) per student: semanas/semana-01/comprension_[initial].md",
-      "recursos/requisitos_ancla.csv with 15 rows (consolidated by the IS role)",
-      "UGV System context diagram (photo or PDF) in semanas/semana-01/",
-      "1 Pull Request to master with 1 commit per student: docs([role]): comprehension sheet — week 1",
+      "INDIVIDUAL — Comprehension sheet (Parts A and B), 1 per student: copy semanas/semana-01/comprension/comprension_EJEMPLO.md → comprension_[initial].md",
+      "TEAM — Requirements Report (matrix + observations): semanas/semana-01/ficha_requisitos_UGV.md",
+      "TEAM — 15 consolidated anchor requirements: recursos/requisitos_ancla.csv",
+      "TEAM — UGV System context diagram (photo or PDF): semanas/semana-01/diagrama-contexto/",
+      "1 Pull Request to master with 1 commit per student for their comprehension sheet, and commits from the IS role for the report, the CSV and the diagram",
     ],
     "materiales": [
       {"tipo":"md","nombre":"Introducción a la ingeniería de sistemas y al MBSE","archivo":"../../recursos/intro-ingenieria-sistemas.html"},
@@ -48,7 +52,9 @@ semanas = [
       {"tipo":"pdf","nombre":"curso_ROBOT TERRESTRE_Contrato", "archivo":"../../recursos/curso_ROBOT_TERRESTRE_Contrato.pdf"},
       {"tipo":"pdf","nombre":"curso_ROBOT TERRESTRE_Anexo I", "archivo":"../../recursos/curso_ROBOT_TERRESTRE_Anexo_I.pdf"},
       {"tipo":"pptx","nombre":"Introducción a la Ingeniería de Sistemas (transparencias)", "archivo":"Semana1_Introduccion_Ingenieria_Sistemas.pptx"},
-      {"tipo":"md","nombre":"Ficha de extracción de requisitos (plantilla a rellenar)", "archivo":"ficha_requisitos_UGV.md"}
+      {"tipo":"md","nombre":"Informe de Requisitos — entregable de equipo, a rellenar", "archivo":"ficha_requisitos_UGV.md"},
+      {"tipo":"md","nombre":"Ficha de comprensión — ejemplo/plantilla individual", "archivo":"comprension/comprension_EJEMPLO.md"},
+      {"tipo":"csv","nombre":"requisitos_ancla.csv — plantilla (cabecera + 1 fila de ejemplo)", "archivo":"../../recursos/requisitos_ancla.csv"}
     ]
   },
   {
@@ -325,6 +331,7 @@ ICONOS = {
   "zip":    ("📦", "#8a6b00", "#fdf8e1"),
   "md":     ("📘", "#1a4f8a", "#e8f0fb"),
   "pptx":   ("📽️", "#b8860b", "#f6efd8"),
+  "csv":    ("📊", "#2d6a3f", "#e8f5ec"),
 }
 
 BLOQUE_LABEL = {
@@ -551,13 +558,13 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{{display:flex}
         <strong>Profesor:</strong> para añadir un material, copia el archivo en esta carpeta
         (<code>{s["id"]}/</code>) y añade una entrada al array <code>materiales</code>
         en <code>gen_semanas.py</code>, luego regenera con <code>python3 gen_semanas.py</code>.
-        Tipos disponibles: <code>docx · pdf · xlsx · slx · código · enlace · zip · md · pptx</code>
+        Tipos disponibles: <code>docx · pdf · xlsx · slx · código · enlace · zip · md · pptx · csv</code>
       </span>
       <span class="lang-en">
         <strong>Instructor:</strong> to add material, copy the file to this folder
         (<code>{s["id"]}/</code>) and add an entry to the <code>materiales</code> array
         in <code>gen_semanas.py</code>, then regenerate with <code>python3 gen_semanas.py</code>.
-        Available types: <code>docx · pdf · xlsx · slx · code · link · zip · md · pptx</code>
+        Available types: <code>docx · pdf · xlsx · slx · code · link · zip · md · pptx · csv</code>
       </span>
     </div>
   </div>
