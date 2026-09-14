@@ -45,6 +45,9 @@ semanas = [
     "materiales": [
       {"tipo":"md","nombre":"Introducción a la ingeniería de sistemas y al MBSE","archivo":"../../recursos/intro-ingenieria-sistemas.html"},
       {"tipo":"md","nombre":"Anexo I — Requisitos funcionales","archivo":"../../recursos/anexo-I_anonimizado.html"},
+      {"tipo":"pdf","nombre":"curso_ROBOT TERRESTRE_Contrato", "archivo":"../../recursos/curso_ROBOT_TERRESTRE_Contrato.pdf"},
+      {"tipo":"pdf","nombre":"curso_ROBOT TERRESTRE_Anexo I", "archivo":"../../recursos/curso_ROBOT_TERRESTRE_Anexo_I.pdf"},
+      {"tipo":"pptx","nombre":"Introducción a la Ingeniería de Sistemas (transparencias)", "archivo":"Semana1_Introduccion_Ingenieria_Sistemas.pptx"}
     ]
   },
   {
@@ -320,6 +323,7 @@ ICONOS = {
   "enlace": ("🔗", "#0077aa", "#e6f4ff"),
   "zip":    ("📦", "#8a6b00", "#fdf8e1"),
   "md":     ("📘", "#1a4f8a", "#e8f0fb"),
+  "pptx":   ("📽️", "#b8860b", "#f6efd8"),
 }
 
 BLOQUE_LABEL = {
