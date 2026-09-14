@@ -94,6 +94,7 @@ semanas = [
       "1 Pull Request to master; 1 commit per role: feat([role]): top-level BDD properties — week 2",
     ],
     "materiales": [
+      {"tipo":"pptx","nombre":"Arquitectura del Sistema: BDD e IBD (transparencias, Semanas 2-3)","archivo":"Arquitectura_BDD_IBD.pptx"},
       {"tipo":"código","nombre":"Script de render — render_arquitectura.py","archivo":"../../render_arquitectura.py"},
       {"tipo":"código","nombre":"Modelo base — sistema.yaml","archivo":"../../base/modelos/sistema.yaml"},
       {"tipo":"md","nombre":"Anexo I — Requisitos funcionales","archivo":"../../recursos/anexo-I_anonimizado.html"},
@@ -139,6 +140,7 @@ semanas = [
       "1 Pull Request to master; 1 commit per role: feat([role]): top-level IBD interfaces — week 3",
     ],
     "materiales": [
+      {"tipo":"pptx","nombre":"Arquitectura del Sistema: BDD e IBD (transparencias, Semanas 2-3)","archivo":"../semana-02/Arquitectura_BDD_IBD.pptx"},
       {"tipo":"md","nombre":"Anexo I — Requisitos funcionales","archivo":"../../recursos/anexo-I_anonimizado.html"},
       {"tipo":"código","nombre":"Script de render — render_arquitectura.py","archivo":"../../render_arquitectura.py"},
     ]
