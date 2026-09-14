@@ -1,7 +1,5 @@
 # Informe de Requisitos — Sistema UGV
 
-*Ref. pliego: CPP 01/2026 AB — CDTI / Ministerio de Defensa de España*
-*Presupuesto del proyecto: 11.905.308 € · Duración: 30 meses*
 
 **Equipo:** ______________&nbsp;&nbsp;&nbsp; **Lote:** ☐ 1 (ruedas) ☐ 2 (cadenas)&nbsp;&nbsp;&nbsp; **Integrantes:** ______________________________
 
