@@ -47,7 +47,8 @@ semanas = [
       {"tipo":"md","nombre":"Anexo I — Requisitos funcionales","archivo":"../../recursos/anexo-I_anonimizado.html"},
       {"tipo":"pdf","nombre":"curso_ROBOT TERRESTRE_Contrato", "archivo":"../../recursos/curso_ROBOT_TERRESTRE_Contrato.pdf"},
       {"tipo":"pdf","nombre":"curso_ROBOT TERRESTRE_Anexo I", "archivo":"../../recursos/curso_ROBOT_TERRESTRE_Anexo_I.pdf"},
-      {"tipo":"pptx","nombre":"Introducción a la Ingeniería de Sistemas (transparencias)", "archivo":"Semana1_Introduccion_Ingenieria_Sistemas.pptx"}
+      {"tipo":"pptx","nombre":"Introducción a la Ingeniería de Sistemas (transparencias)", "archivo":"Semana1_Introduccion_Ingenieria_Sistemas.pptx"},
+      {"tipo":"md","nombre":"Ficha de extracción de requisitos (plantilla a rellenar)", "archivo":"ficha_requisitos_UGV.md"}
     ]
   },
   {
