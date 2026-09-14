@@ -1,5 +1,5 @@
-# Ingeniería de Sistemas con MBSE y Simscape
-### Systems Engineering with MBSE and Simscape
+# Ingeniería Robótica con MBSE
+### Robotics Engineering with MBSE
 
 > **4º Grado en Ingeniería Electrónica · 14 semanas · GitHub Pages: [ver web →](https://juanuniovi.github.io/curso-robotica-2026/)**
 
@@ -21,7 +21,7 @@ curso-robotica-2026/
 │   └── ...
 ├── modelos/
 │   ├── sysml/              ← Modelos System Composer (.slx)
-│   └── simscape/           ← Modelos Simscape base del profesor
+│   └── simulacion/         ← Modelos de simulación base del profesor
 ├── hardware/                ← Banco de pruebas Dynamixel: ROS 2, calibración, drivers
 ├── recursos/                ← Pliego, referencias, plantillas
 ├── evaluacion/               ← Rúbricas y criterios de evaluación
@@ -34,7 +34,7 @@ curso-robotica-2026/
 |---|---|---|
 | MATLAB | R2023b | Entorno principal |
 | System Composer | incluido | Modelado SysML |
-| Simscape | incluido | Simulación física |
+| Simulador físico (por definir) | — | Simulación física |
 | Simulink Test | incluido | Verificación de requisitos |
 | ROS 2 (Humble/Jazzy) | — | Control del banco de pruebas Dynamixel (`dynamixel_workbench`) y del UR3 (`Universal_Robots_ROS2_Driver`, MoveIt2) |
 | DYNAMIXEL SDK / Wizard 2.0 | — | Configuración y prueba directa de motores |
@@ -50,7 +50,7 @@ El curso se organiza como un proceso de contratación simulado: un equipo client
 
 | Departamento | Dominio | Herramientas | Evidencia |
 |---|---|---|---|
-| Simulación | Simscape (Electrical, Driveline, Multibody) | MATLAB, Simscape, Simulink Test | Simulación |
+| Simulación | Simulador físico (eléctrico, transmisión, multicuerpo) | MATLAB, Simulador físico, Simulink Test | Simulación |
 | Taller (Dynamixel) | Banco físico AX-12+ / AX-S1 / RX-24F / RX-64 | DYNAMIXEL Wizard 2.0, SDK | **Física** |
 | Software | ROS 2 (`dynamixel_workbench`, UR3, Gazebo) | ROS 2, MoveIt2, Gazebo | Integración software |
 
@@ -58,4 +58,4 @@ Reparto completo de roles (equipo cliente, interlocutor IS, subperfiles técnico
 
 ## Licencia / License
 
-Material docente de uso educativo. Los modelos Simscape son adaptaciones de repositorios oficiales de MathWorks (licencia abierta).
+Material docente de uso educativo. Los modelos de simulación son adaptaciones de repositorios oficiales del fabricante de la herramienta empleada (licencia abierta).

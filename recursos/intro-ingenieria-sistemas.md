@@ -34,7 +34,7 @@ y sus enlaces viven juntos y consistentes. El modelo es la **fuente de verdad**;
 documentos, si hacen falta, se generan desde él.
 
 En este curso el modelo se construye con **MATLAB System Composer** (arquitectura) y se
-verifica con **Simscape** (simulación física).
+verifica con **simulación por computador** (un simulador físico, por determinar).
 
 ## 3. El ciclo en V
 
@@ -98,7 +98,7 @@ ciclo en V, de modo que cada alumno recorre la rama de diseño y la de verificac
 | Rol | De qué se ocupa | Evidencia que produce |
 |---|---|---|
 | **IS — Ingeniería de Sistemas** | Requisitos, arquitectura, trazabilidad, coordinación | Modelo SysML y matriz de verificación |
-| **Simulación** | Modelo físico en Simscape (propulsión, dinámica) | Resultados de simulación |
+| **Simulación** | Modelo físico por computador (propulsión, dinámica) | Resultados de simulación |
 | **Taller** | Banco físico y medidas reales | Evidencia física (medidas) |
 | **Software** | Adquisición de datos e integración hardware ↔ modelo | Integración y contraste hw ↔ modelo |
 
