@@ -17,10 +17,10 @@ curso-robotica-2026/
 ├── index.html              ← Página web del curso (GitHub Pages)
 ├── semanas/                ← Enunciados semanales en PDF/DOCX
 │   ├── semana-01/          ← Extracción de requisitos + introducción a SysML
-│   ├── semana-02/          ← IBD + interfaces + trazabilidad
+│   ├── semana-02/          ← BDD + propiedades tipadas
 │   └── ...
 ├── modelos/
-│   ├── sysml/              ← Modelos de arquitectura SysML (.slx)
+│   ├── sysml/              ← Modelos de arquitectura SysML (YAML + Mermaid, ver render_arquitectura.py)
 │   └── simulacion/         ← Modelos de simulación base del profesor
 ├── hardware/                ← Banco de pruebas físico: ROS 2, calibración, drivers
 ├── recursos/                ← Pliego, referencias, plantillas
@@ -32,8 +32,8 @@ curso-robotica-2026/
 
 | Herramienta | Versión mínima | Uso |
 |---|---|---|
-| MATLAB | R2023b | Entorno principal |
-| Herramienta SysML (por definir) | — | Modelado SysML |
+| MATLAB | R2023b | Entorno principal (simulación) |
+| Python 3 + PyYAML | — | Modelado de arquitectura (`render_arquitectura.py`) — ver `modelos/sysml/` |
 | Simulador físico (por definir) | — | Simulación física |
 | Simulink Test | incluido | Verificación de requisitos |
 | ROS 2 (Humble/Jazzy) | — | Control del banco de pruebas físico y del UR3 (`Universal_Robots_ROS2_Driver`, MoveIt2) |

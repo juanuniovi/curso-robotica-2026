@@ -1,5 +1,9 @@
 function crear_SistemaUGV()
-%CREAR_SISTEMAUGV  Esqueleto MUY BÁSICO del modelo de arquitectura del Sistema UGV.
+%CREAR_SISTEMAUGV  [OBSOLETO] Sustituido por base/modelos/sistema.yaml +
+%   render_arquitectura.py. Se conserva sin usar como referencia. El flujo
+%   activo de arquitectura ya no pasa por System Composer.
+%
+%   Esqueleto MUY BÁSICO del modelo de arquitectura del Sistema UGV.
 %
 %   Ejecuta este script en MATLAB R2023b o posterior con System Composer:
 %       >> crear_SistemaUGV

@@ -1,7 +1,8 @@
-# Modelo base — `SistemaUGV.slx`
+# Modelo base — `sistema.yaml`
 
-Esqueleto **muy básico** del modelo de arquitectura System Composer del Sistema UGV,
-para no empezar la Semana 2 desde una hoja en blanco.
+Esqueleto **muy básico** del modelo de arquitectura del Sistema UGV, para no empezar la
+Semana 2 desde una hoja en blanco. Es un archivo de datos (YAML), no un archivo de una
+herramienta gráfica — se visualiza generando `ARQUITECTURA.md` con `render_arquitectura.py`.
 
 ## Qué trae
 
@@ -21,21 +22,17 @@ para no empezar la Semana 2 desde una hoja en blanco.
 | Falta | Se hace en |
 |---|---|
 | Propiedades de valor formales (tipo + valor + unidad) | **Semana 2** |
-| Puertos, asignación de interfaces y conexiones (el IBD) | **Semana 3** |
-| Trazabilidad formal con Requirements Toolbox | Semanas 2–3 |
+| Interfaces caracterizadas y conexiones (el IBD) | **Semana 3** |
 
 ## Cómo usarlo
 
-1. Copia `SistemaUGV.slx` a `modelos/sysml/`.
+1. Copia `sistema.yaml` a [`modelos/sysml/`](../../modelos/sysml/).
 2. Trabaja siempre sobre esa copia, no sobre el original de `base/`.
-3. Ábrelo en MATLAB R2023b+ con System Composer (`open_system("SistemaUGV")`).
+3. Genera la vista con `python3 render_arquitectura.py modelos/sysml/sistema.yaml -o modelos/sysml/ARQUITECTURA.md`.
 
-## Regenerarlo
+Ver [`modelos/sysml/README.md`](../../modelos/sysml/) para el flujo completo.
 
-El `.slx` se genera con el script `crear_SistemaUGV.m` (así queda versionado en texto):
+---
 
-```matlab
-cd base/modelos
-delete SistemaUGV.slx      % el script se niega a sobrescribir
-crear_SistemaUGV
-```
+*Un generador MATLAB anterior (`crear_SistemaUGV.m`) queda en esta carpeta sin usar,
+como referencia — el flujo activo es el de este documento.*

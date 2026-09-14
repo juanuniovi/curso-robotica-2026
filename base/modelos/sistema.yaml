@@ -1,0 +1,98 @@
+sistema:
+  id: SistemaUGV
+  descripcion: >
+    Sistema Terrestre No Tripulado (UGV), Lote 1 (ruedas) — CPP 01/2026 AB,
+    CDTI / Ministerio de Defensa de España. Referencia: Anexo I, RDOC-13
+    (Vista de Sistemas y Subsistemas).
+
+# ── Bloques de nivel 1 ────────────────────────────────────────────────────
+# propiedades: [] a propósito — se formalizan (tipo + valor + unidad) en la Semana 2.
+bloques:
+  - id: UGV
+    padre: SistemaUGV
+    descripcion: >
+      Vehículo terrestre no tripulado de tracción de ruedas. Masa en orden de
+      misión <= 9000 kg [RLT1-08]; autonomía >= 8 h o 400 km [RGEN-14];
+      autonomía eléctrica >= 2 h o 100 km [RGEN-15].
+    propiedades: []
+
+  - id: PuestoMandoPortable
+    padre: SistemaUGV
+    descripcion: >
+      Puesto de operación + comunicaciones + alimentación. 3 interfaces
+      independientes (conducción, misión, carga útil) [RPdO-06].
+    propiedades: []
+
+  - id: DispositivoTelemandoPortable
+    padre: SistemaUGV
+    descripcion: >
+      Tipo tablet con joystick, para teleoperación cercana [ROPE-03].
+    propiedades: []
+
+  - id: SubsistemaComunicaciones
+    padre: SistemaUGV
+    descripcion: >
+      3 módulos (5G, radio, satélite) [RCOM-01]; alcance BLOS >= 20 km [RCOM-02].
+    propiedades: []
+
+  - id: UAVApoyo
+    padre: SistemaUGV
+    descripcion: >
+      UAV de apoyo para teleoperación y consciencia situacional; modos
+      TELEOPERADO y CAUTIVO VIRTUAL [ROPE-04].
+    propiedades: []
+
+  # ── Bloques de nivel 2 — desglose interno de UGV ─────────────────────────
+  - id: PropulsionEnergia
+    padre: UGV
+    descripcion: >
+      Propulsión híbrida: motor eléctrico + combustión (biocombustible 100%)
+      + baterías [RGEN-11..13]. Potencia total >= 140 kW [RLT1-09].
+    propiedades: []
+
+  - id: MovilidadTrenRodaje
+    padre: UGV
+    descripcion: >
+      Tren de ruedas 4x4/6x6/8x8 con tracción independiente por rueda
+      [RLT1-04] y suspensión neumática regulable [RLT1-05]. v_carretera
+      >= 75 km/h, pendiente frontal >= 60% [RLT1-03].
+    propiedades: []
+
+  - id: PercepcionNavegacion
+    padre: UGV
+    descripcion: >
+      Detección de obstáculos (LiDAR/radar/visión) con modo SIGILOSO
+      [RGEN-09]; navegación alternativa al GNSS, >= 3 tecnologías, >= 5 km
+      sin señal [RNAV-01].
+    propiedades: []
+
+  - id: ControlComputacion
+    padre: UGV
+    descripcion: >
+      Computación embarcada y control drive-by-wire. Frenado automático
+      anticolisión [RGEN-17]. Modos TELEOPERADO / AUTÓNOMO / FUERA DE LÍNEA
+      [ROPE-01].
+    propiedades: []
+
+  - id: PuntosInterfazCargas
+    padre: UGV
+    descripcion: >
+      Puntos de interfaz mecánicos/eléctricos/lógicos para cargas de pago
+      obligatorias (CP-01, CP-04, CP-09, CP-10, CP-14) sin comprometer la
+      estabilidad [RGEN-28].
+    propiedades: []
+
+# ── Diccionario de interfaces ────────────────────────────────────────────
+# Solo el nombre por ahora — que_transporta/tipo_unidades/requisito se
+# rellenan en la Semana 3, junto con las conexiones del IBD.
+interfaces:
+  - {id: EnergiaElectrica, que_transporta: null, tipo_unidades: null, requisito: null}
+  - {id: ParMecanico, que_transporta: null, tipo_unidades: null, requisito: null}
+  - {id: SenalControl, que_transporta: null, tipo_unidades: null, requisito: null}
+  - {id: FlujoVideo, que_transporta: null, tipo_unidades: null, requisito: null}
+  - {id: DatosNavegacion, que_transporta: null, tipo_unidades: null, requisito: null}
+  - {id: EnlaceComunicaciones, que_transporta: null, tipo_unidades: null, requisito: null}
+
+# ── Conexiones (IBD) ──────────────────────────────────────────────────────
+# Vacío hasta la Semana 3: {origen, destino, interfaz}
+conexiones: []

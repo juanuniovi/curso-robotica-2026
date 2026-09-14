@@ -33,8 +33,9 @@ documentos dejan de estar de acuerdo entre sí y nadie sabe cuál vale.
 y sus enlaces viven juntos y consistentes. El modelo es la **fuente de verdad**; los
 documentos, si hacen falta, se generan desde él.
 
-En este curso el modelo se construye con una **herramienta de modelado SysML** (arquitectura,
-por determinar) y se verifica con **simulación por computador** (un simulador físico, por
+En este curso el modelo de arquitectura se escribe como **texto plano** (YAML: bloques,
+propiedades, interfaces) y se visualiza generando diagramas BDD/IBD con un script — ver
+`modelos/sysml/`. Se verifica con **simulación por computador** (un simulador físico, por
 determinar).
 
 ## 3. El ciclo en V
