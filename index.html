@@ -478,7 +478,7 @@ footer {
       <span class="lang-en"> <em>Robotics</em> Engineering with MBSE</span>
     </h1>
     <p class="hero-subtitle">
-      <span class="lang-es">Diseña la arquitectura de un robot móvil autónomo y aporta evidencias y validaciones basadas en modelos físicos, o con test en laboratorios.</span>
+      <span class="lang-es">Diseñar la arquitectura de un robot móvil autónomo, aportando evidencias y validaciones basadas en modelos físicos, o con test en laboratorios.</span>
       <span class="lang-en">Design the architecture of an autonomous mobile robot and provide evidence and validations based on physical models or laboratory tests.</span>
     </p>
     <div class="hero-badges">
@@ -508,11 +508,11 @@ footer {
       <span class="lang-en">Anchor project</span>
     </p>
     <p class="hero-contract-title">
-      <span class="lang-es">Contrato: robot móvil autónomo</span>
-      <span class="lang-en">Contract: autonomous mobile robot</span>
+      <span class="lang-es">Oferta pública: robot móvil autónomo</span>
+      <span class="lang-en">Public tender: autonomous mobile robot</span>
     </p>
     <p class="hero-contract-scope">
-      <span class="lang-es"><b>Arquitectura completa</b> según un pliego de contratación real · <b>validación física mínima</b> de una articulación sobre un actuador de laboratorio</span>
+      <span class="lang-es"><b>Arquitectura completa</b> según un pliego de contratación real · <b>validación física </b> de subcomponentes en laboratorio</span>
       <span class="lang-en"><b>Full architecture</b> per a real public contract · <b>minimal physical validation</b> of one joint on a lab actuator</span>
     </p>
     <div class="stats-row">
@@ -525,7 +525,7 @@ footer {
       <div class="tool-chip">Lenguaje de modelado</div>
       <div class="tool-chip">Simulador físico multicuerpo</div>
       <div class="tool-chip">Stateflow</div>
-      <div class="tool-chip">Arquitectura del software</div>
+      <div class="tool-chip">Arquitectura</div>
       <div class="tool-chip">Software</div>
       <div class="tool-chip"><span class="lang-es">Equipo de laboratorio</span><span class="lang-en">Lab actuator</span></div>
     </div>
@@ -536,28 +536,30 @@ footer {
 <section id="proceso">
   <div class="col-wide">
     <p class="section-tag">
-      <span class="lang-es">Cómo vamos a trabajar</span>
+      <span class="lang-es">Metodología del curso</span>
       <span class="lang-en">How we're working</span>
     </p>
     <h2 class="section-title">
-      <span class="lang-es">Un proceso, no un calendario cerrado</span>
+      <span class="lang-es">Proceso basado en la metodología de MBSE</span>
       <span class="lang-en">A process, not a fixed schedule</span>
     </h2>
     <p class="section-lead">
-      <span class="lang-es">Es la primera vez que impartimos este curso con esta estructura. En vez de fijar de antemano cuántas semanas ocupa cada fase, iremos publicando el contenido de cada semana según avancemos — lo de abajo es el proceso completo que vamos a recorrer, no un horario cerrado. Cada fase especifica el trabajo de los 4 roles del equipo — Sistemas (IS), Simulación, Taller y Software — que rotan de forma flexible, de modo que cada alumno recorre tanto la rama de diseño como la de verificación.</span>
-      <span class="lang-en">This is the first time we're teaching this course with this structure. Instead of fixing in advance how many weeks each phase takes, we'll publish each week's content as we go — what's below is the full process we'll walk through, not a locked schedule. Each phase specifies the work of the team's 4 roles — Systems (IS), Simulation, Workshop and Software — which rotate flexibly, so every student walks both the design and the verification branch.</span>
+      <span class="lang-es">El proceso completo que vamos a recorrer tiene seis fases. Cada una especifica el trabajo de los 4 roles del equipo — Sistemas (IS), Simulación, Taller y Software — que intercambiaremos de forma flexible, 
+        de modo que cada alumno aporte lo más posible dentro de sus capacidades e intereses, tanto la rama de diseño como la de verificación.</span>
+      <span class="lang-en">This is the first time we're teaching this course with this structure. Instead of fixing in advance 
+        how many weeks each phase takes, we'll publish each week's content as we go — what's below is the full process we'll walk through, not a locked schedule. Each phase specifies the work of the team's 4 roles — Systems (IS), Simulation, Workshop and Software — which rotate flexibly, so every student walks both the design and the verification branch.</span>
     </p>
     <div class="scope-note">
       <div class="scope-item">
-        <div class="scope-col-title lang-es-block">Lo real: el pliego</div>
+        <div class="scope-col-title lang-es-block">Punto de partida: el pliego</div>
         <div class="scope-col-title lang-en-block">The real: the contract</div>
-        <div class="scope-col-desc lang-es-block">La arquitectura SysML trabaja sobre los 80+ requisitos reales de un contrato de licitación pública — el vehículo completo, tal cual se definió en el pliego.</div>
+        <div class="scope-col-desc lang-es-block">Elaboraremos una propuesta sobre los 80+ requisitos reales de un contrato de licitación pública — el vehículo completo, tal cual se definió en el pliego.</div>
         <div class="scope-col-desc lang-en-block">The SysML architecture works over the 80+ real requirements of a public tender contract — the full vehicle, exactly as defined in the contract.</div>
       </div>
       <div class="scope-item banco">
-        <div class="scope-col-title lang-es-block">El banco de pruebas físico</div>
+        <div class="scope-col-title lang-es-block">Generación de evidencias: simulacionees, banco de pruebas, software</div>
         <div class="scope-col-title lang-en-block">The physical testbed</div>
-        <div class="scope-col-desc lang-es-block">La evidencia física de las fases de ingeniería inversa y calibración no replica el vehículo completo — se genera sobre un único lazo de validación: un actuador de laboratorio cuya respuesta medida (posición, corriente) se contrasta contra su modelo de simulación. Un <em>digital twin</em> mínimo que ancla a la realidad la evidencia simulada del resto.</div>
+        <div class="scope-col-desc lang-es-block">Las evidencias se generan contra modelos de simulación. Un <em>digital twin</em> mínimo que ancla a la realidad la evidencia simulada del resto.</div>
         <div class="scope-col-desc lang-en-block">Physical evidence in the reverse-engineering and calibration phases does not replicate the full vehicle — it is generated on a single validation loop: one lab actuator whose measured response (position, current) is contrasted against its simulation model. A minimal <em>digital twin</em> that anchors all the simulated evidence to reality.</div>
       </div>
     </div>
