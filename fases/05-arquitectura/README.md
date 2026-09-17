@@ -1,6 +1,6 @@
-# Fase 2 — Arquitectura — Entregables
+# Fase 5 — Arquitectura — Entregables
 
-Todo lo de esta fase es de **equipo** (un único modelo compartido, sin entregas individuales). El modelo y su documentación viven en [`modelos/sysml/`](../../modelos/sysml/), no en esta carpeta.
+Todo lo de esta fase es de **equipo** (un único modelo compartido, sin entregas individuales). El modelo y su documentación viven en [`modelos/sysml/`](../../modelos/sysml/), no en esta carpeta. Parte de la configuración seleccionada en la Fase 4 (Estudio de Conceptos).
 
 | Qué | Formato / nombre | Dónde |
 |---|---|---|

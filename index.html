@@ -544,8 +544,8 @@ footer {
       <span class="lang-en">A process based on the MBSE methodology</span>
     </h2>
     <p class="section-lead">
-      <span class="lang-es">El proceso completo que vamos a recorrer tiene cinco fases: solo la rama descendente de la V, sin llegar a construir ni verificar el sistema completo — el encargo real es preparar una oferta técnica, no ejecutar el contrato. Cada fase especifica el trabajo de los 4 roles del equipo — Sistemas (IS), Simulación, Taller y Software — que intercambiaremos de forma flexible, de modo que cada alumno aporte lo más posible dentro de sus capacidades e intereses.</span>
-      <span class="lang-en">This is the first time we're teaching this course with this structure. The full process has five phases: only the descending branch of the V, without building or verifying the complete system — the real brief is to prepare a technical proposal, not to execute the contract. Each phase specifies the work of the team's 4 roles — Systems (IS), Simulation, Workshop and Software — which we'll swap flexibly, so every student contributes as much as possible within their skills and interests.</span>
+      <span class="lang-es">El proceso completo que vamos a recorrer tiene siete fases, una por cada documento técnico de la oferta: solo la rama descendente de la V, sin llegar a construir ni verificar el sistema completo — el encargo real es preparar una oferta técnica, no ejecutar el contrato. Cada fase especifica el trabajo de los 4 roles del equipo — Sistemas (IS), Simulación, Taller y Software — que intercambiaremos de forma flexible, de modo que cada alumno aporte lo más posible dentro de sus capacidades e intereses.</span>
+      <span class="lang-en">This is the first time we're teaching this course with this structure. The full process has seven phases, one per technical document of the proposal: only the descending branch of the V, without building or verifying the complete system — the real brief is to prepare a technical proposal, not to execute the contract. Each phase specifies the work of the team's 4 roles — Systems (IS), Simulation, Workshop and Software — which we'll swap flexibly, so every student contributes as much as possible within their skills and interests.</span>
     </p>
     <div class="scope-note">
       <div class="scope-item">
@@ -660,8 +660,8 @@ footer {
         <div><span class="tree-file">📄 index.html</span> <span class="tree-note">← esta página</span></div>
         <div><span class="tree-file">📄 README.md</span></div>
         <div><span class="tree-dir">📁 fases/</span></div>
-        <div class="tree-indent"><span class="tree-dir">📁 01-ingenieria-inversa/</span> <span class="tree-note">requisitos + intro SysML</span></div>
-        <div class="tree-indent"><span class="tree-dir">📁 02-arquitectura/, 03-plan-verificacion/…</span> <span class="tree-note">se añaden según avanza el curso</span></div>
+        <div class="tree-indent"><span class="tree-dir">📁 01-analisis-necesidad/</span> <span class="tree-note">intro SysML + necesidad + stakeholders</span></div>
+        <div class="tree-indent"><span class="tree-dir">📁 02-conops/, 03-requisitos-partes-interesadas/…</span> <span class="tree-note">se añaden según avanza el curso</span></div>
         <div><span class="tree-dir">📁 modelos/</span></div>
         <div class="tree-indent"><span class="tree-dir">📁 sysml/</span> <span class="tree-note">modelos de arquitectura SysML</span></div>
         <div class="tree-indent"><span class="tree-dir">📁 simulacion/</span> <span class="tree-note">modelo base del profesor + trabajo del equipo</span></div>
@@ -771,25 +771,33 @@ footer {
 // verificación de un sistema ya construido.
 // estado: "publicado" (hay página real, enlazada) · "por-definir" (todavía no escrito)
 const fases = [
-  { nombre_es:"Ingeniería inversa: del pliego al encargo", nombre_en:"Reverse engineering: from the contract to the brief",
-    desc_es:"Extraer y formalizar en SHALL los requisitos del pliego real; construir el concepto de operación del sistema (modos, misiones, actores) y el diagrama de contexto. Es la base de trazabilidad de todo lo que sigue: nada entra en la arquitectura sin un requisito que lo justifique.",
-    desc_en:"Extract and formalise the real contract's requirements as SHALL statements; build the system's concept of operations (modes, missions, actors) and the context diagram. This is the traceability foundation for everything that follows: nothing enters the architecture without a requirement that justifies it.",
-    estado:"publicado", href:"fases/01-ingenieria-inversa/" },
+  { nombre_es:"Análisis de la Necesidad", nombre_en:"Needs Analysis",
+    desc_es:"Deducir del pliego real la necesidad, el problema y los stakeholders del Sistema UGV, con el diagrama de contexto. Es la base de la que parte el CONOPS y, después, los requisitos.",
+    desc_en:"Deduce from the real contract the need, problem and stakeholders of the UGV System, with the context diagram. This is the base the CONOPS — and later the requirements — build on.",
+    estado:"publicado", href:"fases/01-analisis-necesidad/" },
+  { nombre_es:"CONOPS — Concepto de Operaciones", nombre_en:"CONOPS — Concept of Operations",
+    desc_es:"Formalizar cómo se usa el sistema en la práctica: modos de operación, misiones principales y un escenario operacional de referencia.",
+    desc_en:"Formalise how the system is used in practice: operating modes, main missions and a reference operational scenario.",
+    estado:"publicado", href:"fases/02-conops/" },
+  { nombre_es:"Requisitos de las Partes Interesadas (StRD)", nombre_en:"Stakeholder Requirements (StRD)",
+    desc_es:"Traducir la necesidad y el CONOPS en requisitos SHALL verificables, clasificados por subsistema y por verificabilidad mediante simulación. Nada entra en el Estudio de Conceptos ni en la arquitectura sin un requisito que lo justifique.",
+    desc_en:"Translate the need and the CONOPS into verifiable SHALL requirements, classified by subsystem and by simulation-verifiability. Nothing enters the Concept Study or the architecture without a requirement that justifies it.",
+    estado:"publicado", href:"fases/03-requisitos-partes-interesadas/" },
+  { nombre_es:"Estudio de Conceptos y Selección", nombre_en:"Concept Study & Selection",
+    desc_es:"Identificar concepciones alternativas de la solución y seleccionar una de forma justificada y trazable a los requisitos, con una matriz de decisión ponderada — antes de modelar en SysML.",
+    desc_en:"Identify alternative design concepts and select one in a justified, requirement-traceable way, with a weighted decision matrix — before modelling in SysML.",
+    estado:"publicado", href:"fases/04-estudio-conceptos/" },
   { nombre_es:"Arquitectura SysML: BDD e IBD de primer nivel", nombre_en:"SysML Architecture: top-level BDD and IBD",
     desc_es:"Construir el BDD (bloques, propiedades) y el IBD (interfaces, conexiones) de primer nivel del sistema, con cada elemento trazado a su requisito. Cierra con una baseline v1.0 de arquitectura — la columna vertebral técnica de la oferta.",
     desc_en:"Build the top-level BDD (blocks, properties) and IBD (interfaces, connections), with every element traced to its requirement. Closes with an architecture baseline v1.0 — the technical backbone of the proposal.",
-    estado:"publicado", href:"fases/02-arquitectura/" },
-  { nombre_es:"Plan de Verificación", nombre_en:"Verification Plan",
-    desc_es:"Para cada requisito verificable, definir el método de verificación (análisis, inspección, demostración o simulación) y su criterio de aceptación — sin ejecutar ninguna verificación real.",
-    desc_en:"For each verifiable requirement, define the verification method (analysis, inspection, demonstration or simulation) and its acceptance criterion — without actually running any verification.",
-    estado:"por-definir", href:"" },
-  { nombre_es:"Plan de Integración", nombre_en:"Integration Plan",
-    desc_es:"Definir el esquema de integración entre subsistemas y roles: qué interfaces conectan qué bloques, y en qué orden se ensamblarían — sin integrar físicamente nada.",
-    desc_en:"Define the integration scheme between subsystems and roles: which interfaces connect which blocks, and in what order they would be assembled — without physically integrating anything.",
+    estado:"publicado", href:"fases/05-arquitectura/" },
+  { nombre_es:"Plan de Verificación e Integración", nombre_en:"Verification & Integration Plan",
+    desc_es:"Consolidar en un único documento la matriz de trazabilidad requisito↔método de verificación y el esquema de integración entre subsistemas y roles — sin ejecutar ninguna verificación ni integración real.",
+    desc_en:"Consolidate in a single document the requirement↔verification-method traceability matrix and the integration scheme between subsystems and roles — without actually running any verification or integration.",
     estado:"por-definir", href:"" },
   { nombre_es:"Optimización y cierre", nombre_en:"Optimisation & close-out",
-    desc_es:"Consolidar el documento de oferta técnica que cierra el curso: solución técnica, justificación de trade-offs, EDT/WBS, cronograma y presupuesto. Un documento exigente en sí mismo, con su propia estructura y criterios.",
-    desc_en:"Consolidate the technical proposal document that closes the course: technical solution, trade-off justification, WBS, schedule and budget. A document demanding in its own right, with its own structure and criteria.",
+    desc_es:"Consolidar el documento de oferta técnica que cierra el curso: síntesis de todos los documentos anteriores, más el plan de gestión (EDT/WBS, cronograma, presupuesto). Un documento exigente en sí mismo, con su propia estructura y criterios.",
+    desc_en:"Consolidate the technical proposal document that closes the course: a synthesis of every prior document, plus the management plan (WBS, schedule, budget). A document demanding in its own right, with its own structure and criteria.",
     estado:"por-definir", href:"" },
 ];
 

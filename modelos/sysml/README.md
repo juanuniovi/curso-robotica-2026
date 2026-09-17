@@ -13,7 +13,7 @@ edita el diagrama a mano, se edita el YAML y se regenera.
 ## Cómo usarlo
 
 1. Copiar la versión base desde [`base/modelos/sistema.yaml`](../../base/modelos/) a esta carpeta, una sola vez.
-2. Editar `sistema.yaml` (bloques y propiedades primero; interfaces y conexiones después — ver [Fase 2 — Arquitectura](../../fases/02-arquitectura/)).
+2. Editar `sistema.yaml` (bloques y propiedades primero; interfaces y conexiones después — ver [Fase 5 — Arquitectura](../../fases/05-arquitectura/)).
 3. Regenerar el diagrama:
    ```bash
    python3 render_arquitectura.py modelos/sysml/sistema.yaml -o modelos/sysml/ARQUITECTURA.md

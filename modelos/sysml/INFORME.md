@@ -3,9 +3,9 @@
 *Ref. pliego: CPP 01/2026 AB — CDTI / Ministerio de Defensa de España*
 *RDOC-13 — Vista de Sistemas y Subsistemas*
 
-**Equipo:** ______________&nbsp;&nbsp;&nbsp; **Lote:** ☐ 1 (ruedas) ☐ 2 (cadenas)
+**Equipo:** ______________
 
-Acompaña a [`sistema.yaml`](sistema.yaml) / [`ARQUITECTURA.md`](ARQUITECTURA.md): mientras esos dos son el modelo y su vista generada, este documento recoge las decisiones, observaciones y checklist de cada hito de la Fase 2 — Arquitectura. Una sección por hito.
+Acompaña a [`sistema.yaml`](sistema.yaml) / [`ARQUITECTURA.md`](ARQUITECTURA.md): mientras esos dos son el modelo y su vista generada, este documento recoge las decisiones, observaciones y checklist de cada hito de la Fase 5 — Arquitectura. Una sección por hito.
 
 ## BDD
 

@@ -76,7 +76,7 @@ proceso de licitación real.
 **Matices de puesta en práctica:**
 
 1. Doc.08 (gestión/WBS/cronograma/presupuesto) no depende de la cadena
-   técnica — debe arrancar en la Semana 1 en paralelo, no esperar a que
+   técnica — debe arrancar en la Fase 1 en paralelo, no esperar a que
    esté cerrada la arquitectura.
 2. La oferta final no es un documento nuevo desde cero: es la
    compilación/síntesis ejecutiva de los 8 anteriores con narrativa de

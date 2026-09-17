@@ -11,7 +11,7 @@
 :root{
   --ink:#0d1117;--ink-soft:#3d4451;--ink-muted:#6e7787;
   --paper:#f6f4ef;--paper-warm:#ede9e0;
-  --accent:#1a4f8a;
+  --accent:#0e7c86;
   --border:rgba(13,17,23,.10);
   --font-d:'Syne',sans-serif;--font-b:'DM Sans',sans-serif;--font-m:'DM Mono',monospace;
 }
@@ -104,21 +104,22 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
   <div class="hero-inner">
     <div class="hero-tags">
       <span class="tag tag-accent">
-        <span class="lang-es-inline">Fase 2 de 5</span>
-        <span class="lang-en-inline">Phase 2 of 5</span>
+        <span class="lang-es-inline">Fase 2 de 7</span>
+        <span class="lang-en-inline">Phase 2 of 7</span>
       </span>
+      <span class="tag">Doc.02</span>
     </div>
     <h1 class="hero-titulo">
-      <span class="lang-es">Arquitectura SysML: BDD e IBD de primer nivel</span>
-      <span class="lang-en">SysML Architecture: top-level BDD and IBD</span>
+      <span class="lang-es">CONOPS — Concepto de Operaciones</span>
+      <span class="lang-en">CONOPS — Concept of Operations</span>
     </h1>
     <div class="hero-meta">
       <div class="meta-item">
         <span class="lang-es-inline">Verbo clave:</span>
         <span class="lang-en-inline">Key verb:</span>
         <strong>
-          <span class="lang-es-inline">Construir</span>
-          <span class="lang-en-inline">Build</span>
+          <span class="lang-es-inline">Describir</span>
+          <span class="lang-en-inline">Describe</span>
         </strong>
       </div>
     </div>
@@ -130,21 +131,21 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
   <div class="section">
     <p class="section-label"><span class="lang-es-inline">Objetivo</span><span class="lang-en-inline">Objective</span></p>
     <div class="objetivo-box">
-      <span class="lang-es">Construir el BDD (bloques, propiedades) y el IBD (interfaces, conexiones) de primer nivel del Sistema UGV que pide el RDOC-13, con cada elemento trazado al requisito que lo justifica. Cerrar con una baseline v1.0 de la arquitectura — la columna vertebral técnica de la oferta.</span>
-      <span class="lang-en">Build the top-level BDD (blocks, properties) and IBD (interfaces, connections) of the UGV System required by RDOC-13, with every element traced to the requirement that justifies it. Close with an architecture baseline v1.0 — the technical backbone of the proposal.</span>
+      <span class="lang-es">Formalizar cómo se usa el Sistema UGV en la práctica: sus modos de operación, sus misiones típicas y un escenario operacional de referencia. El CONOPS traduce la necesidad de la Fase 1 en un uso concreto, y es lo que la Fase 3 tiene que satisfacer con requisitos verificables.</span>
+      <span class="lang-en">Formalise how the UGV System is used in practice: its operating modes, typical missions and a reference operational scenario. The CONOPS translates the Phase 1 need into concrete use, and is what Phase 3 has to satisfy with verifiable requirements.</span>
     </div>
   </div>
 
   <div class="section">
     <p class="section-label"><span class="lang-es-inline">Tareas</span><span class="lang-en-inline">Tasks</span></p>
-    <ul class="item-list"><li class="lang-es">Copiar el modelo base: base/modelos/sistema.yaml → modelos/sysml/sistema.yaml (una sola vez). Ya trae los bloques de primer nivel y el desglose interno del UGV — tu trabajo es rellenar las propiedades</li><li class="lang-es">Revisar que están los bloques de primer nivel (RDOC-13.c.1): UGV, Puesto de Mando Portable, Dispositivo de Telemando Portable, Subsistema de Comunicaciones, UAV de apoyo; y el desglose del UGV: Propulsión y energía, Movilidad y tren de rodaje, Percepción y navegación, Control y computación, Puntos de interfaz. Añadir lo que falte</li><li class="lang-es">Reparto por rol (según la Fase 1): IS → propiedades de nivel sistema (masa, autonomía, modos) · Simulación → propulsión y movilidad (potencia, par, velocidad, pendiente) · Taller → chasis e interfaces (dimensiones, pesos, RGEN-28) · Software → comunicaciones y control (alcance BLOS RCOM-02, latencia, RSW)</li><li class="lang-es">Cada propiedad, dentro del bloque en sistema.yaml: nombre, tipo, valor, unidad y el requisito que la justifica (p. ej. UGV.masa_orden_mision = 9000 kg, requisito RLT1-08). Sin requisito que la justifique, la propiedad no entra</li><li class="lang-es">Regenerar la vista: python3 render_arquitectura.py modelos/sysml/sistema.yaml -o modelos/sysml/ARQUITECTURA.md — revisar que no reporta problemas de trazabilidad, y que el BDD coincide con lo esperado</li><li class="lang-es">Sobre el BDD ya construido: en la sección interfaces de sistema.yaml, rellenar que_transporta, tipo_unidades y requisito de cada una: EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones</li><li class="lang-es">En la sección conexiones, añadir una entrada {origen, destino, interfaz} por cada conexión entre bloques de primer nivel y con el exterior (operador, terreno y ambiente, cargas de pago), según el diagrama de contexto de la Fase 1</li><li class="lang-es">Añadir también las conexiones internas del bloque UGV entre sus subsistemas (Propulsión y energía → Movilidad; Percepción y navegación → Control; Control → Comunicaciones…)</li><li class="lang-es">Reparto por rol (interfaces): IS → interfaces de sistema y con el exterior · Simulación → EnergiaElectrica y ParMecanico (RGEN-11, RLT1-04/09) · Taller → interfaces mecánicas de los Puntos de Interfaz (RGEN-28) · Software → FlujoVideo, DatosNavegacion, EnlaceComunicaciones (RGEN-22, RNAV-01, RCOM-01/02, RSW-07)</li><li class="lang-es">Regenerar la vista de nuevo, revisar el IBD y que no queden interfaces sin requisito. Cerrar la fase con un tag de git: git tag -a baseline-v1.0 -m "Arquitectura v1.0 — BDD+IBD nivel 1" && git push origin baseline-v1.0</li><li class="lang-en">Copy the base model: base/modelos/sistema.yaml → modelos/sysml/sistema.yaml (once only). It already has the top-level blocks and the UGV breakdown — your job is to fill in the properties</li><li class="lang-en">Check that the top-level blocks are there (RDOC-13.c.1): UGV, Portable Command Post, Portable Remote-Control Device, Communications Subsystem, support UAV; and the UGV breakdown: Propulsion & energy, Mobility & running gear, Perception & navigation, Control & computing, Interface points. Add whatever is missing</li><li class="lang-en">Split by role (from Phase 1): IS → system-level properties (mass, endurance, modes) · Simulation → propulsion & mobility (power, torque, speed, gradient) · Workshop → chassis & interfaces (dimensions, weights, RGEN-28) · Software → communications & control (BLOS range RCOM-02, latency, RSW)</li><li class="lang-en">Each property, inside its block in sistema.yaml: name, type, value, unit and the requirement that justifies it (e.g. UGV.mission_mass = 9000 kg, requirement RLT1-08). A property with no justifying requirement does not go in</li><li class="lang-en">Regenerate the view: python3 render_arquitectura.py modelos/sysml/sistema.yaml -o modelos/sysml/ARQUITECTURA.md — check it reports no traceability problems, and that the BDD matches what's expected</li><li class="lang-en">On top of the finished BDD: in the interfaces section of sistema.yaml, fill in que_transporta, tipo_unidades and requisito for each one: EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones</li><li class="lang-en">In the conexiones section, add one {origen, destino, interfaz} entry per connection between top-level blocks and with the exterior (operator, terrain and environment, payloads), following the Phase 1 context diagram</li><li class="lang-en">Also add the internal connections of the UGV block between its subsystems (Propulsion & energy → Mobility; Perception & navigation → Control; Control → Communications…)</li><li class="lang-en">Split by role (interfaces): IS → system and external interfaces · Simulation → EnergiaElectrica and ParMecanico (RGEN-11, RLT1-04/09) · Workshop → mechanical interfaces of the interface points (RGEN-28) · Software → FlujoVideo, DatosNavegacion, EnlaceComunicaciones (RGEN-22, RNAV-01, RCOM-01/02, RSW-07)</li><li class="lang-en">Regenerate the view again, check the IBD and that no interface is left without a requirement. Close the phase with a git tag: git tag -a baseline-v1.0 -m "Architecture v1.0 — level-1 BDD+IBD" && git push origin baseline-v1.0</li></ul>
+    <ul class="item-list"><li class="lang-es">Repasar en el Anexo I: §1.5 (definición de términos), §3.4 (modos de operación) y §3.5 (ejecución de misiones)</li><li class="lang-es">Reparto por rol: cada rol redacta la descripción de 1 modo de operación (de los 4) con sus propias palabras, y qué Equipo de Control lo activa</li><li class="lang-es">En equipo: describir las 3 misiones principales del UGV con las cifras que las condicionan (velocidad, potencia, autonomía, carga), citando el ID de requisito de cada cifra</li><li class="lang-es">En equipo: dibujar o describir el ciclo de vida de una misión (Planeamiento → Ejecución → Finalización, ROPE-07) señalando el modo de operación de cada etapa</li><li class="lang-es">En equipo: elegir una familia de misión de ROPE-09 y redactar un escenario operacional de referencia (5-8 líneas), incluyendo qué pasa si se pierde el enlace de comunicaciones (RCOM-03)</li><li class="lang-en">Review in Annex I: §1.5 (definition of terms), §3.4 (operating modes) and §3.5 (mission execution)</li><li class="lang-en">Split by role: each role writes up the description of 1 operating mode (of the 4) in their own words, and which Control Equipment activates it</li><li class="lang-en">As a team: describe the UGV's 3 main missions with the figures that drive them (speed, power, endurance, payload), citing the requirement ID for each figure</li><li class="lang-en">As a team: sketch or describe a mission's life cycle (Planning → Execution → Closeout, ROPE-07) marking the operating mode of each stage</li><li class="lang-en">As a team: pick one ROPE-09 mission family and write a reference operational scenario (5-8 lines), including what happens if the communications link is lost (RCOM-03)</li></ul>
   </div>
 
   <div class="section">
     <p class="section-label"><span class="lang-es-inline">Entregables</span><span class="lang-en-inline">Deliverables</span></p>
     <ul class="entregable-list">
-      <li class="lang-es">EQUIPO — sistema.yaml completo (BDD + IBD: bloques, propiedades, interfaces, conexiones): modelos/sysml/sistema.yaml</li><li class="lang-es">EQUIPO — ARQUITECTURA.md regenerado (BDD + IBD, tablas de propiedades e interfaces): modelos/sysml/ARQUITECTURA.md</li><li class="lang-es">EQUIPO — Informe de Arquitectura (reparto por rol, observaciones, checklist): modelos/sysml/INFORME.md</li><li class="lang-es">Tag de git baseline-v1.0 sobre el commit que cierra la fase</li><li class="lang-es">1 Pull Request a master; 1 commit por rol: feat([rol]): arquitectura BDD+IBD nivel 1</li>
-      <li class="lang-en">TEAM — Full sistema.yaml (BDD + IBD: blocks, properties, interfaces, connections): modelos/sysml/sistema.yaml</li><li class="lang-en">TEAM — Regenerated ARQUITECTURA.md (BDD + IBD, property and interface tables): modelos/sysml/ARQUITECTURA.md</li><li class="lang-en">TEAM — Architecture Report (role split, observations, checklist): modelos/sysml/INFORME.md</li><li class="lang-en">Git tag baseline-v1.0 on the commit that closes the phase</li><li class="lang-en">1 Pull Request to master; 1 commit per role: feat([role]): top-level BDD+IBD architecture</li>
+      <li class="lang-es">EQUIPO — CONOPS (Doc.02: modos, misiones, ciclo de vida, escenario): fases/02-conops/conops_UGV.md</li><li class="lang-es">1 Pull Request a master; commits por rol en la sección de modos de operación</li>
+      <li class="lang-en">TEAM — CONOPS (Doc.02: modes, missions, life cycle, scenario): fases/02-conops/conops_UGV.md</li><li class="lang-en">1 Pull Request to master; per-role commits on the operating modes section</li>
     </ul>
   </div>
 
@@ -152,30 +153,6 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
     <p class="section-label"><span class="lang-es-inline">Materiales</span><span class="lang-en-inline">Materials</span></p>
     <div class="materiales-grid">
       
-      <a class="mat-card" href="Arquitectura_BDD_IBD.pptx" download>
-        <span class="mat-icon" style="background:#f6efd8;color:#b8860b">📽️</span>
-        <div class="mat-info">
-          <span class="mat-nombre">Arquitectura del Sistema: BDD e IBD (transparencias)</span>
-          <span class="mat-tipo" style="color:#b8860b">PPTX</span>
-        </div>
-        <span class="mat-dl" style="color:#b8860b">↓</span>
-      </a>
-      <a class="mat-card" href="../../render_arquitectura.py" download>
-        <span class="mat-icon" style="background:#f2f2f2;color:#333333">💻</span>
-        <div class="mat-info">
-          <span class="mat-nombre">Script de render — render_arquitectura.py</span>
-          <span class="mat-tipo" style="color:#333333">CÓDIGO</span>
-        </div>
-        <span class="mat-dl" style="color:#333333">↓</span>
-      </a>
-      <a class="mat-card" href="../../base/modelos/sistema.yaml" download>
-        <span class="mat-icon" style="background:#f2f2f2;color:#333333">💻</span>
-        <div class="mat-info">
-          <span class="mat-nombre">Modelo base — sistema.yaml</span>
-          <span class="mat-tipo" style="color:#333333">CÓDIGO</span>
-        </div>
-        <span class="mat-dl" style="color:#333333">↓</span>
-      </a>
       <a class="mat-card" href="../../recursos/anexo-I_anonimizado.html" target="_blank" rel="noopener">
         <span class="mat-icon" style="background:#e8f0fb;color:#1a4f8a">📘</span>
         <div class="mat-info">
@@ -184,10 +161,10 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
         </div>
         <span class="mat-dl" style="color:#1a4f8a">↗</span>
       </a>
-      <a class="mat-card" href="../../modelos/sysml/INFORME.md" target="_blank" rel="noopener">
+      <a class="mat-card" href="conops_UGV.md" target="_blank" rel="noopener">
         <span class="mat-icon" style="background:#e8f0fb;color:#1a4f8a">📘</span>
         <div class="mat-info">
-          <span class="mat-nombre">Informe de Arquitectura — entregable de equipo, a rellenar</span>
+          <span class="mat-nombre">CONOPS — entregable de equipo, a rellenar</span>
           <span class="mat-tipo" style="color:#1a4f8a">MD</span>
         </div>
         <span class="mat-dl" style="color:#1a4f8a">↗</span>

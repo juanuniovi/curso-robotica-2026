@@ -1,55 +1,46 @@
 import os, json
 
 # ── Datos de cada fase ──────────────────────────────────────────────────────
-# Orden real del proceso (no calendario fijo): Ingeniería inversa del encargo →
-# Arquitectura → Plan de Verificación → Plan de Integración → Optimización y
-# cierre. Ver docs/metodologia-mbse.md (basado en Sols, Fig. 3.5) para el
-# mapeo completo a la cadena de 10 pasos del libro.
+# 7 fases, una por cada documento técnico de la oferta (Doc.01-07) más el
+# cierre (Doc.08 + oferta final) — ver docs/metodologia-mbse.md, sección
+# "Documentos de la oferta técnica". No hay calendario fijo: cada fase se
+# publica cuando de verdad se llega a ella.
 #
 # estado: "publicado" (hay página real, contenido cerrado) ·
 # "por-definir" (todavía no se ha escrito el contenido — no genera página)
 fases = [
   {
-    "id": "01-ingenieria-inversa", "n": "1", "color": "#2d6a3f",
-    "estado": "publicado",
-    "nombre_es": "Ingeniería inversa: del pliego al encargo",
-    "nombre_en": "Reverse engineering: from the contract to the brief",
+    "id": "01-analisis-necesidad", "n": "1", "color": "#2d6a3f",
+    "estado": "publicado", "doc": "Doc.01",
+    "nombre_es": "Análisis de la Necesidad", "nombre_en": "Needs Analysis",
     "verbo_es": "Situar", "verbo_en": "Frame",
-    "objetivo_es": "Entender qué es la ingeniería de sistemas basada en modelos (MBSE) y el ciclo en V, manejar el vocabulario SysML mínimo (bloque, propiedad, puerto, interfaz, BDD vs IBD, trazabilidad), y deducir del pliego — como quien hace ingeniería inversa de un encargo que no se negoció en persona — la necesidad, el problema, los stakeholders y el concepto de operación (ConOps) del Cliente. Sin herramientas. Mismo trabajo para los cuatro roles.",
-    "objetivo_en": "Understand model-based systems engineering (MBSE) and the V-model, handle the minimum SysML vocabulary (block, property, port, interface, BDD vs IBD, traceability), and reverse-engineer from the contract — as you would a brief you never negotiated in person — the Client's need, problem, stakeholders and concept of operations (ConOps). No tools. Same work for all four roles.",
+    "objetivo_es": "Entender qué es la ingeniería de sistemas basada en modelos (MBSE) y el ciclo en V, manejar el vocabulario SysML mínimo (bloque, propiedad, puerto, interfaz, BDD vs IBD, trazabilidad), y deducir del pliego — como quien hace ingeniería inversa de un encargo que no se negoció en persona — qué necesidad y qué problema motivan el Sistema UGV, y quiénes son sus stakeholders. Sin herramientas. Mismo trabajo para los cuatro roles.",
+    "objetivo_en": "Understand model-based systems engineering (MBSE) and the V-model, handle the minimum SysML vocabulary (block, property, port, interface, BDD vs IBD, traceability), and reverse-engineer from the contract — as you would a brief you never negotiated in person — the need and problem behind the UGV System, and who its stakeholders are. No tools. Same work for all four roles.",
     "tareas_es": [
       "Lectura previa (autónomo): el primer «Introducción a la ingeniería de sistemas y al MBSE» (~15 min) y después el Anexo I anonimizado con este guion: §1 qué es y qué NO es el Sistema UGV · §1.5 los 4 modos de operación · §2 las 3 fases · §3.1 leer todos los RGEN · §3.2 leer todos los RLT1 · lectura rápida §3.4–3.9 · §3.11 RDOC-13 (la arquitectura se entrega en SysML)",
       "Ficha de comprensión — Parte A (conceptos): con tus palabras, qué es la ingeniería de sistemas y por qué modelar en vez de documentar · dibuja el ciclo en V y marca hasta dónde llega este curso (rama descendente, sin Implementación) · define BDD y IBD en una frase cada uno",
-      "Ficha — Parte B (el encargo): en 3 frases, qué pide el Cliente, para qué y qué queda fuera · los 4 modos de operación en una frase cada uno · el propósito del vehículo y sus 3 misiones principales con las cifras que las condicionan (velocidad, potencia, autonomía, carga)",
-      "Ficha — Parte B: elegir 8 requisitos (con su ID RGEN/RLT) que creas verificables con un modelo de simulación e indicar qué magnitud medirías en cada uno; y 2 requisitos que NO se puedan verificar por simulación, justificando por qué",
-      "Ficha — Parte B: 3 términos del glosario que no conocías (con su significado) y 1 pregunta que le harías al Cliente",
-      "En equipo: rellenar el Informe de Requisitos (ficha_requisitos_UGV.md) — matriz SHALL, clasificación por verificabilidad y observaciones/interdependencias",
+      "Ficha — Parte B: en 3 frases, qué pide el Cliente, para qué y qué queda fuera · 3 términos del glosario que no conocías (con su significado) y 1 pregunta que le harías al Cliente",
+      "En equipo: rellenar el Análisis de la Necesidad (analisis_necesidad_UGV.md) — necesidad, problema, alcance y tabla de stakeholders",
       "Sesión en grupo (modera el rol IS): construir en pizarra el diagrama de contexto del Sistema UGV — caja central + actores: Puesto de Mando, UAV de apoyo, otros UxV, terreno y ambiente, cargas de pago, vehículos tripulados a los que acompaña, obstáculos",
-      "Sesión: el rol IS consolida 15 requisitos ancla del equipo (extraídos del Informe de Requisitos) en recursos/requisitos_ancla.csv y reparte provisionalmente qué familia de requisitos mirará cada rol en la fase siguiente",
     ],
     "tareas_en": [
       "Pre-reading (self-study): the «Introduction to systems engineering and MBSE» primer (~15 min), then Annex I with this checklist: §1 what the UGV System is and is NOT · §1.5 the 4 operating modes · §2 the 3 phases · §3.1 read every RGEN · §3.2 read every RLT1 · quick read of §3.4–3.9 · §3.11 RDOC-13 (architecture delivered in SysML)",
       "Comprehension sheet — Part A (concepts): in your own words, what systems engineering is and why model instead of document · sketch the V-model and mark how far this course goes (descending branch only, no Implementation) · define BDD and IBD in one sentence each",
-      "Sheet — Part B (the brief): in 3 sentences, what the Client asks for, what for and what is out of scope · the 4 operating modes, one sentence each · the vehicle's purpose and its 3 main missions with the figures that drive them (speed, power, endurance, payload)",
-      "Sheet — Part B: pick 8 requirements (with their RGEN/RLT ID) you believe are verifiable with a simulation model, stating which quantity you would measure for each; and 2 requirements that CANNOT be verified by simulation, with justification",
-      "Sheet — Part B: 3 glossary terms you did not know (with their meaning) and 1 question you would ask the Client",
-      "As a team: fill in the Requirements Report (ficha_requisitos_UGV.md) — SHALL matrix, verifiability classification and observations/interdependencies",
+      "Sheet — Part B: in 3 sentences, what the Client asks for, what for and what is out of scope · 3 glossary terms you did not know (with their meaning) and 1 question you would ask the Client",
+      "As a team: fill in the Needs Analysis (analisis_necesidad_UGV.md) — need, problem, scope and stakeholder table",
       "Group session (IS role moderates): build the UGV System context diagram on the board — central box + actors: Command Post, support UAV, other UxV, terrain and environment, payloads, manned vehicles it accompanies, obstacles",
-      "Session: the IS role consolidates 15 anchor requirements (drawn from the Requirements Report) into recursos/requisitos_ancla.csv and provisionally splits which requirement family each role will look at in the next phase",
     ],
     "entregables_es": [
-      "INDIVIDUAL — Ficha de comprensión (Partes A y B), 1 por alumno: copiar fases/01-ingenieria-inversa/comprension/comprension_EJEMPLO.md → comprension_[inicial].md",
-      "EQUIPO — Informe de Requisitos (matriz + observaciones): fases/01-ingenieria-inversa/ficha_requisitos_UGV.md",
-      "EQUIPO — 15 requisitos ancla consolidados: recursos/requisitos_ancla.csv",
-      "EQUIPO — Diagrama de contexto del Sistema UGV (foto o PDF): fases/01-ingenieria-inversa/diagrama-contexto/",
-      "1 Pull Request a master con 1 commit por alumno para su ficha de comprensión, y commits del rol IS para el informe, el CSV y el diagrama",
+      "INDIVIDUAL — Ficha de comprensión (Partes A y B), 1 por alumno: copiar fases/01-analisis-necesidad/comprension/comprension_EJEMPLO.md → comprension_[inicial].md",
+      "EQUIPO — Análisis de la Necesidad (Doc.01): fases/01-analisis-necesidad/analisis_necesidad_UGV.md",
+      "EQUIPO — Diagrama de contexto del Sistema UGV (foto o PDF): fases/01-analisis-necesidad/diagrama-contexto/",
+      "1 Pull Request a master con 1 commit por alumno para su ficha de comprensión, y commits del rol IS para el documento y el diagrama",
     ],
     "entregables_en": [
-      "INDIVIDUAL — Comprehension sheet (Parts A and B), 1 per student: copy fases/01-ingenieria-inversa/comprension/comprension_EJEMPLO.md → comprension_[initial].md",
-      "TEAM — Requirements Report (matrix + observations): fases/01-ingenieria-inversa/ficha_requisitos_UGV.md",
-      "TEAM — 15 consolidated anchor requirements: recursos/requisitos_ancla.csv",
-      "TEAM — UGV System context diagram (photo or PDF): fases/01-ingenieria-inversa/diagrama-contexto/",
-      "1 Pull Request to master with 1 commit per student for their comprehension sheet, and commits from the IS role for the report, the CSV and the diagram",
+      "INDIVIDUAL — Comprehension sheet (Parts A and B), 1 per student: copy fases/01-analisis-necesidad/comprension/comprension_EJEMPLO.md → comprension_[initial].md",
+      "TEAM — Needs Analysis (Doc.01): fases/01-analisis-necesidad/analisis_necesidad_UGV.md",
+      "TEAM — UGV System context diagram (photo or PDF): fases/01-analisis-necesidad/diagrama-contexto/",
+      "1 Pull Request to master with 1 commit per student for their comprehension sheet, and commits from the IS role for the document and the diagram",
     ],
     "materiales": [
       {"tipo":"md","nombre":"Introducción a la ingeniería de sistemas y al MBSE","archivo":"../../recursos/intro-ingenieria-sistemas.html"},
@@ -57,27 +48,127 @@ fases = [
       {"tipo":"pdf","nombre":"curso_ROBOT TERRESTRE_Contrato", "archivo":"../../recursos/curso_ROBOT_TERRESTRE_Contrato.pdf"},
       {"tipo":"pdf","nombre":"curso_ROBOT TERRESTRE_Anexo I", "archivo":"../../recursos/curso_ROBOT_TERRESTRE_Anexo_I.pdf"},
       {"tipo":"pptx","nombre":"Introducción a la Ingeniería de Sistemas (transparencias)", "archivo":"Introduccion_Ingenieria_Sistemas.pptx"},
-      {"tipo":"md","nombre":"Informe de Requisitos — entregable de equipo, a rellenar", "archivo":"ficha_requisitos_UGV.md"},
+      {"tipo":"md","nombre":"Análisis de la Necesidad — entregable de equipo, a rellenar", "archivo":"analisis_necesidad_UGV.md"},
       {"tipo":"md","nombre":"Ficha de comprensión — ejemplo/plantilla individual", "archivo":"comprension/comprension_EJEMPLO.md"},
-      {"tipo":"csv","nombre":"requisitos_ancla.csv — plantilla (cabecera + 1 fila de ejemplo)", "archivo":"../../recursos/requisitos_ancla.csv"},
       {"tipo":"enlace","nombre":"Metodología del curso (Sols, Fig. 3.5)","archivo":"../../docs/metodologia-mbse.md"},
     ]
   },
   {
-    "id": "02-arquitectura", "n": "2", "color": "#1a4f8a",
-    "estado": "publicado",
-    "nombre_es": "Arquitectura SysML: BDD e IBD de primer nivel",
-    "nombre_en": "SysML Architecture: top-level BDD and IBD",
+    "id": "02-conops", "n": "2", "color": "#0e7c86",
+    "estado": "publicado", "doc": "Doc.02",
+    "nombre_es": "CONOPS — Concepto de Operaciones", "nombre_en": "CONOPS — Concept of Operations",
+    "verbo_es": "Describir", "verbo_en": "Describe",
+    "objetivo_es": "Formalizar cómo se usa el Sistema UGV en la práctica: sus modos de operación, sus misiones típicas y un escenario operacional de referencia. El CONOPS traduce la necesidad de la Fase 1 en un uso concreto, y es lo que la Fase 3 tiene que satisfacer con requisitos verificables.",
+    "objetivo_en": "Formalise how the UGV System is used in practice: its operating modes, typical missions and a reference operational scenario. The CONOPS translates the Phase 1 need into concrete use, and is what Phase 3 has to satisfy with verifiable requirements.",
+    "tareas_es": [
+      "Repasar en el Anexo I: §1.5 (definición de términos), §3.4 (modos de operación) y §3.5 (ejecución de misiones)",
+      "Reparto por rol: cada rol redacta la descripción de 1 modo de operación (de los 4) con sus propias palabras, y qué Equipo de Control lo activa",
+      "En equipo: describir las 3 misiones principales del UGV con las cifras que las condicionan (velocidad, potencia, autonomía, carga), citando el ID de requisito de cada cifra",
+      "En equipo: dibujar o describir el ciclo de vida de una misión (Planeamiento → Ejecución → Finalización, ROPE-07) señalando el modo de operación de cada etapa",
+      "En equipo: elegir una familia de misión de ROPE-09 y redactar un escenario operacional de referencia (5-8 líneas), incluyendo qué pasa si se pierde el enlace de comunicaciones (RCOM-03)",
+    ],
+    "tareas_en": [
+      "Review in Annex I: §1.5 (definition of terms), §3.4 (operating modes) and §3.5 (mission execution)",
+      "Split by role: each role writes up the description of 1 operating mode (of the 4) in their own words, and which Control Equipment activates it",
+      "As a team: describe the UGV's 3 main missions with the figures that drive them (speed, power, endurance, payload), citing the requirement ID for each figure",
+      "As a team: sketch or describe a mission's life cycle (Planning → Execution → Closeout, ROPE-07) marking the operating mode of each stage",
+      "As a team: pick one ROPE-09 mission family and write a reference operational scenario (5-8 lines), including what happens if the communications link is lost (RCOM-03)",
+    ],
+    "entregables_es": [
+      "EQUIPO — CONOPS (Doc.02: modos, misiones, ciclo de vida, escenario): fases/02-conops/conops_UGV.md",
+      "1 Pull Request a master; commits por rol en la sección de modos de operación",
+    ],
+    "entregables_en": [
+      "TEAM — CONOPS (Doc.02: modes, missions, life cycle, scenario): fases/02-conops/conops_UGV.md",
+      "1 Pull Request to master; per-role commits on the operating modes section",
+    ],
+    "materiales": [
+      {"tipo":"md","nombre":"Anexo I — Requisitos funcionales","archivo":"../../recursos/anexo-I_anonimizado.html"},
+      {"tipo":"md","nombre":"CONOPS — entregable de equipo, a rellenar","archivo":"conops_UGV.md"},
+    ]
+  },
+  {
+    "id": "03-requisitos-partes-interesadas", "n": "3", "color": "#1a4f8a",
+    "estado": "publicado", "doc": "Doc.03",
+    "nombre_es": "Requisitos de las Partes Interesadas (StRD)", "nombre_en": "Stakeholder Requirements (StRD)",
+    "verbo_es": "Formalizar", "verbo_en": "Formalise",
+    "objetivo_es": "Traducir la necesidad (Fase 1) y el CONOPS (Fase 2) en requisitos SHALL verificables, clasificados por subsistema y por verificabilidad mediante simulación. Es la base de trazabilidad de todo lo que sigue: nada entra en el Estudio de Conceptos ni en la arquitectura sin un requisito que lo justifique.",
+    "objetivo_en": "Translate the need (Phase 1) and the CONOPS (Phase 2) into verifiable SHALL requirements, classified by subsystem and by simulation-verifiability. This is the traceability foundation for everything that follows: nothing enters the Concept Study or the architecture without a requirement that justifies it.",
+    "tareas_es": [
+      "Leer la sección 3 completa del Anexo I (requisitos técnicos), con el guion ya seguido en la Fase 1",
+      "Ficha de comprensión (si no se hizo en la Fase 1): elegir 8 requisitos (ID RGEN/RLT) verificables por simulación e indicar qué magnitud medirías en cada uno; y 2 requisitos NO verificables por simulación, justificando por qué",
+      "En equipo: rellenar el StRD (ficha_requisitos_UGV.md) — matriz SHALL, clasificación por verificabilidad y observaciones/interdependencias",
+      "Sesión: el rol IS consolida 15 requisitos ancla del equipo (extraídos del StRD) en recursos/requisitos_ancla.csv y reparte provisionalmente qué familia de requisitos mirará cada rol en la Fase 4",
+    ],
+    "tareas_en": [
+      "Read the full section 3 of Annex I (technical requirements), following the checklist already used in Phase 1",
+      "Comprehension sheet (if not done in Phase 1): pick 8 requirements (RGEN/RLT ID) verifiable by simulation and state which quantity you would measure for each; and 2 requirements NOT verifiable by simulation, with justification",
+      "As a team: fill in the StRD (ficha_requisitos_UGV.md) — SHALL matrix, verifiability classification and observations/interdependencies",
+      "Session: the IS role consolidates 15 anchor requirements (drawn from the StRD) into recursos/requisitos_ancla.csv and provisionally splits which requirement family each role will look at in Phase 4",
+    ],
+    "entregables_es": [
+      "EQUIPO — StRD (Doc.03: matriz SHALL + observaciones): fases/03-requisitos-partes-interesadas/ficha_requisitos_UGV.md",
+      "EQUIPO — 15 requisitos ancla consolidados: recursos/requisitos_ancla.csv",
+      "1 Pull Request a master con commits del rol IS para el informe y el CSV",
+    ],
+    "entregables_en": [
+      "TEAM — StRD (Doc.03: SHALL matrix + observations): fases/03-requisitos-partes-interesadas/ficha_requisitos_UGV.md",
+      "TEAM — 15 consolidated anchor requirements: recursos/requisitos_ancla.csv",
+      "1 Pull Request to master with IS-role commits for the report and the CSV",
+    ],
+    "materiales": [
+      {"tipo":"md","nombre":"Anexo I — Requisitos funcionales","archivo":"../../recursos/anexo-I_anonimizado.html"},
+      {"tipo":"md","nombre":"StRD — entregable de equipo, a rellenar","archivo":"ficha_requisitos_UGV.md"},
+      {"tipo":"csv","nombre":"requisitos_ancla.csv — plantilla (cabecera + 1 fila de ejemplo)", "archivo":"../../recursos/requisitos_ancla.csv"},
+    ]
+  },
+  {
+    "id": "04-estudio-conceptos", "n": "4", "color": "#6b3fa0",
+    "estado": "publicado", "doc": "Doc.04",
+    "nombre_es": "Estudio de Conceptos y Selección", "nombre_en": "Concept Study & Selection",
+    "verbo_es": "Comparar", "verbo_en": "Compare",
+    "objetivo_es": "Antes de modelar en SysML, identificar concepciones alternativas de la solución y seleccionar una de forma justificada y trazable a los requisitos (RLT1-02: configuración 4×4, 6×6 u 8×8), mediante una matriz de decisión ponderada (AoA). Sin este paso, la arquitectura de la Fase 5 sería una elección arbitraria.",
+    "objetivo_en": "Before modelling in SysML, identify alternative design concepts and select one in a justified, requirement-traceable way (RLT1-02: 4×4, 6×6 or 8×8 configuration), using a weighted decision matrix (AoA). Without this step, the Phase 5 architecture would be an arbitrary choice.",
+    "tareas_es": [
+      "Leer RLT1-02 y las propiedades de movilidad relacionadas (RLT1-03 a RLT1-09) en el StRD de la Fase 3",
+      "Describir las 3 alternativas de configuración (4×4, 6×6, 8×8): implicaciones en tren de rodaje, suspensión (S3) y puntos de interfaz de cargas de pago (RGEN-28)",
+      "Definir entre 4 y 6 criterios de decisión, cada uno trazado a un requisito, con pesos que sumen 100%",
+      "Puntuar cada alternativa en cada criterio (escala 1-5) y calcular la puntuación ponderada total — matriz AoA",
+      "Seleccionar la configuración con mayor puntuación y redactar la justificación, incluyendo qué implica para las propiedades del bloque MovilidadTrenRodaje en la Fase 5",
+    ],
+    "tareas_en": [
+      "Read RLT1-02 and the related mobility properties (RLT1-03 to RLT1-09) in the Phase 3 StRD",
+      "Describe the 3 configuration alternatives (4×4, 6×6, 8×8): implications for running gear, suspension (S3) and payload interface points (RGEN-28)",
+      "Define 4 to 6 decision criteria, each traced to a requirement, with weights summing to 100%",
+      "Score each alternative on each criterion (1-5 scale) and compute the total weighted score — AoA matrix",
+      "Select the highest-scoring configuration and write the justification, including what it implies for the MovilidadTrenRodaje block's properties in Phase 5",
+    ],
+    "entregables_es": [
+      "EQUIPO — Estudio de Conceptos y Selección (Doc.04: alternativas, criterios, matriz AoA, decisión): fases/04-estudio-conceptos/estudio_conceptos_UGV.md",
+      "1 Pull Request a master",
+    ],
+    "entregables_en": [
+      "TEAM — Concept Study & Selection (Doc.04: alternatives, criteria, AoA matrix, decision): fases/04-estudio-conceptos/estudio_conceptos_UGV.md",
+      "1 Pull Request to master",
+    ],
+    "materiales": [
+      {"tipo":"md","nombre":"Estudio de Conceptos — entregable de equipo, a rellenar","archivo":"estudio_conceptos_UGV.md"},
+    ]
+  },
+  {
+    "id": "05-arquitectura", "n": "5", "color": "#b8860b",
+    "estado": "publicado", "doc": "Doc.05 + Doc.06",
+    "nombre_es": "Arquitectura SysML: BDD e IBD de primer nivel", "nombre_en": "SysML Architecture: top-level BDD and IBD",
     "verbo_es": "Construir", "verbo_en": "Build",
-    "objetivo_es": "Construir el BDD (bloques, propiedades) y el IBD (interfaces, conexiones) de primer nivel del Sistema UGV que pide el RDOC-13, con cada elemento trazado al requisito que lo justifica. Cerrar con una baseline v1.0 de la arquitectura — la columna vertebral técnica de la oferta.",
-    "objetivo_en": "Build the top-level BDD (blocks, properties) and IBD (interfaces, connections) of the UGV System required by RDOC-13, with every element traced to the requirement that justifies it. Close with an architecture baseline v1.0 — the technical backbone of the proposal.",
+    "objetivo_es": "Traducir los requisitos de partes interesadas en requisitos de sistema y construir el BDD (bloques, propiedades) y el IBD (interfaces, conexiones) de primer nivel del Sistema UGV que pide el RDOC-13, sobre la configuración seleccionada en la Fase 4, con cada elemento trazado al requisito que lo justifica. Cerrar con una baseline v1.0 de la arquitectura — la columna vertebral técnica de la oferta.",
+    "objetivo_en": "Translate stakeholder requirements into system requirements and build the top-level BDD (blocks, properties) and IBD (interfaces, connections) of the UGV System required by RDOC-13, on top of the Phase 4 configuration, with every element traced to the requirement that justifies it. Close with an architecture baseline v1.0 — the technical backbone of the proposal.",
     "tareas_es": [
       "Copiar el modelo base: base/modelos/sistema.yaml → modelos/sysml/sistema.yaml (una sola vez). Ya trae los bloques de primer nivel y el desglose interno del UGV — tu trabajo es rellenar las propiedades",
       "Revisar que están los bloques de primer nivel (RDOC-13.c.1): UGV, Puesto de Mando Portable, Dispositivo de Telemando Portable, Subsistema de Comunicaciones, UAV de apoyo; y el desglose del UGV: Propulsión y energía, Movilidad y tren de rodaje, Percepción y navegación, Control y computación, Puntos de interfaz. Añadir lo que falte",
-      "Reparto por rol (según la Fase 1): IS → propiedades de nivel sistema (masa, autonomía, modos) · Simulación → propulsión y movilidad (potencia, par, velocidad, pendiente) · Taller → chasis e interfaces (dimensiones, pesos, RGEN-28) · Software → comunicaciones y control (alcance BLOS RCOM-02, latencia, RSW)",
+      "Reparto por rol (según la Fase 3): IS → propiedades de nivel sistema (masa, autonomía, modos) · Simulación → propulsión y movilidad (potencia, par, velocidad, pendiente — según la configuración elegida en la Fase 4) · Taller → chasis e interfaces (dimensiones, pesos, RGEN-28) · Software → comunicaciones y control (alcance BLOS RCOM-02, latencia, RSW)",
       "Cada propiedad, dentro del bloque en sistema.yaml: nombre, tipo, valor, unidad y el requisito que la justifica (p. ej. UGV.masa_orden_mision = 9000 kg, requisito RLT1-08). Sin requisito que la justifique, la propiedad no entra",
       "Regenerar la vista: python3 render_arquitectura.py modelos/sysml/sistema.yaml -o modelos/sysml/ARQUITECTURA.md — revisar que no reporta problemas de trazabilidad, y que el BDD coincide con lo esperado",
-      "Sobre el BDD ya construido: en la sección interfaces de sistema.yaml, rellenar que_transporta, tipo_unidades y requisito de cada una: EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones",
+      "Sobre el BDD ya construido, en la sección interfaces de sistema.yaml, rellenar que_transporta, tipo_unidades y requisito de cada una: EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones",
       "En la sección conexiones, añadir una entrada {origen, destino, interfaz} por cada conexión entre bloques de primer nivel y con el exterior (operador, terreno y ambiente, cargas de pago), según el diagrama de contexto de la Fase 1",
       "Añadir también las conexiones internas del bloque UGV entre sus subsistemas (Propulsión y energía → Movilidad; Percepción y navegación → Control; Control → Comunicaciones…)",
       "Reparto por rol (interfaces): IS → interfaces de sistema y con el exterior · Simulación → EnergiaElectrica y ParMecanico (RGEN-11, RLT1-04/09) · Taller → interfaces mecánicas de los Puntos de Interfaz (RGEN-28) · Software → FlujoVideo, DatosNavegacion, EnlaceComunicaciones (RGEN-22, RNAV-01, RCOM-01/02, RSW-07)",
@@ -86,7 +177,7 @@ fases = [
     "tareas_en": [
       "Copy the base model: base/modelos/sistema.yaml → modelos/sysml/sistema.yaml (once only). It already has the top-level blocks and the UGV breakdown — your job is to fill in the properties",
       "Check that the top-level blocks are there (RDOC-13.c.1): UGV, Portable Command Post, Portable Remote-Control Device, Communications Subsystem, support UAV; and the UGV breakdown: Propulsion & energy, Mobility & running gear, Perception & navigation, Control & computing, Interface points. Add whatever is missing",
-      "Split by role (from Phase 1): IS → system-level properties (mass, endurance, modes) · Simulation → propulsion & mobility (power, torque, speed, gradient) · Workshop → chassis & interfaces (dimensions, weights, RGEN-28) · Software → communications & control (BLOS range RCOM-02, latency, RSW)",
+      "Split by role (from Phase 3): IS → system-level properties (mass, endurance, modes) · Simulation → propulsion & mobility (power, torque, speed, gradient — per the Phase 4 configuration) · Workshop → chassis & interfaces (dimensions, weights, RGEN-28) · Software → communications & control (BLOS range RCOM-02, latency, RSW)",
       "Each property, inside its block in sistema.yaml: name, type, value, unit and the requirement that justifies it (e.g. UGV.mission_mass = 9000 kg, requirement RLT1-08). A property with no justifying requirement does not go in",
       "Regenerate the view: python3 render_arquitectura.py modelos/sysml/sistema.yaml -o modelos/sysml/ARQUITECTURA.md — check it reports no traceability problems, and that the BDD matches what's expected",
       "On top of the finished BDD: in the interfaces section of sistema.yaml, fill in que_transporta, tipo_unidades and requisito for each one: EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones",
@@ -118,42 +209,30 @@ fases = [
     ]
   },
   {
-    "id": "03-plan-verificacion", "n": "3", "color": "#b85c1a",
-    "estado": "por-definir",
-    "nombre_es": "Plan de Verificación",
-    "nombre_en": "Verification Plan",
+    "id": "06-plan-verificacion-integracion", "n": "6", "color": "#b85c1a",
+    "estado": "por-definir", "doc": "Doc.07",
+    "nombre_es": "Plan de Verificación e Integración", "nombre_en": "Verification & Integration Plan",
     "verbo_es": "Planificar", "verbo_en": "Plan",
-    "objetivo_es": "Para cada requisito marcado como verificable, definir el método de verificación (análisis, inspección, demostración o simulación) y su criterio de aceptación — sin ejecutar ninguna verificación real. Es parte de la arquitectura descendente (Sols, Cap. 7), no de la ejecución (Cap. 5).",
-    "objetivo_en": "For each requirement marked as verifiable, define the verification method (analysis, inspection, demonstration or simulation) and its acceptance criterion — without actually running any verification. This belongs to the descending architecture work (Sols, Ch. 7), not to execution (Ch. 5).",
+    "objetivo_es": "Consolidar en un único documento (Doc.07) la matriz de trazabilidad requisito↔método de verificación (definido en la Fase 5 al traducir requisitos de sistema) y el esquema de integración entre subsistemas y roles — sin ejecutar ninguna verificación ni integración real.",
+    "objetivo_en": "Consolidate in a single document (Doc.07) the requirement↔verification-method traceability matrix (defined in Phase 5 when translating system requirements) and the integration scheme between subsystems and roles — without actually running any verification or integration.",
     "tareas_es": [], "tareas_en": [],
     "entregables_es": [], "entregables_en": [],
     "materiales": []
   },
   {
-    "id": "04-plan-integracion", "n": "4", "color": "#6b3fa0",
-    "estado": "por-definir",
-    "nombre_es": "Plan de Integración",
-    "nombre_en": "Integration Plan",
-    "verbo_es": "Planificar", "verbo_en": "Plan",
-    "objetivo_es": "Definir el esquema de integración entre subsistemas y roles: qué interfaces conectan qué bloques, y en qué orden se ensamblarían — sin integrar físicamente nada.",
-    "objetivo_en": "Define the integration scheme between subsystems and roles: which interfaces connect which blocks, and in what order they would be assembled — without physically integrating anything.",
-    "tareas_es": [], "tareas_en": [],
-    "entregables_es": [], "entregables_en": [],
-    "materiales": []
-  },
-  {
-    "id": "05-optimizacion-cierre", "n": "5", "color": "#8a6b00",
-    "estado": "por-definir",
-    "nombre_es": "Optimización y cierre",
-    "nombre_en": "Optimisation & close-out",
+    "id": "07-optimizacion-cierre", "n": "7", "color": "#c8382a",
+    "estado": "por-definir", "doc": "Doc.08 + Oferta final",
+    "nombre_es": "Optimización y cierre", "nombre_en": "Optimisation & close-out",
     "verbo_es": "Cerrar", "verbo_en": "Close",
-    "objetivo_es": "Consolidar el documento de oferta técnica que cierra el curso: solución técnica, justificación de trade-offs, EDT/WBS, cronograma y presupuesto. Es un documento exigente en sí mismo, con su propia estructura y criterios.",
-    "objetivo_en": "Consolidate the technical proposal document that closes the course: technical solution, trade-off justification, WBS, schedule and budget. That document is demanding in its own right, with its own structure and criteria.",
+    "objetivo_es": "Consolidar el documento de oferta técnica que cierra el curso: síntesis de los Doc.01-07, más el plan de gestión (Doc.08: EDT/WBS, cronograma y presupuesto, transversal desde la Fase 1). Es un documento exigente en sí mismo, con su propia estructura y criterios.",
+    "objetivo_en": "Consolidate the technical proposal document that closes the course: a synthesis of Doc.01-07, plus the management plan (Doc.08: WBS, schedule and budget, running in parallel since Phase 1). That document is demanding in its own right, with its own structure and criteria.",
     "tareas_es": [], "tareas_en": [],
     "entregables_es": [], "entregables_en": [],
     "materiales": []
   },
 ]
+
+TOTAL_FASES = len(fases)
 
 # ── Iconos por tipo de material ──────────────────────────────────────────────
 ICONOS = {
@@ -309,9 +388,10 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{{display:flex}
   <div class="hero-inner">
     <div class="hero-tags">
       <span class="tag tag-accent">
-        <span class="lang-es-inline">Fase {s["n"]} de 5</span>
-        <span class="lang-en-inline">Phase {s["n"]} of 5</span>
+        <span class="lang-es-inline">Fase {s["n"]} de {TOTAL_FASES}</span>
+        <span class="lang-en-inline">Phase {s["n"]} of {TOTAL_FASES}</span>
       </span>
+      <span class="tag">{s["doc"]}</span>
     </div>
     <h1 class="hero-titulo">
       <span class="lang-es">{s["nombre_es"]}</span>
@@ -380,7 +460,7 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{{display:flex}
 # "estado": "publicado". Las demás quedan como borrador en este archivo, sin
 # generar página, hasta que de verdad lleguemos a esa fase.
 # Ejecuta:  python3 gen_fases.py                       → regenera todas las fases publicadas
-#           python3 gen_fases.py 01-ingenieria-inversa  → regenera solo la indicada (si está publicada)
+#           python3 gen_fases.py 01-analisis-necesidad  → regenera solo la indicada (si está publicada)
 import sys
 
 BASE = os.path.dirname(os.path.abspath(__file__))

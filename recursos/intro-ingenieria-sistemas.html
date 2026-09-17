@@ -93,34 +93,52 @@ adjudicado, y queda fuera del alcance del curso:</p>
 <tr>
 <th>Fase OOSEM (Sols, Fig. 3.5)</th>
 <th>Fase del curso</th>
+<th>Documento</th>
 <th>Qué se hace</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Necesidad, problema, stakeholders, ConOps, requisitos de stakeholder</td>
-<td>1 — Ingeniería inversa</td>
-<td>Leer el pliego, extraer requisitos SHALL, ConOps, diagrama de contexto</td>
+<td>Necesidad, problema, stakeholders</td>
+<td>1 — Análisis de la Necesidad</td>
+<td>Doc.01</td>
+<td>Leer el pliego, deducir necesidad, problema y stakeholders, diagrama de contexto</td>
 </tr>
 <tr>
-<td>Conceptos de diseño, requisitos de sistema, análisis funcional, arquitectura</td>
-<td>2 — Arquitectura</td>
+<td>Concepto de Operaciones (ConOps)</td>
+<td>2 — CONOPS</td>
+<td>Doc.02</td>
+<td>Modos de operación, misiones, ciclo de vida, escenario</td>
+</tr>
+<tr>
+<td>Requisitos de stakeholder</td>
+<td>3 — Requisitos de las Partes Interesadas</td>
+<td>Doc.03</td>
+<td>Matriz SHALL, clasificación por verificabilidad</td>
+</tr>
+<tr>
+<td>Identificación y selección de conceptos de diseño</td>
+<td>4 — Estudio de Conceptos y Selección</td>
+<td>Doc.04</td>
+<td>Alternativas, criterios ponderados, matriz AoA, decisión</td>
+</tr>
+<tr>
+<td>Requisitos de sistema y métodos de verificación, análisis funcional, arquitectura</td>
+<td>5 — Arquitectura</td>
+<td>Doc.05 + Doc.06</td>
 <td>BDD + IBD, trazabilidad, baseline de arquitectura</td>
 </tr>
 <tr>
-<td>Métodos de verificación (parte de la traducción a requisitos de sistema)</td>
-<td>3 — Plan de Verificación</td>
-<td>Método y criterio de aceptación por requisito verificable — sin ejecutar</td>
-</tr>
-<tr>
-<td>— (no es una fase OOSEM estándar; planificación de apoyo a la oferta)</td>
-<td>4 — Plan de Integración</td>
-<td>Esquema de interfaces entre equipos/roles, estrategia de ensamblaje</td>
+<td>Métodos de verificación (consolidación) — (no es una fase OOSEM estándar; planificación de apoyo a la oferta)</td>
+<td>6 — Plan de Verificación e Integración</td>
+<td>Doc.07</td>
+<td>Matriz de trazabilidad requisito↔método, esquema de integración — sin ejecutar</td>
 </tr>
 <tr>
 <td>— (consolidación final, no una fase OOSEM estándar)</td>
-<td>5 — Optimización y cierre</td>
-<td>Solución técnica, trade-offs, EDT/WBS, cronograma, presupuesto</td>
+<td>7 — Optimización y cierre</td>
+<td>Doc.08 + oferta final</td>
+<td>Plan de gestión (EDT/WBS, cronograma, presupuesto), síntesis de la oferta</td>
 </tr>
 </tbody>
 </table>
@@ -171,11 +189,11 @@ basta con estos términos:</p>
 </tr>
 <tr>
 <td><strong>BDD</strong> (<em>Block Definition Diagram</em>)</td>
-<td>El diagrama que dice <strong>qué bloques hay</strong>, sus propiedades y cómo se componen unos dentro de otros (la "lista de piezas" jerárquica). Es lo que se construye en la <strong>Fase 2</strong>.</td>
+<td>El diagrama que dice <strong>qué bloques hay</strong>, sus propiedades y cómo se componen unos dentro de otros (la "lista de piezas" jerárquica). Es lo que se construye en la <strong>Fase 5</strong>.</td>
 </tr>
 <tr>
 <td><strong>IBD</strong> (<em>Internal Block Diagram</em>)</td>
-<td>El diagrama que dice <strong>cómo se conectan por dentro</strong> los bloques de un nivel: puertos, interfaces y líneas de conexión. También se trabaja en la <strong>Fase 2</strong>.</td>
+<td>El diagrama que dice <strong>cómo se conectan por dentro</strong> los bloques de un nivel: puertos, interfaces y líneas de conexión. También se trabaja en la <strong>Fase 5</strong>.</td>
 </tr>
 <tr>
 <td><strong>Enlace de trazabilidad</strong></td>

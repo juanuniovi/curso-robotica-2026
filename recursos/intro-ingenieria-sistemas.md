@@ -51,13 +51,15 @@ Implementación.** El encargo real es preparar una **oferta técnica** para una 
 no construir ni verificar el sistema completo. Eso sería ya ejecutar un contrato
 adjudicado, y queda fuera del alcance del curso:
 
-| Fase OOSEM (Sols, Fig. 3.5) | Fase del curso | Qué se hace |
-|---|---|---|
-| Necesidad, problema, stakeholders, ConOps, requisitos de stakeholder | 1 — Ingeniería inversa | Leer el pliego, extraer requisitos SHALL, ConOps, diagrama de contexto |
-| Conceptos de diseño, requisitos de sistema, análisis funcional, arquitectura | 2 — Arquitectura | BDD + IBD, trazabilidad, baseline de arquitectura |
-| Métodos de verificación (parte de la traducción a requisitos de sistema) | 3 — Plan de Verificación | Método y criterio de aceptación por requisito verificable — sin ejecutar |
-| — (no es una fase OOSEM estándar; planificación de apoyo a la oferta) | 4 — Plan de Integración | Esquema de interfaces entre equipos/roles, estrategia de ensamblaje |
-| — (consolidación final, no una fase OOSEM estándar) | 5 — Optimización y cierre | Solución técnica, trade-offs, EDT/WBS, cronograma, presupuesto |
+| Fase OOSEM (Sols, Fig. 3.5) | Fase del curso | Documento | Qué se hace |
+|---|---|---|---|
+| Necesidad, problema, stakeholders | 1 — Análisis de la Necesidad | Doc.01 | Leer el pliego, deducir necesidad, problema y stakeholders, diagrama de contexto |
+| Concepto de Operaciones (ConOps) | 2 — CONOPS | Doc.02 | Modos de operación, misiones, ciclo de vida, escenario |
+| Requisitos de stakeholder | 3 — Requisitos de las Partes Interesadas | Doc.03 | Matriz SHALL, clasificación por verificabilidad |
+| Identificación y selección de conceptos de diseño | 4 — Estudio de Conceptos y Selección | Doc.04 | Alternativas, criterios ponderados, matriz AoA, decisión |
+| Requisitos de sistema y métodos de verificación, análisis funcional, arquitectura | 5 — Arquitectura | Doc.05 + Doc.06 | BDD + IBD, trazabilidad, baseline de arquitectura |
+| Métodos de verificación (consolidación) — (no es una fase OOSEM estándar; planificación de apoyo a la oferta) | 6 — Plan de Verificación e Integración | Doc.07 | Matriz de trazabilidad requisito↔método, esquema de integración — sin ejecutar |
+| — (consolidación final, no una fase OOSEM estándar) | 7 — Optimización y cierre | Doc.08 + oferta final | Plan de gestión (EDT/WBS, cronograma, presupuesto), síntesis de la oferta |
 
 Visualmente, la metodología completa se dibuja como una **V**:
 
@@ -92,8 +94,8 @@ basta con estos términos:
 | **Propiedad de valor** (*value property*) | Un dato numérico del bloque, **con tipo y unidad**: `masa_orden_mision = 9000 kg`, `potencia_min = 140 kW`. |
 | **Puerto** (*port*) | El punto por el que un bloque se conecta con otro. |
 | **Interfaz** (*interface*) | Qué fluye por una conexión: energía eléctrica, un par mecánico, un mensaje de control, un flujo de vídeo… |
-| **BDD** (*Block Definition Diagram*) | El diagrama que dice **qué bloques hay**, sus propiedades y cómo se componen unos dentro de otros (la "lista de piezas" jerárquica). Es lo que se construye en la **Fase 2**. |
-| **IBD** (*Internal Block Diagram*) | El diagrama que dice **cómo se conectan por dentro** los bloques de un nivel: puertos, interfaces y líneas de conexión. También se trabaja en la **Fase 2**. |
+| **BDD** (*Block Definition Diagram*) | El diagrama que dice **qué bloques hay**, sus propiedades y cómo se componen unos dentro de otros (la "lista de piezas" jerárquica). Es lo que se construye en la **Fase 5**. |
+| **IBD** (*Internal Block Diagram*) | El diagrama que dice **cómo se conectan por dentro** los bloques de un nivel: puertos, interfaces y líneas de conexión. También se trabaja en la **Fase 5**. |
 | **Enlace de trazabilidad** | Una flecha que une un elemento del modelo con el requisito que lo justifica (*satisfy*), o un test con el requisito que verifica (*verify*). |
 
 **BDD = qué hay** (bloques y propiedades). **IBD = cómo se conecta** (puertos e interfaces).

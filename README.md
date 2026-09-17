@@ -5,10 +5,10 @@
 
 Proyecto vertebrador: un robot móvil autónomo, definido por un pliego de contratación pública real (contrato de referencia, no identificado en el material del curso).
 
-**Primer año con esta estructura:** el curso se construye por fases (Ingeniería inversa → Arquitectura → Plan de Verificación → Plan de Integración → Optimización y cierre), no por un calendario de semanas fijado de antemano. Recorremos solo la rama descendente de la V — sin llegar a construir ni verificar el sistema completo: el encargo real es preparar una oferta técnica, no ejecutar el contrato. Cada fase se publica según se llega a ella — ver el proceso completo en la [web del curso](https://juanuniovi.github.io/curso-robotica-2026/#proceso). Metodología completa en [`docs/metodologia-mbse.md`](docs/metodologia-mbse.md).
+**Primer año con esta estructura:** el curso se construye por fases, una por cada documento técnico de la oferta (Análisis de la Necesidad → CONOPS → Requisitos de las Partes Interesadas → Estudio de Conceptos y Selección → Arquitectura → Plan de Verificación e Integración → Optimización y cierre), no por un calendario de semanas fijado de antemano. Recorremos solo la rama descendente de la V — sin llegar a construir ni verificar el sistema completo: el encargo real es preparar una oferta técnica, no ejecutar el contrato. Cada fase se publica según se llega a ella — ver el proceso completo en la [web del curso](https://juanuniovi.github.io/curso-robotica-2026/#proceso). Metodología completa en [`docs/metodologia-mbse.md`](docs/metodologia-mbse.md).
 
 **Alcance del curso — real vs. banco de pruebas:**
-La arquitectura SysML (Fases 1-2) trabaja sobre los 80+ requisitos reales de un contrato de licitación pública, el vehículo completo tal cual se definió en el pliego. La evidencia física de la Fase 3 no intenta replicar ese vehículo completo — se genera sobre un **robot móvil reducido construido con actuadores de laboratorio**, centrado en **navegación, percepción y autonomía**. Es evidencia honesta de viabilidad a escala reducida para sostener la oferta técnica, no una réplica física del contrato ni una verificación del sistema completo.
+La arquitectura SysML (Fases 1-5) trabaja sobre los 80+ requisitos reales de un contrato de licitación pública, el vehículo completo tal cual se definió en el pliego. La evidencia física de la Fase 6 no intenta replicar ese vehículo completo — se genera sobre un **robot móvil reducido construido con actuadores de laboratorio**, centrado en **navegación, percepción y autonomía**. Es evidencia honesta de viabilidad a escala reducida para sostener la oferta técnica, no una réplica física del contrato ni una verificación del sistema completo.
 
 ---
 
@@ -18,9 +18,12 @@ La arquitectura SysML (Fases 1-2) trabaja sobre los 80+ requisitos reales de un 
 curso-robotica-2026/
 ├── index.html              ← Página web del curso (GitHub Pages)
 ├── fases/                  ← Enunciados y entregables por fase (PDF/DOCX/YAML)
-│   ├── 01-ingenieria-inversa/  ← Extracción de requisitos + introducción a SysML
-│   ├── 02-arquitectura/       ← BDD + IBD de primer nivel
-│   └── ...                    ← se añaden según avanza el curso
+│   ├── 01-analisis-necesidad/         ← Introducción a SysML + necesidad + stakeholders
+│   ├── 02-conops/                     ← Modos de operación, misiones
+│   ├── 03-requisitos-partes-interesadas/  ← Matriz SHALL
+│   ├── 04-estudio-conceptos/          ← Trade-off y selección de concepto
+│   ├── 05-arquitectura/               ← BDD + IBD de primer nivel
+│   └── ...                            ← se añaden según avanza el curso
 ├── modelos/
 │   ├── sysml/              ← Modelos de arquitectura SysML (YAML + Mermaid, ver render_arquitectura.py)
 │   └── simulacion/         ← Modelos de simulación base del profesor
