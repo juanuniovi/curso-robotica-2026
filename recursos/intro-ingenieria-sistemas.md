@@ -38,9 +38,24 @@ propiedades, interfaces) y se visualiza generando diagramas BDD/IBD con un scrip
 `modelos/sysml/`. Se verifica con **simulación por computador** (un simulador físico, por
 determinar).
 
-## 3. El ciclo en V
+## 3. La metodología: OOSEM sobre el ciclo en V
 
-El trabajo de sistemas se organiza en forma de **V**:
+SysML es un **lenguaje** — dice cómo se dibuja un bloque o una interfaz. No dice en qué
+orden hacer las cosas. Eso lo da una **metodología**, y la que usa este curso (sin haberla
+nombrado hasta ahora) es **OOSEM** (*Object-Oriented Systems Engineering Method*): la
+metodología que INCOSE empareja con SysML en su libro de referencia. No es una elección
+nuestra — es el estándar de facto para trabajar con SysML, tool-agnóstica, y el curso ya la
+sigue semana a semana:
+
+| Fase OOSEM | Semana | Qué se hace |
+|---|---|---|
+| Analizar las necesidades del cliente | 1 | Leer el pliego, extraer requisitos SHALL |
+| Definir el contexto del sistema | 1 | Diagrama de contexto |
+| Arquitectura lógica | 2 | BDD — bloques y propiedades |
+| Arquitectura física / interfaces | 3 | IBD — conexiones, baseline v1.0 |
+| Verificar y validar | 4–8 | Simulación + banco de pruebas físico |
+
+Visualmente, esa misma secuencia se dibuja como una **V**:
 
 ```
  Necesidades                                         Validación
@@ -55,13 +70,13 @@ El trabajo de sistemas se organiza en forma de **V**:
 ```
 
 - **Rama izquierda (bajada):** de lo abstracto a lo concreto — necesidades → requisitos →
-  arquitectura → diseño.
+  arquitectura → diseño. Es la parte de OOSEM de la tabla de arriba.
 - **Fondo:** se construye.
 - **Rama derecha (subida):** de lo concreto a lo abstracto — se prueba cada nivel contra lo
   que se definió en el nivel equivalente de la izquierda. La **trazabilidad** cruza la V de
-  un lado al otro (cada test verifica un requisito).
+  un lado al otro (cada test verifica un requisito). Es la fase de verificar/validar de OOSEM.
 
-Las 14 semanas del curso recorren la V: **Semanas 1–3** bajan por la rama izquierda
+Las 14 semanas del curso recorren la V completa: **Semanas 1–3** bajan por la rama izquierda
 (entender el encargo, nombrar la arquitectura, formalizarla); **Semanas 4–8** trabajan el
 fondo y empiezan a subir (ingeniería inversa del modelo, calibración, verificación);
 **Semanas 9–14** completan la subida (fallos, integración, optimización, defensa).
