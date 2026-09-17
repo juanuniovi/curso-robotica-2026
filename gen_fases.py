@@ -97,13 +97,13 @@ fases = [
     "tareas_es": [
       "Leer la sección 3 completa del Anexo I (requisitos técnicos), con el guion ya seguido en la Fase 1",
       "Ficha de comprensión (si no se hizo en la Fase 1): elegir 8 requisitos (ID RGEN/RLT) verificables por simulación e indicar qué magnitud medirías en cada uno; y 2 requisitos NO verificables por simulación, justificando por qué",
-      "En equipo: rellenar el StRD (ficha_requisitos_UGV.md) — matriz SHALL, clasificación por verificabilidad y observaciones/interdependencias",
+      "En equipo: rellenar el StRD (ficha_requisitos_UGV.md) — matriz SHALL, clasificación por verificabilidad, el posible medio de evidencia de cada requisito verificable (qué se simularía o mediría, sin ejecutarlo todavía) y observaciones/interdependencias",
       "Sesión: el rol IS consolida 15 requisitos ancla del equipo (extraídos del StRD) en recursos/requisitos_ancla.csv y reparte provisionalmente qué familia de requisitos mirará cada rol en la Fase 4",
     ],
     "tareas_en": [
       "Read the full section 3 of Annex I (technical requirements), following the checklist already used in Phase 1",
       "Comprehension sheet (if not done in Phase 1): pick 8 requirements (RGEN/RLT ID) verifiable by simulation and state which quantity you would measure for each; and 2 requirements NOT verifiable by simulation, with justification",
-      "As a team: fill in the StRD (ficha_requisitos_UGV.md) — SHALL matrix, verifiability classification and observations/interdependencies",
+      "As a team: fill in the StRD (ficha_requisitos_UGV.md) — SHALL matrix, verifiability classification, the possible evidence means for each verifiable requirement (what you would simulate or measure, without running it yet) and observations/interdependencies",
       "Session: the IS role consolidates 15 anchor requirements (drawn from the StRD) into recursos/requisitos_ancla.csv and provisionally splits which requirement family each role will look at in Phase 4",
     ],
     "entregables_es": [
@@ -132,15 +132,15 @@ fases = [
     "tareas_es": [
       "Leer RLT1-02 y las propiedades de movilidad relacionadas (RLT1-03 a RLT1-09) en el StRD de la Fase 3",
       "Describir las 3 alternativas de configuración (4×4, 6×6, 8×8): implicaciones en tren de rodaje, suspensión (S3) y puntos de interfaz de cargas de pago (RGEN-28)",
-      "Definir entre 4 y 6 criterios de decisión, cada uno trazado a un requisito, con pesos que sumen 100%",
-      "Puntuar cada alternativa en cada criterio (escala 1-5) y calcular la puntuación ponderada total — matriz AoA",
+      "Definir entre 4 y 6 criterios de decisión, cada uno trazado a un requisito, con pesos que sumen 100% — y para cada criterio, qué posible medio de evidencia (simulación, cálculo analítico, croquis) respaldaría la puntuación",
+      "Puntuar cada alternativa en cada criterio (escala 1-5), apoyándote en el medio de evidencia identificado, y calcular la puntuación ponderada total — matriz AoA",
       "Seleccionar la configuración con mayor puntuación y redactar la justificación, incluyendo qué implica para las propiedades del bloque MovilidadTrenRodaje en la Fase 5",
     ],
     "tareas_en": [
       "Read RLT1-02 and the related mobility properties (RLT1-03 to RLT1-09) in the Phase 3 StRD",
       "Describe the 3 configuration alternatives (4×4, 6×6, 8×8): implications for running gear, suspension (S3) and payload interface points (RGEN-28)",
-      "Define 4 to 6 decision criteria, each traced to a requirement, with weights summing to 100%",
-      "Score each alternative on each criterion (1-5 scale) and compute the total weighted score — AoA matrix",
+      "Define 4 to 6 decision criteria, each traced to a requirement, with weights summing to 100% — and for each criterion, what possible evidence means (simulation, analytical calculation, sketch) would back the score",
+      "Score each alternative on each criterion (1-5 scale), backed by the identified evidence means, and compute the total weighted score — AoA matrix",
       "Select the highest-scoring configuration and write the justification, including what it implies for the MovilidadTrenRodaje block's properties in Phase 5",
     ],
     "entregables_es": [
@@ -167,6 +167,7 @@ fases = [
       "Revisar que están los bloques de primer nivel (RDOC-13.c.1): UGV, Puesto de Mando Portable, Dispositivo de Telemando Portable, Subsistema de Comunicaciones, UAV de apoyo; y el desglose del UGV: Propulsión y energía, Movilidad y tren de rodaje, Percepción y navegación, Control y computación, Puntos de interfaz. Añadir lo que falte",
       "Reparto por rol (según la Fase 3): IS → propiedades de nivel sistema (masa, autonomía, modos) · Simulación → propulsión y movilidad (potencia, par, velocidad, pendiente — según la configuración elegida en la Fase 4) · Taller → chasis e interfaces (dimensiones, pesos, RGEN-28) · Software → comunicaciones y control (alcance BLOS RCOM-02, latencia, RSW)",
       "Cada propiedad, dentro del bloque en sistema.yaml: nombre, tipo, valor, unidad y el requisito que la justifica (p. ej. UGV.masa_orden_mision = 9000 kg, requisito RLT1-08). Sin requisito que la justifique, la propiedad no entra",
+      "En INFORME.md, sección «Posibilidades de evidencia»: para las propiedades críticas de propulsión y movilidad, anotar qué simulación o ensayo de banco podría demostrar que el valor es alcanzable — sin ejecutarlo todavía",
       "Regenerar la vista: python3 render_arquitectura.py modelos/sysml/sistema.yaml -o modelos/sysml/ARQUITECTURA.md — revisar que no reporta problemas de trazabilidad, y que el BDD coincide con lo esperado",
       "Sobre el BDD ya construido, en la sección interfaces de sistema.yaml, rellenar que_transporta, tipo_unidades y requisito de cada una: EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones",
       "En la sección conexiones, añadir una entrada {origen, destino, interfaz} por cada conexión entre bloques de primer nivel y con el exterior (operador, terreno y ambiente, cargas de pago), según el diagrama de contexto de la Fase 1",
@@ -179,6 +180,7 @@ fases = [
       "Check that the top-level blocks are there (RDOC-13.c.1): UGV, Portable Command Post, Portable Remote-Control Device, Communications Subsystem, support UAV; and the UGV breakdown: Propulsion & energy, Mobility & running gear, Perception & navigation, Control & computing, Interface points. Add whatever is missing",
       "Split by role (from Phase 3): IS → system-level properties (mass, endurance, modes) · Simulation → propulsion & mobility (power, torque, speed, gradient — per the Phase 4 configuration) · Workshop → chassis & interfaces (dimensions, weights, RGEN-28) · Software → communications & control (BLOS range RCOM-02, latency, RSW)",
       "Each property, inside its block in sistema.yaml: name, type, value, unit and the requirement that justifies it (e.g. UGV.mission_mass = 9000 kg, requirement RLT1-08). A property with no justifying requirement does not go in",
+      "In INFORME.md, «Possible evidence» section: for the critical propulsion and mobility properties, note what simulation or bench test could demonstrate the value is achievable — without running it yet",
       "Regenerate the view: python3 render_arquitectura.py modelos/sysml/sistema.yaml -o modelos/sysml/ARQUITECTURA.md — check it reports no traceability problems, and that the BDD matches what's expected",
       "On top of the finished BDD: in the interfaces section of sistema.yaml, fill in que_transporta, tipo_unidades and requisito for each one: EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones",
       "In the conexiones section, add one {origen, destino, interfaz} entry per connection between top-level blocks and with the exterior (operator, terrain and environment, payloads), following the Phase 1 context diagram",

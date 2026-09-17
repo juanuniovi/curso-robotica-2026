@@ -36,21 +36,24 @@ rodaje y suspensión (S3), y cómo afecta a los puntos de interfaz de cargas de 
 
 ## 4. Criterios de decisión
 
-Define entre 4 y 6 criterios, cada uno trazado a un requisito, con un peso (que sume 100%).
+Define entre 4 y 6 criterios, cada uno trazado a un requisito, con un peso (que sume 100%). Para
+cada criterio, indica también **qué posibilidad concreta** generaría la evidencia con la que vas
+a puntuarlo — no hace falta ejecutarla ahora, solo identificarla; sin esto, la puntuación de la
+matriz AoA es una opinión, no una decisión de ingeniería.
 
-| Criterio | Requisito que lo justifica | Peso |
-|---|---|---|
-| Capacidad de carga | RLT1-07, RLT1-08 | |
-| Movilidad todoterreno | RLT1-03 | |
-| Complejidad / coste del sistema de propulsión | RLT1-09, RGEN-11 | |
-| Facilidad de integración de Puntos de Interfaz | RGEN-28 | |
-| | | |
-| **Total** | | **100%** |
+| Criterio | Requisito que lo justifica | Posible medio de evidencia para puntuar | Peso |
+|---|---|---|---|
+| Capacidad de carga | RLT1-07, RLT1-08 | Cálculo analítico de reparto de carga por eje | |
+| Movilidad todoterreno | RLT1-03 | Simulación de tracción/pendiente por configuración | |
+| Complejidad / coste del sistema de propulsión | RLT1-09, RGEN-11 | Comparación de número de motores/actuadores por configuración | |
+| Facilidad de integración de Puntos de Interfaz | RGEN-28 | Boceto/croquis de la disposición de puntos de interfaz por configuración | |
+| | | | |
+| **Total** | | | **100%** |
 
 ## 5. Matriz de decisión ponderada (AoA — Analysis of Alternatives)
 
-Puntúa cada alternativa en cada criterio (escala 1–5, 5 = mejor) y calcula la puntuación
-ponderada.
+Puntúa cada alternativa en cada criterio (escala 1–5, 5 = mejor) apoyándote en el medio de
+evidencia identificado en la tabla anterior, y calcula la puntuación ponderada.
 
 | Criterio | Peso | A — 4×4 | B — 6×6 | C — 8×8 |
 |---|---|---|---|---|

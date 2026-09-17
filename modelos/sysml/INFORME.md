@@ -18,6 +18,18 @@ Acompaña a [`sistema.yaml`](sistema.yaml) / [`ARQUITECTURA.md`](ARQUITECTURA.md
 | Taller | Chasis e interfaces: dimensiones, pesos, puntos de interfaz (RGEN-28) |
 | Software | Comunicaciones y control: alcance BLOS (RCOM-02), latencia, software (RSW) |
 
+### Posibilidades de evidencia
+
+Para las propiedades críticas de propulsión y movilidad (las que fija el Estudio de Conceptos,
+Fase 4), indica qué simulación o ensayo de banco podría demostrar que el valor asignado es
+alcanzable. No hace falta ejecutarlo en esta fase — solo dejarlo identificado para cuando
+corresponda generar la evidencia.
+
+| Propiedad | Posible medio de evidencia |
+|---|---|
+| | |
+| | |
+
 ### Observaciones
 
 - Bloques con menos de 2 propiedades tipadas:

@@ -25,13 +25,23 @@ Ejemplo: [REQ-MOV-003] El UGV SHALL alcanzar una velocidad máxima en carretera 
 | L2 — Subsistema | El sistema de propulsión SHALL proporcionar 140 kW como mínimo | Simulación — verificable |
 | L3 — Componente | El pack de baterías SHALL tener capacidad para 2h de autonomía eléctrica | Simulación — verificable |
 
-## 3. Clasificación por verificabilidad
+## 3. Clasificación por verificabilidad y posibles medios de evidencia
 
-| Verificable por simulación | No verificable (otra evidencia) |
-|---|---|
-| Velocidad máxima en carretera ≥ 75 km/h | Resistencia de los subsistemas a agentes ambientales en campo |
-| Potencia de propulsión ≥ 140 kW | Facilidad real de mantenimiento de primer escalón |
-| Pendiente máxima frontal ≥ 60% | Ergonomía del Puesto de Operación en condiciones de estrés |
+Para cada requisito, no basta con marcarlo Sí/No verificable por simulación: hay que dejar
+identificado **qué posibilidad concreta** generaría esa evidencia (qué se simularía, qué se
+mediría en el banco de pruebas, o qué cálculo o referencia lo respaldaría). No hace falta
+ejecutarlo en esta fase — solo dejar la vía anotada para cuando corresponda generarla.
+
+| Requisito | ¿Verificable por simulación? | Posible medio de evidencia |
+|---|---|---|
+| Velocidad máxima en carretera ≥ 75 km/h | Sí | Simulación de dinámica longitudinal del vehículo |
+| Potencia de propulsión ≥ 140 kW | Sí | Simulación del sistema de propulsión (curva par-velocidad) |
+| Pendiente máxima frontal ≥ 60% | Sí | Simulación de tracción en pendiente, o cálculo analítico de fuerzas |
+| Resistencia de los subsistemas a agentes ambientales en campo | No | — (requeriría ensayo ambiental real; fuera de alcance) |
+| Facilidad real de mantenimiento de primer escalón | No | — (requeriría uso operativo real; fuera de alcance) |
+| Ergonomía del Puesto de Operación en condiciones de estrés | No | — (requeriría pruebas de usuario reales; fuera de alcance) |
+| | | |
+| | | |
 
 ## 4. Subsistemas del UGV
 
