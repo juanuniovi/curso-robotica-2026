@@ -15,7 +15,7 @@ semanas = [
     "objetivo_en": "Understand model-based systems engineering (MBSE) and the V-model, handle the minimum SysML vocabulary (block, property, port, interface, BDD vs IBD, traceability), and prove you have understood the brief: what the Client asks for, its four operating modes and which requirements can be verified by simulation. No tools. Same work for all four roles.",
     "tareas_es": [
       "Lectura previa (autónomo): el primer «Introducción a la ingeniería de sistemas y al MBSE» (~15 min) y después el Anexo I anonimizado con este guion: §1 qué es y qué NO es el Sistema UGV · §1.5 los 4 modos de operación · §2 las 3 fases · §3.1 leer todos los RGEN · §3.2 leer todos los RLT1 · lectura rápida §3.4–3.9 · §3.11 RDOC-13 (la arquitectura se entrega en SysML)",
-      "Ficha de comprensión — Parte A (conceptos): con tus palabras, qué es la ingeniería de sistemas y por qué modelar en vez de documentar · dibuja el ciclo en V y sitúa en él las 14 semanas del curso · define BDD y IBD en una frase cada uno",
+      "Ficha de comprensión — Parte A (conceptos): con tus palabras, qué es la ingeniería de sistemas y por qué modelar en vez de documentar · dibuja el ciclo en V y marca hasta dónde llega este curso (rama descendente, sin Implementación) · define BDD y IBD en una frase cada uno",
       "Ficha — Parte B (el encargo): en 3 frases, qué pide el Cliente, para qué y qué queda fuera · los 4 modos de operación en una frase cada uno · el propósito del vehículo y sus 3 misiones principales con las cifras que las condicionan (velocidad, potencia, autonomía, carga)",
       "Ficha — Parte B: elegir 8 requisitos (con su ID RGEN/RLT) que creas verificables con un modelo de simulación e indicar qué magnitud medirías en cada uno; y 2 requisitos que NO se puedan verificar por simulación, justificando por qué",
       "Ficha — Parte B: 3 términos del glosario que no conocías (con su significado) y 1 pregunta que le harías al Cliente",
@@ -25,7 +25,7 @@ semanas = [
     ],
     "tareas_en": [
       "Pre-reading (self-study): the «Introduction to systems engineering and MBSE» primer (~15 min), then Annex I with this checklist: §1 what the UGV System is and is NOT · §1.5 the 4 operating modes · §2 the 3 phases · §3.1 read every RGEN · §3.2 read every RLT1 · quick read of §3.4–3.9 · §3.11 RDOC-13 (architecture delivered in SysML)",
-      "Comprehension sheet — Part A (concepts): in your own words, what systems engineering is and why model instead of document · sketch the V-model and place the course's 14 weeks on it · define BDD and IBD in one sentence each",
+      "Comprehension sheet — Part A (concepts): in your own words, what systems engineering is and why model instead of document · sketch the V-model and mark how far this course goes (descending branch only, no Implementation) · define BDD and IBD in one sentence each",
       "Sheet — Part B (the brief): in 3 sentences, what the Client asks for, what for and what is out of scope · the 4 operating modes, one sentence each · the vehicle's purpose and its 3 main missions with the figures that drive them (speed, power, endurance, payload)",
       "Sheet — Part B: pick 8 requirements (with their RGEN/RLT ID) you believe are verifiable with a simulation model, stating which quantity you would measure for each; and 2 requirements that CANNOT be verified by simulation, with justification",
       "Sheet — Part B: 3 glossary terms you did not know (with their meaning) and 1 question you would ask the Client",

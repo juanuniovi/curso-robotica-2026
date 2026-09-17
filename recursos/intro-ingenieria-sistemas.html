@@ -83,45 +83,38 @@ determinar).</p>
 orden hacer las cosas. Eso lo da una <strong>metodología</strong>, y la que usa este curso (sin haberla
 nombrado hasta ahora) es <strong>OOSEM</strong> (<em>Object-Oriented Systems Engineering Method</em>): la
 metodología que INCOSE empareja con SysML en su libro de referencia. No es una elección
-nuestra — es el estándar de facto para trabajar con SysML, tool-agnóstica, y el curso ya la
-sigue semana a semana:</p>
+nuestra — es el estándar de facto para trabajar con SysML, tool-agnóstica.</p>
+<p><strong>Importante: este curso recorre solo la rama descendente de la V, y ni siquiera llega a
+Implementación.</strong> El encargo real es preparar una <strong>oferta técnica</strong> para una licitación —
+no construir ni verificar el sistema completo. Eso sería ya ejecutar un contrato
+adjudicado, y queda fuera del alcance del curso:</p>
 <table>
 <thead>
 <tr>
 <th>Fase OOSEM</th>
-<th>Semana</th>
+<th>Fase del curso</th>
 <th>Qué se hace</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Analizar las necesidades del cliente</td>
-<td>1</td>
-<td>Leer el pliego, extraer requisitos SHALL</td>
+<td>Analizar las necesidades del cliente + definir el contexto</td>
+<td>1 — Requisitos y ConOps</td>
+<td>Leer el pliego, extraer requisitos SHALL, diagrama de contexto</td>
 </tr>
 <tr>
-<td>Definir el contexto del sistema</td>
-<td>1</td>
-<td>Diagrama de contexto</td>
+<td>Arquitectura lógica y física</td>
+<td>2 — Arquitectura SysML</td>
+<td>BDD + IBD, trazabilidad, baseline de arquitectura</td>
 </tr>
 <tr>
-<td>Arquitectura lógica</td>
-<td>2</td>
-<td>BDD — bloques y propiedades</td>
-</tr>
-<tr>
-<td>Arquitectura física / interfaces</td>
-<td>3</td>
-<td>IBD — conexiones, baseline v1.0</td>
-</tr>
-<tr>
-<td>Verificar y validar</td>
-<td>4–8</td>
-<td>Simulación + banco de pruebas físico</td>
+<td>— (no es una fase OOSEM estándar; es evidencia de apoyo a la oferta)</td>
+<td>3 — Evidencias y oferta técnica</td>
+<td>Simulación de subsistemas críticos, banco de pruebas físico, redacción de la oferta</td>
 </tr>
 </tbody>
 </table>
-<p>Visualmente, esa misma secuencia se dibuja como una <strong>V</strong>:</p>
+<p>Visualmente, la metodología completa se dibuja como una <strong>V</strong>:</p>
 <pre><code> Necesidades                                         Validación
    \                                                   /
     Requisitos                                 Verificación
@@ -132,18 +125,13 @@ sigue semana a semana:</p>
                      \                /
                       Implementación
 </code></pre>
-<ul>
-<li><strong>Rama izquierda (bajada):</strong> de lo abstracto a lo concreto — necesidades → requisitos →
-  arquitectura → diseño. Es la parte de OOSEM de la tabla de arriba.</li>
-<li><strong>Fondo:</strong> se construye.</li>
-<li><strong>Rama derecha (subida):</strong> de lo concreto a lo abstracto — se prueba cada nivel contra lo
-  que se definió en el nivel equivalente de la izquierda. La <strong>trazabilidad</strong> cruza la V de
-  un lado al otro (cada test verifica un requisito). Es la fase de verificar/validar de OOSEM.</li>
-</ul>
-<p>Las 14 semanas del curso recorren la V completa: <strong>Semanas 1–3</strong> bajan por la rama izquierda
-(entender el encargo, nombrar la arquitectura, formalizarla); <strong>Semanas 4–8</strong> trabajan el
-fondo y empiezan a subir (ingeniería inversa del modelo, calibración, verificación);
-<strong>Semanas 9–14</strong> completan la subida (fallos, integración, optimización, defensa).</p>
+<p>Este curso solo baja por la <strong>rama izquierda</strong> (necesidades → requisitos → arquitectura),
+sin llegar a Diseño de detalle completo ni a Implementación. La rama derecha (Pruebas de
+subsistema → Integración → Verificación → Validación) se muestra arriba como referencia de
+la metodología general — <strong>no la recorremos</strong>. Lo que sí hacemos en su lugar es reunir
+<strong>evidencia de viabilidad</strong> (simulación de los subsistemas críticos, medidas sobre un banco
+de pruebas físico) que demuestre que el diseño cumple los requisitos, y volcarla en el
+documento de oferta técnica que cierra el curso.</p>
 <h2 id="4-vocabulario-sysml-minimo">4. Vocabulario SysML mínimo</h2>
 <p><strong>SysML</strong> es el lenguaje gráfico estándar para modelar sistemas. No hace falta dominarlo;
 basta con estos términos:</p>
@@ -195,8 +183,10 @@ basta con estos términos:</p>
 regla es lo que separa "usar una herramienta" de "hacer ingeniería de sistemas".</p>
 <h2 id="6-los-cuatro-roles-del-equipo">6. Los cuatro roles del equipo</h2>
 <p>El equipo se organiza en cuatro roles funcionales, definidos <strong>por el tipo de evidencia
-que producen</strong>, no por subsistema del vehículo. Los roles <strong>rotan</strong> en el punto medio del
-ciclo en V, de modo que cada alumno recorre la rama de diseño y la de verificación.</p>
+que producen</strong>, no por subsistema del vehículo. Los roles <strong>rotan de forma flexible</strong>: cada
+alumno pasa por tantos como quiera, en coordinación con sus compañeros. Simulación, Taller
+y Software no verifican un sistema ya construido — generan la evidencia de viabilidad
+(simulaciones, medidas de banco, esquemas de integración) que sostiene la oferta técnica.</p>
 <table>
 <thead>
 <tr>
@@ -209,7 +199,7 @@ ciclo en V, de modo que cada alumno recorre la rama de diseño y la de verificac
 <tr>
 <td><strong>IS — Ingeniería de Sistemas</strong></td>
 <td>Requisitos, arquitectura, trazabilidad, coordinación</td>
-<td>Modelo SysML y matriz de verificación</td>
+<td>Modelo SysML y estructura de la oferta técnica</td>
 </tr>
 <tr>
 <td><strong>Simulación</strong></td>

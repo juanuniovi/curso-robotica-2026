@@ -5,10 +5,10 @@
 
 Proyecto vertebrador: un robot móvil autónomo, definido por un pliego de contratación pública real (contrato de referencia, no identificado en el material del curso).
 
-**Primer año con esta estructura:** el curso se construye por fases (Requisitos y ConOps → Arquitectura SysML → Simulación → Verificación física → Integración → Optimización y cierre), no por un calendario de 14 semanas fijado de antemano. Cada semana se publica según se llega a ella — ver el proceso completo en la [web del curso](https://juanuniovi.github.io/curso-robotica-2026/#proceso).
+**Primer año con esta estructura:** el curso se construye por fases (Requisitos y ConOps → Arquitectura SysML → Evidencias y oferta técnica), no por un calendario de 14 semanas fijado de antemano. Recorremos solo la rama descendente de la V — sin llegar a construir ni verificar el sistema completo: el encargo real es preparar una oferta técnica, no ejecutar el contrato. Cada semana se publica según se llega a ella — ver el proceso completo en la [web del curso](https://juanuniovi.github.io/curso-robotica-2026/#proceso).
 
 **Alcance del curso — real vs. banco de pruebas:**
-La arquitectura SysML (semanas 1-3) trabaja sobre los 80+ requisitos reales de un contrato de licitación pública, el vehículo completo tal cual se definió en el pliego. La evidencia física de las semanas de ingeniería inversa y calibración no intenta replicar ese vehículo completo — se genera sobre un **robot móvil reducido construido con actuadores de laboratorio**, centrado en **navegación, percepción y autonomía**. Es una verificación honesta a escala reducida, no una réplica física del contrato.
+La arquitectura SysML (Fases 1-2) trabaja sobre los 80+ requisitos reales de un contrato de licitación pública, el vehículo completo tal cual se definió en el pliego. La evidencia física de la Fase 3 no intenta replicar ese vehículo completo — se genera sobre un **robot móvil reducido construido con actuadores de laboratorio**, centrado en **navegación, percepción y autonomía**. Es evidencia honesta de viabilidad a escala reducida para sostener la oferta técnica, no una réplica física del contrato ni una verificación del sistema completo.
 
 ---
 

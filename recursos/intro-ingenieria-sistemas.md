@@ -44,18 +44,20 @@ SysML es un **lenguaje** — dice cómo se dibuja un bloque o una interfaz. No d
 orden hacer las cosas. Eso lo da una **metodología**, y la que usa este curso (sin haberla
 nombrado hasta ahora) es **OOSEM** (*Object-Oriented Systems Engineering Method*): la
 metodología que INCOSE empareja con SysML en su libro de referencia. No es una elección
-nuestra — es el estándar de facto para trabajar con SysML, tool-agnóstica, y el curso ya la
-sigue semana a semana:
+nuestra — es el estándar de facto para trabajar con SysML, tool-agnóstica.
 
-| Fase OOSEM | Semana | Qué se hace |
+**Importante: este curso recorre solo la rama descendente de la V, y ni siquiera llega a
+Implementación.** El encargo real es preparar una **oferta técnica** para una licitación —
+no construir ni verificar el sistema completo. Eso sería ya ejecutar un contrato
+adjudicado, y queda fuera del alcance del curso:
+
+| Fase OOSEM | Fase del curso | Qué se hace |
 |---|---|---|
-| Analizar las necesidades del cliente | 1 | Leer el pliego, extraer requisitos SHALL |
-| Definir el contexto del sistema | 1 | Diagrama de contexto |
-| Arquitectura lógica | 2 | BDD — bloques y propiedades |
-| Arquitectura física / interfaces | 3 | IBD — conexiones, baseline v1.0 |
-| Verificar y validar | 4–8 | Simulación + banco de pruebas físico |
+| Analizar las necesidades del cliente + definir el contexto | 1 — Requisitos y ConOps | Leer el pliego, extraer requisitos SHALL, diagrama de contexto |
+| Arquitectura lógica y física | 2 — Arquitectura SysML | BDD + IBD, trazabilidad, baseline de arquitectura |
+| — (no es una fase OOSEM estándar; es evidencia de apoyo a la oferta) | 3 — Evidencias y oferta técnica | Simulación de subsistemas críticos, banco de pruebas físico, redacción de la oferta |
 
-Visualmente, esa misma secuencia se dibuja como una **V**:
+Visualmente, la metodología completa se dibuja como una **V**:
 
 ```
  Necesidades                                         Validación
@@ -69,17 +71,13 @@ Visualmente, esa misma secuencia se dibuja como una **V**:
                       Implementación
 ```
 
-- **Rama izquierda (bajada):** de lo abstracto a lo concreto — necesidades → requisitos →
-  arquitectura → diseño. Es la parte de OOSEM de la tabla de arriba.
-- **Fondo:** se construye.
-- **Rama derecha (subida):** de lo concreto a lo abstracto — se prueba cada nivel contra lo
-  que se definió en el nivel equivalente de la izquierda. La **trazabilidad** cruza la V de
-  un lado al otro (cada test verifica un requisito). Es la fase de verificar/validar de OOSEM.
-
-Las 14 semanas del curso recorren la V completa: **Semanas 1–3** bajan por la rama izquierda
-(entender el encargo, nombrar la arquitectura, formalizarla); **Semanas 4–8** trabajan el
-fondo y empiezan a subir (ingeniería inversa del modelo, calibración, verificación);
-**Semanas 9–14** completan la subida (fallos, integración, optimización, defensa).
+Este curso solo baja por la **rama izquierda** (necesidades → requisitos → arquitectura),
+sin llegar a Diseño de detalle completo ni a Implementación. La rama derecha (Pruebas de
+subsistema → Integración → Verificación → Validación) se muestra arriba como referencia de
+la metodología general — **no la recorremos**. Lo que sí hacemos en su lugar es reunir
+**evidencia de viabilidad** (simulación de los subsistemas críticos, medidas sobre un banco
+de pruebas físico) que demuestre que el diseño cumple los requisitos, y volcarla en el
+documento de oferta técnica que cierra el curso.
 
 ## 4. Vocabulario SysML mínimo
 
@@ -109,12 +107,14 @@ regla es lo que separa "usar una herramienta" de "hacer ingeniería de sistemas"
 ## 6. Los cuatro roles del equipo
 
 El equipo se organiza en cuatro roles funcionales, definidos **por el tipo de evidencia
-que producen**, no por subsistema del vehículo. Los roles **rotan** en el punto medio del
-ciclo en V, de modo que cada alumno recorre la rama de diseño y la de verificación.
+que producen**, no por subsistema del vehículo. Los roles **rotan de forma flexible**: cada
+alumno pasa por tantos como quiera, en coordinación con sus compañeros. Simulación, Taller
+y Software no verifican un sistema ya construido — generan la evidencia de viabilidad
+(simulaciones, medidas de banco, esquemas de integración) que sostiene la oferta técnica.
 
 | Rol | De qué se ocupa | Evidencia que produce |
 |---|---|---|
-| **IS — Ingeniería de Sistemas** | Requisitos, arquitectura, trazabilidad, coordinación | Modelo SysML y matriz de verificación |
+| **IS — Ingeniería de Sistemas** | Requisitos, arquitectura, trazabilidad, coordinación | Modelo SysML y estructura de la oferta técnica |
 | **Simulación** | Modelo físico por computador (propulsión, dinámica) | Resultados de simulación |
 | **Taller** | Banco físico y medidas reales | Evidencia física (medidas) |
 | **Software** | Adquisición de datos e integración hardware ↔ modelo | Integración y contraste hw ↔ modelo |

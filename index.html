@@ -537,30 +537,28 @@ footer {
   <div class="col-wide">
     <p class="section-tag">
       <span class="lang-es">Metodología del curso</span>
-      <span class="lang-en">How we're working</span>
+      <span class="lang-en">Course methodology</span>
     </p>
     <h2 class="section-title">
       <span class="lang-es">Proceso basado en la metodología de MBSE</span>
-      <span class="lang-en">A process, not a fixed schedule</span>
+      <span class="lang-en">A process based on the MBSE methodology</span>
     </h2>
     <p class="section-lead">
-      <span class="lang-es">El proceso completo que vamos a recorrer tiene seis fases. Cada una especifica el trabajo de los 4 roles del equipo — Sistemas (IS), Simulación, Taller y Software — que intercambiaremos de forma flexible, 
-        de modo que cada alumno aporte lo más posible dentro de sus capacidades e intereses, tanto la rama de diseño como la de verificación.</span>
-      <span class="lang-en">This is the first time we're teaching this course with this structure. Instead of fixing in advance 
-        how many weeks each phase takes, we'll publish each week's content as we go — what's below is the full process we'll walk through, not a locked schedule. Each phase specifies the work of the team's 4 roles — Systems (IS), Simulation, Workshop and Software — which rotate flexibly, so every student walks both the design and the verification branch.</span>
+      <span class="lang-es">El proceso completo que vamos a recorrer tiene tres fases: solo la rama descendente de la V, sin llegar a construir ni verificar el sistema completo — el encargo real es preparar una oferta técnica, no ejecutar el contrato. Cada fase especifica el trabajo de los 4 roles del equipo — Sistemas (IS), Simulación, Taller y Software — que intercambiaremos de forma flexible, de modo que cada alumno aporte lo más posible dentro de sus capacidades e intereses.</span>
+      <span class="lang-en">This is the first time we're teaching this course with this structure. The full process has three phases: only the descending branch of the V, without building or verifying the complete system — the real brief is to prepare a technical proposal, not to execute the contract. Each phase specifies the work of the team's 4 roles — Systems (IS), Simulation, Workshop and Software — which we'll swap flexibly, so every student contributes as much as possible within their skills and interests.</span>
     </p>
     <div class="scope-note">
       <div class="scope-item">
         <div class="scope-col-title lang-es-block">Punto de partida: el pliego</div>
-        <div class="scope-col-title lang-en-block">The real: the contract</div>
+        <div class="scope-col-title lang-en-block">Starting point: the contract</div>
         <div class="scope-col-desc lang-es-block">Elaboraremos una propuesta sobre los 80+ requisitos reales de un contrato de licitación pública — el vehículo completo, tal cual se definió en el pliego.</div>
-        <div class="scope-col-desc lang-en-block">The SysML architecture works over the 80+ real requirements of a public tender contract — the full vehicle, exactly as defined in the contract.</div>
+        <div class="scope-col-desc lang-en-block">We'll put together a proposal over the 80+ real requirements of a public tender contract — the full vehicle, exactly as defined in the contract.</div>
       </div>
       <div class="scope-item banco">
-        <div class="scope-col-title lang-es-block">Generación de evidencias: simulacionees, banco de pruebas, software</div>
-        <div class="scope-col-title lang-en-block">The physical testbed</div>
-        <div class="scope-col-desc lang-es-block">Las evidencias se generan contra modelos de simulación. Un <em>digital twin</em> mínimo que ancla a la realidad la evidencia simulada del resto.</div>
-        <div class="scope-col-desc lang-en-block">Physical evidence in the reverse-engineering and calibration phases does not replicate the full vehicle — it is generated on a single validation loop: one lab actuator whose measured response (position, current) is contrasted against its simulation model. A minimal <em>digital twin</em> that anchors all the simulated evidence to reality.</div>
+        <div class="scope-col-title lang-es-block">Generación de evidencias: simulación, banco de pruebas, software</div>
+        <div class="scope-col-title lang-en-block">Evidence generation: simulation, testbed, software</div>
+        <div class="scope-col-desc lang-es-block">Las evidencias se generan contra modelos de simulación y un banco de pruebas físico. Un <em>digital twin</em> mínimo que ancla a la realidad la evidencia simulada del resto — no una réplica ni una verificación del vehículo completo.</div>
+        <div class="scope-col-desc lang-en-block">Evidence is generated against simulation models and a physical testbed. A minimal <em>digital twin</em> that anchors the rest of the simulated evidence to reality — not a replica or a verification of the full vehicle.</div>
       </div>
     </div>
     <div class="fases-list" id="fases-list"></div>
@@ -580,7 +578,7 @@ footer {
     </h2>
     <p class="section-lead">
       <span class="lang-es">El equipo — 4 o 5 alumnos — organiza su trabajo en estos 4 roles funcionales, definidos no por subsistema del vehículo sino por el tipo de evidencia que generan. Los roles <b>rotan de manera flexible</b>: cada alumno pasa por tantos como desee en coordinación con sus compañeros. El rol de Ingeniería de Sistemas coordina y reporta al cliente (el profesor).</span>
-      <span class="lang-en">The team — 4 or 5 students — organises its work into these 4 functional roles, defined not by vehicle subsystem but by the type of evidence they produce. Roles <b>rotate at the midpoint of the V-cycle</b>: every student passes through both the design and the verification branch. The Systems Engineering role coordinates and reports to the client (the instructor). </span>
+      <span class="lang-en">The team — 4 or 5 students — organises its work into these 4 functional roles, defined not by vehicle subsystem but by the type of evidence they produce. Roles <b>rotate flexibly</b>: every student takes on as many as they want, in coordination with their teammates. The Systems Engineering role coordinates and reports to the client (the instructor).</span>
     </p>
     <div class="departamentos-list" id="departamentos-grid"></div>
   </div>
@@ -617,10 +615,10 @@ footer {
         <div class="criterio-desc lang-en-block">Any numerical value without a reference to the contract requirement ID that justifies it drops one level in the rubric. Applied from Week 1.</div>
       </div>
       <div class="criterio-item" style="border-left-color:var(--accent2)">
-        <div class="criterio-title lang-es-block">Verificación — criterio núcleo</div>
-        <div class="criterio-title lang-en-block">Verification — core criterion</div>
-        <div class="criterio-desc lang-es-block">≥ 80% de los requisitos marcados como "Sí-simulación" deben tener un test ejecutado con resultado pass/fail documentado.</div>
-        <div class="criterio-desc lang-en-block">≥ 80% of requirements marked "Yes-simulation" must have an executed test with documented pass/fail result.</div>
+        <div class="criterio-title lang-es-block">Evidencia — criterio núcleo</div>
+        <div class="criterio-title lang-en-block">Evidence — core criterion</div>
+        <div class="criterio-desc lang-es-block">≥ 80% de los requisitos marcados como "Sí-simulación" deben tener evidencia de viabilidad generada y documentada (simulación o banco de pruebas) que sostenga la oferta.</div>
+        <div class="criterio-desc lang-en-block">≥ 80% of requirements marked "Yes-simulation" must have documented feasibility evidence (simulation or testbed) backing the proposal.</div>
       </div>
       <div class="criterio-item" style="border-left-color:var(--accent3)">
         <div class="criterio-title lang-es-block">CDR — criterio final</div>
@@ -631,8 +629,8 @@ footer {
       <div class="criterio-item" style="border-left-color:var(--purple)">
         <div class="criterio-title lang-es-block">Revisión cruzada — criterio de proceso</div>
         <div class="criterio-title lang-en-block">Cross-review — process criterion</div>
-        <div class="criterio-desc lang-es-block">Al no haber empresas rivales, la evaluación crítica se interioriza: en la PDR (semana 6) y en el CDR, cada rol somete su trabajo a red-team del resto del equipo y lo contrasta contra el modelo de referencia del profesor. Se evalúa la calidad de las objeciones, no solo del trabajo defendido.</div>
-        <div class="criterio-desc lang-en-block">With no rival companies, critical evaluation is internalised: at the PDR (week 6) and the CDR, each role submits its work to red-teaming by the rest of the team and contrasts it against the instructor's reference model. The quality of the objections is graded, not just the work defended.</div>
+        <div class="criterio-desc lang-es-block">Al no haber empresas rivales, la evaluación crítica se interioriza: en una PDR intermedia y en el CDR final, cada rol somete su trabajo a red-team del resto del equipo y lo contrasta contra el modelo de referencia del profesor. Se evalúa la calidad de las objeciones, no solo del trabajo defendido.</div>
+        <div class="criterio-desc lang-en-block">With no rival companies, critical evaluation is internalised: at an intermediate PDR and the final CDR, each role submits its work to red-teaming by the rest of the team and contrasts it against the instructor's reference model. The quality of the objections is graded, not just the work defended.</div>
       </div>
     </div>
   </div>
@@ -766,37 +764,30 @@ footer {
 
 <script>
 // ── Datos del curso ────────────────────────────────────────────────────────
+// El curso recorre solo la rama descendente de la V — ni siquiera llega a
+// Implementación. El encargo real es preparar una oferta técnica para una
+// licitación, no construir ni verificar el sistema completo: Simulación,
+// Taller y Software generan evidencia de viabilidad para esa oferta, no
+// verificación de un sistema ya construido.
 // estado: "publicado" (hay página real, enlazada) · "en-curso" (empezado, sin cerrar)
 // · "por-definir" (todavía no sabemos cuántas semanas ocupará)
 const fases = [
   { nombre_es:"Requisitos y ConOps", nombre_en:"Requirements & ConOps",
-    desc_es:"Extraer y formalizar los requisitos del pliego; entender el concepto de operación del sistema.",
-    desc_en:"Extract and formalise the contract's requirements; understand the system's concept of operations.",
+    desc_es:"Extraer y formalizar en SHALL los requisitos del pliego real; construir el concepto de operación del sistema (modos, misiones, actores) y el diagrama de contexto. Es la base de trazabilidad de todo lo que sigue: nada entra en la arquitectura sin un requisito que lo justifique.",
+    desc_en:"Extract and formalise the real contract's requirements as SHALL statements; build the system's concept of operations (modes, missions, actors) and the context diagram. This is the traceability foundation for everything that follows: nothing enters the architecture without a requirement that justifies it.",
     estado:"publicado", semanas:[{n:1, href:"semanas/semana-01/"}] },
   { nombre_es:"Arquitectura SysML", nombre_en:"SysML Architecture",
-    desc_es:"Construir el BDD y el IBD del sistema: bloques, propiedades, interfaces.",
-    desc_en:"Build the system's BDD and IBD: blocks, properties, interfaces.",
+    desc_es:"Construir el BDD (bloques, propiedades) y el IBD (interfaces, conexiones) del sistema completo, con cada elemento trazado a su requisito. Cierra con una baseline de arquitectura — la columna vertebral técnica de la oferta.",
+    desc_en:"Build the full system's BDD (blocks, properties) and IBD (interfaces, connections), with every element traced to its requirement. Closes with an architecture baseline — the technical backbone of the proposal.",
     estado:"en-curso", semanas:[{n:2, href:"semanas/semana-02/"}, {n:3, href:"semanas/semana-03/"}] },
-  { nombre_es:"Simulación", nombre_en:"Simulation",
-    desc_es:"Bajar la arquitectura a un modelo físico simulable y contrastarlo con el comportamiento esperado.",
-    desc_en:"Bring the architecture down to a simulable physical model and check it against expected behaviour.",
-    estado:"por-definir", semanas:[] },
-  { nombre_es:"Verificación física", nombre_en:"Physical verification",
-    desc_es:"Contrastar el modelo contra un actuador de laboratorio real.",
-    desc_en:"Check the model against a real lab actuator.",
-    estado:"por-definir", semanas:[] },
-  { nombre_es:"Integración", nombre_en:"Integration",
-    desc_es:"Unir el trabajo de los 4 roles en un sistema coherente.",
-    desc_en:"Bring the 4 roles' work together into one coherent system.",
-    estado:"por-definir", semanas:[] },
-  { nombre_es:"Optimización y cierre", nombre_en:"Optimisation & close-out",
-    desc_es:"Afinar parámetros y defender el trabajo completo (CDR).",
-    desc_en:"Tune parameters and defend the full body of work (CDR).",
+  { nombre_es:"Evidencias y oferta técnica", nombre_en:"Evidence & technical proposal",
+    desc_es:"Generar la evidencia de viabilidad que sostiene la propuesta: simulación de los subsistemas críticos, medidas sobre un banco de pruebas físico como digital twin mínimo, y el esquema de integración software. No construimos ni verificamos el sistema completo — reunimos las pruebas de que el diseño cumple los requisitos y las volcamos en el documento de oferta técnica que cierra el curso. Es un documento exigente en sí mismo, con su propia estructura y criterios.",
+    desc_en:"Generate the feasibility evidence that backs the proposal: simulation of the critical subsystems, measurements on a physical testbed as a minimal digital twin, and the software integration outline. We don't build or verify the full system — we gather proof that the design meets the requirements and pour it into the technical proposal document that closes the course. That document is demanding in its own right, with its own structure and criteria.",
     estado:"por-definir", semanas:[] },
 ];
 
 const departamentos = [
-  { icono:"IS",  nombre_es:"Sistemas (IS)", nombre_en:"Systems (IS)", dominio:"Herramienta SysML\n(requisitos, trazabilidad, V&V)", evidencia_es:"Evidencia: arquitectura y VCRM", evidencia_en:"Evidence: architecture & VCRM", tagClass:"tag-sistemas", tools:["Herramienta SysML","Requirements Toolbox"] },
+  { icono:"IS",  nombre_es:"Sistemas (IS)", nombre_en:"Systems (IS)", dominio:"Herramienta SysML\n(requisitos, trazabilidad, oferta técnica)", evidencia_es:"Evidencia: arquitectura y estructura de la oferta", evidencia_en:"Evidence: architecture & proposal structure", tagClass:"tag-sistemas", tools:["Herramienta SysML","Requirements Toolbox"] },
   { icono:"SIM", nombre_es:"Simulación",  nombre_en:"Simulation", dominio:"Simulador físico\n(eléctrico, transmisión, multicuerpo)", evidencia_es:"Evidencia: simulación", evidencia_en:"Evidence: simulation", tagClass:"tag-simulacion", tools:["MATLAB","Simulador físico","Simulink Test"] },
   { icono:"TAL", nombre_es:"Taller", nombre_en:"Workshop", dominio:"Banco físico de laboratorio\n(actuador por determinar)", evidencia_es:"Evidencia: física (medidas reales)", evidencia_en:"Evidence: physical (real measurements)", tagClass:"tag-fisica", tools:["Software de configuración del actuador","SDK del actuador"] },
   { icono:"SW",  nombre_es:"Software",     nombre_en:"Software", dominio:"SDK del actuador (Python)\nadquisición y contraste · ROS 2 opcional", evidencia_es:"Evidencia: adquisición e integración hw↔modelo", evidencia_en:"Evidence: acquisition & hw↔model integration", tagClass:"tag-software", tools:["SDK del actuador","Python","ROS 2 (opc.)"] },
