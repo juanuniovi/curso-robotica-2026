@@ -8,12 +8,12 @@ edita el diagrama a mano, se edita el YAML y se regenera.
 |---|---|
 | `sistema.yaml` | El modelo: bloques, propiedades, interfaces, conexiones |
 | `ARQUITECTURA.md` | Generado — diagramas BDD/IBD (Mermaid) + tablas. Se ve renderizado directamente en GitHub |
-| `INFORME.md` | Observaciones e interdependencias, con una sección por semana |
+| `INFORME.md` | Observaciones e interdependencias, con una sección por hito (BDD, IBD) |
 
 ## Cómo usarlo
 
 1. Copiar la versión base desde [`base/modelos/sistema.yaml`](../../base/modelos/) a esta carpeta, una sola vez.
-2. Editar `sistema.yaml` (bloques y propiedades en la Semana 2; interfaces y conexiones en la Semana 3).
+2. Editar `sistema.yaml` (bloques y propiedades primero; interfaces y conexiones después — ver [Fase 2 — Arquitectura](../../fases/02-arquitectura/)).
 3. Regenerar el diagrama:
    ```bash
    python3 render_arquitectura.py modelos/sysml/sistema.yaml -o modelos/sysml/ARQUITECTURA.md

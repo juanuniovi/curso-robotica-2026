@@ -1,7 +1,7 @@
 <!-- EJEMPLO — copia este archivo, renómbralo a comprension_[tus-iniciales].md
      (ej. comprension_jgp.md) y bórralo cuando lo subas. Una entrega por alumno. -->
 
-# Ficha de comprensión — Semana 1
+# Ficha de comprensión — Fase 1
 
 **Alumno:** [nombre] · **Rol:** [IS / Simulación / Taller / Software]
 
@@ -11,7 +11,7 @@
 
 [respuesta, con tus palabras]
 
-**Ciclo en V — dibújalo y sitúa en él las 14 semanas del curso**
+**Ciclo en V — dibújalo y marca hasta dónde llega este curso (rama descendente, sin Implementación)**
 
 [foto, enlace, o descripción]
 

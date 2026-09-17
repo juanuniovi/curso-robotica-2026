@@ -1,4 +1,4 @@
-# Semana 1 — Entregables
+# Fase 1 — Ingeniería inversa — Entregables
 
 | Qué | Quién | Formato / nombre | Dónde |
 |---|---|---|---|
@@ -12,6 +12,6 @@
 1. Cada alumno copia `comprension/comprension_EJEMPLO.md`, lo renombra con sus iniciales, lo rellena y hace su propio `commit` + `push`.
 2. El equipo rellena `ficha_requisitos_UGV.md` en esta misma carpeta — puede ir a varios `commit`s de distintos roles.
 3. El rol IS consolida los 15 requisitos ancla en `recursos/requisitos_ancla.csv` y sube la foto/PDF del diagrama a `diagrama-contexto/`.
-4. Al cerrar la semana: 1 Pull Request a `master` con todo lo anterior. Cada alumno aparece como autor de sus propios commits.
+4. Al cerrar la fase: 1 Pull Request a `master` con todo lo anterior. Cada alumno aparece como autor de sus propios commits.
 
 Ver las instrucciones completas de rama/commit en la [página del curso, sección Repositorio](../../index.html#repositorio).

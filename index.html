@@ -544,8 +544,8 @@ footer {
       <span class="lang-en">A process based on the MBSE methodology</span>
     </h2>
     <p class="section-lead">
-      <span class="lang-es">El proceso completo que vamos a recorrer tiene tres fases: solo la rama descendente de la V, sin llegar a construir ni verificar el sistema completo — el encargo real es preparar una oferta técnica, no ejecutar el contrato. Cada fase especifica el trabajo de los 4 roles del equipo — Sistemas (IS), Simulación, Taller y Software — que intercambiaremos de forma flexible, de modo que cada alumno aporte lo más posible dentro de sus capacidades e intereses.</span>
-      <span class="lang-en">This is the first time we're teaching this course with this structure. The full process has three phases: only the descending branch of the V, without building or verifying the complete system — the real brief is to prepare a technical proposal, not to execute the contract. Each phase specifies the work of the team's 4 roles — Systems (IS), Simulation, Workshop and Software — which we'll swap flexibly, so every student contributes as much as possible within their skills and interests.</span>
+      <span class="lang-es">El proceso completo que vamos a recorrer tiene cinco fases: solo la rama descendente de la V, sin llegar a construir ni verificar el sistema completo — el encargo real es preparar una oferta técnica, no ejecutar el contrato. Cada fase especifica el trabajo de los 4 roles del equipo — Sistemas (IS), Simulación, Taller y Software — que intercambiaremos de forma flexible, de modo que cada alumno aporte lo más posible dentro de sus capacidades e intereses.</span>
+      <span class="lang-en">This is the first time we're teaching this course with this structure. The full process has five phases: only the descending branch of the V, without building or verifying the complete system — the real brief is to prepare a technical proposal, not to execute the contract. Each phase specifies the work of the team's 4 roles — Systems (IS), Simulation, Workshop and Software — which we'll swap flexibly, so every student contributes as much as possible within their skills and interests.</span>
     </p>
     <div class="scope-note">
       <div class="scope-item">
@@ -611,8 +611,8 @@ footer {
       <div class="criterio-item">
         <div class="criterio-title lang-es-block">Trazabilidad — criterio transversal</div>
         <div class="criterio-title lang-en-block">Traceability — cross-cutting criterion</div>
-        <div class="criterio-desc lang-es-block">Todo valor numérico sin referencia al ID de requisito del pliego que lo justifica baja un nivel en la rúbrica. Se aplica desde la Semana 1.</div>
-        <div class="criterio-desc lang-en-block">Any numerical value without a reference to the contract requirement ID that justifies it drops one level in the rubric. Applied from Week 1.</div>
+        <div class="criterio-desc lang-es-block">Todo valor numérico sin referencia al ID de requisito del pliego que lo justifica baja un nivel en la rúbrica. Se aplica desde la Fase 1.</div>
+        <div class="criterio-desc lang-en-block">Any numerical value without a reference to the contract requirement ID that justifies it drops one level in the rubric. Applied from Phase 1.</div>
       </div>
       <div class="criterio-item" style="border-left-color:var(--accent2)">
         <div class="criterio-title lang-es-block">Evidencia — criterio núcleo</div>
@@ -659,9 +659,9 @@ footer {
       <div class="tree-body">
         <div><span class="tree-file">📄 index.html</span> <span class="tree-note">← esta página</span></div>
         <div><span class="tree-file">📄 README.md</span></div>
-        <div><span class="tree-dir">📁 semanas/</span></div>
-        <div class="tree-indent"><span class="tree-dir">📁 semana-01/</span> <span class="tree-note">requisitos + intro SysML</span></div>
-        <div class="tree-indent"><span class="tree-dir">📁 semana-02/, semana-03/…</span> <span class="tree-note">se añaden según avanza el curso</span></div>
+        <div><span class="tree-dir">📁 fases/</span></div>
+        <div class="tree-indent"><span class="tree-dir">📁 01-ingenieria-inversa/</span> <span class="tree-note">requisitos + intro SysML</span></div>
+        <div class="tree-indent"><span class="tree-dir">📁 02-arquitectura/, 03-plan-verificacion/…</span> <span class="tree-note">se añaden según avanza el curso</span></div>
         <div><span class="tree-dir">📁 modelos/</span></div>
         <div class="tree-indent"><span class="tree-dir">📁 sysml/</span> <span class="tree-note">modelos de arquitectura SysML</span></div>
         <div class="tree-indent"><span class="tree-dir">📁 simulacion/</span> <span class="tree-note">modelo base del profesor + trabajo del equipo</span></div>
@@ -698,22 +698,22 @@ footer {
     <div class="repo-step">
       <div class="step-head">
       <span class="step-num">3</span>
-        <span class="step-title lang-es-block">Tu rama de cada semana</span>
-        <span class="step-title lang-en-block">Your weekly branch</span>
+        <span class="step-title lang-es-block">Tu rama de cada fase</span>
+        <span class="step-title lang-en-block">Your branch for each phase</span>
       </div>
       <div class="step-desc lang-es-block">
-        · Cada semana, tu rol trabaja en la rama <code>rol/semana-XX</code> (<code>is</code>, <code>sim</code>, <code>tal</code> o <code>sw</code>), partiendo siempre de <code>master</code> actualizado.<br>
+        · En cada fase, tu rol trabaja en la rama <code>rol/fase-XX</code> (<code>is</code>, <code>sim</code>, <code>tal</code> o <code>sw</code>), partiendo siempre de <code>master</code> actualizado.<br>
         · Trabaja <strong>solo</strong> en las carpetas de tu rol (<code>modelos/simulacion/</code>, <code>modelos/hardware/</code>…). No pises el trabajo de otro rol.<br>
         · <strong>Al terminar la sesión:</strong> <code>Commit</code> + <code>Push</code> de tu rama, aunque la tarea no esté acabada.<br>
-        · Al cerrar la semana, abre un <strong>Pull Request</strong> a <code>master</code>; quien tenga el rol de Sistemas (IS) lo revisa e integra.
+        · Al cerrar la fase, abre un <strong>Pull Request</strong> a <code>master</code>; quien tenga el rol de Sistemas (IS) lo revisa e integra.
       </div>
       <div class="step-desc lang-en-block">
-        · Each week your role works on the branch <code>rol/semana-XX</code> (<code>is</code>, <code>sim</code>, <code>tal</code> or <code>sw</code>), always branching from an up-to-date <code>master</code>.<br>
+        · In each phase your role works on the branch <code>rol/fase-XX</code> (<code>is</code>, <code>sim</code>, <code>tal</code> or <code>sw</code>), always branching from an up-to-date <code>master</code>.<br>
         · Work <strong>only</strong> in your role's folders (<code>modelos/simulacion/</code>, <code>modelos/hardware/</code>…). Never step on another role's work.<br>
         · <strong>Before leaving:</strong> <code>Commit</code> + <code>Push</code> your branch, even if the task isn't finished.<br>
-        · At the end of the week, open a <strong>Pull Request</strong> to <code>master</code>; whoever holds the Systems (IS) role reviews and integrates it.
+        · At the end of the phase, open a <strong>Pull Request</strong> to <code>master</code>; whoever holds the Systems (IS) role reviews and integrates it.
       </div>
-      <code class="step-code">git checkout master && git pull<br>git checkout -b sw/semana-05<br>git commit -m "feat(sw): adquisición SDK + log de corriente"<br>git push origin sw/semana-05</code>
+      <code class="step-code">git checkout master && git pull<br>git checkout -b sw/fase-03<br>git commit -m "feat(sw): adquisición SDK + log de corriente"<br>git push origin sw/fase-03</code>
     </div>
 
     <div class="repo-step">
@@ -769,21 +769,28 @@ footer {
 // licitación, no construir ni verificar el sistema completo: Simulación,
 // Taller y Software generan evidencia de viabilidad para esa oferta, no
 // verificación de un sistema ya construido.
-// estado: "publicado" (hay página real, enlazada) · "en-curso" (empezado, sin cerrar)
-// · "por-definir" (todavía no sabemos cuántas semanas ocupará)
+// estado: "publicado" (hay página real, enlazada) · "por-definir" (todavía no escrito)
 const fases = [
-  { nombre_es:"Requisitos y ConOps", nombre_en:"Requirements & ConOps",
+  { nombre_es:"Ingeniería inversa: del pliego al encargo", nombre_en:"Reverse engineering: from the contract to the brief",
     desc_es:"Extraer y formalizar en SHALL los requisitos del pliego real; construir el concepto de operación del sistema (modos, misiones, actores) y el diagrama de contexto. Es la base de trazabilidad de todo lo que sigue: nada entra en la arquitectura sin un requisito que lo justifique.",
     desc_en:"Extract and formalise the real contract's requirements as SHALL statements; build the system's concept of operations (modes, missions, actors) and the context diagram. This is the traceability foundation for everything that follows: nothing enters the architecture without a requirement that justifies it.",
-    estado:"publicado", semanas:[{n:1, href:"semanas/semana-01/"}] },
-  { nombre_es:"Arquitectura SysML", nombre_en:"SysML Architecture",
-    desc_es:"Construir el BDD (bloques, propiedades) y el IBD (interfaces, conexiones) del sistema completo, con cada elemento trazado a su requisito. Cierra con una baseline de arquitectura — la columna vertebral técnica de la oferta.",
-    desc_en:"Build the full system's BDD (blocks, properties) and IBD (interfaces, connections), with every element traced to its requirement. Closes with an architecture baseline — the technical backbone of the proposal.",
-    estado:"en-curso", semanas:[{n:2, href:"semanas/semana-02/"}, {n:3, href:"semanas/semana-03/"}] },
-  { nombre_es:"Evidencias y oferta técnica", nombre_en:"Evidence & technical proposal",
-    desc_es:"Generar la evidencia de viabilidad que sostiene la propuesta: simulación de los subsistemas críticos, medidas sobre un banco de pruebas físico como digital twin mínimo, y el esquema de integración software. No construimos ni verificamos el sistema completo — reunimos las pruebas de que el diseño cumple los requisitos y las volcamos en el documento de oferta técnica que cierra el curso. Es un documento exigente en sí mismo, con su propia estructura y criterios.",
-    desc_en:"Generate the feasibility evidence that backs the proposal: simulation of the critical subsystems, measurements on a physical testbed as a minimal digital twin, and the software integration outline. We don't build or verify the full system — we gather proof that the design meets the requirements and pour it into the technical proposal document that closes the course. That document is demanding in its own right, with its own structure and criteria.",
-    estado:"por-definir", semanas:[] },
+    estado:"publicado", href:"fases/01-ingenieria-inversa/" },
+  { nombre_es:"Arquitectura SysML: BDD e IBD de primer nivel", nombre_en:"SysML Architecture: top-level BDD and IBD",
+    desc_es:"Construir el BDD (bloques, propiedades) y el IBD (interfaces, conexiones) de primer nivel del sistema, con cada elemento trazado a su requisito. Cierra con una baseline v1.0 de arquitectura — la columna vertebral técnica de la oferta.",
+    desc_en:"Build the top-level BDD (blocks, properties) and IBD (interfaces, connections), with every element traced to its requirement. Closes with an architecture baseline v1.0 — the technical backbone of the proposal.",
+    estado:"publicado", href:"fases/02-arquitectura/" },
+  { nombre_es:"Plan de Verificación", nombre_en:"Verification Plan",
+    desc_es:"Para cada requisito verificable, definir el método de verificación (análisis, inspección, demostración o simulación) y su criterio de aceptación — sin ejecutar ninguna verificación real.",
+    desc_en:"For each verifiable requirement, define the verification method (analysis, inspection, demonstration or simulation) and its acceptance criterion — without actually running any verification.",
+    estado:"por-definir", href:"" },
+  { nombre_es:"Plan de Integración", nombre_en:"Integration Plan",
+    desc_es:"Definir el esquema de integración entre subsistemas y roles: qué interfaces conectan qué bloques, y en qué orden se ensamblarían — sin integrar físicamente nada.",
+    desc_en:"Define the integration scheme between subsystems and roles: which interfaces connect which blocks, and in what order they would be assembled — without physically integrating anything.",
+    estado:"por-definir", href:"" },
+  { nombre_es:"Optimización y cierre", nombre_en:"Optimisation & close-out",
+    desc_es:"Consolidar el documento de oferta técnica que cierra el curso: solución técnica, justificación de trade-offs, EDT/WBS, cronograma y presupuesto. Un documento exigente en sí mismo, con su propia estructura y criterios.",
+    desc_en:"Consolidate the technical proposal document that closes the course: technical solution, trade-off justification, WBS, schedule and budget. A document demanding in its own right, with its own structure and criteria.",
+    estado:"por-definir", href:"" },
 ];
 
 const departamentos = [
@@ -798,7 +805,6 @@ const isEN = () => document.body.classList.contains('en');
 // ── Render fases ───────────────────────────────────────────────────────────
 const ESTADO_LABEL = {
   "publicado":   { es: "Publicado",    en: "Published" },
-  "en-curso":    { es: "En curso",     en: "In progress" },
   "por-definir": { es: "Por definir",  en: "To be defined" },
 };
 function renderFases() {
@@ -808,8 +814,8 @@ function renderFases() {
     const nombre = isEN() ? f.nombre_en : f.nombre_es;
     const desc   = isEN() ? f.desc_en   : f.desc_es;
     const estadoLbl = ESTADO_LABEL[f.estado][isEN() ? 'en' : 'es'];
-    const semanaLbl = isEN() ? 'Week' : 'Semana';
-    const links = f.semanas.map(s => `<a href="${s.href}">${semanaLbl} ${s.n} →</a>`).join('');
+    const verLbl = isEN() ? 'Open phase →' : 'Ver fase →';
+    const links = f.href ? `<div class="fase-links"><a href="${f.href}">${verLbl}</a></div>` : '';
     list.innerHTML += `
       <div class="fase-card">
         <span class="fase-num">${String(i + 1).padStart(2, '0')}</span>
@@ -819,7 +825,7 @@ function renderFases() {
             <span class="fase-estado ${f.estado}">${estadoLbl}</span>
           </div>
           <div class="fase-desc">${desc}</div>
-          ${links ? `<div class="fase-links">${links}</div>` : ''}
+          ${links}
         </div>
       </div>`;
   });

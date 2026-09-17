@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Semana 2 · Robótica-MBSE</title>
+<title>Fase 2 · Robótica-MBSE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
@@ -79,8 +79,8 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
 .mat-card:hover .mat-dl{opacity:1}
 .no-materiales{background:var(--paper-warm);border:1px dashed rgba(13,17,23,.2);border-radius:8px;padding:1.5rem;text-align:center;font-size:.88rem;color:var(--ink-muted);font-family:var(--font-m)}
 
-/* nav semanas */
-.nav-semanas{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+/* nav fases */
+.nav-fases{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border)}
 .nav-btn{font-family:var(--font-m);font-size:.75rem;color:var(--ink-muted);text-decoration:none;padding:.5rem .9rem;border:1px solid var(--border);border-radius:6px;transition:all .2s;letter-spacing:.04em}
 .nav-btn:hover{color:var(--ink);border-color:var(--ink)}
 .nav-btn.disabled{opacity:.3;pointer-events:none}
@@ -91,9 +91,9 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
 <nav class="topbar">
   <a class="topbar-logo" href="../../index.html"><span>Robótica</span>-MBSE</a>
   <div class="topbar-right">
-    <a class="back-link" href="../../index.html#semanas">
-      <span class="lang-es-inline">← Todas las semanas</span>
-      <span class="lang-en-inline">← All weeks</span>
+    <a class="back-link" href="../../index.html#proceso">
+      <span class="lang-es-inline">← Todas las fases</span>
+      <span class="lang-en-inline">← All phases</span>
     </a>
     <button class="lang-btn" onclick="document.body.classList.toggle('en')">EN / ES</button>
   </div>
@@ -104,35 +104,22 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
   <div class="hero-inner">
     <div class="hero-tags">
       <span class="tag tag-accent">
-        <span class="lang-es-inline">Bloque I — Arquitectura</span>
-        <span class="lang-en-inline">Block I — Architecture</span>
-      </span>
-      <span class="tag">
-        <span class="lang-es-inline">Entrega grupal</span>
-        <span class="lang-en-inline">Group submission</span>
-      </span>
-      <span class="tag">
-        <span class="lang-es-inline">1 sesión de laboratorio de 2h + 2h trabajo autónomo</span>
-        <span class="lang-en-inline">1 × 2h lab session + 2h self-study</span>
+        <span class="lang-es-inline">Fase 2 de 5</span>
+        <span class="lang-en-inline">Phase 2 of 5</span>
       </span>
     </div>
     <h1 class="hero-titulo">
-      <span class="lang-es">Nombrar la arquitectura: BDD de primer nivel</span>
-      <span class="lang-en">Name the architecture: top-level BDD</span>
+      <span class="lang-es">Arquitectura SysML: BDD e IBD de primer nivel</span>
+      <span class="lang-en">SysML Architecture: top-level BDD and IBD</span>
     </h1>
     <div class="hero-meta">
       <div class="meta-item">
         <span class="lang-es-inline">Verbo clave:</span>
         <span class="lang-en-inline">Key verb:</span>
         <strong>
-          <span class="lang-es-inline">Nombrar</span>
-          <span class="lang-en-inline">Name</span>
+          <span class="lang-es-inline">Construir</span>
+          <span class="lang-en-inline">Build</span>
         </strong>
-      </div>
-      <div class="meta-item">
-        <span class="lang-es-inline">Semana:</span>
-        <span class="lang-en-inline">Week:</span>
-        <strong>2</strong>
       </div>
     </div>
   </div>
@@ -143,21 +130,21 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
   <div class="section">
     <p class="section-label"><span class="lang-es-inline">Objetivo</span><span class="lang-en-inline">Objective</span></p>
     <div class="objetivo-box">
-      <span class="lang-es">Abrir el modelo de arquitectura por primera vez y construir el diagrama de bloques (BDD) de primer nivel del Sistema UGV que pide el RDOC-13: los subsistemas, con 2–3 propiedades tipadas y valoradas cada uno, cada una trazada al requisito ancla que la justifica.</span>
-      <span class="lang-en">Open the architecture model for the first time and build the top-level block diagram (BDD) of the UGV System required by RDOC-13: the subsystems, each with 2–3 typed and valued properties, each one traced to the anchor requirement that justifies it.</span>
+      <span class="lang-es">Construir el BDD (bloques, propiedades) y el IBD (interfaces, conexiones) de primer nivel del Sistema UGV que pide el RDOC-13, con cada elemento trazado al requisito que lo justifica. Cerrar con una baseline v1.0 de la arquitectura — la columna vertebral técnica de la oferta.</span>
+      <span class="lang-en">Build the top-level BDD (blocks, properties) and IBD (interfaces, connections) of the UGV System required by RDOC-13, with every element traced to the requirement that justifies it. Close with an architecture baseline v1.0 — the technical backbone of the proposal.</span>
     </div>
   </div>
 
   <div class="section">
     <p class="section-label"><span class="lang-es-inline">Tareas</span><span class="lang-en-inline">Tasks</span></p>
-    <ul class="item-list"><li class="lang-es">Copiar el modelo base: base/modelos/sistema.yaml → modelos/sysml/sistema.yaml (una sola vez). Ya trae los bloques de primer nivel y el desglose interno del UGV — tu trabajo es rellenar las propiedades</li><li class="lang-es">Revisar que están los bloques de primer nivel (RDOC-13.c.1): UGV, Puesto de Mando Portable, Dispositivo de Telemando Portable, Subsistema de Comunicaciones, UAV de apoyo; y el desglose del UGV: Propulsión y energía, Movilidad y tren de rodaje, Percepción y navegación, Control y computación, Puntos de interfaz. Añadir lo que falte</li><li class="lang-es">Reparto por rol (según la Semana 1): IS → propiedades de nivel sistema (masa, autonomía, modos) · Simulación → propulsión y movilidad (potencia, par, velocidad, pendiente) · Taller → chasis e interfaces (dimensiones, pesos, RGEN-28) · Software → comunicaciones y control (alcance BLOS RCOM-02, latencia, RSW)</li><li class="lang-es">Cada propiedad, dentro del bloque en sistema.yaml: nombre, tipo, valor, unidad y el requisito que la justifica (p. ej. UGV.masa_orden_mision = 9000 kg, requisito RLT1-08). Sin requisito que la justifique, la propiedad no entra</li><li class="lang-es">Regenerar la vista: python3 render_arquitectura.py modelos/sysml/sistema.yaml -o modelos/sysml/ARQUITECTURA.md — revisar que no reporta problemas de trazabilidad, y que el BDD en ARQUITECTURA.md coincide con lo esperado</li><li class="lang-en">Copy the base model: base/modelos/sistema.yaml → modelos/sysml/sistema.yaml (once only). It already has the top-level blocks and the UGV breakdown — your job is to fill in the properties</li><li class="lang-en">Check that the top-level blocks are there (RDOC-13.c.1): UGV, Portable Command Post, Portable Remote-Control Device, Communications Subsystem, support UAV; and the UGV breakdown: Propulsion & energy, Mobility & running gear, Perception & navigation, Control & computing, Interface points. Add whatever is missing</li><li class="lang-en">Split by role (from Week 1): IS → system-level properties (mass, endurance, modes) · Simulation → propulsion & mobility (power, torque, speed, gradient) · Workshop → chassis & interfaces (dimensions, weights, RGEN-28) · Software → communications & control (BLOS range RCOM-02, latency, RSW)</li><li class="lang-en">Each property, inside its block in sistema.yaml: name, type, value, unit and the requirement that justifies it (e.g. UGV.mission_mass = 9000 kg, requirement RLT1-08). A property with no justifying requirement does not go in</li><li class="lang-en">Regenerate the view: python3 render_arquitectura.py modelos/sysml/sistema.yaml -o modelos/sysml/ARQUITECTURA.md — check it reports no traceability problems, and that the BDD in ARQUITECTURA.md matches what's expected</li></ul>
+    <ul class="item-list"><li class="lang-es">Copiar el modelo base: base/modelos/sistema.yaml → modelos/sysml/sistema.yaml (una sola vez). Ya trae los bloques de primer nivel y el desglose interno del UGV — tu trabajo es rellenar las propiedades</li><li class="lang-es">Revisar que están los bloques de primer nivel (RDOC-13.c.1): UGV, Puesto de Mando Portable, Dispositivo de Telemando Portable, Subsistema de Comunicaciones, UAV de apoyo; y el desglose del UGV: Propulsión y energía, Movilidad y tren de rodaje, Percepción y navegación, Control y computación, Puntos de interfaz. Añadir lo que falte</li><li class="lang-es">Reparto por rol (según la Fase 1): IS → propiedades de nivel sistema (masa, autonomía, modos) · Simulación → propulsión y movilidad (potencia, par, velocidad, pendiente) · Taller → chasis e interfaces (dimensiones, pesos, RGEN-28) · Software → comunicaciones y control (alcance BLOS RCOM-02, latencia, RSW)</li><li class="lang-es">Cada propiedad, dentro del bloque en sistema.yaml: nombre, tipo, valor, unidad y el requisito que la justifica (p. ej. UGV.masa_orden_mision = 9000 kg, requisito RLT1-08). Sin requisito que la justifique, la propiedad no entra</li><li class="lang-es">Regenerar la vista: python3 render_arquitectura.py modelos/sysml/sistema.yaml -o modelos/sysml/ARQUITECTURA.md — revisar que no reporta problemas de trazabilidad, y que el BDD coincide con lo esperado</li><li class="lang-es">Sobre el BDD ya construido: en la sección interfaces de sistema.yaml, rellenar que_transporta, tipo_unidades y requisito de cada una: EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones</li><li class="lang-es">En la sección conexiones, añadir una entrada {origen, destino, interfaz} por cada conexión entre bloques de primer nivel y con el exterior (operador, terreno y ambiente, cargas de pago), según el diagrama de contexto de la Fase 1</li><li class="lang-es">Añadir también las conexiones internas del bloque UGV entre sus subsistemas (Propulsión y energía → Movilidad; Percepción y navegación → Control; Control → Comunicaciones…)</li><li class="lang-es">Reparto por rol (interfaces): IS → interfaces de sistema y con el exterior · Simulación → EnergiaElectrica y ParMecanico (RGEN-11, RLT1-04/09) · Taller → interfaces mecánicas de los Puntos de Interfaz (RGEN-28) · Software → FlujoVideo, DatosNavegacion, EnlaceComunicaciones (RGEN-22, RNAV-01, RCOM-01/02, RSW-07)</li><li class="lang-es">Regenerar la vista de nuevo, revisar el IBD y que no queden interfaces sin requisito. Cerrar la fase con un tag de git: git tag -a baseline-v1.0 -m "Arquitectura v1.0 — BDD+IBD nivel 1" && git push origin baseline-v1.0</li><li class="lang-en">Copy the base model: base/modelos/sistema.yaml → modelos/sysml/sistema.yaml (once only). It already has the top-level blocks and the UGV breakdown — your job is to fill in the properties</li><li class="lang-en">Check that the top-level blocks are there (RDOC-13.c.1): UGV, Portable Command Post, Portable Remote-Control Device, Communications Subsystem, support UAV; and the UGV breakdown: Propulsion & energy, Mobility & running gear, Perception & navigation, Control & computing, Interface points. Add whatever is missing</li><li class="lang-en">Split by role (from Phase 1): IS → system-level properties (mass, endurance, modes) · Simulation → propulsion & mobility (power, torque, speed, gradient) · Workshop → chassis & interfaces (dimensions, weights, RGEN-28) · Software → communications & control (BLOS range RCOM-02, latency, RSW)</li><li class="lang-en">Each property, inside its block in sistema.yaml: name, type, value, unit and the requirement that justifies it (e.g. UGV.mission_mass = 9000 kg, requirement RLT1-08). A property with no justifying requirement does not go in</li><li class="lang-en">Regenerate the view: python3 render_arquitectura.py modelos/sysml/sistema.yaml -o modelos/sysml/ARQUITECTURA.md — check it reports no traceability problems, and that the BDD matches what's expected</li><li class="lang-en">On top of the finished BDD: in the interfaces section of sistema.yaml, fill in que_transporta, tipo_unidades and requisito for each one: EnergiaElectrica, ParMecanico, SenalControl, FlujoVideo, DatosNavegacion, EnlaceComunicaciones</li><li class="lang-en">In the conexiones section, add one {origen, destino, interfaz} entry per connection between top-level blocks and with the exterior (operator, terrain and environment, payloads), following the Phase 1 context diagram</li><li class="lang-en">Also add the internal connections of the UGV block between its subsystems (Propulsion & energy → Mobility; Perception & navigation → Control; Control → Communications…)</li><li class="lang-en">Split by role (interfaces): IS → system and external interfaces · Simulation → EnergiaElectrica and ParMecanico (RGEN-11, RLT1-04/09) · Workshop → mechanical interfaces of the interface points (RGEN-28) · Software → FlujoVideo, DatosNavegacion, EnlaceComunicaciones (RGEN-22, RNAV-01, RCOM-01/02, RSW-07)</li><li class="lang-en">Regenerate the view again, check the IBD and that no interface is left without a requirement. Close the phase with a git tag: git tag -a baseline-v1.0 -m "Architecture v1.0 — level-1 BDD+IBD" && git push origin baseline-v1.0</li></ul>
   </div>
 
   <div class="section">
     <p class="section-label"><span class="lang-es-inline">Entregables</span><span class="lang-en-inline">Deliverables</span></p>
     <ul class="entregable-list">
-      <li class="lang-es">EQUIPO — sistema.yaml con el BDD (bloques nivel 1 y 2, propiedades tipadas): modelos/sysml/sistema.yaml</li><li class="lang-es">EQUIPO — ARQUITECTURA.md regenerado (diagrama BDD + tabla de propiedades): modelos/sysml/ARQUITECTURA.md</li><li class="lang-es">EQUIPO — Informe de Arquitectura (reparto por rol, observaciones, checklist): modelos/sysml/INFORME.md, sección «Semana 2»</li><li class="lang-es">1 Pull Request a master; 1 commit por rol: feat([rol]): propiedades del BDD nivel 1 — semana 2</li>
-      <li class="lang-en">TEAM — sistema.yaml with the BDD (level 1 and 2 blocks, typed properties): modelos/sysml/sistema.yaml</li><li class="lang-en">TEAM — Regenerated ARQUITECTURA.md (BDD diagram + property table): modelos/sysml/ARQUITECTURA.md</li><li class="lang-en">TEAM — Architecture Report (role split, observations, checklist): modelos/sysml/INFORME.md, "Week 2" section</li><li class="lang-en">1 Pull Request to master; 1 commit per role: feat([role]): top-level BDD properties — week 2</li>
+      <li class="lang-es">EQUIPO — sistema.yaml completo (BDD + IBD: bloques, propiedades, interfaces, conexiones): modelos/sysml/sistema.yaml</li><li class="lang-es">EQUIPO — ARQUITECTURA.md regenerado (BDD + IBD, tablas de propiedades e interfaces): modelos/sysml/ARQUITECTURA.md</li><li class="lang-es">EQUIPO — Informe de Arquitectura (reparto por rol, observaciones, checklist): modelos/sysml/INFORME.md</li><li class="lang-es">Tag de git baseline-v1.0 sobre el commit que cierra la fase</li><li class="lang-es">1 Pull Request a master; 1 commit por rol: feat([rol]): arquitectura BDD+IBD nivel 1</li>
+      <li class="lang-en">TEAM — Full sistema.yaml (BDD + IBD: blocks, properties, interfaces, connections): modelos/sysml/sistema.yaml</li><li class="lang-en">TEAM — Regenerated ARQUITECTURA.md (BDD + IBD, property and interface tables): modelos/sysml/ARQUITECTURA.md</li><li class="lang-en">TEAM — Architecture Report (role split, observations, checklist): modelos/sysml/INFORME.md</li><li class="lang-en">Git tag baseline-v1.0 on the commit that closes the phase</li><li class="lang-en">1 Pull Request to master; 1 commit per role: feat([role]): top-level BDD+IBD architecture</li>
     </ul>
   </div>
 
@@ -168,7 +155,7 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
       <a class="mat-card" href="Arquitectura_BDD_IBD.pptx" download>
         <span class="mat-icon" style="background:#f6efd8;color:#b8860b">📽️</span>
         <div class="mat-info">
-          <span class="mat-nombre">Arquitectura del Sistema: BDD e IBD (transparencias, Semanas 2-3)</span>
+          <span class="mat-nombre">Arquitectura del Sistema: BDD e IBD (transparencias)</span>
           <span class="mat-tipo" style="color:#b8860b">PPTX</span>
         </div>
         <span class="mat-dl" style="color:#b8860b">↓</span>
@@ -208,8 +195,8 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
     </div>
   </div>
 
-  <nav class="nav-semanas">
-    <a class="nav-btn" href="../../index.html#semanas">
+  <nav class="nav-fases">
+    <a class="nav-btn" href="../../index.html#proceso">
       <span class="lang-es-inline">← Índice</span>
       <span class="lang-en-inline">← Index</span>
     </a>

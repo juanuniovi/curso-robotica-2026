@@ -1,8 +1,8 @@
 # Introducción a la ingeniería de sistemas y al MBSE
 
-> Lectura previa de la **Semana 1**. Objetivo: llegar a la Semana 2 con el vocabulario
-> mínimo para construir un modelo de arquitectura sin que "BDD", "bloque" o "trazabilidad"
-> suenen a chino. ~15 minutos de lectura.
+> Lectura previa de la **Fase 1 — Ingeniería inversa**. Objetivo: llegar a la Fase 2 con el
+> vocabulario mínimo para construir un modelo de arquitectura sin que "BDD", "bloque" o
+> "trazabilidad" suenen a chino. ~15 minutos de lectura.
 
 ---
 
@@ -51,11 +51,13 @@ Implementación.** El encargo real es preparar una **oferta técnica** para una 
 no construir ni verificar el sistema completo. Eso sería ya ejecutar un contrato
 adjudicado, y queda fuera del alcance del curso:
 
-| Fase OOSEM | Fase del curso | Qué se hace |
+| Fase OOSEM (Sols, Fig. 3.5) | Fase del curso | Qué se hace |
 |---|---|---|
-| Analizar las necesidades del cliente + definir el contexto | 1 — Requisitos y ConOps | Leer el pliego, extraer requisitos SHALL, diagrama de contexto |
-| Arquitectura lógica y física | 2 — Arquitectura SysML | BDD + IBD, trazabilidad, baseline de arquitectura |
-| — (no es una fase OOSEM estándar; es evidencia de apoyo a la oferta) | 3 — Evidencias y oferta técnica | Simulación de subsistemas críticos, banco de pruebas físico, redacción de la oferta |
+| Necesidad, problema, stakeholders, ConOps, requisitos de stakeholder | 1 — Ingeniería inversa | Leer el pliego, extraer requisitos SHALL, ConOps, diagrama de contexto |
+| Conceptos de diseño, requisitos de sistema, análisis funcional, arquitectura | 2 — Arquitectura | BDD + IBD, trazabilidad, baseline de arquitectura |
+| Métodos de verificación (parte de la traducción a requisitos de sistema) | 3 — Plan de Verificación | Método y criterio de aceptación por requisito verificable — sin ejecutar |
+| — (no es una fase OOSEM estándar; planificación de apoyo a la oferta) | 4 — Plan de Integración | Esquema de interfaces entre equipos/roles, estrategia de ensamblaje |
+| — (consolidación final, no una fase OOSEM estándar) | 5 — Optimización y cierre | Solución técnica, trade-offs, EDT/WBS, cronograma, presupuesto |
 
 Visualmente, la metodología completa se dibuja como una **V**:
 
@@ -90,8 +92,8 @@ basta con estos términos:
 | **Propiedad de valor** (*value property*) | Un dato numérico del bloque, **con tipo y unidad**: `masa_orden_mision = 9000 kg`, `potencia_min = 140 kW`. |
 | **Puerto** (*port*) | El punto por el que un bloque se conecta con otro. |
 | **Interfaz** (*interface*) | Qué fluye por una conexión: energía eléctrica, un par mecánico, un mensaje de control, un flujo de vídeo… |
-| **BDD** (*Block Definition Diagram*) | El diagrama que dice **qué bloques hay**, sus propiedades y cómo se componen unos dentro de otros (la "lista de piezas" jerárquica). Es lo que se construye en la **Semana 2**. |
-| **IBD** (*Internal Block Diagram*) | El diagrama que dice **cómo se conectan por dentro** los bloques de un nivel: puertos, interfaces y líneas de conexión. Se trabaja en la **Semana 3**. |
+| **BDD** (*Block Definition Diagram*) | El diagrama que dice **qué bloques hay**, sus propiedades y cómo se componen unos dentro de otros (la "lista de piezas" jerárquica). Es lo que se construye en la **Fase 2**. |
+| **IBD** (*Internal Block Diagram*) | El diagrama que dice **cómo se conectan por dentro** los bloques de un nivel: puertos, interfaces y líneas de conexión. También se trabaja en la **Fase 2**. |
 | **Enlace de trazabilidad** | Una flecha que une un elemento del modelo con el requisito que lo justifica (*satisfy*), o un test con el requisito que verifica (*verify*). |
 
 **BDD = qué hay** (bloques y propiedades). **IBD = cómo se conecta** (puertos e interfaces).
@@ -124,4 +126,4 @@ El rol de IS coordina a los otros tres y reporta al Cliente (el profesor).
 ---
 
 *Siguiente paso: leer el [Anexo I anonimizado](anexo-I_anonimizado.html) con el guion de la
-Semana 1 y rellenar la ficha de comprensión.*
+Fase 1 y rellenar la ficha de comprensión.*

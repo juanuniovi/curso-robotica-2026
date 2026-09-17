@@ -5,9 +5,9 @@
 
 **Equipo:** ______________&nbsp;&nbsp;&nbsp; **Lote:** ☐ 1 (ruedas) ☐ 2 (cadenas)
 
-Acompaña a [`sistema.yaml`](sistema.yaml) / [`ARQUITECTURA.md`](ARQUITECTURA.md): mientras esos dos son el modelo y su vista generada, este documento recoge las decisiones, observaciones y checklist de cada hito. Una sección por semana.
+Acompaña a [`sistema.yaml`](sistema.yaml) / [`ARQUITECTURA.md`](ARQUITECTURA.md): mientras esos dos son el modelo y su vista generada, este documento recoge las decisiones, observaciones y checklist de cada hito de la Fase 2 — Arquitectura. Una sección por hito.
 
-## Semana 2 — BDD
+## BDD
 
 ### Reparto de propiedades por rol
 
@@ -36,6 +36,6 @@ Acompaña a [`sistema.yaml`](sistema.yaml) / [`ARQUITECTURA.md`](ARQUITECTURA.md
 | 4 | `python3 render_arquitectura.py modelos/sysml/sistema.yaml -o modelos/sysml/ARQUITECTURA.md` corre sin problemas de trazabilidad | ☐ |
 | 5 | `ARQUITECTURA.md` regenerado y comprobado en GitHub (el diagrama se ve bien) | ☐ |
 
-## Semana 3 — IBD
+## IBD
 
-*(se rellena en la Semana 3)*
+*(se rellena al trabajar el IBD)*

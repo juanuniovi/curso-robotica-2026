@@ -1,7 +1,7 @@
 # Modelo base — `sistema.yaml`
 
 Esqueleto **muy básico** del modelo de arquitectura del Sistema UGV, para no empezar la
-Semana 2 desde una hoja en blanco. Es un archivo de datos (YAML), no un archivo de una
+Fase 2 — Arquitectura desde una hoja en blanco. Es un archivo de datos (YAML), no un archivo de una
 herramienta gráfica — se visualiza generando `ARQUITECTURA.md` con `render_arquitectura.py`.
 
 ## Qué trae
@@ -21,8 +21,8 @@ herramienta gráfica — se visualiza generando `ARQUITECTURA.md` con `render_ar
 
 | Falta | Se hace en |
 |---|---|
-| Propiedades de valor formales (tipo + valor + unidad) | **Semana 2** |
-| Interfaces caracterizadas y conexiones (el IBD) | **Semana 3** |
+| Propiedades de valor formales (tipo + valor + unidad) | **Fase 2 — BDD** |
+| Interfaces caracterizadas y conexiones (el IBD) | **Fase 2 — IBD** |
 
 ## Cómo usarlo
 

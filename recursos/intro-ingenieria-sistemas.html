@@ -47,9 +47,9 @@ a{color:var(--accent)}
 <div class="wrap">
 <h1 id="introduccion-a-la-ingenieria-de-sistemas-y-al-mbse">Introducción a la ingeniería de sistemas y al MBSE</h1>
 <blockquote>
-<p>Lectura previa de la <strong>Semana 1</strong>. Objetivo: llegar a la Semana 2 con el vocabulario
-mínimo para construir un modelo de arquitectura sin que "BDD", "bloque" o "trazabilidad"
-suenen a chino. ~15 minutos de lectura.</p>
+<p>Lectura previa de la <strong>Fase 1 — Ingeniería inversa</strong>. Objetivo: llegar a la Fase 2 con el
+vocabulario mínimo para construir un modelo de arquitectura sin que "BDD", "bloque" o
+"trazabilidad" suenen a chino. ~15 minutos de lectura.</p>
 </blockquote>
 <hr />
 <h2 id="1-que-es-la-ingenieria-de-sistemas">1. ¿Qué es la ingeniería de sistemas?</h2>
@@ -91,26 +91,36 @@ adjudicado, y queda fuera del alcance del curso:</p>
 <table>
 <thead>
 <tr>
-<th>Fase OOSEM</th>
+<th>Fase OOSEM (Sols, Fig. 3.5)</th>
 <th>Fase del curso</th>
 <th>Qué se hace</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Analizar las necesidades del cliente + definir el contexto</td>
-<td>1 — Requisitos y ConOps</td>
-<td>Leer el pliego, extraer requisitos SHALL, diagrama de contexto</td>
+<td>Necesidad, problema, stakeholders, ConOps, requisitos de stakeholder</td>
+<td>1 — Ingeniería inversa</td>
+<td>Leer el pliego, extraer requisitos SHALL, ConOps, diagrama de contexto</td>
 </tr>
 <tr>
-<td>Arquitectura lógica y física</td>
-<td>2 — Arquitectura SysML</td>
+<td>Conceptos de diseño, requisitos de sistema, análisis funcional, arquitectura</td>
+<td>2 — Arquitectura</td>
 <td>BDD + IBD, trazabilidad, baseline de arquitectura</td>
 </tr>
 <tr>
-<td>— (no es una fase OOSEM estándar; es evidencia de apoyo a la oferta)</td>
-<td>3 — Evidencias y oferta técnica</td>
-<td>Simulación de subsistemas críticos, banco de pruebas físico, redacción de la oferta</td>
+<td>Métodos de verificación (parte de la traducción a requisitos de sistema)</td>
+<td>3 — Plan de Verificación</td>
+<td>Método y criterio de aceptación por requisito verificable — sin ejecutar</td>
+</tr>
+<tr>
+<td>— (no es una fase OOSEM estándar; planificación de apoyo a la oferta)</td>
+<td>4 — Plan de Integración</td>
+<td>Esquema de interfaces entre equipos/roles, estrategia de ensamblaje</td>
+</tr>
+<tr>
+<td>— (consolidación final, no una fase OOSEM estándar)</td>
+<td>5 — Optimización y cierre</td>
+<td>Solución técnica, trade-offs, EDT/WBS, cronograma, presupuesto</td>
 </tr>
 </tbody>
 </table>
@@ -161,11 +171,11 @@ basta con estos términos:</p>
 </tr>
 <tr>
 <td><strong>BDD</strong> (<em>Block Definition Diagram</em>)</td>
-<td>El diagrama que dice <strong>qué bloques hay</strong>, sus propiedades y cómo se componen unos dentro de otros (la "lista de piezas" jerárquica). Es lo que se construye en la <strong>Semana 2</strong>.</td>
+<td>El diagrama que dice <strong>qué bloques hay</strong>, sus propiedades y cómo se componen unos dentro de otros (la "lista de piezas" jerárquica). Es lo que se construye en la <strong>Fase 2</strong>.</td>
 </tr>
 <tr>
 <td><strong>IBD</strong> (<em>Internal Block Diagram</em>)</td>
-<td>El diagrama que dice <strong>cómo se conectan por dentro</strong> los bloques de un nivel: puertos, interfaces y líneas de conexión. Se trabaja en la <strong>Semana 3</strong>.</td>
+<td>El diagrama que dice <strong>cómo se conectan por dentro</strong> los bloques de un nivel: puertos, interfaces y líneas de conexión. También se trabaja en la <strong>Fase 2</strong>.</td>
 </tr>
 <tr>
 <td><strong>Enlace de trazabilidad</strong></td>
@@ -221,7 +231,7 @@ y Software no verifican un sistema ya construido — generan la evidencia de via
 <p>El rol de IS coordina a los otros tres y reporta al Cliente (el profesor).</p>
 <hr />
 <p><em>Siguiente paso: leer el <a href="anexo-I_anonimizado.html">Anexo I anonimizado</a> con el guion de la
-Semana 1 y rellenar la ficha de comprensión.</em></p>
+Fase 1 y rellenar la ficha de comprensión.</em></p>
 </div>
 </body>
 </html>
