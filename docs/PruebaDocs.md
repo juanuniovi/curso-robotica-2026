@@ -1,4 +1,4 @@
-=======
+======
 # Guía rápida de Git
 
 ## 1. Configuración inicial
