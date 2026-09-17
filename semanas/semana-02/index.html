@@ -79,10 +79,6 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
 .mat-card:hover .mat-dl{opacity:1}
 .no-materiales{background:var(--paper-warm);border:1px dashed rgba(13,17,23,.2);border-radius:8px;padding:1.5rem;text-align:center;font-size:.88rem;color:var(--ink-muted);font-family:var(--font-m)}
 
-/* añadir material — instrucción para el profesor */
-.add-material-hint{margin-top:.8rem;background:#fffbea;border:1px dashed #c8a800;border-radius:8px;padding:1rem 1.2rem;font-size:.8rem;color:#6b5500;font-family:var(--font-m);line-height:1.6}
-.add-material-hint code{background:rgba(0,0,0,.07);padding:.1rem .35rem;border-radius:3px;font-size:.78rem}
-
 /* nav semanas */
 .nav-semanas{display:flex;justify-content:space-between;align-items:center;margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--border)}
 .nav-btn{font-family:var(--font-m);font-size:.75rem;color:var(--ink-muted);text-decoration:none;padding:.5rem .9rem;border:1px solid var(--border);border-radius:6px;transition:all .2s;letter-spacing:.04em}
@@ -209,20 +205,6 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{display:flex}
         </div>
         <span class="mat-dl" style="color:#1a4f8a">↗</span>
       </a>
-    </div>
-    <div class="add-material-hint">
-      <span class="lang-es">
-        <strong>Profesor:</strong> para añadir un material, copia el archivo en esta carpeta
-        (<code>semana-02/</code>) y añade una entrada al array <code>materiales</code>
-        en <code>gen_semanas.py</code>, luego regenera con <code>python3 gen_semanas.py</code>.
-        Tipos disponibles: <code>docx · pdf · xlsx · slx · código · enlace · zip · md · pptx · csv</code>
-      </span>
-      <span class="lang-en">
-        <strong>Instructor:</strong> to add material, copy the file to this folder
-        (<code>semana-02/</code>) and add an entry to the <code>materiales</code> array
-        in <code>gen_semanas.py</code>, then regenerate with <code>python3 gen_semanas.py</code>.
-        Available types: <code>docx · pdf · xlsx · slx · code · link · zip · md · pptx · csv</code>
-      </span>
     </div>
   </div>
 
