@@ -211,10 +211,10 @@ section { padding: 4rem 0; }
 }
 
 /* ── Nota de alcance ──────────────────────────────────────────────── */
-#semanas { background: var(--ink); }
-#semanas .section-tag { color: var(--accent); }
-#semanas .section-title { color: var(--paper); }
-#semanas .section-lead { color: rgba(246,244,239,.55); }
+#proceso { background: var(--ink); }
+#proceso .section-tag { color: var(--accent); }
+#proceso .section-title { color: var(--paper); }
+#proceso .section-lead { color: rgba(246,244,239,.55); }
 
 .scope-note {
   margin-bottom: 2.2rem;
@@ -238,51 +238,41 @@ section { padding: 4rem 0; }
   font-size: .85rem; color: rgba(246,244,239,.6); line-height: 1.65;
 }
 
-/* ── Tabla de semanas ──────────────────────────────────────────────── */
-.semanas-table-wrap {
-  overflow-x: auto;
-  border-radius: var(--r-lg);
+/* ── Fases del proceso ────────────────────────────────────────────── */
+.fases-list { display: flex; flex-direction: column; gap: .9rem; }
+.fase-card {
+  display: flex; align-items: flex-start; gap: 1rem;
+  background: rgba(246,244,239,.04);
   border: 1px solid rgba(246,244,239,.1);
+  border-radius: var(--r-lg);
+  padding: 1.1rem 1.3rem;
 }
-.semanas-table {
-  width: 100%;
-  min-width: 760px;
-  border-collapse: collapse;
-  background: white;
-  font-size: .8rem;
+.fase-num {
+  font-family: var(--font-display); font-weight: 800; font-size: 1.1rem;
+  color: rgba(246,244,239,.3);
+  min-width: 1.6rem;
 }
-.semanas-table th {
-  font-family: var(--font-mono);
-  font-size: .62rem; letter-spacing: .08em; text-transform: uppercase;
-  text-align: left; padding: .75rem .85rem;
-  background: #16191f; color: rgba(246,244,239,.5);
+.fase-body { flex: 1; }
+.fase-head { display: flex; align-items: center; flex-wrap: wrap; gap: .6rem; margin-bottom: .3rem; }
+.fase-nombre {
+  font-family: var(--font-display); font-weight: 700; font-size: 1rem;
+  color: var(--paper);
 }
-.semanas-table th.col-is  { color: var(--gold); }
-.semanas-table th.col-sim { color: #7fb2e0; }
-.semanas-table th.col-tal { color: #7fd6a0; }
-.semanas-table th.col-sw  { color: #c9a6f0; }
-.semanas-table td {
-  padding: .65rem .85rem;
-  border-bottom: 1px solid var(--border);
-  vertical-align: top; line-height: 1.45;
-  color: var(--ink-soft);
+.fase-estado {
+  font-family: var(--font-mono); font-size: .6rem; letter-spacing: .08em; text-transform: uppercase;
+  padding: .15rem .55rem; border-radius: 20px;
 }
-.semanas-table tr:nth-child(even) td { background: var(--paper); }
-.semanas-table td.col-num {
-  font-family: var(--font-display); font-weight: 800;
-  color: var(--accent2); text-align: center;
+.fase-estado.publicado { background: rgba(45,106,63,.18); color: #7fd6a0; }
+.fase-estado.en-curso { background: rgba(184,134,11,.18); color: #e0b84a; }
+.fase-estado.por-definir { background: rgba(246,244,239,.06); color: rgba(246,244,239,.4); }
+.fase-desc { font-size: .85rem; color: rgba(246,244,239,.55); line-height: 1.55; margin-bottom: .5rem; }
+.fase-links { display: flex; gap: .5rem; flex-wrap: wrap; }
+.fase-links a {
+  font-family: var(--font-mono); font-size: .68rem; color: #7ec8e3;
+  text-decoration: none; border: 1px solid rgba(126,200,227,.25);
+  border-radius: var(--r-sm); padding: .2rem .6rem;
 }
-.semanas-table td.col-obj strong {
-  display: block; color: var(--ink); font-weight: 700;
-}
-.semanas-table td.col-obj span {
-  font-family: var(--font-mono); font-size: .7rem; color: var(--ink-muted);
-}
-.semanas-table tbody tr:hover td { background: #eef2f7; }
-.semanas-table td.col-num a,
-.semanas-table td.col-obj a.wk-link { color: inherit; text-decoration: none; display: block; }
-.semanas-table td.col-obj a.wk-link:hover strong { color: var(--accent2); }
-.semanas-table td.col-obj a.wk-link .arrow { color: var(--accent2); }
+.fase-links a:hover { border-color: #7ec8e3; }
 
 /* ── Departamentos ────────────────────────────────────────────────── */
 #departamentos { background: var(--paper-warm); }
@@ -462,8 +452,8 @@ footer {
 <nav class="topbar">
   <a class="topbar-logo" href="#"><span>Robótica</span>-MBSE</a>
   <div class="topbar-nav">
-    <a href="#semanas" class="hide-mobile">
-      <span class="lang-es">Semanas</span><span class="lang-en">Weeks</span>
+    <a href="#proceso" class="hide-mobile">
+      <span class="lang-es">Proceso</span><span class="lang-en">Process</span>
     </a>
     <a href="#departamentos" class="hide-mobile">
       <span class="lang-es">Roles</span><span class="lang-en">Roles</span>
@@ -493,7 +483,7 @@ footer {
     </p>
     <div class="hero-badges">
       <span class="badge">Análisis de pliegos</span>
-      <span class="badge"></span>
+      <span class="badge">Arquitectura SysML</span>
       <span class="badge">Simulación física</span>
       <span class="badge">Generación de una propuesta</span>
       <span class="badge hot">
@@ -502,9 +492,9 @@ footer {
       </span>
     </div>
     <div class="hero-cta">
-      <a href="#semanas" class="btn btn-primary">
-        <span class="lang-es">Ver semanas →</span>
-        <span class="lang-en">Browse weeks →</span>
+      <a href="#proceso" class="btn btn-primary">
+        <span class="lang-es">Ver el proceso →</span>
+        <span class="lang-en">See the process →</span>
       </a>
       <a href="https://github.com/juanuniovi/curso-robotica-2026" class="btn btn-secondary" target="_blank">
         GitHub Repo
@@ -532,30 +522,30 @@ footer {
       <div><span class="stat-num">80+</span><span class="stat-lbl"><span class="lang-es">Requisitos</span><span class="lang-en">Requirements</span></span></div>
     </div>
     <div class="tool-list">
-      <div class="tool-chip">Herramienta Lenguaje de Modelado</div>
+      <div class="tool-chip">Modelado en YAML</div>
       <div class="tool-chip">Simulador físico multicuerpo</div>
       <div class="tool-chip">Stateflow</div>
-      <div class="tool-chip">Arquitectura del software</div>
-      <div class="tool-chip">Software</div>
-      <div class="tool-chip"><span class="lang-es">Equipo de laboratorio</span><span class="lang-en">Lab actuator</span></div>
+      <div class="tool-chip">ROS 2</div>
+      <div class="tool-chip">Simulink Test</div>
+      <div class="tool-chip"><span class="lang-es">Actuador de laboratorio</span><span class="lang-en">Lab actuator</span></div>
     </div>
   </div>
 </section>
 
-<!-- ── SEMANAS ──────────────────────────────────────────────────────── -->
-<section id="semanas">
+<!-- ── PROCESO ──────────────────────────────────────────────────────── -->
+<section id="proceso">
   <div class="col-wide">
     <p class="section-tag">
-      <span class="lang-es">Programa semana a semana</span>
-      <span class="lang-en">Week-by-week programme</span>
+      <span class="lang-es">Cómo vamos a trabajar</span>
+      <span class="lang-en">How we're working</span>
     </p>
     <h2 class="section-title">
-      <span class="lang-es">14 semanas · 1 objetivo por semana</span>
-      <span class="lang-en">14 weeks · 1 goal per week</span>
+      <span class="lang-es">Un proceso, no un calendario cerrado</span>
+      <span class="lang-en">A process, not a fixed schedule</span>
     </h2>
     <p class="section-lead">
-      <span class="lang-es">Progresión semanal: desde extraer y nombrar hasta defender y reflexionar, siempre sobre el mismo sistema. Cada semana especifica el trabajo de los 4 roles del equipo — Sistemas (IS), Simulación, Taller y Software — que rotan en el punto medio del ciclo en V, de modo que cada alumno recorre la rama de diseño y la de verificación.</span>
-      <span class="lang-en">Weekly progression: from extracting and naming to defending and reflecting, always on the same system. Each week specifies the work of the team's 4 roles — Systems (IS), Simulation, Workshop and Software — which rotate at the midpoint of the V-cycle, so every student walks both the design and the verification branch.</span>
+      <span class="lang-es">Es la primera vez que impartimos este curso con esta estructura. En vez de fijar de antemano cuántas semanas ocupa cada fase, iremos publicando el contenido de cada semana según avancemos — lo de abajo es el proceso completo que vamos a recorrer, no un horario cerrado. Cada fase especifica el trabajo de los 4 roles del equipo — Sistemas (IS), Simulación, Taller y Software — que rotan de forma flexible, de modo que cada alumno recorre tanto la rama de diseño como la de verificación.</span>
+      <span class="lang-en">This is the first time we're teaching this course with this structure. Instead of fixing in advance how many weeks each phase takes, we'll publish each week's content as we go — what's below is the full process we'll walk through, not a locked schedule. Each phase specifies the work of the team's 4 roles — Systems (IS), Simulation, Workshop and Software — which rotate flexibly, so every student walks both the design and the verification branch.</span>
     </p>
     <div class="scope-note">
       <div class="scope-item">
@@ -567,25 +557,11 @@ footer {
       <div class="scope-item banco">
         <div class="scope-col-title lang-es-block">El banco de pruebas físico</div>
         <div class="scope-col-title lang-en-block">The physical testbed</div>
-        <div class="scope-col-desc lang-es-block">La evidencia física de las semanas de ingeniería inversa y calibración no replica el vehículo completo — se genera sobre un único lazo de validación: un actuador de laboratorio cuya respuesta medida (posición, corriente) se contrasta contra su modelo de simulación. Un <em>digital twin</em> mínimo que ancla a la realidad la evidencia simulada del resto.</div>
-        <div class="scope-col-desc lang-en-block">Physical evidence in the reverse-engineering and calibration weeks does not replicate the full vehicle — it is generated on a single validation loop: one lab actuator whose measured response (position, current) is contrasted against its simulation model. A minimal <em>digital twin</em> that anchors all the simulated evidence to reality.</div>
+        <div class="scope-col-desc lang-es-block">La evidencia física de las fases de ingeniería inversa y calibración no replica el vehículo completo — se genera sobre un único lazo de validación: un actuador de laboratorio cuya respuesta medida (posición, corriente) se contrasta contra su modelo de simulación. Un <em>digital twin</em> mínimo que ancla a la realidad la evidencia simulada del resto.</div>
+        <div class="scope-col-desc lang-en-block">Physical evidence in the reverse-engineering and calibration phases does not replicate the full vehicle — it is generated on a single validation loop: one lab actuator whose measured response (position, current) is contrasted against its simulation model. A minimal <em>digital twin</em> that anchors all the simulated evidence to reality.</div>
       </div>
     </div>
-    <div class="semanas-table-wrap">
-      <table class="semanas-table">
-        <thead>
-          <tr>
-            <th class="lang-es">#</th><th class="lang-en">#</th>
-            <th><span class="lang-es">Objetivo</span><span class="lang-en">Goal</span></th>
-            <th class="col-is"><span class="lang-es">Sistemas (IS)</span><span class="lang-en">Systems (IS)</span></th>
-            <th class="col-sim">Simulación<span class="lang-en" style="display:none"></span></th>
-            <th class="col-tal"><span class="lang-es">Taller</span><span class="lang-en">Workshop</span></th>
-            <th class="col-sw">Software</th>
-          </tr>
-        </thead>
-        <tbody id="semanas-tbody"></tbody>
-      </table>
-    </div>
+    <div class="fases-list" id="fases-list"></div>
   </div>
 </section>
 
@@ -685,7 +661,7 @@ footer {
         <div><span class="tree-file">📄 README.md</span></div>
         <div><span class="tree-dir">📁 semanas/</span></div>
         <div class="tree-indent"><span class="tree-dir">📁 semana-01/</span> <span class="tree-note">requisitos + intro SysML</span></div>
-        <div class="tree-indent"><span class="tree-dir">📁 semana-02/ … semana-14/</span></div>
+        <div class="tree-indent"><span class="tree-dir">📁 semana-02/, semana-03/…</span> <span class="tree-note">se añaden según avanza el curso</span></div>
         <div><span class="tree-dir">📁 modelos/</span></div>
         <div class="tree-indent"><span class="tree-dir">📁 sysml/</span> <span class="tree-note">modelos de arquitectura SysML</span></div>
         <div class="tree-indent"><span class="tree-dir">📁 simulacion/</span> <span class="tree-note">modelo base del profesor + trabajo del equipo</span></div>
@@ -788,91 +764,33 @@ footer {
 
 <script>
 // ── Datos del curso ────────────────────────────────────────────────────────
-const semanas = [
-  { n:"1",  objetivo_es:"Situar", objetivo_en:"Frame",
-    tema_es:"Ingeniería de sistemas + leer el encargo", tema_en:"Systems engineering + read the brief",
-    is_es:"Modera la puesta en común; consolida los 15 requisitos ancla", is_en:"Moderates the debrief; consolidates the 15 anchor requirements",
-    sim_es:"Primer de MBSE + Anexo I; ficha de comprensión (A conceptos, B encargo)", sim_en:"MBSE primer + Annex I; comprehension sheet (A concepts, B brief)",
-    tal_es:"Primer de MBSE + Anexo I; ficha de comprensión (A conceptos, B encargo)", tal_en:"MBSE primer + Annex I; comprehension sheet (A concepts, B brief)",
-    sw_es:"Primer de MBSE + Anexo I; ficha de comprensión (A conceptos, B encargo)", sw_en:"MBSE primer + Annex I; comprehension sheet (A concepts, B brief)" },
-  { n:"2",  objetivo_es:"Nombrar", objetivo_en:"Name",
-    tema_es:"Arquitectura de primer nivel (BDD)", tema_en:"Top-level architecture (BDD)",
-    is_es:"Crea el BDD en la herramienta SysML; propiedades de nivel sistema", is_en:"Builds the BDD in the SysML tool; system-level properties",
-    sim_es:"Propiedades de propulsión y movilidad (potencia, par, velocidad)", sim_en:"Propulsion & mobility properties (power, torque, speed)",
-    tal_es:"Propiedades de chasis e interfaces (dimensiones, pesos)", tal_en:"Chassis & interface properties (dimensions, weights)",
-    sw_es:"Propiedades de comunicaciones y control (BLOS, latencia)", sw_en:"Comms & control properties (BLOS, latency)" },
-  { n:"3",  objetivo_es:"Conectar", objetivo_en:"Connect",
-    tema_es:"Interfaces y el IBD de primer nivel", tema_en:"Interfaces and the top-level IBD",
-    is_es:"Define las interfaces de sistema y con el exterior; dibuja el IBD; cierra baseline v1.0", is_en:"Defines system and external interfaces; draws the IBD; closes baseline v1.0",
-    sim_es:"Interfaces de energía y par mecánico (RGEN-11, RLT1-04/09)", sim_en:"Energy and mechanical-torque interfaces (RGEN-11, RLT1-04/09)",
-    tal_es:"Interfaces mecánicas de los Puntos de Interfaz (RGEN-28)", tal_en:"Mechanical interfaces of the interface points (RGEN-28)",
-    sw_es:"Interfaces de vídeo, navegación y comunicaciones (RNAV-01, RCOM, RSW-07)", sw_en:"Video, navigation and comms interfaces (RNAV-01, RCOM, RSW-07)" },
-  { n:"4",  objetivo_es:"Observar", objetivo_en:"Observe",
-    tema_es:"Caja negra", tema_en:"Black box",
-    is_es:"Verificación vs. validación", is_en:"Verification vs. validation",
-    sim_es:"Caja negra: primera ejecución", sim_en:"Black box: first run",
-    tal_es:"Respuesta real de los motores", tal_en:"Real motor response",
-    sw_es:"Driver conectado a hardware real", sw_en:"Driver on real hardware" },
-  { n:"5",  objetivo_es:"Descomponer", objetivo_en:"Decompose",
-    tema_es:"Caja gris", tema_en:"Grey box",
-    is_es:"Arquitectura lógica vs. física", is_en:"Logical vs. physical architecture",
-    sim_es:"Caja gris: apertura de subsistemas", sim_en:"Grey box: open subsystems",
-    tal_es:"Ajuste de parámetros reales", tal_en:"Real parameter fitting",
-    sw_es:"Nodo de control mínimo", sw_en:"Minimal control node" },
-  { n:"6",  objetivo_es:"Trazar", objetivo_en:"Trace",
-    tema_es:"Caja blanca: trazabilidad inversa", tema_en:"White box: reverse traceability",
-    is_es:"Trazabilidad inversa, métodos de verificación", is_en:"Reverse traceability, verification methods",
-    sim_es:"Caja blanca: parámetro → requisito", sim_en:"White box: parameter → requirement",
-    tal_es:"Informe de calibración por motor", tal_en:"Per-motor calibration report",
-    sw_es:"Mapeo topics ↔ señales", sw_en:"Topic ↔ signal mapping" },
-  { n:"7",  objetivo_es:"Calibrar", objetivo_en:"Calibrate",
-    tema_es:"Calibración al banco de pruebas", tema_en:"Calibration to the testbed",
-    is_es:"Planificación de verificación (VCRM)", is_en:"Verification planning (VCRM)",
-    sim_es:"Recalibración con datos reales", sim_en:"Recalibration with real data",
-    tal_es:"Test físico equivalente", tal_en:"Equivalent physical test",
-    sw_es:"Ajuste de ganancias/parámetros", sw_en:"Gain/parameter tuning" },
-  { n:"8",  objetivo_es:"Demostrar", objetivo_en:"Demonstrate",
-    tema_es:"Verificación formal de requisitos", tema_en:"Formal requirements verification",
-    is_es:"Revisión formal, no conformidades", is_en:"Formal review, non-conformances",
-    sim_es:"Tests formales pass/fail", sim_en:"Formal pass/fail tests",
-    tal_es:"Demo física en vivo", tal_en:"Live physical demo",
-    sw_es:"Test de integración hw+sw", sw_en:"HW+SW integration test" },
-  { n:"9",  objetivo_es:"Degradar", objetivo_en:"Degrade",
-    tema_es:"Análisis de modos de fallo", tema_en:"Failure mode analysis",
-    is_es:"FMEA, matrices de riesgo", is_en:"FMEA, risk matrices",
-    sim_es:"Simular modos de fallo", sim_en:"Simulate failure modes",
-    tal_es:"Observar fallos reales (sobrecarga…)", tal_en:"Observe real faults (overload…)",
-    sw_es:"Gestión de fallos y recuperación", sw_en:"Fault handling & recovery" },
-  { n:"10", objetivo_es:"Integrar", objetivo_en:"Integrate",
-    tema_es:"Integración entre roles", tema_en:"Cross-role integration",
-    is_es:"Negociación de interfaces, gestión de cambios", is_en:"Interface negotiation, change management",
-    sim_es:"Integración de subsistemas", sim_en:"Subsystem integration",
-    tal_es:"Integración física entre roles", tal_en:"Cross-role physical integration",
-    sw_es:"Pipeline software integrado", sw_en:"Integrated software pipeline" },
-  { n:"11", objetivo_es:"Optimizar", objetivo_en:"Optimise",
-    tema_es:"Optimización de parámetros", tema_en:"Parameter optimisation",
-    is_es:"Decisión multicriterio (AHP)", is_en:"Multi-criteria decision (AHP)",
-    sim_es:"Optimización de parámetros", sim_en:"Parameter optimisation",
-    tal_es:"Optimización de calibración", tal_en:"Calibration optimisation",
-    sw_es:"Optimización de navegación/rendimiento", sw_en:"Navigation/performance optimisation" },
-  { n:"12", objetivo_es:"Documentar", objetivo_en:"Document",
-    tema_es:"Preparación de la oferta técnica", tema_en:"Technical proposal preparation",
-    is_es:"Estructura de la oferta técnica", is_en:"Technical proposal structure",
-    sim_es:"Redacción de resultados", sim_en:"Simulation results writeup",
-    tal_es:"Redacción de evidencia física", tal_en:"Physical evidence writeup",
-    sw_es:"Redacción de arquitectura software", sw_en:"Software architecture writeup" },
-  { n:"13", objetivo_es:"Defender", objetivo_en:"Defend",
-    tema_es:"CDR — Critical Design Review", tema_en:"CDR — Critical Design Review",
-    is_es:"Panel de revisión (CDR)", is_en:"Review panel (CDR)",
-    sim_es:"Defensa de evidencia de simulación", sim_en:"Defend simulation evidence",
-    tal_es:"Demo física ante el panel", tal_en:"Live physical demo to panel",
-    sw_es:"Demo software ante el panel", sw_en:"Live software demo to panel" },
-  { n:"14", objetivo_es:"Reflexionar", objetivo_en:"Reflect",
-    tema_es:"Cierre y reflexión", tema_en:"Close-out and reflection",
-    is_es:"Cierre de ciclo de vida, lecciones aprendidas", is_en:"Lifecycle close-out, lessons learned",
-    sim_es:"Reflexión individual", sim_en:"Individual reflection",
-    tal_es:"Reflexión individual", tal_en:"Individual reflection",
-    sw_es:"Reflexión individual", sw_en:"Individual reflection" },
+// estado: "publicado" (hay página real, enlazada) · "en-curso" (empezado, sin cerrar)
+// · "por-definir" (todavía no sabemos cuántas semanas ocupará)
+const fases = [
+  { nombre_es:"Requisitos y ConOps", nombre_en:"Requirements & ConOps",
+    desc_es:"Extraer y formalizar los requisitos del pliego; entender el concepto de operación del sistema.",
+    desc_en:"Extract and formalise the contract's requirements; understand the system's concept of operations.",
+    estado:"publicado", semanas:[{n:1, href:"semanas/semana-01/"}] },
+  { nombre_es:"Arquitectura SysML", nombre_en:"SysML Architecture",
+    desc_es:"Construir el BDD y el IBD del sistema: bloques, propiedades, interfaces.",
+    desc_en:"Build the system's BDD and IBD: blocks, properties, interfaces.",
+    estado:"en-curso", semanas:[{n:2, href:"semanas/semana-02/"}, {n:3, href:"semanas/semana-03/"}] },
+  { nombre_es:"Simulación", nombre_en:"Simulation",
+    desc_es:"Bajar la arquitectura a un modelo físico simulable y contrastarlo con el comportamiento esperado.",
+    desc_en:"Bring the architecture down to a simulable physical model and check it against expected behaviour.",
+    estado:"por-definir", semanas:[] },
+  { nombre_es:"Verificación física", nombre_en:"Physical verification",
+    desc_es:"Contrastar el modelo contra un actuador de laboratorio real.",
+    desc_en:"Check the model against a real lab actuator.",
+    estado:"por-definir", semanas:[] },
+  { nombre_es:"Integración", nombre_en:"Integration",
+    desc_es:"Unir el trabajo de los 4 roles en un sistema coherente.",
+    desc_en:"Bring the 4 roles' work together into one coherent system.",
+    estado:"por-definir", semanas:[] },
+  { nombre_es:"Optimización y cierre", nombre_en:"Optimisation & close-out",
+    desc_es:"Afinar parámetros y defender el trabajo completo (CDR).",
+    desc_en:"Tune parameters and defend the full body of work (CDR).",
+    estado:"por-definir", semanas:[] },
 ];
 
 const departamentos = [
@@ -884,28 +802,33 @@ const departamentos = [
 
 const isEN = () => document.body.classList.contains('en');
 
-// ── Render semanas ─────────────────────────────────────────────────────────
-function renderSemanas() {
-  const tbody = document.getElementById('semanas-tbody');
-  tbody.innerHTML = '';
-  semanas.forEach(s => {
-    const objetivo = isEN() ? s.objetivo_en : s.objetivo_es;
-    const tema     = isEN() ? s.tema_en     : s.tema_es;
-    const is_      = isEN() ? s.is_en       : s.is_es;
-    const sim      = isEN() ? s.sim_en      : s.sim_es;
-    const tal      = isEN() ? s.tal_en      : s.tal_es;
-    const sw       = isEN() ? s.sw_en       : s.sw_es;
-    const link = 'semanas/semana-' + String(s.n).padStart(2, '0') + '/';
-    const ver  = isEN() ? 'Open week' : 'Ver semana';
-    tbody.innerHTML += `
-      <tr>
-        <td class="col-num"><a href="${link}">${s.n}</a></td>
-        <td class="col-obj"><a class="wk-link" href="${link}"><strong>${objetivo}</strong><span>${tema} <span class="arrow">${ver} →</span></span></a></td>
-        <td>${is_}</td>
-        <td>${sim}</td>
-        <td>${tal}</td>
-        <td>${sw}</td>
-      </tr>`;
+// ── Render fases ───────────────────────────────────────────────────────────
+const ESTADO_LABEL = {
+  "publicado":   { es: "Publicado",    en: "Published" },
+  "en-curso":    { es: "En curso",     en: "In progress" },
+  "por-definir": { es: "Por definir",  en: "To be defined" },
+};
+function renderFases() {
+  const list = document.getElementById('fases-list');
+  list.innerHTML = '';
+  fases.forEach((f, i) => {
+    const nombre = isEN() ? f.nombre_en : f.nombre_es;
+    const desc   = isEN() ? f.desc_en   : f.desc_es;
+    const estadoLbl = ESTADO_LABEL[f.estado][isEN() ? 'en' : 'es'];
+    const semanaLbl = isEN() ? 'Week' : 'Semana';
+    const links = f.semanas.map(s => `<a href="${s.href}">${semanaLbl} ${s.n} →</a>`).join('');
+    list.innerHTML += `
+      <div class="fase-card">
+        <span class="fase-num">${String(i + 1).padStart(2, '0')}</span>
+        <div class="fase-body">
+          <div class="fase-head">
+            <span class="fase-nombre">${nombre}</span>
+            <span class="fase-estado ${f.estado}">${estadoLbl}</span>
+          </div>
+          <div class="fase-desc">${desc}</div>
+          ${links ? `<div class="fase-links">${links}</div>` : ''}
+        </div>
+      </div>`;
   });
 }
 
@@ -933,12 +856,12 @@ function renderDepartamentos() {
 // ── Lang toggle ────────────────────────────────────────────────────────────
 function toggleLang() {
   document.body.classList.toggle('en');
-  renderSemanas();
+  renderFases();
   renderDepartamentos();
 }
 
 // ── Init ───────────────────────────────────────────────────────────────────
-renderSemanas();
+renderFases();
 renderDepartamentos();
 </script>
 </body>

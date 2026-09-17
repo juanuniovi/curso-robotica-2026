@@ -4,6 +4,7 @@ import os, json
 semanas = [
   {
     "id": "semana-01", "n": "1", "bloque": "I", "color": "#1a4f8a",
+    "estado": "publicado",
     "titulo_es": "Situar: ingeniería de sistemas y el encargo",
     "titulo_en": "Frame it: systems engineering and the brief",
     "verbo_es": "Situar", "verbo_en": "Frame",
@@ -59,6 +60,7 @@ semanas = [
   },
   {
     "id": "semana-02", "n": "2", "bloque": "I", "color": "#1a4f8a",
+    "estado": "publicado",
     "titulo_es": "Nombrar la arquitectura: BDD de primer nivel",
     "titulo_en": "Name the architecture: top-level BDD",
     "verbo_es": "Nombrar", "verbo_en": "Name",
@@ -103,6 +105,7 @@ semanas = [
   },
   {
     "id": "semana-03", "n": "3", "bloque": "I", "color": "#1a4f8a",
+    "estado": "publicado",
     "titulo_es": "Conectar: interfaces y el IBD de primer nivel",
     "titulo_en": "Connect: interfaces and the top-level IBD",
     "verbo_es": "Conectar", "verbo_en": "Connect",
@@ -147,6 +150,7 @@ semanas = [
   },
   {
     "id": "semana-04", "n": "4", "bloque": "II", "color": "#2d6a3f",
+    "estado": "borrador",
     "titulo_es": "Caja negra: ejecutar el modelo de simulación",
     "titulo_en": "Black box: run the simulation model",
     "verbo_es": "Observar", "verbo_en": "Observe",
@@ -163,6 +167,7 @@ semanas = [
   },
   {
     "id": "semana-05", "n": "5", "bloque": "II", "color": "#2d6a3f",
+    "estado": "borrador",
     "titulo_es": "Caja gris: abrir el subsistema asignado",
     "titulo_en": "Grey box: open the assigned subsystem",
     "verbo_es": "Descomponer", "verbo_en": "Decompose",
@@ -179,6 +184,7 @@ semanas = [
   },
   {
     "id": "semana-06", "n": "6", "bloque": "II", "color": "#2d6a3f",
+    "estado": "borrador",
     "titulo_es": "Caja blanca: trazabilidad inversa",
     "titulo_en": "White box: reverse traceability",
     "verbo_es": "Trazar", "verbo_en": "Trace",
@@ -195,6 +201,7 @@ semanas = [
   },
   {
     "id": "semana-07", "n": "7", "bloque": "III", "color": "#b85c1a",
+    "estado": "borrador",
     "titulo_es": "Calibración: adaptar el modelo al UGV real",
     "titulo_en": "Calibration: adapt the model to the real UGV",
     "verbo_es": "Calibrar", "verbo_en": "Calibrate",
@@ -211,6 +218,7 @@ semanas = [
   },
   {
     "id": "semana-08", "n": "8", "bloque": "III", "color": "#b85c1a",
+    "estado": "borrador",
     "titulo_es": "Verificación formal de requisitos",
     "titulo_en": "Formal requirements verification",
     "verbo_es": "Demostrar", "verbo_en": "Demonstrate",
@@ -227,6 +235,7 @@ semanas = [
   },
   {
     "id": "semana-09", "n": "9", "bloque": "IV", "color": "#6b3fa0",
+    "estado": "borrador",
     "titulo_es": "Análisis de modos de fallo",
     "titulo_en": "Failure mode analysis",
     "verbo_es": "Degradar", "verbo_en": "Degrade",
@@ -243,6 +252,7 @@ semanas = [
   },
   {
     "id": "semana-10", "n": "10", "bloque": "IV", "color": "#6b3fa0",
+    "estado": "borrador",
     "titulo_es": "Integración entre subsistemas",
     "titulo_en": "Cross-subsystem integration",
     "verbo_es": "Integrar", "verbo_en": "Integrate",
@@ -259,6 +269,7 @@ semanas = [
   },
   {
     "id": "semana-11", "n": "11", "bloque": "V", "color": "#8a6b00",
+    "estado": "borrador",
     "titulo_es": "Optimización de parámetros",
     "titulo_en": "Parameter optimisation",
     "verbo_es": "Optimizar", "verbo_en": "Optimise",
@@ -275,6 +286,7 @@ semanas = [
   },
   {
     "id": "semana-12", "n": "12", "bloque": "V", "color": "#8a6b00",
+    "estado": "borrador",
     "titulo_es": "Preparación del CDR",
     "titulo_en": "CDR preparation",
     "verbo_es": "Documentar", "verbo_en": "Document",
@@ -291,6 +303,7 @@ semanas = [
   },
   {
     "id": "semana-13", "n": "13", "bloque": "V", "color": "#8a6b00",
+    "estado": "borrador",
     "titulo_es": "CDR — Critical Design Review",
     "titulo_en": "CDR — Critical Design Review",
     "verbo_es": "Defender", "verbo_en": "Defend",
@@ -307,6 +320,7 @@ semanas = [
   },
   {
     "id": "semana-14", "n": "14", "bloque": "V", "color": "#8a6b00",
+    "estado": "borrador",
     "titulo_es": "Cierre y reflexión",
     "titulo_en": "Close-out and reflection",
     "verbo_es": "Reflexionar", "verbo_en": "Reflect",
@@ -588,21 +602,30 @@ body.en .item-list li.lang-en,body.en .entregable-list li.lang-en{{display:flex}
 </html>'''
 
 # ── Generar los index.html ──────────────────────────────────────────────────
-# Ejecuta:  python3 gen_semanas.py            → regenera todas las semanas
-#           python3 gen_semanas.py semana-01  → regenera solo las indicadas
+# Curso en construcción incremental: solo se publican páginas de semanas con
+# "estado": "publicado". Las demás quedan como borrador en este archivo, sin
+# generar página, hasta que de verdad lleguemos a esa semana.
+# Ejecuta:  python3 gen_semanas.py            → regenera todas las semanas publicadas
+#           python3 gen_semanas.py semana-01  → regenera solo la indicada (si está publicada)
 import sys
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 SEM_DIR = os.path.join(BASE, "semanas")
 solo = set(sys.argv[1:])
 
+generadas = 0
 for s in semanas:
   if solo and s["id"] not in solo:
+    continue
+  if s.get("estado") != "publicado":
+    if solo:
+      print(f"⏭ semanas/{s['id']}/ — en borrador (estado != publicado), no generada")
     continue
   path = os.path.join(SEM_DIR, s["id"], "index.html")
   os.makedirs(os.path.dirname(path), exist_ok=True)
   with open(path, "w", encoding="utf-8") as f:
     f.write(gen_html(s))
   print(f"✓ semanas/{s['id']}/index.html")
+  generadas += 1
 
-print("Total páginas generadas:", len(solo) if solo else len(semanas))
+print("Total páginas generadas:", generadas)
