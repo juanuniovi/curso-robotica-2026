@@ -3,11 +3,11 @@
 *Ref. pliego: CPP 01/2026 AB — CDTI / Ministerio de Defensa de España*
 *RDOC-13 — Vista de Sistemas y Subsistemas*
 
-**Equipo:** ______________&nbsp;&nbsp;&nbsp; **Lote:** ☐ 1 (ruedas) ☐ 2 (cadenas)
+**Equipo:** ______________
 
-Acompaña a [`sistema.yaml`](sistema.yaml) / [`ARQUITECTURA.md`](ARQUITECTURA.md): mientras esos dos son el modelo y su vista generada, este documento recoge las decisiones, observaciones y checklist de cada hito. Una sección por semana.
+Acompaña a [`sistema.yaml`](sistema.yaml) / [`ARQUITECTURA.md`](ARQUITECTURA.md): mientras esos dos son el modelo y su vista generada, este documento recoge las decisiones, observaciones y checklist de cada hito de la Fase 5 — Arquitectura. Una sección por hito.
 
-## Semana 2 — BDD
+## BDD
 
 ### Reparto de propiedades por rol
 
@@ -17,6 +17,18 @@ Acompaña a [`sistema.yaml`](sistema.yaml) / [`ARQUITECTURA.md`](ARQUITECTURA.md
 | Simulación | Propulsión y movilidad: potencia, par, velocidad, pendiente |
 | Taller | Chasis e interfaces: dimensiones, pesos, puntos de interfaz (RGEN-28) |
 | Software | Comunicaciones y control: alcance BLOS (RCOM-02), latencia, software (RSW) |
+
+### Posibilidades de evidencia
+
+Para las propiedades críticas de propulsión y movilidad (las que fija el Estudio de Conceptos,
+Fase 4), indica qué simulación o ensayo de banco podría demostrar que el valor asignado es
+alcanzable. No hace falta ejecutarlo en esta fase — solo dejarlo identificado para cuando
+corresponda generar la evidencia.
+
+| Propiedad | Posible medio de evidencia |
+|---|---|
+| | |
+| | |
 
 ### Observaciones
 
@@ -36,6 +48,6 @@ Acompaña a [`sistema.yaml`](sistema.yaml) / [`ARQUITECTURA.md`](ARQUITECTURA.md
 | 4 | `python3 render_arquitectura.py modelos/sysml/sistema.yaml -o modelos/sysml/ARQUITECTURA.md` corre sin problemas de trazabilidad | ☐ |
 | 5 | `ARQUITECTURA.md` regenerado y comprobado en GitHub (el diagrama se ve bien) | ☐ |
 
-## Semana 3 — IBD
+## IBD
 
-*(se rellena en la Semana 3)*
+*(se rellena al trabajar el IBD)*

@@ -47,9 +47,9 @@ a{color:var(--accent)}
 <div class="wrap">
 <h1 id="introduccion-a-la-ingenieria-de-sistemas-y-al-mbse">Introducción a la ingeniería de sistemas y al MBSE</h1>
 <blockquote>
-<p>Lectura previa de la <strong>Semana 1</strong>. Objetivo: llegar a la Semana 2 con el vocabulario
-mínimo para construir un modelo de arquitectura sin que "BDD", "bloque" o "trazabilidad"
-suenen a chino. ~15 minutos de lectura.</p>
+<p>Lectura previa de la <strong>Fase 1 — Ingeniería inversa</strong>. Objetivo: llegar a la Fase 2 con el
+vocabulario mínimo para construir un modelo de arquitectura sin que "BDD", "bloque" o
+"trazabilidad" suenen a chino. ~15 minutos de lectura.</p>
 </blockquote>
 <hr />
 <h2 id="1-que-es-la-ingenieria-de-sistemas">1. ¿Qué es la ingeniería de sistemas?</h2>
@@ -78,8 +78,71 @@ documentos, si hacen falta, se generan desde él.</p>
 propiedades, interfaces) y se visualiza generando diagramas BDD/IBD con un script — ver
 <code>modelos/sysml/</code>. Se verifica con <strong>simulación por computador</strong> (un simulador físico, por
 determinar).</p>
-<h2 id="3-el-ciclo-en-v">3. El ciclo en V</h2>
-<p>El trabajo de sistemas se organiza en forma de <strong>V</strong>:</p>
+<h2 id="3-la-metodologia-oosem-sobre-el-ciclo-en-v">3. La metodología: OOSEM sobre el ciclo en V</h2>
+<p>SysML es un <strong>lenguaje</strong> — dice cómo se dibuja un bloque o una interfaz. No dice en qué
+orden hacer las cosas. Eso lo da una <strong>metodología</strong>, y la que usa este curso (sin haberla
+nombrado hasta ahora) es <strong>OOSEM</strong> (<em>Object-Oriented Systems Engineering Method</em>): la
+metodología que INCOSE empareja con SysML en su libro de referencia. No es una elección
+nuestra — es el estándar de facto para trabajar con SysML, tool-agnóstica.</p>
+<p><strong>Importante: este curso recorre solo la rama descendente de la V, y ni siquiera llega a
+Implementación.</strong> El encargo real es preparar una <strong>oferta técnica</strong> para una licitación —
+no construir ni verificar el sistema completo. Eso sería ya ejecutar un contrato
+adjudicado, y queda fuera del alcance del curso:</p>
+<table>
+<thead>
+<tr>
+<th>Fase OOSEM (Sols, Fig. 3.5)</th>
+<th>Fase del curso</th>
+<th>Documento</th>
+<th>Qué se hace</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Necesidad, problema, stakeholders</td>
+<td>1 — Análisis de la Necesidad</td>
+<td>Doc.01</td>
+<td>Leer el pliego, deducir necesidad, problema y stakeholders, diagrama de contexto</td>
+</tr>
+<tr>
+<td>Concepto de Operaciones (ConOps)</td>
+<td>2 — CONOPS</td>
+<td>Doc.02</td>
+<td>Modos de operación, misiones, ciclo de vida, escenario</td>
+</tr>
+<tr>
+<td>Requisitos de stakeholder</td>
+<td>3 — Requisitos de las Partes Interesadas</td>
+<td>Doc.03</td>
+<td>Matriz SHALL, clasificación por verificabilidad</td>
+</tr>
+<tr>
+<td>Identificación y selección de conceptos de diseño</td>
+<td>4 — Estudio de Conceptos y Selección</td>
+<td>Doc.04</td>
+<td>Alternativas, criterios ponderados, matriz AoA, decisión</td>
+</tr>
+<tr>
+<td>Requisitos de sistema y métodos de verificación, análisis funcional, arquitectura</td>
+<td>5 — Arquitectura</td>
+<td>Doc.05 + Doc.06</td>
+<td>BDD + IBD, trazabilidad, baseline de arquitectura</td>
+</tr>
+<tr>
+<td>Métodos de verificación (consolidación) — (no es una fase OOSEM estándar; planificación de apoyo a la oferta)</td>
+<td>6 — Plan de Verificación e Integración</td>
+<td>Doc.07</td>
+<td>Matriz de trazabilidad requisito↔método, esquema de integración — sin ejecutar</td>
+</tr>
+<tr>
+<td>— (consolidación final, no una fase OOSEM estándar)</td>
+<td>7 — Optimización y cierre</td>
+<td>Doc.08 + oferta final</td>
+<td>Plan de gestión (EDT/WBS, cronograma, presupuesto), síntesis de la oferta</td>
+</tr>
+</tbody>
+</table>
+<p>Visualmente, la metodología completa se dibuja como una <strong>V</strong>:</p>
 <pre><code> Necesidades                                         Validación
    \                                                   /
     Requisitos                                 Verificación
@@ -90,18 +153,13 @@ determinar).</p>
                      \                /
                       Implementación
 </code></pre>
-<ul>
-<li><strong>Rama izquierda (bajada):</strong> de lo abstracto a lo concreto — necesidades → requisitos →
-  arquitectura → diseño.</li>
-<li><strong>Fondo:</strong> se construye.</li>
-<li><strong>Rama derecha (subida):</strong> de lo concreto a lo abstracto — se prueba cada nivel contra lo
-  que se definió en el nivel equivalente de la izquierda. La <strong>trazabilidad</strong> cruza la V de
-  un lado al otro (cada test verifica un requisito).</li>
-</ul>
-<p>Las 14 semanas del curso recorren la V: <strong>Semanas 1–3</strong> bajan por la rama izquierda
-(entender el encargo, nombrar la arquitectura, formalizarla); <strong>Semanas 4–8</strong> trabajan el
-fondo y empiezan a subir (ingeniería inversa del modelo, calibración, verificación);
-<strong>Semanas 9–14</strong> completan la subida (fallos, integración, optimización, defensa).</p>
+<p>Este curso solo baja por la <strong>rama izquierda</strong> (necesidades → requisitos → arquitectura),
+sin llegar a Diseño de detalle completo ni a Implementación. La rama derecha (Pruebas de
+subsistema → Integración → Verificación → Validación) se muestra arriba como referencia de
+la metodología general — <strong>no la recorremos</strong>. Lo que sí hacemos en su lugar es reunir
+<strong>evidencia de viabilidad</strong> (simulación de los subsistemas críticos, medidas sobre un banco
+de pruebas físico) que demuestre que el diseño cumple los requisitos, y volcarla en el
+documento de oferta técnica que cierra el curso.</p>
 <h2 id="4-vocabulario-sysml-minimo">4. Vocabulario SysML mínimo</h2>
 <p><strong>SysML</strong> es el lenguaje gráfico estándar para modelar sistemas. No hace falta dominarlo;
 basta con estos términos:</p>
@@ -131,11 +189,11 @@ basta con estos términos:</p>
 </tr>
 <tr>
 <td><strong>BDD</strong> (<em>Block Definition Diagram</em>)</td>
-<td>El diagrama que dice <strong>qué bloques hay</strong>, sus propiedades y cómo se componen unos dentro de otros (la "lista de piezas" jerárquica). Es lo que se construye en la <strong>Semana 2</strong>.</td>
+<td>El diagrama que dice <strong>qué bloques hay</strong>, sus propiedades y cómo se componen unos dentro de otros (la "lista de piezas" jerárquica). Es lo que se construye en la <strong>Fase 5</strong>.</td>
 </tr>
 <tr>
 <td><strong>IBD</strong> (<em>Internal Block Diagram</em>)</td>
-<td>El diagrama que dice <strong>cómo se conectan por dentro</strong> los bloques de un nivel: puertos, interfaces y líneas de conexión. Se trabaja en la <strong>Semana 3</strong>.</td>
+<td>El diagrama que dice <strong>cómo se conectan por dentro</strong> los bloques de un nivel: puertos, interfaces y líneas de conexión. También se trabaja en la <strong>Fase 5</strong>.</td>
 </tr>
 <tr>
 <td><strong>Enlace de trazabilidad</strong></td>
@@ -153,8 +211,10 @@ basta con estos términos:</p>
 regla es lo que separa "usar una herramienta" de "hacer ingeniería de sistemas".</p>
 <h2 id="6-los-cuatro-roles-del-equipo">6. Los cuatro roles del equipo</h2>
 <p>El equipo se organiza en cuatro roles funcionales, definidos <strong>por el tipo de evidencia
-que producen</strong>, no por subsistema del vehículo. Los roles <strong>rotan</strong> en el punto medio del
-ciclo en V, de modo que cada alumno recorre la rama de diseño y la de verificación.</p>
+que producen</strong>, no por subsistema del vehículo. Los roles <strong>rotan de forma flexible</strong>: cada
+alumno pasa por tantos como quiera, en coordinación con sus compañeros. Simulación, Taller
+y Software no verifican un sistema ya construido — generan la evidencia de viabilidad
+(simulaciones, medidas de banco, esquemas de integración) que sostiene la oferta técnica.</p>
 <table>
 <thead>
 <tr>
@@ -167,7 +227,7 @@ ciclo en V, de modo que cada alumno recorre la rama de diseño y la de verificac
 <tr>
 <td><strong>IS — Ingeniería de Sistemas</strong></td>
 <td>Requisitos, arquitectura, trazabilidad, coordinación</td>
-<td>Modelo SysML y matriz de verificación</td>
+<td>Modelo SysML y estructura de la oferta técnica</td>
 </tr>
 <tr>
 <td><strong>Simulación</strong></td>
@@ -189,7 +249,7 @@ ciclo en V, de modo que cada alumno recorre la rama de diseño y la de verificac
 <p>El rol de IS coordina a los otros tres y reporta al Cliente (el profesor).</p>
 <hr />
 <p><em>Siguiente paso: leer el <a href="anexo-I_anonimizado.html">Anexo I anonimizado</a> con el guion de la
-Semana 1 y rellenar la ficha de comprensión.</em></p>
+Fase 1 y rellenar la ficha de comprensión.</em></p>
 </div>
 </body>
 </html>
