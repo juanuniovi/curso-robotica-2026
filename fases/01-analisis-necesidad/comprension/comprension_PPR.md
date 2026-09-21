@@ -3,7 +3,7 @@
 
 # Ficha de comprensión — Semana 1
 
-**Alumno:** [PPR - Nombre Completo] · **Rol:** Simulación / Taller
+**Alumno:** Pelayo Pache Rodríguez · **Rol:**  IS / Simulación 
 
 ## Parte A — Conceptos
 

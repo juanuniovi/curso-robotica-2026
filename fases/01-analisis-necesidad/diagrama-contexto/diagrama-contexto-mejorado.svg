@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 950" width="100%" height="100%" style="background:#fcfbf9; font-family:'Segoe UI', system-ui, -apple-system, sans-serif;">
+  <defs>
+    <!-- Marcadores de Flechas -->
+    <marker id="arrow-info" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#1a4f8a"/>
+    </marker>
+    <marker id="arrow-pwr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#d97706"/>
+    </marker>
+    <marker id="arrow-mat" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#15803d"/>
+    </marker>
+
+    <!-- Filtro de sombra suave -->
+    <filter id="shadow" x="-8%" y="-8%" width="120%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="1" dy="3" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <filter id="core-shadow" x="-15%" y="-15%" width="130%" height="135%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="5" stdDeviation="6" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- TÍTULO Y CABECERA -->
+  <text x="650" y="42" text-anchor="middle" font-size="24" font-weight="800" fill="#0d1117" letter-spacing="0.5">DIAGRAMA DE CONTEXTO OPERACIONAL — SISTEMA UGV</text>
+  <text x="650" y="66" text-anchor="middle" font-size="13" font-weight="500" fill="#57606a">Ingeniería Robótica con MBSE · Fase 1 (Doc.01) · Licitación CPP 01/2026 AB (Lote 1 - Ruedas)</text>
+
+  <!-- LÍNEAS DE CONEXIÓN Y FLUJOS -->
+
+  <!-- 1. Puesto de Mando <-> UGV -->
+  <path d="M 280 200 C 420 220, 500 360, 560 410" fill="none" stroke="#1a4f8a" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrow-info)"/>
+  <path d="M 550 425 C 480 380, 410 240, 280 215" fill="none" stroke="#1a4f8a" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrow-info)"/>
+  <rect x="330" y="270" width="180" height="34" rx="5" fill="#f0f6fc" stroke="#1a4f8a" stroke-width="1"/>
+  <text x="420" y="284" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a4f8a">[INFO] Comandos C2 / Waypoints</text>
+  <text x="420" y="297" text-anchor="middle" font-size="9.5" fill="#1a4f8a">Telemetría y Vídeo (ROPE-01/02)</text>
+
+  <!-- 2. Satélites -> UGV -->
+  <path d="M 650 170 L 650 355" fill="none" stroke="#1a4f8a" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#arrow-info)"/>
+  <rect x="560" y="225" width="180" height="34" rx="5" fill="#f0f6fc" stroke="#1a4f8a" stroke-width="1"/>
+  <text x="650" y="239" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1a4f8a">[INFO] Posicionamiento GNSS</text>
+  <text x="650" y="252" text-anchor="middle" font-size="9.5" fill="#1a4f8a">Enlace Satelital BLOS (RCOM-01/02)</text>
+
+  <!-- 3. UAV <-> UGV -->
+  <path d="M 980 210 C 860 250, 770 340, 740 405" fill="none" stroke="#1a4f8a" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-info)"/>
+  <path d="M 748 395 C 790 330, 880 240, 980 195" fill="none" stroke="#d97706" stroke-width="2.2" marker-end="url(#arrow-pwr)"/>
+  <rect x="800" y="265" width="180" height="34" rx="5" fill="#fffbeb" stroke="#d97706" stroke-width="1"/>
+  <text x="890" y="279" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b45309">[INFO] Vídeo Aéreo Cenital</text>
+  <text x="890" y="292" text-anchor="middle" font-size="9.5" fill="#b45309">[PWR] Recarga en Bahía (CP-09)</text>
+
+  <!-- 4. Cargas de Pago <-> UGV -->
+  <path d="M 770 470 L 980 470" fill="none" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrow-pwr)"/>
+  <path d="M 980 485 L 770 485" fill="none" stroke="#15803d" stroke-width="2.5" marker-end="url(#arrow-mat)"/>
+  <rect x="795" y="440" width="170" height="42" rx="5" fill="#f0fdf4" stroke="#15803d" stroke-width="1"/>
+  <text x="880" y="454" text-anchor="middle" font-size="10" font-weight="700" fill="#15803d">[PWR] Bus Potencia PI-1..3</text>
+  <text x="880" y="466" text-anchor="middle" font-size="9.5" fill="#15803d">[INFO] Bus CAN/Ethernet</text>
+  <text x="880" y="478" text-anchor="middle" font-size="9" fill="#15803d">[MAT] Masa y fijación física</text>
+
+  <!-- 5. Otros UxV <-> UGV -->
+  <path d="M 750 540 C 820 600, 890 650, 980 690" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-pwr)"/>
+  <path d="M 980 705 C 880 660, 810 610, 735 555" fill="none" stroke="#15803d" stroke-width="2" marker-end="url(#arrow-mat)"/>
+  <rect x="790" y="605" width="180" height="34" rx="5" fill="#f0fdf4" stroke="#15803d" stroke-width="1"/>
+  <text x="880" y="619" text-anchor="middle" font-size="10.5" font-weight="700" fill="#15803d">[PWR] Recarga Inductiva (CP-10)</text>
+  <text x="880" y="632" text-anchor="middle" font-size="9.5" fill="#15803d">[MAT] Rampa Nodriza / Enjambre</text>
+
+  <!-- 6. Mantenimiento <-> UGV -->
+  <path d="M 650 600 L 650 760" fill="none" stroke="#15803d" stroke-width="2.5" marker-start="url(#arrow-mat)"/>
+  <rect x="555" y="660" width="190" height="34" rx="5" fill="#fef2f2" stroke="#c8382a" stroke-width="1"/>
+  <text x="650" y="674" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b91c1c">[MAT/PWR] Combustible y Recarga</text>
+  <text x="650" y="687" text-anchor="middle" font-size="9.5" fill="#b91c1c">[INFO] Diagnosis BITE / Logs misión</text>
+
+  <!-- 7. Terreno <-> UGV -->
+  <path d="M 550 540 C 470 600, 390 660, 280 705" fill="none" stroke="#15803d" stroke-width="2.5" marker-end="url(#arrow-mat)"/>
+  <path d="M 280 690 C 400 640, 480 580, 560 525" fill="none" stroke="#15803d" stroke-width="2.5" marker-end="url(#arrow-mat)"/>
+  <rect x="330" y="605" width="180" height="34" rx="5" fill="#fefce8" stroke="#b45309" stroke-width="1"/>
+  <text x="420" y="619" text-anchor="middle" font-size="10.5" font-weight="700" fill="#b45309">[MAT] Tracción, Pendientes ≥60%</text>
+  <text x="420" y="632" text-anchor="middle" font-size="9.5" fill="#b45309">Agresión ambiental (-20 a +50°C)</text>
+
+  <!-- 8. Obstáculos -> UGV -->
+  <path d="M 280 475 L 530 475" fill="none" stroke="#1a4f8a" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-info)"/>
+  <path d="M 530 490 L 280 490" fill="none" stroke="#15803d" stroke-width="2" marker-end="url(#arrow-mat)"/>
+  <rect x="330" y="445" width="170" height="34" rx="5" fill="#fefce8" stroke="#b45309" stroke-width="1"/>
+  <text x="415" y="459" text-anchor="middle" font-size="10" font-weight="700" fill="#b45309">[INFO] Ecos LiDAR / Radar / ToF</text>
+  <text x="415" y="472" text-anchor="middle" font-size="9" fill="#b45309">[MAT] Maniobra evasiva (ROPE-06)</text>
+
+  <!-- 9. Vehículos Tripulados / Tropas <-> UGV -->
+  <path d="M 280 340 C 370 350, 450 390, 535 435" fill="none" stroke="#1a4f8a" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrow-info)"/>
+  <rect x="330" y="355" width="170" height="34" rx="5" fill="#f0f9ff" stroke="#0284c7" stroke-width="1"/>
+  <text x="415" y="369" text-anchor="middle" font-size="10" font-weight="700" fill="#0369a1">[INFO] Baliza / Guía Follow-me</text>
+  <text x="415" y="382" text-anchor="middle" font-size="9" fill="#0369a1">[MAT] MEDEVAC / Transporte</text>
+
+  <!-- CAJA CENTRAL: SISTEMA UGV (LOTE 1) -->
+  <g filter="url(#core-shadow)">
+    <circle cx="650" cy="480" r="115" fill="#1b4326" stroke="#2d6a3f" stroke-width="6"/>
+    <circle cx="650" cy="480" r="105" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-dasharray="4,4" opacity="0.6"/>
+    <text x="650" y="445" text-anchor="middle" font-size="13" font-weight="700" fill="#a3e635" letter-spacing="1">SISTEMA DE INTERÉS</text>
+    <text x="650" y="472" text-anchor="middle" font-size="20" font-weight="900" fill="#ffffff" letter-spacing="0.5">SISTEMA UGV</text>
+    <text x="650" y="495" text-anchor="middle" font-size="14" font-weight="700" fill="#e2e8f0">(Lote 1 - Ruedas)</text>
+    <line x1="575" y1="508" x2="725" y2="508" stroke="#ffffff" stroke-width="1" opacity="0.4"/>
+    <text x="650" y="525" text-anchor="middle" font-size="10" fill="#cbd5e1">Barcaza · Propulsión Híbrida</text>
+    <text x="650" y="540" text-anchor="middle" font-size="10" fill="#cbd5e1">Autonomía · Puntos Interfaz PI</text>
+  </g>
+
+  <!-- ACTORES EXTERNOS (CAJAS PERIMETRALES) -->
+
+  <!-- Actor 1: Puesto de Mando y Operador -->
+  <g filter="url(#shadow)">
+    <rect x="50" y="150" width="230" height="85" rx="10" fill="#ffffff" stroke="#1a4f8a" stroke-width="2.5"/>
+    <rect x="50" y="150" width="230" height="26" rx="10" fill="#e8f0fb"/>
+    <text x="165" y="168" text-anchor="middle" font-size="11.5" font-weight="800" fill="#1a4f8a">MANDO Y CONTROL</text>
+    <text x="165" y="195" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1117">Puesto de Mando (PMP)</text>
+    <text x="165" y="213" text-anchor="middle" font-size="11" fill="#4b5563">y Operador de Misión</text>
+    <text x="165" y="227" text-anchor="middle" font-size="9" font-weight="600" fill="#1a4f8a">RGEN-01 · ROPE-01/02 · RPdO-01</text>
+  </g>
+
+  <!-- Actor 2: Satélites GNSS / SATCOM -->
+  <g filter="url(#shadow)">
+    <rect x="535" y="90" width="230" height="80" rx="10" fill="#ffffff" stroke="#1a4f8a" stroke-width="2.5"/>
+    <rect x="535" y="90" width="230" height="26" rx="10" fill="#e8f0fb"/>
+    <text x="650" y="108" text-anchor="middle" font-size="11.5" font-weight="800" fill="#1a4f8a">NAVEGACIÓN Y ESPACIO</text>
+    <text x="650" y="134" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1117">Constelaciones Satelitales</text>
+    <text x="650" y="151" text-anchor="middle" font-size="11" fill="#4b5563">GNSS / SATCOM (BLOS ≥20 km)</text>
+    <text x="650" y="164" text-anchor="middle" font-size="9" font-weight="600" fill="#1a4f8a">RNAP-01 · RCOM-01c · RCOM-02</text>
+  </g>
+
+  <!-- Actor 3: UAV de Apoyo -->
+  <g filter="url(#shadow)">
+    <rect x="980" y="150" width="240" height="85" rx="10" fill="#ffffff" stroke="#2d6a3f" stroke-width="2.5"/>
+    <rect x="980" y="150" width="240" height="26" rx="10" fill="#eef6ee"/>
+    <text x="1100" y="168" text-anchor="middle" font-size="11.5" font-weight="800" fill="#2d6a3f">APOYO AÉREO</text>
+    <text x="1100" y="195" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1117">UAV de Apoyo Orgánico</text>
+    <text x="1100" y="213" text-anchor="middle" font-size="11" fill="#4b5563">Modo Cautivo Virtual / Aéreo</text>
+    <text x="1100" y="227" text-anchor="middle" font-size="9" font-weight="600" fill="#2d6a3f">ROPE-04 · RLT1-13 (CP-09)</text>
+  </g>
+
+  <!-- Actor 4: Cargas de Pago Modulares -->
+  <g filter="url(#shadow)">
+    <rect x="980" y="430" width="250" height="95" rx="10" fill="#ffffff" stroke="#2d6a3f" stroke-width="2.5"/>
+    <rect x="980" y="430" width="250" height="26" rx="10" fill="#eef6ee"/>
+    <text x="1105" y="448" text-anchor="middle" font-size="11.5" font-weight="800" fill="#2d6a3f">MODULARIDAD FUNCIONAL</text>
+    <text x="1105" y="475" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1117">Cargas de Pago Modulares</text>
+    <text x="1105" y="493" text-anchor="middle" font-size="11" fill="#4b5563">CP-01..13 (RWS, ISTAR, MEDEVAC)</text>
+    <text x="1105" y="509" text-anchor="middle" font-size="9.5" fill="#4b5563">Puntos de Interfaz PI-1, PI-2, PI-3</text>
+    <text x="1105" y="521" text-anchor="middle" font-size="9" font-weight="600" fill="#2d6a3f">RGEN-02 · RLT1-13</text>
+  </g>
+
+  <!-- Actor 5: Otros UxV / UGV Ligeros -->
+  <g filter="url(#shadow)">
+    <rect x="980" y="670" width="240" height="85" rx="10" fill="#ffffff" stroke="#2d6a3f" stroke-width="2.5"/>
+    <rect x="980" y="670" width="240" height="26" rx="10" fill="#eef6ee"/>
+    <text x="1100" y="688" text-anchor="middle" font-size="11.5" font-weight="800" fill="#2d6a3f">INTEROPERABILIDAD UxV</text>
+    <text x="1100" y="715" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1117">Otros UxV / UGV Ligeros</text>
+    <text x="1100" y="733" text-anchor="middle" font-size="11" fill="#4b5563">Plataforma Nodriza e Inducción</text>
+    <text x="1100" y="747" text-anchor="middle" font-size="9" font-weight="600" fill="#2d6a3f">RGEN-05 · RLT1-13 (CP-10)</text>
+  </g>
+
+  <!-- Actor 6: Personal de Mantenimiento -->
+  <g filter="url(#shadow)">
+    <rect x="535" y="760" width="230" height="85" rx="10" fill="#ffffff" stroke="#c8382a" stroke-width="2.5"/>
+    <rect x="535" y="760" width="230" height="26" rx="10" fill="#fdecea"/>
+    <text x="650" y="778" text-anchor="middle" font-size="11.5" font-weight="800" fill="#c8382a">SOPORTE Y LOGÍSTICA</text>
+    <text x="650" y="805" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1117">Personal Mantenimiento</text>
+    <text x="650" y="823" text-anchor="middle" font-size="11" fill="#4b5563">Taller, Repostaje y 1er Escalón</text>
+    <text x="650" y="837" text-anchor="middle" font-size="9" font-weight="600" fill="#c8382a">ROPE-01c · ROPE-07c · RLT1-07</text>
+  </g>
+
+  <!-- Actor 7: Terreno y Ambiente -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="670" width="240" height="85" rx="10" fill="#ffffff" stroke="#b8860b" stroke-width="2.5"/>
+    <rect x="40" y="670" width="240" height="26" rx="10" fill="#fff8e6"/>
+    <text x="160" y="688" text-anchor="middle" font-size="11.5" font-weight="800" fill="#b8860b">MEDIO AMBIENTE Y FIRME</text>
+    <text x="160" y="715" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1117">Terreno y Climatología</text>
+    <text x="160" y="733" text-anchor="middle" font-size="11" fill="#4b5563">Suelo, Pendientes, Vadeo, Tª</text>
+    <text x="160" y="747" text-anchor="middle" font-size="9" font-weight="600" fill="#b8860b">RLT1-01 a RLT1-06</text>
+  </g>
+
+  <!-- Actor 8: Obstáculos -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="445" width="240" height="85" rx="10" fill="#ffffff" stroke="#b8860b" stroke-width="2.5"/>
+    <rect x="40" y="445" width="240" height="26" rx="10" fill="#fff8e6"/>
+    <text x="160" y="463" text-anchor="middle" font-size="11.5" font-weight="800" fill="#b8860b">DETECCIÓN Y NAVEGACIÓN</text>
+    <text x="160" y="490" text-anchor="middle" font-size="14" font-weight="700" fill="#0d1117">Obstáculos del Entorno</text>
+    <text x="160" y="508" text-anchor="middle" font-size="11" fill="#4b5563">Estáticos y Dinámicos</text>
+    <text x="160" y="522" text-anchor="middle" font-size="9" font-weight="600" fill="#b8860b">ROPE-05b · ROPE-06</text>
+  </g>
+
+  <!-- Actor 9: Vehículos Tripulados y Tropas -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="300" width="240" height="85" rx="10" fill="#ffffff" stroke="#0284c7" stroke-width="2.5"/>
+    <rect x="40" y="300" width="240" height="26" rx="10" fill="#f0f9ff"/>
+    <text x="160" y="318" text-anchor="middle" font-size="11.5" font-weight="800" fill="#0284c7">OPERACIÓN CONJUNTA (MUM-T)</text>
+    <text x="160" y="345" text-anchor="middle" font-size="13.5" font-weight="700" fill="#0d1117">Vehículos Tripulados y Tropas</text>
+    <text x="160" y="363" text-anchor="middle" font-size="11" fill="#4b5563">Modo Convoy / Follow-me / Evacuación</text>
+    <text x="160" y="377" text-anchor="middle" font-size="9" font-weight="600" fill="#0284c7">ROPE-05d · ROPE-09 · CP-08</text>
+  </g>
+
+  <!-- LEYENDA INFERIOR -->
+  <g transform="translate(180, 885)">
+    <rect x="0" y="0" width="940" height="50" rx="8" fill="#ffffff" stroke="#d0d7de" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="25" y="30" font-size="12" font-weight="800" fill="#24292f">LEYENDA DE FLUJOS (MBSE):</text>
+    
+    <!-- Info -->
+    <line x1="220" y1="26" x2="260" y2="26" stroke="#1a4f8a" stroke-width="3" stroke-dasharray="6,4"/>
+    <text x="270" y="30" font-size="12" font-weight="700" fill="#1a4f8a">[INFO]</text>
+    <text x="320" y="30" font-size="11.5" fill="#57606a">Datos, Comandos, Vídeo, Telemetría</text>
+
+    <!-- Potencia -->
+    <line x1="560" y1="26" x2="600" y2="26" stroke="#d97706" stroke-width="3"/>
+    <text x="610" y="30" font-size="12" font-weight="700" fill="#d97706">[PWR]</text>
+    <text x="660" y="30" font-size="11.5" fill="#57606a">Energía y Alimentación Eléctrica</text>
+
+    <!-- Materia -->
+    <line x1="870" y1="26" x2="910" y2="26" stroke="#15803d" stroke-width="3"/>
+    <text x="920" y="30" font-size="12" font-weight="700" fill="#15803d">[MAT]</text>
+    <text x="970" y="30" font-size="11.5" fill="#57606a">Fuerzas Mecánicas, Masa, Contacto</text>
+  </g>
+</svg>
