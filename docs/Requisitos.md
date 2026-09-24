@@ -6,6 +6,150 @@ Este documento recoge la especificación completa de los requisitos funcionales,
 
 ## 1. Matriz General de Requisitos del Sistema UGV
 
+### Checklist de cumplimiento por requisito
+
+#### Requisitos generales (RGEN)
+- [ ] **RGEN-01** — Plataforma / Mando y Control
+- [ ] **RGEN-02** — Arquitectura / Modularidad
+- [ ] **RGEN-03** — Estructura / Chasis
+- [ ] **RGEN-04** — Concepción Vehicular
+- [ ] **RGEN-05** — Interoperabilidad / UxV
+- [ ] **RGEN-06** — Resistencia Ambiental
+- [ ] **RGEN-07** — Mantenibilidad / Fabricación
+- [ ] **RGEN-08** — Mantenimiento 1er Escalón
+- [ ] **RGEN-09** — Percepción / Seguridad
+- [ ] **RGEN-10** — Capacidad de Tiro / Remolque
+- [ ] **RGEN-11** — Propulsión / Planta Motriz
+- [ ] **RGEN-12** — Gestión Energética / Baterías
+- [ ] **RGEN-13** — Modo Puramente Eléctrico
+- [ ] **RGEN-14** — Autonomía Global
+- [ ] **RGEN-15** — Autonomía Eléctrica
+- [ ] **RGEN-16** — Remolcado Pasivo
+- [ ] **RGEN-17** — Seguridad Activa / Frenado
+- [ ] **RGEN-18** — Híbrido Enchufable (PHEV)
+- [ ] **RGEN-19** — Exportación de Energía
+- [ ] **RGEN-20** — Iluminación Periférica
+- [ ] **RGEN-21** — Protección Óptica Faros
+- [ ] **RGEN-22** — Consciencia Situacional
+- [ ] **RGEN-23** — Anclajes de Recuperación
+- [ ] **RGEN-24** — Transporte Aéreo
+- [ ] **RGEN-25** — Transporte Terrestre
+- [ ] **RGEN-26** — Cabestrante y Eslingas
+- [ ] **RGEN-27** — Distribución en Lotes
+- [ ] **RGEN-28** — Acceso a Puntos de Interfaz
+- [ ] **RGEN-29** — Estabilidad con Cargas
+
+#### Requisitos Lote 1 (RLT1)
+- [ ] **RLT1-01** — Tren de Rodaje Lote 1
+- [ ] **RLT1-02** — Configuración Tracción
+- [ ] **RLT1-03** — Prestaciones Cinemáticas
+- [ ] **RLT1-04** — Accionamiento Ruedas
+- [ ] **RLT1-05** — Sistema de Suspensión
+- [ ] **RLT1-06** — Masa en Vacío
+- [ ] **RLT1-07** — Capacidad de Carga Útil
+- [ ] **RLT1-08** — Peso Máximo de Misión
+- [ ] **RLT1-09** — Potencia de Propulsión
+- [ ] **RLT1-10** — Capacidad de Vadeo
+- [ ] **RLT1-11** — Protección Balística
+- [ ] **RLT1-12** — Interfaz Frontal (Punto 1)
+- [ ] **RLT1-13** — Interfaz Superior (Puntos 2 y 3)
+- [ ] **RLT1-14** — Interfaz Trasera (Punto 4)
+
+#### Requisitos Lote 2 (RLT2)
+- [ ] **RLT2-01** — Tren de Rodaje Cadenas
+- [ ] **RLT2-02** — Prestaciones Cadenas
+- [ ] **RLT2-03** — Modos de Trabajo Dual
+- [ ] **RLT2-04** — Masa en Vacío
+- [ ] **RLT2-05** — Capacidad de Carga Útil
+- [ ] **RLT2-06** — Peso Máximo de Misión
+- [ ] **RLT2-07** — Potencia Motriz e Hidráulica
+- [ ] **RLT2-08** — Capacidad de Vadeo
+- [ ] **RLT2-09** — Anchura en Transporte
+- [ ] **RLT2-10** — Protección FOPS Nivel II
+- [ ] **RLT2-11** — Iluminación Periférica 360°
+- [ ] **RLT2-12** — Rejillas Protectoras Faros
+- [ ] **RLT2-13** — Cajones de Herramientas
+- [ ] **RLT2-14** — Extintores de Incendios
+- [ ] **RLT2-15** — Protección Térmica Ignífuga
+- [ ] **RLT2-16** — Especificación de Fundas
+- [ ] **RLT2-17** — Desacoplamiento Orugas
+- [ ] **RLT2-18** — Interfaz Frontal (Puntos 1 y 2)
+- [ ] **RLT2-19** — Interfaz Superior (Puntos 3 y 4)
+- [ ] **RLT2-20** — Interfaz Trasera (Puntos 5 y 6)
+
+#### Requisitos operativos (ROPE)
+- [ ] **ROPE-01** — Modos Operativos Principales
+- [ ] **ROPE-02** — Control en Modo Teleoperado
+- [ ] **ROPE-03** — Estaciones de Teleoperación
+- [ ] **ROPE-04** — Modos de Apoyo del UAV
+- [ ] **ROPE-05** — Submodos de Navegación Autónoma
+- [ ] **ROPE-06** — Detección y Evasión Obstáculos
+- [ ] **ROPE-07** — Ciclo de Vida de Misiones
+- [ ] **ROPE-08** — Requisitos Mínimos de Misión
+- [ ] **ROPE-09** — Catálogo de Misiones a Validar
+- [ ] **ROPE-10** — Conmutación de Modos sin Retardo
+
+#### Requisitos del Puesto de Operación (RPdO)
+- [ ] **RPdO-01** — Movilidad del Puesto de Operación
+- [ ] **RPdO-02** — Precarga Cartográfica CIS
+- [ ] **RPdO-03** — Consciencia Situacional Avanzada
+- [ ] **RPdO-04** — Ergonomía de Interfaces HMI
+- [ ] **RPdO-05** — Maletas Rugerizadas
+- [ ] **RPdO-06** — Tres Interfaces Independientes
+- [ ] **RPdO-07** — Conmutación de Señales de Vídeo
+- [ ] **RPdO-08** — Interfaz Inmersivo Háptico / AR
+
+#### Requisitos de navegación (RNAV)
+- [ ] **RNAV-01** — Navegación en GNSS Denegado
+
+#### Requisitos de comunicaciones (RCOM)
+- [ ] **RCOM-01** — Módulos de Comunicaciones
+- [ ] **RCOM-02** — Alcance BLOS ≥ 20 km
+- [ ] **RCOM-03** — Aseguramiento de Comunicaciones
+- [ ] **RCOM-04** — Autorecuperación de Enlace
+- [ ] **RCOM-05** — Carrete de Fibra Óptica
+
+#### Requisitos de software (RSW)
+- [ ] **RSW-01** — Arquitectura SW Modular
+- [ ] **RSW-02** — Documentación SW en SysML / UML
+- [ ] **RSW-03** — Especificación de Interfaces I/O
+- [ ] **RSW-04** — Entregables Software Íntegros
+- [ ] **RSW-05** — Registro de Dependencias Software
+- [ ] **RSW-06** — Escudos Institucionales en GUI
+- [ ] **RSW-07** — Formato de Vídeo y Metadatos KLV
+- [ ] **RSW-08** — Retransmisión RTSP/RTP Multicast
+
+#### Requisitos de pruebas y validación (RPVyA)
+- [ ] **RPVyA-01** — Cobertura Matricial de Ensayos
+- [ ] **RPVyA-02** — Cesión de Licencias para Ensayos
+- [ ] **RPVyA-03** — Rotulación con Emblemas
+- [ ] **RPVyA-04** — Pruebas de Verificación (Fase II)
+- [ ] **RPVyA-05** — Supervisión de Verificación
+- [ ] **RPVyA-06** — Instalaciones de Verificación
+- [ ] **RPVyA-07** — Pruebas de Validación (Fase III)
+- [ ] **RPVyA-08** — Cursos de Formación a Dotaciones
+- [ ] **RPVyA-09** — Campaña de Validación Semanal
+
+#### Requisitos documentales (RDOC)
+- [ ] **RDOC-01** — Formato Dual PDF y Editable
+- [ ] **RDOC-02** — Convención de Nomenclatura
+- [ ] **RDOC-03** — Entregas Parciales en Soporte USB
+- [ ] **RDOC-04** — Entrega Digital Final
+- [ ] **RDOC-05** — Plan de Gestión del Proyecto
+- [ ] **RDOC-06** — Mantenimiento Vivo del Plan
+- [ ] **RDOC-07** — Plan de Gestión de Configuración
+- [ ] **RDOC-08** — Plan de Gestión de Riesgos
+- [ ] **RDOC-09** — Plan de Pruebas
+- [ ] **RDOC-10** — Protocolo de Pruebas
+- [ ] **RDOC-11** — Resultados de Pruebas
+- [ ] **RDOC-12** — Informe de Pruebas Incremental
+- [ ] **RDOC-13** — Arquitectura General en SysML
+- [ ] **RDOC-14** — Diseño Hardware Jerárquico
+- [ ] **RDOC-15** — Estructura del Diseño Hardware
+- [ ] **RDOC-16** — Ficha de Hardware Programable
+- [ ] **RDOC-17** — Diseño Software en SysML / UML
+- [ ] **RDOC-18** — Estrategia de Propiedad Intelectual
+
 Tabla comprensiva con la totalidad de los requisitos técnicos del pliego clasificados por su identificador oficial, subsistema, lote de aplicación, tipología (Obligatorio u Opcional) y descripción cuantitativa y cualitativa detallada.
 
 | ID Pliego | Subsistema / Área | Ámbito / Lote | Tipo | Descripción y Parámetros Técnicos | Propuesta de Solución / Ideas del Equipo |
