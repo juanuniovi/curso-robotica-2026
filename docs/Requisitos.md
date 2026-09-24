@@ -4,6 +4,21 @@ Este documento recoge la especificación completa de los requisitos funcionales,
 
 ---
 
+## Ecosistema Documental y Archivos del Repositorio
+
+En este directorio se organiza el conjunto de documentos técnicos, modelos de requisitos y tablas de diseño necesarios para la licitación, ingeniería y diseño paramétrico en **CATIA / 3DEXPERIENCE**. A continuación se detalla qué documentos existen y la justificación técnica de su presencia:
+
+| Documento / Archivo | Formato | Propósito y Justificación Técnica ("¿Por qué existe?") | Entorno de Aplicación |
+| :--- | :--- | :--- | :--- |
+| **[Requisitos.pdf](./Requisitos.pdf)** | PDF Oficial | **Pliego de Prescripciones Técnicas original** emitido por el CDTI y el Ministerio de Defensa (MINISDEF/DIGEID) para la compra pública precomercial del Sistema UGV (CPP 01/2026 AB). Es el documento regulador contractual y la fuente de requisitos primaria. | Marco contractual y legal |
+| **[Requisitos.md](./Requisitos.md)** | Markdown interactivo | **Fuente de la Verdad (Single Source of Truth) viva del proyecto**. Sistematiza, digitaliza y estructura los 105 requisitos del pliego, las 25 cargas de pago (CP), los 18 entregables contractuales (E) y las tablas de baremos, incorporando casillas de verificación para seguimiento de cumplimiento del equipo. | Gestión técnica y seguimiento continuo |
+| **[Requisitos_Sistema_UGV_3DEXPERIENCE.xlsx](./Requisitos_Sistema_UGV_3DEXPERIENCE.xlsx)** | Libro Excel Maestro (.xlsx) | **Estructura para Ingeniería de Sistemas MBSE en Dassault Systèmes**. Permite la importación masiva de requisitos en **3DEXPERIENCE TRM** (*Traceable Requirements Management*), **CATIA Systems**, **Cameo Systems Modeler / CATIA Magic** y **Reqtify**. Incluye 7 pestañas: guía paso a paso, matriz SysML con estereotipos y jerarquías (`owner`), tabla de diseño paramétrica, catálogo de implementos (CP), entregables (E), la **Matriz de Verificación (INCOSE/Sols)** con métodos de ensayo (Test, Inspection, Analysis, Demonstration) y baremos de puntuación. | MBSE / 3DEXPERIENCE / Cameo / Reqtify |
+| **[CATIA_Design_Table_UGV.xlsx](./CATIA_Design_Table_UGV.xlsx)** | Tabla de Diseño CAD (.xlsx) | **Tabla de diseño directa monoplantilla (*Design Table*)**. Diseñada con la sintaxis estricta exigida por **CATIA V5** y **3DEXPERIENCE Part/Assembly Design** (`Parámetro\Unidad` en la fila 1) para asociar y gobernar paramétricamente desde CAD las dimensiones, masas, potencias, vadeo y velocidades de las variantes del UGV (Lote 1 Ruedas 8x8, Lote 2 Cadenas y Modo Sigiloso Eléctrico). | Modelado CAD 3D (CATIA V5 / 3DEXPERIENCE) |
+| **[generate_catia_excel.py](./generate_catia_excel.py)** | Script Python | **Automatización y sincronización bidireccional**. Script de ingeniería que analiza programáticamente `Requisitos.md` y genera de forma automática ambos libros Excel de Dassault Systèmes, garantizando que cualquier cambio en las especificaciones se propague a las herramientas de diseño sin errores manuales. | DevOps y automatización MBSE |
+| **[PruebaDocs.md](./PruebaDocs.md)** | Markdown de trabajo | Documento de pruebas y verificación preliminar de renderizado y estructura documental del repositorio. | Control interno |
+
+---
+
 ## 1. Matriz General de Requisitos del Sistema UGV
 
 ### Checklist de cumplimiento por requisito
