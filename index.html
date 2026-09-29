@@ -24,20 +24,21 @@
 
 <h2 id="objeto">Objeto del curso</h2>
 
-<p>El curso aplica la ingeniería de sistemas basada en modelos (MBSE) a la
-elaboración de la oferta técnica de un vehículo terrestre no tripulado (UGV).
+<p>El curso aplica la ingeniería de sistemas basada en modelos (MBSE) a <em>la
+elaboración de la oferta técnica de un vehículo terrestre no tripulado (UGV)</em>.
 El punto de partida es el pliego de una licitación pública real, con más de
-80 requisitos, que se trabaja sin modificar.</p>
+80 requisitos, sobre la que se trabajará sin atajos o simplificaciones.</p>
 
-<p>Se recorre la rama descendente del ciclo en V: análisis de la necesidad,
+<p>
+Se recorre la rama descendente del <a href="recursos/intro-ingenieria-sistemas.html">ciclo en V</a>: análisis de la necesidad,
 concepto de operaciones, requisitos, estudio de conceptos, arquitectura y plan
 de verificación e integración. El resultado final es una oferta técnica; no se
 construye ni se verifica el sistema completo.</p>
 
-<p>Las evidencias de viabilidad que sostienen la oferta se obtienen de modelos
-de simulación y de un banco de pruebas con actuadores de laboratorio. El banco
-actúa como gemelo digital mínimo que contrasta la simulación con medidas
-reales; no es una réplica del vehículo.</p>
+<p>Las <em>evidencias de viabilidad</em> que sostienen la oferta se ontendrán de modelos
+de simulación y de un banco de pruebas con sensores o actuadores en un laboratorio. 
+El banco actúa como gemelo digital que complementa las simulaciones con medidas
+reales, replicando algún sub-componente concreto del vehículo.</p>
 
 
 <h2 id="metodologia">Metodología: MBSE</h2>
@@ -49,13 +50,13 @@ conceptual hasta el final de su ciclo de vida (definición de INCOSE).</p>
 
 <p>En la ingeniería de sistemas basada en documentos, la información del
 sistema se reparte en documentos redactados por separado y la coherencia entre
-ellos se mantiene a mano. En MBSE la referencia es un único modelo del sistema:
+ellos se mantiene a mano. En MBSE la referencia es un único <em>modelo del sistema</em>:
 requisitos, funciones, estructura, interfaces y relaciones de trazabilidad son
 elementos de ese modelo. Diagramas, tablas y documentos son vistas del modelo,
 y un cambio en él se refleja en todas ellas.</p>
 
-<p>El modelo se expresa en SysML (<em>Systems Modeling Language</em>). Cada fase
-del curso amplía el mismo modelo; la oferta técnica final es una vista de él.</p>
+<p><em>El modelo</em> se expresa en SysML v2(<em>Systems Modeling Language</em>). Cada fase
+del curso amplía el mismo modelo de manera incremental, y la oferta técnica final será una visualización del mismo.</p>
 
 
 <h2 id="fases">Fases</h2>
@@ -94,26 +95,25 @@ del curso amplía el mismo modelo; la oferta técnica final es una vista de él.
 
 <p>El grupo, de 4 o 5 estudiantes, forma un único equipo. El trabajo se
 reparte en cuatro roles, definidos por el tipo de evidencia que producen y no
-por subsistemas del vehículo. Los roles rotan a lo largo del curso por acuerdo
-del equipo. El rol de Sistemas coordina y es el interlocutor con el cliente,
-que es el profesor.</p>
+por subsistemas del vehículo. Los roles irán cambiando a lo largo del curso por acuerdo
+del equipo.</p>
 
 <dl>
   <dt>Sistemas (IS)</dt>
   <dd>Requisitos, trazabilidad, arquitectura y estructura de la oferta.
-    Herramientas: herramienta de modelado SysML, Requirements Toolbox.</dd>
+    Herramientas: herramienta de modelado SysML v2.</dd>
 
   <dt>Simulación (SIM)</dt>
   <dd>Modelos físicos: eléctrico, transmisión, multicuerpo. Evidencia por simulación.
-    Herramientas: MATLAB, simulador físico, Simulink Test.</dd>
+  Herramientas: por definir.</dd>
 
   <dt>Taller (TAL)</dt>
   <dd>Banco de pruebas de laboratorio. Evidencia física (medidas reales).
-    Herramientas: software de configuración y SDK del actuador.</dd>
+    Herramientas: por definir.</dd>
 
   <dt>Software (SW)</dt>
   <dd>Adquisición de datos del banco e integración hardware–modelo.
-    Herramientas: SDK del actuador en Python; ROS 2 opcional.</dd>
+    Herramientas: por definir.</dd>
 </dl>
 
 
@@ -142,10 +142,6 @@ que es el profesor.</p>
     simulación → evidencia. Se valora más la coherencia entre niveles que la
     profundidad en uno solo.</dd>
 
-  <dt>Revisión cruzada</dt>
-  <dd>En una revisión intermedia (PDR) y en la CDR, cada rol somete su trabajo
-    a la crítica del resto del equipo y lo contrasta con el modelo de referencia
-    del profesor. Se evalúa también la calidad de las objeciones formuladas.</dd>
 </dl>
 
 
@@ -208,8 +204,8 @@ Incorrecto: <code>cambios</code>, <code>actualizado</code>.</p>
 <h2 id="recursos">Recursos</h2>
 <ul>
   <li><a href="recursos/intro-ingenieria-sistemas.html">Introducción a la ingeniería de sistemas y al MBSE</a></li>
-  <li><a href="recursos/anexo-I_anonimizado.html">Anexo I del pliego (anonimizado)</a></li>
-  <li><a href="guia-github-desktop.html">Guía de GitHub Desktop</a></li>
+  <li><a href="recursos/anexo-I_anonimizado.html">Resumen del Anexo I del pliego (anonimizado)</a></li>
+  <li><a href="guia-github-desktop.html">Breve guía de uso del GitHub Desktop</a></li>
 </ul>
 
 <footer>Ingeniería Robótica con MBSE. Grado en Ingeniería Electrónica y Automática.</footer>
