@@ -13,6 +13,7 @@
 
 <nav>
   <a href="#objeto">Objeto</a> ·
+  <a href="#metodologia">Metodología</a> ·
   <a href="#fases">Fases</a> ·
   <a href="#roles">Roles</a> ·
   <a href="#evaluacion">Evaluación</a> ·
@@ -39,32 +40,53 @@ actúa como gemelo digital mínimo que contrasta la simulación con medidas
 reales; no es una réplica del vehículo.</p>
 
 
+<h2 id="metodologia">Metodología: MBSE</h2>
+
+<p>La ingeniería de sistemas basada en modelos (MBSE, <em>Model-Based Systems
+Engineering</em>) es la aplicación formalizada del modelado a los requisitos,
+el diseño, el análisis y la verificación de un sistema, desde el diseño
+conceptual hasta el final de su ciclo de vida (definición de INCOSE).</p>
+
+<p>En la ingeniería de sistemas basada en documentos, la información del
+sistema se reparte en documentos redactados por separado y la coherencia entre
+ellos se mantiene a mano. En MBSE la referencia es un único modelo del sistema:
+requisitos, funciones, estructura, interfaces y relaciones de trazabilidad son
+elementos de ese modelo. Diagramas, tablas y documentos son vistas del modelo,
+y un cambio en él se refleja en todas ellas.</p>
+
+<p>El modelo se expresa en SysML (<em>Systems Modeling Language</em>). Cada fase
+del curso amplía el mismo modelo; la oferta técnica final es una vista de él.</p>
+
+
 <h2 id="fases">Fases</h2>
 
-<p>Cada fase produce uno de los documentos técnicos de la oferta. Las fases
-se publican a medida que se alcanzan.</p>
+<p>Las fases se publican a medida que se alcanzan.</p>
 
 <ol>
-  <li><a href="fases/01-analisis-necesidad/">Análisis de la Necesidad</a> (Doc.01).
-    Necesidad, problema y partes interesadas del sistema, deducidos del pliego,
-    y diagrama de contexto.</li>
-  <li><a href="fases/02-conops/">CONOPS — Concepto de Operaciones</a> (Doc.02).
-    Modos de operación, misiones principales y un escenario operacional de referencia.</li>
-  <li><a href="fases/03-requisitos-partes-interesadas/">Requisitos de las Partes Interesadas (StRD)</a> (Doc.03).
-    Requisitos SHALL verificables, clasificados por subsistema y por
-    verificabilidad mediante simulación.</li>
-  <li><a href="fases/04-estudio-conceptos/">Estudio de Conceptos y Selección</a> (Doc.04).
-    Alternativas de solución y selección mediante una matriz de decisión
-    ponderada trazada a los requisitos.</li>
-  <li><a href="fases/05-arquitectura/">Arquitectura SysML: BDD e IBD de primer nivel</a> (Doc.05 y Doc.06).
-    Requisitos de sistema, bloques, propiedades, interfaces y conexiones, con
-    trazabilidad a requisitos. Se cierra con la línea base v1.0.</li>
-  <li>Plan de Verificación e Integración (Doc.07). <span class="nota">Pendiente.</span>
-    Matriz de trazabilidad requisito–método de verificación y esquema de
-    integración entre subsistemas.</li>
-  <li>Optimización y cierre (Doc.08 y oferta final). <span class="nota">Pendiente.</span>
-    Plan de gestión (EDT, cronograma, presupuesto) y documento de oferta
-    técnica que sintetiza los anteriores.</li>
+  <li><a href="fases/01-analisis-necesidad/index.html">Análisis de la Necesidad</a>.
+    Objetivo de esta fase: identificar a partir del pliego la necesidad, el
+    problema y las partes interesadas, y modelar el contexto del sistema.</li>
+  <li><a href="fases/02-conops/index.html">CONOPS — Concepto de Operaciones</a>.
+    Objetivo de esta fase: modelar el uso del sistema: modos de operación,
+    misiones principales y un escenario operacional de referencia.</li>
+  <li><a href="fases/03-requisitos-partes-interesadas/index.html">Requisitos de las Partes Interesadas</a>.
+    Objetivo de esta fase: formalizar en el modelo requisitos verificables y
+    trazables al pliego, clasificados por subsistema y por verificabilidad
+    mediante simulación.</li>
+  <li><a href="fases/04-estudio-conceptos/index.html">Estudio de Conceptos y Selección</a>.
+    Objetivo de esta fase: definir alternativas de solución y seleccionar una
+    mediante una matriz de decisión ponderada, con cada criterio trazado a
+    requisitos.</li>
+  <li><a href="fases/05-arquitectura/index.html">Arquitectura SysML: BDD e IBD de primer nivel</a>.
+    Objetivo de esta fase: derivar los requisitos de sistema y modelar bloques,
+    propiedades, interfaces y conexiones de primer nivel, trazados a requisitos.
+    Se cierra con la línea base v1.0 del modelo.</li>
+  <li>Plan de Verificación e Integración. <span class="nota">Pendiente.</span>
+    Objetivo de esta fase: asignar a cada requisito su método de verificación
+    y definir el esquema de integración entre subsistemas.</li>
+  <li>Optimización y cierre. <span class="nota">Pendiente.</span>
+    Objetivo de esta fase: completar el modelo con el plan de gestión (EDT,
+    cronograma, presupuesto) y obtener de él la oferta técnica.</li>
 </ol>
 
 
