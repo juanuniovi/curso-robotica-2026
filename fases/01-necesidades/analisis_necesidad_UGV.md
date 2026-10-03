@@ -38,7 +38,7 @@ Queda fuera del alcance de nuestra oferta técnica el desarrollo de las cargas d
 ## 4. Diagrama de contexto
 
 El diagrama de contexto (Sistema UGV como caja central, actores externos y flujos entre ellos)
-se ha generado utilizando SysML/Mermaid y se encuentra en [`diagrama-contexto/diagrama-contexto.md`](diagrama-contexto/diagrama-contexto.md).
+se ha generado utilizando SysML/Mermaid y se encuentra en [`diagrama-contexto/diagrama-contexto.md`](diagrama-contexto/diagrama-contexto-mejorado.md).
 
 ## 5. Entregables de esta fase
 
