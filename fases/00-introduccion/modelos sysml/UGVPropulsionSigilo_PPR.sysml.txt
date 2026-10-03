@@ -1,0 +1,225 @@
+package UGV_Propulsion_Sigilo_Model {
+    private import ScalarValues::*;
+    enum def ModoPropulsion {
+        HIBRIDO_CONVENCIONAL;
+        PURAMENTE_ELECTRICO;
+        RECARGA_ESTACIONARIA;
+    }
+    enum def ModoPercepcion {
+        MODO_NORMAL;
+        MODO_SIGILOSO;
+    }
+    enum def EstadoEnlaceComunicaciones {
+        ENLACE_NORMAL;
+        ENLACE_DEGRADADO;
+    }
+    item def EnergiaElectrica {
+        attribute voltajeVolts : Real;
+        attribute corrienteAmperios : Real;
+        attribute potenciaKW : Real;
+    }
+    item def ComandoConmutacion {
+        attribute solicitarSigilo : Boolean;
+        attribute tiempoRespuestaMs : Real;
+    }
+    item def SenalPercepcionObstaculos {
+        attribute obstaculoDetectado : Boolean;
+        attribute distanciaMetros : Real;
+        attribute esRadiante : Boolean;
+    }
+    requirement def ReqPropulsionHibrida_RGEN11 {
+        doc /* RGEN-11: Tren de propulsión híbrida formado por pack de baterías, motor eléctrico y motor térmico 100% biocombustible */
+        attribute esHibrido : Boolean = true;
+        attribute admiteBiocombustible : Boolean = true;
+    }
+    requirement def ReqGestionEnergicaBaterias_RGEN12 {
+        doc /* RGEN-12: Recarga de baterías en marcha mediante motor térmico y frenada regenerativa */
+        attribute tieneFrenadaRegenerativa : Boolean = true;
+        attribute recargaEnMarcha : Boolean = true;
+    }
+    requirement def ReqModoPuramenteElectrico_RGEN13 {
+        doc /* RGEN-13: Modo de marcha 100% eléctrico silencioso prescindiendo del motor térmico para firma acústica y térmica reducida */
+        attribute admiteModoElectricoSilencioso : Boolean = true;
+        attribute desbalanceTermicoMaximoK : Real = 15.0;
+    }
+    requirement def ReqAutonomiaGlobal_RGEN14 {
+        doc /* RGEN-14: Autonomía total combinada de la plataforma >= 8 horas de operación o 400 km de recorrido */
+        attribute autonomiaHorasMin : Real = 8.0;
+        attribute distanciaKmMin : Real = 400.0;
+    }
+    requirement def ReqAutonomiaElectrica_RGEN15 {
+        doc /* RGEN-15: Autonomía en modo puramente eléctrico silencioso >= 2 horas de operación o 100 km de recorrido */
+        attribute autonomiaElectricaHorasMin : Real = 2.0;
+        attribute distanciaElectricaKmMin : Real = 100.0;
+    }
+    requirement def ReqCapacidadRemolque_RGEN10 {
+        doc /* RGEN-10: Capacidad para arrastrar remolque de masa >= 3000 kg mediante enganche STANAG 4101 */
+        attribute masaRemolqueMinKg : Real = 3000.0;
+        attribute normaEnganche : String = "STANAG 4101";
+    }
+    requirement def ReqPercepcionModoSigiloso_RGEN09 {
+        doc /* RGEN-09: Detección 360° conmutable entre Modo Normal (LiDAR/Radar+Cámaras) y Modo Sigiloso (Solo no radiantes) */
+        attribute admiteModoSigilosoSensores : Boolean = true;
+        attribute apagaRadiantesEnSigilo : Boolean = true;
+    }
+    requirement def ReqEvasionObstaculos_ROPE06 {
+        doc /* ROPE-06: Detección y evasión autónoma de obstáculos dinámica funcional tanto en Modo Normal como Sigiloso */
+        attribute evadirObstaculosEnSigilo : Boolean = true;
+    }
+    requirement def ReqExportacionEnergia_RGEN19 {
+        doc /* RGEN-19 (Opcional OG-03): Capacidad de exportación de energía eléctrica externa >= 120 kW */
+        attribute potenciaExportacionKWMin : Real = 120.0;
+    }
+    constraint def RestriccionAutonomiaElectrica {
+        in capacidadBateriaKWh : Real;
+        in consumoMedioKWhPorHora : Real;
+        in autonomiaHorasMin : Real;
+        capacidadBateriaKWh / consumoMedioKWhPorHora >= autonomiaHorasMin
+    }
+    constraint def RestriccionCapacidadTiro {
+        in parEmpujeMotorNm : Real;
+        in radioRuedaMetros : Real;
+        in masaUGVKg : Real;
+        in masaRemolqueKg : Real;
+        in masaMaxRemolquePermitidaKg : Real;
+        masaRemolqueKg <= masaMaxRemolquePermitidaKg and parEmpujeMotorNm / radioRuedaMetros >= (masaUGVKg + masaRemolqueKg) * 0.15 * 9.81
+    }
+    constraint def RestriccionEmisionSensoresSigilo {
+        in modoActual : ModoPercepcion;
+        in potenciaEmisionLiDARRadarWatts : Real;
+        modoActual == ModoPercepcion::MODO_SIGILOSO implies potenciaEmisionLiDARRadarWatts == 0.0
+    }
+    port def PuertoPotenciaHV {
+        inout item energia : EnergiaElectrica;
+        out attribute voltajeOperacionV : Real = 750.0;
+    }
+    port def PuertoBusCAN {
+        inout item comando : ComandoConmutacion;
+        out attribute tasaBaudiosKbps : Real = 1000.0;
+    }
+    port def PuertoDatosPercepcion {
+        out item datosObstaculo : SenalPercepcionObstaculos;
+    }
+    port def PuertoMecanicoTiroSTANAG {
+        out attribute masaArrastreMaxKg : Real = 3000.0;
+        out attribute normaAcople : String = "STANAG 4101";
+    }
+    port def PuertoEscapeCombustion {
+        out attribute temperaturaGasesCelsius : Real;
+        out attribute caudalMassaKgS : Real;
+    }
+    part def PackBateriasIonLitio {
+        doc /* Baterías de alta densidad energética para propulsión y modo silencioso */
+        attribute capacidadEnergiaKWh : Real = 110.0;
+        attribute masaKg : Real = 650.0;
+        attribute voltajeNominalV : Real = 750.0;
+        attribute tasaCargaMaxC : Real = 2.5;
+        port salidaHV : PuertoPotenciaHV;
+        port busControl : PuertoBusCAN;
+    }
+    part def MotorTermicoBiocombustible {
+        doc /* Motor de combustión interna para recarga en marcha y autonomía extendida RGEN-11 */
+        attribute potenciaContinuaKW : Real = 120.0;
+        attribute consumoEspecificoGkWH : Real = 210.0;
+        attribute esBiocombustible100 : Boolean = true;
+        attribute estaEncendido : Boolean = true;
+        port generadorElectrico : ~PuertoPotenciaHV;
+        port escapeTermico : PuertoEscapeCombustion;
+        port busControl : PuertoBusCAN;
+    }
+    part def InversorMotorElectricoPropulsion {
+        doc /* Motor eléctrico e inversor de tracción directa silenciosa */
+        attribute potenciaPicoKW : Real = 220.0;
+        attribute potenciaContinuaKW : Real = 160.0;
+        attribute eficienciaPorcentaje : Real = 96.5;
+        port entradaBateria : ~PuertoPotenciaHV;
+        port salidaMotor : PuertoPotenciaHV;
+        port busControl : PuertoBusCAN;
+    }
+    part def SensorLiDARRadarRadiante {
+        doc /* Sensor activo radiante (LiDAR/Radar) deshabilitable en Modo Sigiloso RGEN-09 */
+        attribute potenciaEmisionRadianteW : Real = 45.0;
+        attribute alcanceMaximoM : Real = 250.0;
+        attribute activoEnSigilo : Boolean = false;
+        port datosSalida : PuertoDatosPercepcion;
+        port busControl : PuertoBusCAN;
+    }
+    part def SensorOptronicoCamaraTermicaEOIR {
+        doc /* Sensor pasivo no radiante (Visión diurna/térmica EO/IR) para modo sigilo */
+        attribute esRadiante : Boolean = false;
+        attribute resolucionPixeles : String = "1920x1080";
+        attribute activoEnSigilo : Boolean = true;
+        port datosSalida : PuertoDatosPercepcion;
+        port busControl : PuertoBusCAN;
+    }
+    part def EngancheTiroTraseroSTANAG4101 {
+        doc /* Gancho de tiro normalizado STANAG 4101 escamotable para remolques >= 3000 kg */
+        attribute capacidadCargaKg : Real = 3000.0;
+        attribute esEscamotable : Boolean = true;
+        port puertoAcople : PuertoMecanicoTiroSTANAG;
+    }
+    part def UnidadControlGestorSigiloYEnergia {
+        doc /* Unidad ECU de gestión táctica de conmutación de modos de propulsión y sensores */
+        attribute modoPropulsionActual : ModoPropulsion = ModoPropulsion::HIBRIDO_CONVENCIONAL;
+        attribute modoPercepcionActual : ModoPercepcion = ModoPercepcion::MODO_NORMAL;
+        port busCANPrincipal : PuertoBusCAN;
+        action def ActivarModoSigilo {
+            in demandarSigilo : Boolean;
+            out modoPropNuevo : ModoPropulsion;
+            out modoPercNuevo : ModoPercepcion;
+        }
+    }
+    part def SubsistemaPropulsionYSigiloUGV {
+        doc /* Arquitectura integrada de propulsión híbrida, gestión de sigilo y capacidad de tiro del UGV */
+        attribute consumoMedioSilenciosoKWhH : Real = 45.0;
+        attribute autonomiaElectricaCalculadaHoras : Real = packBaterias.capacidadEnergiaKWh / consumoMedioSilenciosoKWhH;
+        part packBaterias : PackBateriasIonLitio;
+        part motorTermico : MotorTermicoBiocombustible;
+        part inversorMotor : InversorMotorElectricoPropulsion;
+        part sensorLiDAR : SensorLiDARRadarRadiante;
+        part sensorOptronico : SensorOptronicoCamaraTermicaEOIR;
+        part ganchoTiro : EngancheTiroTraseroSTANAG4101;
+        part ecuGestion : UnidadControlGestorSigiloYEnergia;
+        connection connect packBaterias.salidaHV to inversorMotor.entradaBateria;
+        connection connect motorTermico.generadorElectrico to packBaterias.salidaHV;
+        connection connect ecuGestion.busCANPrincipal to packBaterias.busControl;
+        connection connect ecuGestion.busCANPrincipal to motorTermico.busControl;
+        connection connect ecuGestion.busCANPrincipal to inversorMotor.busControl;
+        connection connect ecuGestion.busCANPrincipal to sensorLiDAR.busControl;
+        connection connect ecuGestion.busCANPrincipal to sensorOptronico.busControl;
+        assert constraint verificacionAutonomiaElectrica : RestriccionAutonomiaElectrica {
+            in capacidadBateriaKWh = packBaterias.capacidadEnergiaKWh;
+            in consumoMedioKWhPorHora = consumoMedioSilenciosoKWhH;
+            in autonomiaHorasMin = 2.0;
+        }
+        assert constraint verificacionEmisionSigilo : RestriccionEmisionSensoresSigilo {
+            in modoActual = ecuGestion.modoPercepcionActual;
+            in potenciaEmisionLiDARRadarWatts = sensorLiDAR.potenciaEmisionRadianteW;
+        }
+        assert constraint verificacionCapacidadTiro : RestriccionCapacidadTiro {
+            in parEmpujeMotorNm = 3500.0;
+            in radioRuedaMetros = 0.5;
+            in masaUGVKg = 4800.0;
+            in masaRemolqueKg = 3000.0;
+            in masaMaxRemolquePermitidaKg = 3000.0;
+        }
+    }
+    requirement req11_Hibrido : ReqPropulsionHibrida_RGEN11;
+    requirement req12_Recarga : ReqGestionEnergicaBaterias_RGEN12;
+    requirement req13_Silencioso : ReqModoPuramenteElectrico_RGEN13;
+    requirement req14_AutonomiaGlobal : ReqAutonomiaGlobal_RGEN14;
+    requirement req15_AutonomiaElectrica : ReqAutonomiaElectrica_RGEN15;
+    requirement req10_Remolque : ReqCapacidadRemolque_RGEN10;
+    requirement req09_SigiloSensores : ReqPercepcionModoSigiloso_RGEN09;
+    requirement req06_EvasionObstaculos : ReqEvasionObstaculos_ROPE06;
+    part subsistemaReal : SubsistemaPropulsionYSigiloUGV;
+    satisfy req11_Hibrido by subsistemaReal.motorTermico;
+    satisfy req12_Recarga by subsistemaReal.packBaterias;
+    satisfy req13_Silencioso by subsistemaReal.inversorMotor;
+    satisfy req14_AutonomiaGlobal by subsistemaReal;
+    satisfy req15_AutonomiaElectrica by subsistemaReal;
+    satisfy req10_Remolque by subsistemaReal.ganchoTiro;
+    satisfy req09_SigiloSensores by subsistemaReal.sensorOptronico;
+    satisfy req06_EvasionObstaculos by subsistemaReal.ecuGestion;
+}
+view unnamedView : DS_Views::SymbolicViews::gv;
