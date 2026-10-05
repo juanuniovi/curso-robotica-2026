@@ -1,0 +1,131 @@
+package SistemaUGV {
+    private import ScalarValues::*;
+    private import ISQ::*;
+    private import SI::*;
+    item def EnergiaElectrica;
+    item def Biocombustible;
+    item def DatosObstaculo;
+    item def ConsignaFrenado;
+    part def SistemaUGVGlobal {
+        part UGVprincipal : UGV;
+        part UAVapoyo : UAV;
+        part puestoMando : puestoDeMando;
+        part telemando : DispositivosTelemandoPortable;
+    }
+    part def UGV {
+        part subsistemaPropulsion : SistemaPropulsion;
+        part subsistemaEnergia : BateriasAlimentacion;
+        part subsistemaControl : EquiposControl;
+        part subsistemaPercepcion : SistemaPercepcion;
+        part subsistemaIluminacion : SistemaIluminacion;
+        part subsistemaAmarre : SistemaAmarre;
+        connection connect subsistemaEnergia.salidaElectrica to subsistemaPropulsion.entradaElectrica;
+        connection connect subsistemaControl.salidaFrenar to subsistemaPropulsion.entradaFrenar;
+        connection connect subsistemaPercepcion.salidaObstaculoPercibido to subsistemaControl.entradaObstaculoPercibido;
+        attribute autonomiaTiempo_h : Real;
+        attribute autonomiaDistancia_km : Real;
+        constraint {
+            autonomiaTiempo_h >= 8
+        }
+        constraint {
+            autonomiaDistancia_km >= 400
+        }
+    }
+    part def SistemaPropulsion {
+        satisfy RGEN06;
+        satisfy RGEN10;
+        satisfy CP01;
+        action ejecutarfrenado {
+            satisfy RGEN17;
+        }
+        action propulsarHibrido {
+            satisfy RGEN11;
+        }
+        action operarSigiloso {
+            satisfy RGEN13;
+        }
+        action transicionarModoMecanico {
+            satisfy RGEN09;
+        }
+        port entradaFrenar {
+            in item : Biocombustible;
+        }
+        port entradaElectrica {
+            in item : EnergiaElectrica;
+        }
+        attribute capacidadArrastre_kg : Real;
+        constraint {
+            capacidadArrastre_kg >= 3000
+        }
+        attribute potencia_kW : Real;
+        constraint {
+            potencia_kW < 140
+        }
+    }
+    part def EquiposControl {
+        action gestionarFrenadoAutomatico {
+            satisfy RGEN17;
+        }
+        port salidaFrenar {
+            out item : ConsignaFrenado;
+        }
+        port entradaObstaculoPercibido {
+            in item : DatosObstaculo;
+        }
+    }
+    part def BateriasAlimentacion {
+        attribute capacidadEnergia_kWh;
+        attribute tensionNominal_V;
+        attribute autonomiaElectrica_h;
+        constraint {
+            autonomiaElectrica_h >= 2
+        }
+        attribute potenciaMaximaDescarga_kW;
+        port salidaElectrica {
+            out item : EnergiaElectrica;
+        }
+        satisfy RGEN11;
+        satisfy RGEN13;
+    }
+    part def SistemaPercepcion {
+        action percibirobstaculo {
+            satisfy RGEN09;
+        }
+        port salidaObstaculoPercibido {
+            out item : DatosObstaculo;
+        }
+    }
+    part def SistemaIluminacion;
+    part def SistemaAmarre {
+        attribute capacidadAgarre_kg : Real;
+        constraint {
+            capacidadAgarre_kg >= 3000
+        }
+        satisfy RGEN10;
+    }
+    part def UAV;
+    part def puestoDeMando;
+    part def DispositivosTelemandoPortable;
+    view SistemaUGVView : DS_Views::SymbolicViews::gv;
+    requirement RGEN06 {
+        doc /* El UGV y sus diferentes subsistemas y componentes deberán ser resistentes a agentes ambientales de todo tipo, como temperaturas extremas, lluvia, humedad, corrosión ó radiación solar. */
+    }
+    requirement RGEN09 {
+        doc /* El UGV llevará incorporado un sistema de detección de obstáculos estáticos y dinámicos. Este sistema podrá basarse en tecnologías radiantes (LiDAR, radar....) y no radiantes (Visión por computador, ...) o ambas. El Sistema UGV podrá activar o desactivar las tecnologías radiantes, pasando a un Modo de de Detección SIGILOSO. Por tanto, el sistema UGV siempre estará en uno de los modos de detrección SIGILOSO o NORMAL. El cambio de uno a otro modo se podrá realizar desde todos los Equipos de Control del Sistema UGV y actuarán en cualquiera de sus Modos de Operación (ver más adelante). */
+    }
+    requirement RGEN10 {
+        doc /* El UGV deberá poder incorporar y arrastrar un remolque en su parte trasera con un peso de hasta tres mil (3.000) kg, como mínimo. Para ello dispondrá de gancho de remolque ó elemento similar que cumpla con las dimensiones establecidas en el STANAG 4101, siendo deseable que sea escamotable. */
+    }
+    requirement RGEN11 {
+        doc /* El UGV integrará un sistema de propulsión híbrida, que incorpore un pack de baterías, un motor eléctrico y otro de combustión interna que pueda utilizar biocombustible 100%. */
+    }
+    requirement RGEN13 {
+        doc /* El UGV contará con un modo de funcionamiento puramente eléctrico, prescindiendo del motor de combustión y solo haciendo uso del motor eléctrico y las baterías, de cara a poder operar sigilosamente con una firma térmica y acústica reducida. */
+    }
+    requirement RGEN17 {
+        doc /* El UGV deberá tener una función de frenado automático ante riesgo de colisión, que deberá ejecutarse de una forma progresiva siempre que sea posible. Esta función podrá ser inhabilitada de forma manual, de cara a evitar un posible bloqueo del paso del UGV por el enemigo mediante falsos señuelos. */
+    }
+    requirement CP01 {
+        doc /* La planta motriz del UGV deberá proporcionar una potencia combinada mínima de 140 kW. */
+    }
+}
